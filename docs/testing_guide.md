@@ -27,6 +27,10 @@
 
 Shared Euler regressions include rounded subnormal grids that would otherwise repeat a timestamp or integrate a different horizon, alongside representable subnormal and ordinary constant-rate controls. These validate fixed-step geometry, not general accuracy or adaptive-step behavior. Plot and native PDF regressions use real files to check source-alias preservation, prior-artifact retention and failed-workspace evidence. A deliberately failing compiler fixture tests failure custody, not successful book compilation; the integrated full gate remains separate.
 
+The restored-runner bootstrap regression uses real offline uv and npm with dependency-free containing-workspace, sibling and checkout fixtures. It checks actual cleanup of the checkout's stale installation while outer/sibling dependency bytes and the outer lock survive. Environment isolation is not a mocked package-manager result. Missing native tools are an explicit skip/gap; this small custody case is not the full exported textbook reproduction or a cross-version npm guarantee.
+
+The complementary uv regression runs the actual versioned project metadata and lock through native frozen/offline validation inside an untrusted containing workspace. Its ancestor lock is a genuinely rejecting control; the standalone checkout must still validate successfully without changing either lock. This exercises lock-root selection, not the presence or spelling of a configuration field.
+
 ---
 
 ## Running tests

@@ -603,15 +603,15 @@ SO_2 + H_2O + \frac{1}{2}O_2 \rightarrow H_2SO_4
 \label{eq:ecosystem_ecology_13}
 \end{equation}
 
-**Environmental effects:** pH < 4.2 in sensitive lakes → fish kills, forest dieback (1970s-1990s). The success of sulfur emission regulations (US Clean Air Act 1990) in reversing acid rain damage demonstrates that environmental recovery is possible with political action — a major environmental success story.
+**Environmental effects and recovery endpoints:** Acid deposition can leach base cations and mobilize dissolved inorganic aluminum; impacts depend on exposure, buffering capacity and the organisms involved. The 2001 northeastern U.S. synthesis documented reduced SO$_2$ emissions and wet sulfate deposition alongside continued soil and surface-water impairment, and distinguished chemical from biological recovery \citep{driscoll2001acidrain}. Assess recovery using defined chemical and biological measures over time, rather than a single pH cutoff or an assumed completed reversal.
 
 ---
 
 ## Nutrient Cycling Models: Open and Closed Ecosystem Budgets
 
-Whether an ecosystem is a net **sink** or **source** for a nutrient depends on the relative rates of input, internal recycling, and output (leakage). Two idealised limits are useful:
+Whether an ecosystem is a net **sink** or **source** for a nutrient depends on the relative rates of input, internal recycling, and output (leakage). Two idealized limits are useful; the named ecosystems illustrate relative budgets, not measured zero-exchange classifications:
 
-: Acid Rain and Sulfur/Nitrogen Deposition. {#tbl:unit_X_ecosystem_ecology_acid_rain_and_sulfur_nitrogen_deposition}
+: Idealized nutrient budgets: external inputs, export and internal recycling. {#tbl:unit_X_ecosystem_ecology_acid_rain_and_sulfur_nitrogen_deposition}
 | Model | Inputs | Outputs | Internal recycling | Examples |
 | ----- | ------ | ------- | ------------------ | -------- |
 | **Closed** | $\to 0$ | $\to 0$ | Dominates | Mature tropical rainforest on ancient soil; coral reef interior |

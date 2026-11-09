@@ -204,6 +204,8 @@ def build_release_assets(
         "Run `python3 REPRODUCE.py` in this extracted directory. It refuses an occupied "
         "`biology_textbook` destination, clones the included independent Git bundle, installs "
         "the locked Python/Node dependencies, and runs the complete native publication gate.\n\n"
+        "Bootstrap pins npm's CLI prefix and uses the shipped standalone uv workspace root; "
+        "a containing workspace supplies neither the lock nor the installation target.\n\n"
         "Prerequisites: Git, uv, a compatible Node/npm, Pandoc, XeLaTeX and Chrome/Chromium. "
         "The repository's optional .puppeteer.json currently targets macOS system Chrome; "
         "adjust that documented host configuration on other platforms. Dependencies may "
@@ -292,15 +294,20 @@ def reproduction_environment(project, renderer):
     return env
 
 
-def main():
-    here = pathlib.Path(__file__).resolve().parent
-    project = restore_project(here)
-    env = reproduction_environment(project, here / "renderer")
+def bootstrap_project(project, renderer):
+    env = reproduction_environment(project, renderer)
     local = project / "output" / "reproduction"
     for name in ("tmp", "mpl", "texmf-var", "texmf-config", "texmf-cache", "xdg-cache", "pycache"):
         (local / name).mkdir(parents=True, exist_ok=True)
-    for command in (["uv", "sync", "--project", str(project), "--no-config", "--locked", "--extra", "dev"], ["npm", "ci", "--ignore-scripts"]):
+    for command in (["uv", "sync", "--project", str(project), "--no-config", "--locked", "--extra", "dev"], ["npm", "--prefix", str(project), "ci", "--ignore-scripts"]):
         subprocess.run(command, cwd=project, env=env, check=True, stdin=subprocess.DEVNULL)
+    return env
+
+
+def main():
+    here = pathlib.Path(__file__).resolve().parent
+    project = restore_project(here)
+    env = bootstrap_project(project, here / "renderer")
     env["PATH"] = str(project / "node_modules" / ".bin") + os.pathsep + str(project / ".venv" / "bin") + os.pathsep + env["PATH"]
     subprocess.run([str(project / ".venv" / "bin" / "python"), "scripts/audit_publication_readiness.py", "--check", "--full"], cwd=project, env=env, check=True, stdin=subprocess.DEVNULL)
 

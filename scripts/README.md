@@ -63,7 +63,7 @@ their CLI help says otherwise. Non-mutating quality gates such as
 ```bash
 # From this project directory, with inherited project/environment overrides cleared:
 UV_PROJECT_ENVIRONMENT="$PWD/.venv" uv sync --frozen --extra dev
-npm ci
+npm --prefix "$PWD" ci --ignore-scripts
 export PATH="$PWD/node_modules/.bin:$PATH"
 mmdc --version  # locked project CLI, not a global install
 ```

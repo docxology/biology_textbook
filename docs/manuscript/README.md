@@ -4,7 +4,7 @@
 
 Markdown sources are ordered by config.yaml; filenames are semantic slugs, not indices. Project-local scripts/render_textbook.py validates the selected config, atomically replaces complete staging under output/manuscript and freshly renders strict canonical source-matched inline PNGs before invoking Pandoc/LaTeX through a read-only template library.
 
-Run from this project root after uv sync --frozen --extra dev and npm ci; expose node_modules/.bin on PATH (Mermaid CLI pinned 12.2.0, Node >=22.13.0). Set BIOLOGY_TEXTBOOK_TEMPLATE_ROOT to an existing compatible template or use a genuine enclosing template. Invalid explicit selection fails; ambient neighbors and template-root entry points are not supported. See ../pipeline_guide.md.
+Run from this project root after `uv sync --frozen --extra dev` and `npm --prefix "$PWD" ci --ignore-scripts`; expose `node_modules/.bin` on PATH (Mermaid CLI pinned 12.2.0, Node >=22.13.0). The explicit npm prefix keeps installation and cleanup in this checkout rather than a containing workspace. Set `BIOLOGY_TEXTBOOK_TEMPLATE_ROOT` to an existing compatible template or use a genuine enclosing template. Invalid explicit selection fails; ambient neighbors and template-root entry points are not supported. See ../pipeline_guide.md.
 
 Paths explicitly prefixed `src/`, `scripts/`, `tests/` or `output/` are repository-root paths. Manuscript-local `config.yaml`, `preamble.md`, unit slugs and appendix paths are relative to this directory; Markdown links are relative to this document.
 

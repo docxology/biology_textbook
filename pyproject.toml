@@ -122,3 +122,7 @@ disable_error_code = ["attr-defined"]
 [[tool.mypy.overrides]]
 module = "tests.test_mermaid_and_visualization"
 disable_error_code = ["attr-defined"]
+
+# Keep this standalone lock root when an ancestor workspace glob matches the checkout.
+[tool.uv.workspace]
+members = []

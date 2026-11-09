@@ -2,7 +2,9 @@
 
 ## Pipeline Entry Points
 
-Run from the standalone project directory. Install with `uv sync --frozen --extra dev` and `npm ci` (Node >=22.13.0), then add `$PWD/node_modules/.bin` to PATH. Mermaid CLI is pinned to 12.2.0. Pandoc, XeLaTeX and a compatible browser are external render prerequisites.
+Run from the standalone project directory. Install with `uv sync --frozen --extra dev` and `npm --prefix "$PWD" ci --ignore-scripts` (Node >=22.13.0), then add `$PWD/node_modules/.bin` to PATH. The explicit npm prefix prevents a containing workspace from becoming the installation/cleanup target; lifecycle scripts are not needed for the separately provided browser. Mermaid CLI is pinned to 12.2.0. Pandoc, XeLaTeX and a compatible browser are external render prerequisites.
+
+The empty `[tool.uv.workspace]` declaration fixes this checkout's own lock root even when an ancestor workspace glob matches its directory. `uv --project` and `--no-config` alone do not prevent workspace membership. Template renderer selection below remains independent of Python workspace discovery.
 
 Select a compatible template as a **read-only library** with `BIOLOGY_TEXTBOOK_TEMPLATE_ROOT=/path/to/template`, or use a genuine enclosing template. Invalid explicit selection fails; neighboring repositories never participate. Local src/scripts win imports. Do not run template-root recipes or WIP resolvers.
 
@@ -256,6 +258,6 @@ Domain and invariant/quality tests cover manuscript, lab, question, render and s
 | Bare `$\alpha$` / `$\beta$` etc. in pipe-table cells | Pandoc emits `\(\alpha)` without closing `\)`; xelatex aborts on the table | Run `scripts/fix_greek_math_prose.py` to replace with Unicode in prose contexts. |
 | Manual equation numbering on a `$$…$$` line | xelatex errors or numbering drift | Use a labeled `equation` or `align` environment for numbered display equations; use plain `$$…$$` only for unnumbered display math. See [manuscript_guide.md#equations](manuscript_guide.md#equations). |
 | Hand-typed "Figure 4.2" / "Chapter 11" / "Equation 5.7" in chapter prose | Number drifts when chapters are reordered | Use `\cref{fig:unit_X_<descriptor>}`, `\cref{sec:unit_X_<stem>}`, or `\cref{eq:unit_X_<descriptor>}`; `cleveref` injects the right number and the cross-reference validator rejects hard-coded rendered numbers. |
-| mmdc unavailable | Strict graphics/PDF paths fail | Use npm ci and expose the project-local pinned CLI on PATH; verify browser compatibility separately. |
+| mmdc unavailable | Strict graphics/PDF paths fail | From the project root, use `npm --prefix "$PWD" ci --ignore-scripts` and expose the project-local pinned CLI on PATH; verify browser compatibility separately. |
 | Mermaid label with unquoted `(`, `)`, `:` | mmdc render fails with parse error | Wrap label: `A["Glucose (C6H12O6)"]`. |
 | Lab Part 2 references a hidden notebook or CSV | `test_lab_integrity.py` fails on stale phrases such as `.ipynb`, `pd.read_csv`, or "provided Jupyter Notebook" | Run `scripts/normalize_lab_computational_workflows.py`; keep optional computation snippets self-contained and backed by `biology.*` imports. |

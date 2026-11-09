@@ -270,7 +270,7 @@ MermaidRenderer(out, strict_png=True).render(diagram.name, diagram.source, size=
 
 ```bash
 # From project root; Node >=22.13.0
-npm ci
+npm --prefix "$PWD" ci --ignore-scripts
 export PATH="$PWD/node_modules/.bin:$PATH"
 uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --size 1200
 ```

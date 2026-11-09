@@ -51,9 +51,11 @@ For source conventions use [the manuscript contract](docs/manuscript/AGENTS.md);
 
 Run from this checkout. Install the locked development extra and locked Node dependencies (Node >=22.13.0); do not install an unpinned global Mermaid CLI.
 
+The declared empty uv workspace fixes this standalone project's lock root; the explicit npm prefix below fixes its installation/cleanup root. A containing development workspace must not annex either operation. Template rendering remains an independent read-only-library contract.
+
 ```bash
 uv sync --frozen --extra dev
-npm ci
+npm --prefix "$PWD" ci --ignore-scripts
 export PATH="$PWD/node_modules/.bin:$PATH"
 # Select an existing compatible template checkout as a read-only library:
 export BIOLOGY_TEXTBOOK_TEMPLATE_ROOT=/path/to/template

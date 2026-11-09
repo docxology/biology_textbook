@@ -165,9 +165,9 @@ SOLUTION -->
 18. The sulfur cycle includes atmospheric SO₂ (from volcanic eruptions and fossil fuel combustion), which forms sulfuric acid (H₂SO₄) in clouds. Trace: SO₂ → sulfate aerosol → acid rain → soil and lake acidification → biological damage. Name the specific impacts on: (a) fish populations; (b) forest soil chemistry (Al³⁺ toxicity); (c) building materials (limestone dissolution).
 
 <!-- SOLUTION
-**Answer (Q18, Application).** Combustion and volcanism release SO2, oxidized to sulfate aerosol and H2SO4, producing acid rain (pH below about 4.5) and soil and lake acidification. (a) Fish: low pH disrupts ion regulation and gill function; acid-sensitive species disappear below about pH 5. (b) Forest soils: acidity mobilizes toxic Al3+ and leaches base cations (Ca2+, Mg2+), damaging fine roots and mycorrhizae. (c) Buildings: acid dissolves CaCO3 in limestone and marble, eroding monuments. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q18, Application).** Combustion and volcanism release SO2; oxidation produces sulfate and sulfuric acid, and deposition can acidify soils and lakes. (a) Fish: low pH and bioavailable inorganic aluminum can impair ion regulation and gill function; responses vary with species, life stage, exposure and water chemistry. (b) Forest soils: acid inputs can mobilize inorganic aluminum and leach base cations such as Ca2+ and Mg2+, affecting nutrient availability and roots \citep{driscoll2001acidrain}. (c) Buildings: acids dissolve CaCO3 in limestone and marble, eroding exposed surfaces. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: sulfur oxidation/acidification; 2 points: fish-soil-building consequences. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+**Scoring guide (4 points).** 1 point: sulfur oxidation and acidifying deposition; 1 point: fish physiological impact; 1 point: soil aluminum/base-cation mechanism; 1 point: carbonate-building-material dissolution. Award partial credit for correct intermediate reasoning; the prompt does not require a numerical pH threshold.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->

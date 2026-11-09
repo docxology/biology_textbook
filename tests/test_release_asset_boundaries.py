@@ -335,3 +335,98 @@ def test_runner_refuses_occupied_restoration_target(tmp_path: Path, occupied: st
         assert (target / "sentinel").read_text() == "preserve"
     else:
         assert target.is_symlink()
+
+
+def test_reproduction_bootstrap_preserves_containing_workspace_dependencies(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Real npm may clean only this checkout, even inside another workspace."""
+    import os
+    import runpy
+    import subprocess
+    import sys
+
+    from biology.pipeline.release_assets import _reproduction_runner
+
+    if not shutil.which("uv") or not shutil.which("npm"):
+        pytest.skip("Native uv and npm are required for the bootstrap containment regression")
+    for name in tuple(os.environ):
+        if name.upper().startswith("NPM_CONFIG_") and name.upper() not in {"NPM_CONFIG_CACHE", "NPM_CONFIG_OFFLINE"}:
+            monkeypatch.delenv(name)
+    npm_config = tmp_path / "empty-npmrc"
+    npm_config.write_text("")
+    monkeypatch.setenv("NPM_CONFIG_USERCONFIG", str(npm_config))
+    monkeypatch.setenv("NPM_CONFIG_GLOBALCONFIG", str(tmp_path / "absent-global-npmrc"))
+    monkeypatch.setenv("NPM_CONFIG_OFFLINE", "true")
+    outer = tmp_path / "outer"
+    project = outer / "release" / "biology_textbook"
+    sibling = outer / "sibling"
+    project.mkdir(parents=True)
+    sibling.mkdir()
+    for directory, metadata in (
+        (outer, {"name": "outer-fixture", "version": "1.0.0", "private": True,
+                 "workspaces": ["release/biology_textbook", "sibling"]}),
+        (project, {"name": "restored-textbook-fixture", "version": "1.0.0", "private": True}),
+        (sibling, {"name": "unrelated-sibling-fixture", "version": "1.0.0", "private": True}),
+    ):
+        (directory / "package.json").write_text(json.dumps(metadata))
+    (project / "pyproject.toml").write_text(
+        '[project]\nname="bootstrap-fixture"\nversion="1.0.0"\nrequires-python=">=3.11"\n'
+        '[project.optional-dependencies]\ndev=[]\n'
+    )
+    for command in (
+        ["uv", "lock", "--project", str(project), "--no-config", "--offline", "--python", sys.executable],
+        ["npm", "--prefix", str(project), "install", "--package-lock-only", "--ignore-scripts", "--no-audit", "--no-fund"],
+        ["npm", "--prefix", str(outer), "install", "--package-lock-only", "--ignore-scripts", "--no-audit", "--no-fund"],
+    ):
+        subprocess.run(command, cwd=project, check=True, capture_output=True, text=True,
+                       stdin=subprocess.DEVNULL, timeout=60)
+    sentinels = []
+    for directory in (outer, sibling, project):
+        sentinel = directory / "node_modules" / "preserve-fixture" / "sentinel"
+        sentinel.parent.mkdir(parents=True)
+        sentinel.write_bytes(b"existing local dependency work")
+        sentinels.append(sentinel)
+    prior_lock = (outer / "package-lock.json").read_bytes()
+    runner_path = tmp_path / "REPRODUCE.py"
+    runner_path.write_text(_reproduction_runner("a" * 40))
+    runner = runpy.run_path(str(runner_path))
+    runner["bootstrap_project"](project, tmp_path / "renderer-not-used-by-bootstrap")
+    assert not sentinels[2].exists(), "The real scoped npm ci must actually clean its own stale installation"
+    assert sentinels[0].read_bytes() == b"existing local dependency work"
+    assert sentinels[1].read_bytes() == b"existing local dependency work"
+    assert (outer / "package-lock.json").read_bytes() == prior_lock
+
+
+def test_standalone_lock_ignores_an_untrusted_containing_uv_workspace(tmp_path: Path) -> None:
+    """The real standalone metadata must select its own valid frozen lock."""
+    import subprocess
+    import sys
+
+    if not shutil.which("uv"):
+        pytest.skip("Native uv is required for the standalone lock-root regression")
+    source = Path(__file__).resolve().parents[1]
+    outer = tmp_path / "outer-uv-workspace"
+    project = outer / "release" / "biology_textbook"
+    project.mkdir(parents=True)
+    for name in ("pyproject.toml", "uv.lock"):
+        shutil.copyfile(source / name, project / name)
+    (outer / "pyproject.toml").write_text(
+        '[project]\nname="unrelated-outer-fixture"\nversion="1.0.0"\nrequires-python=">=3.11"\n'
+        '[tool.uv.workspace]\nmembers=["release/*"]\n'
+    )
+    outside_lock = outer / "uv.lock"
+    outside_lock.write_bytes(b"untrusted malformed ancestor lock [\n")
+    own_before = (project / "uv.lock").read_bytes()
+    outside_before = outside_lock.read_bytes()
+    def validate(directory: Path) -> subprocess.CompletedProcess[str]:
+        return subprocess.run(
+            ["uv", "lock", "--project", str(directory), "--no-config", "--locked", "--offline", "--python", sys.executable],
+            check=False, stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=60,
+        )
+    control = validate(outer)
+    assert control.returncode != 0, "The untrusted outer lock must be a genuine rejecting control"
+    result = validate(project)
+    assert result.returncode == 0, result.stderr
+    assert (project / "uv.lock").read_bytes() == own_before
+    assert outside_lock.read_bytes() == outside_before
