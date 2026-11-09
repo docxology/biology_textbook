@@ -625,23 +625,23 @@ config:
 ---
 flowchart TB
     subgraph ENTRY["1. Alternative electron inputs into Q"]
-        direction LR
-        CI["Matrix NADH → NAD⁺ + H⁺<br/>Complex I: 46 subunits, 1 MDa<br/>FMN → Fe-S clusters<br/>4 H⁺ pumped to IMS"] -->|"2e⁻"| Q["Ubiquinone (Q)<br/>Lipid-soluble carrier<br/>Reduced to QH₂"]
-        CII["Succinate → fumarate<br/>Complex II: 4 subunits<br/>Bound FADH₂ → FAD<br/>0 H⁺ pumped"] -->|"2e⁻ via Fe-S"| Q
+        direction TD
+        CI["Complex I<br/>Matrix NADH entry<br/>4 H⁺ to IMS per 2e⁻"] -->|"2e⁻"| Q["Q / QH₂ pool"]
+        CII["Complex II<br/>Succinate; bound FAD<br/>0 H⁺ pumped"] -->|"2e⁻"| Q
     end
     subgraph TRANSFER["2. QH₂ continuation: Complex III Q cycle"]
         direction LR
-        QH2["QH₂<br/>From stage 1"] -->|"Net 2e⁻"| CIII["Complex III (bc₁)<br/>4 H⁺ to IMS per 2e⁻<br/>Net Q-cycle accounting"]
-        CIII -->|"1e⁻ to each carrier"| CytC["2 cytochrome c reduced<br/>Soluble IMS carriers"]
+        QH2["QH₂<br/>From stage 1"] -->|"Net 2e⁻"| CIII["Complex III<br/>Net 4 H⁺ to IMS per 2e⁻"]
+        CIII -->|"1e⁻ per carrier"| CytC["2 cytochrome c<br/>1e⁻ carried each"]
     end
     subgraph OXYGEN["3. Cytochrome c continuation: oxygen reduction"]
         direction LR
-        CytC2["Reduced cytochrome c<br/>From stage 2"] -->|"1e⁻ at a time"| CIV["Complex IV<br/>Per 2e⁻: 2 H⁺ pumped to IMS<br/>Plus 2 matrix H⁺ consumed<br/>in water formation"]
+        CytC2["Reduced cytochrome c<br/>From stage 2"] -->|"1e⁻ at a time"| CIV["Complex IV<br/>Per 2e⁻: 2 H⁺ pumped<br/>+ 2 matrix H⁺ consumed"]
         CIV -->|"4e⁻ total"| WATER["O₂ + 4 matrix H⁺ + 4e⁻<br/>→ 2 H₂O"]
     end
     subgraph ATP["4. Gradient use: no electron transfer to Complex V"]
         direction LR
-        PMF["PMF built by I, III, IV"] -->|"H⁺ return: IMS → matrix"| CV["Complex V (ATP synthase)<br/>H⁺ through F₀ channel<br/>γ rotates 120° per ATP<br/>~3 H⁺ per ATP (rounded)"]
+        PMF["PMF from I, III, IV"] -->|"H⁺ return to matrix"| CV["ATP synthase<br/>H⁺ returns through F₀"]
         CV -->|"Rotary catalysis"| PRODUCT["ADP + Pi → ATP"]
     end
     ENTRY -->|"QH₂ continues"| TRANSFER
@@ -656,7 +656,7 @@ flowchart TB
 ```
 <!-- alt: Four continued stages show alternative Complex I and II electron inputs into Q, Complex III transferring a net electron pair to two cytochrome c carriers with four protons delivered to the intermembrane space, and Complex IV reducing oxygen. Per electron pair, Complex IV pumps two protons and separately consumes two matrix protons in water formation. A distinct PMF-coupling connector leads to ATP synthase, which uses proton return rather than electron transfer. -->
 
-*Electron transport and ATP synthesis in four continued stages, not a spatial membrane map or a timeline of separate events. Repeated QH₂ and cytochrome c labels continue the same electron path; Complex I and II are alternative inputs, not consecutive steps. Pumping totals per electron pair are 10 H$^+$ for NADH entry and 6 H$^+$ for Complex II entry. Complex III's Q-cycle value is net 4 H$^+$ delivered to the intermembrane space (IMS) per 2e$^-$, not per cytochrome c. Complex IV pumps 2 H$^+$ per 2e$^-$ and separately consumes 2 matrix H$^+$ to make water; its displayed oxygen-reduction equation sums two electron pairs. The dotted connector denotes PMF coupling, not electron transfer to ATP synthase. The rounded ~3 H$^+$/ATP motor value is illustrative; species-dependent c-ring stoichiometry, transport costs, and leak are treated below.*
+*Electron transport and ATP synthesis in four continued stages, not a spatial membrane map or a timeline of separate events. Repeated QH₂ and cytochrome c labels continue the same electron path; Complex I and II are alternative inputs, not consecutive steps. Pumping totals per electron pair are 10 H$^+$ for NADH entry and 6 H$^+$ for Complex II entry. Complex III's Q-cycle value is net 4 H$^+$ delivered to the intermembrane space (IMS) per 2e$^-$, not per cytochrome c. Complex IV pumps 2 H$^+$ per 2e$^-$ and separately consumes 2 matrix H$^+$ to make water; its displayed oxygen-reduction equation sums two electron pairs. The dotted connector denotes PMF coupling, not electron transfer to ATP synthase. In the rotary illustration, γ turns 120° per ATP; the rounded ~3 H$^+$/ATP motor value is illustrative. Molecular/subunit details remain in the component descriptions below, alongside species-dependent c-ring stoichiometry, transport costs and leak.*
 
 **Complex I (NADH:ubiquinone oxidoreductase):**
 - Largest ETC complex (~46 subunits in mammals, ~1 MDa)

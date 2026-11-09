@@ -195,9 +195,9 @@ $Nq^2$ for a sample of $N$ individuals), and form
 $\chi^2 = \sum (O-E)^2 / E$ over the genotype classes. The degrees of freedom
 equal the number of genotype classes minus the number of alleles — for a
 biallelic locus, $3 - 2 = 1$ (one degree is spent estimating $p$ from the same
-data). A statistic exceeding the critical value $\chi^2_{0.05,\,1} = 3.84$
-rejects HWE and indicates that at least one assumption — random mating, no
-selection, no drift, no migration, no mutation — is violated.
+data). At $\alpha=0.05$, a statistic above $\chi^2_{0.05,\,1}=3.84$ supplies evidence
+against the specified genotype-proportion null, subject to the test and sampling assumptions.
+Rejection can occur under a true null and does not identify a particular evolutionary mechanism.
 
 #### Worked Example: MN Blood Group Equilibrium
 
@@ -871,7 +871,7 @@ Expected under HWE:
 
 $\chi^2_{crit}(1 \text{ df}, \alpha = 0.05) = 3.841$.
 
-Since $48.33 >> 3.841$, we **reject HWE**. This population is NOT in Hardy-Weinberg equilibrium. The excess of heterozygotes (observed 4,800 vs. expected 4,488) could indicate **heterozygote advantage** (balancing selection) or **negative assortative mating** (like-unlike pairing).
+Since $48.33 > 3.841$, we **reject the HWE genotype-proportion null** for the given counts at the stated 5% level. This is evidence against that statistical model, not identification of a population mechanism. The heterozygote excess (observed 4,800 versus expected 4,488) motivates hypotheses such as heterozygote advantage or negative assortative mating; genotype quality, sampling design, mating and fitness require independent investigation before attributing a cause.
 
 ---
 
