@@ -679,7 +679,7 @@ In a 2025 preclinical study, dCas9-TET1 removed methylation at fetal-globin prom
 ## Current Evidence and Frontier Biology: Chromatin and Epigenetic Mechanisms
 
 For **Chromatin and Epigenetic Mechanisms**, frontier biology belongs inside the evidence logic of
-the chapter. Frontier work on chromatin is mechanistic and structural: cryo-EM now resolves nucleosome-engaging machines (PRC2, SWI/SNF remodelers, the DNMT and TET enzymes), many chromatin domains are understood to form by phase separation, single-cell ATAC-seq and CUT&RUN map accessibility and histone marks at cell-type resolution, and epigenetic editing (dCas9–writer/eraser fusions) tests causality directly. The core reading question is this: a chromatin mark is correlational until a targeted writer- or eraser-perturbation, with cell-type and timing controls, shows it drives the expression change.
+the chapter. Structural and genomic methods interrogate different layers: cryo-EM resolves selected nucleosome-engaging complexes, ATAC-seq measures accessibility, and antibody-directed CUT&RUN maps selected chromatin-associated targets. Chromatin compaction and phase behavior require preparation-specific tests; the cited mouse-fibroblast heterochromatin study supplies a bounded compaction counterexample, not a census of liquid domains \citep{erdel2020chromatin}. Targeted writer/eraser perturbations help test causal hypotheses with binding, catalytic, timing and cell-state controls. An expression change after perturbing a writer does not by itself isolate the effect of its mark from its other functions or off-target effects.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.

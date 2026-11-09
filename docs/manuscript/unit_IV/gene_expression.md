@@ -774,7 +774,7 @@ print(" ".join(translate_mrna(mrna)[:6]))
 ## Current Evidence and Frontier Biology: Gene Expression
 
 For **Gene Expression**, frontier biology belongs inside the evidence logic of
-the chapter. Frontier work on expression is increasingly structural and quantitative: cryo-EM now captures RNA polymerase II in successive elongation states, transcription is understood to occur in phase-separated condensates of Mediator and co-activators, ribosome profiling reads translation genome-wide at codon resolution, and single-molecule and long-read methods resolve alternative splicing and isoform diversity directly. The core reading question is this: expression claims should separate transcription, RNA processing, translation, localization, degradation, and feedback.
+the chapter. Frontier work on expression is increasingly structural and quantitative: cryo-EM captures RNA polymerase II in selected elongation-state preparations, while enriched Mediator/coactivator assemblies require tests separating chromatin binding, material state and transcriptional output. Ribosome profiling and single-molecule/long-read methods provide complementary occupancy and RNA-isoform evidence under their assay conditions; a transcriptional response or visible assembly does not establish LLPS. The core reading question is this: separate transcription, RNA processing, translation, localization, degradation and feedback rather than infer a shared physical mechanism; see \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
