@@ -500,7 +500,7 @@
 
 [**Neutral theory**]{#gl:neutral-theory} [L *neutralis* = neither + Gk *theoria* = view] — Kimura's (1968) theory that the majority of molecular evolutionary change is selectively neutral (neither advantageous nor deleterious); neutral mutations drift to fixation at a rate equal to the mutation rate (u), independent of population size. → \cref{sec:unit_VI_genetic_drift_and_speciation}
 
-[**Nitrification**]{#gl:nitrification} [L *nitrum* = saltpetre + *facere* = to make] — The aerobic microbial oxidation of ammonium (NH₄⁺) to nitrite (NO₂⁻) by *Nitrosomonas*, then nitrite to nitrate (NO₃⁻) by *Nitrobacter*; a key step in the nitrogen cycle making nitrogen available to most plants. → \cref{sec:unit_X_ecosystem_ecology}
+[**Nitrification**]{#gl:nitrification} [L *nitrum* = saltpetre + *facere* = to make] — Aerobic microbial oxidation of ammonium (NH₄⁺) through nitrite (NO₂⁻) to nitrate (NO₃⁻). Ammonia-oxidizing *Nitrosomonas* and nitrite-oxidizing *Nitrobacter* are examples, not an exhaustive list. This changes the form of nitrogen already fixed; plants can use ammonium as well as nitrate, depending on species and conditions. → \cref{sec:unit_X_ecosystem_ecology}
 
 [**Nitrogen fixation**]{#gl:nitrogen-fixation} [L *nitrum* + *fixatio* = making firm] — Conversion of N₂ to reactive nitrogen. Biological fixation uses nitrogenase in diazotrophs, including free-living and symbiotic microorganisms; industrial Haber–Bosch fixation is a separate route. A numerical budget needs a date, terrestrial/marine boundary and distinction between new input, transfer and stock. → \cref{sec:unit_VII_bacteria_archaea_viruses,sec:unit_X_ecosystem_ecology}
 

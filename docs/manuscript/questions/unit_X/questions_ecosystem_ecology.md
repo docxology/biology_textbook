@@ -30,7 +30,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q3, Recall).** A trophic level is a feeding position defined by the number of energy-transfer steps from the energy source. Four levels: producers (autotrophs, grass), primary consumers (herbivores, grasshopper), secondary consumers (carnivores, shrew), tertiary consumers (top carnivores, hawk). Decomposers process dead matter from every level. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: trophic positions; 2 points: detrital parallel pathway. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+**Scoring guide (4 points).** 2 points: feeding-position definition; 2 points: four correctly ordered trophic levels. The detrital explanation is enrichment, not an additional requirement for credit.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -52,12 +52,12 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-6. What is the nitrogen cycle? Name the four major transformations.
+6. Define the nitrogen cycle. Name four major microbial transformations and state the starting and resulting nitrogen forms for each.
 
 <!-- SOLUTION
-**Answer (Q6, Recall).** Four major microbial transformations are biological nitrogen fixation (N2 to ammonia/ammonium by diazotrophs), ammonification (organic N to ammonium), nitrification (ammonium to nitrite to nitrate) and denitrification (nitrate reduction toward gaseous N products under low oxygen). Industrial Haber–Bosch fixation also converts N2 to ammonia but is not microbial or nitrogenase-mediated fixation. Keep new fixation distinct from transfers of nitrogen already fixed. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q6, Recall).** The nitrogen cycle is the redistribution and chemical transformation of nitrogen among biotic and abiotic reservoirs. Four major microbial transformations are biological nitrogen fixation (N2 to ammonia/ammonium by diazotrophs), ammonification (organic N to ammonia/ammonium), nitrification (ammonium to nitrite to nitrate), and denitrification (nitrate reduction toward gaseous N products under low oxygen). Industrial Haber–Bosch fixation also converts N2 to ammonia but is not microbial or nitrogenase-mediated fixation. Keep new fixation distinct from transfers of nitrogen already fixed. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: four microbial transformation names; 2 points: substrates, products and directions for those transformations.
+**Scoring guide (4 points).** 1 point: cycle definition; 1 point: four microbial transformation names; 2 points: starting/resulting forms and directions for those transformations.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -75,9 +75,9 @@ SOLUTION -->
 8. Write the Martin flux-attenuation law and calculate $F(1000\ \mathrm{m})/F(100\ \mathrm{m})$ for exponent $b=1$.
 
 <!-- SOLUTION
-**Answer (Q8, Application).** F(z)=F(z0)(z/z0)^−b, so the ratio is 10^−1=.1. Reference depth and flux units must be explicit; this power law is not an exponential with a half-depth, and attenuation alone is not atmospheric sequestration duration. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q8, Application).** The law is $F(z)=F(z_0)(z/z_0)^{-b}$, with positive reference flux at $z_0=100\ \mathrm{m}$. For $b=1$, the requested ratio is $(1000/100)^{-1}=0.1$, or 10% of the reference flux. This power law is not an exponential with a half-depth and does not determine carbon residence time or atmospheric sequestration duration. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: power law and ratio 0.1; 2 points: reference-depth and residence-time limits.
+**Scoring guide (4 points).** 2 points: power law with the reference depth specified; 2 points: correct normalized depth-flux ratio, 0.1 (10%).
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -144,21 +144,21 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-16. Evaluate evidence for phosphorus control of eutrophication in a specified lake experiment. Would ambient N:P = 35 alone establish the same conclusion? Why do absence of a large gaseous P reservoir and response in one lake not establish universal freshwater P limitation or guaranteed recovery after detergent restrictions?
+16. In a hypothetical matched lake bioassay, day-7 relative phytoplankton biomass is stipulated as control = 1, +N = 1, +P = 2, and +N+P = 2. These are synthetic teaching values; no replication or uncertainty is supplied. What pattern do they support, and what remains unestablished? Would ambient N:P = 35 alone establish the same conclusion? Why do absence of a large gaseous P reservoir and response in one case not establish universal freshwater P limitation or guaranteed recovery after detergent restrictions?
 
 <!-- SOLUTION
-**Answer (Q16, Application).** Matched nutrient-addition controls can identify a phosphorus contribution under the tested lake conditions. Ambient N:P = 35 alone cannot select one limiting nutrient without defined fractions, availability, demand and other controls; matched +N, +P and +N+P treatments discriminate hypotheses. N, P and combined limitation occur, and combined additions can produce synergistic responses \citep{elser2007nutrientlimitation,ptacnik2010redfield}. Lack of a large gaseous P reservoir does not determine local supply or demand. Recovery after external P reduction also depends on watershed inputs, internal loading and other drivers. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q16, Application).** In this synthetic case, biomass doubles with +P and +N+P but does not increase with +N; the pattern is consistent with a P-responsive biomass endpoint under the stipulated conditions. No replication or uncertainty is supplied, so statistical significance and population-level generalization are not established. Ambient N:P = 35 alone cannot select one limiting nutrient without defined fractions, availability, demand, and other controls. N, P, and combined responses occur in actual studies \citep{elser2007nutrientlimitation,ptacnik2010redfield}; those sources do not supply these hypothetical values. Lack of a large gaseous P reservoir does not determine local supply or demand. Recovery after external P reduction also depends on watershed inputs, internal loading, and other drivers. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: matched phosphorus-addition/control evidence and ratio-only inference limit; 2 points: lake-specific bioavailability, watershed/internal loading and recovery limits.
+**Scoring guide (4 points).** 1 point: P-responsive pattern from the four supplied treatments; 1 point: replication/uncertainty and generalization limits; 1 point: ratio-only and gaseous-reservoir inference limits; 1 point: local supply and recovery conditions.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
-17. Decomposition rates vary with temperature and moisture. Using the "k constant" for leaf litter decomposition (mass remaining = M₀e^(−kt)): if k = 0.5/yr in a temperate forest and k = 2.0/yr in a tropical forest, calculate the time for 90% decomposition in each ecosystem. What does this imply for nutrient cycling rates?
+17. Use the stipulated litter-loss model $M(t)=M_0e^{-kt}$. For one illustrative temperate-forest cohort let $k=0.5\ \mathrm{yr}^{-1}$; for one illustrative tropical-forest cohort let $k=2.0\ \mathrm{yr}^{-1}$. Calculate the time for 90% mass loss in each. What can this model alone establish about net nutrient release or soil nutrient stocks?
 
 <!-- SOLUTION
-**Answer (Q17, Application).** In the stipulated exponential litter-loss model, 90% loss leaves M/M0 = 0.1, so t = -ln(0.1)/k. The supplied k values give about 4.605 years and 1.151 years. The larger k implies faster mass loss under this model, not a measured universal temperate/tropical contrast. Soil nutrient stocks or clearing vulnerability cannot be inferred from k alone; inputs, mineralization, uptake and losses also need a stated budget. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q17, Application).** In the stipulated model, 90% mass loss leaves $M(t)/M_0=0.1$, so $t=-\ln(0.1)/k$. The supplied values give about 4.605 years and 1.151 years. The larger $k$ implies faster modeled mass loss, not a measured universal temperate/tropical contrast. Net nutrient release requires litter chemistry and microbial mineralization/immobilization information; soil nutrient stocks additionally require inputs, uptake, and losses in a stated budget. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: 4.605 versus 1.151 years; 2 points: temperature, moisture and soil-inference limits.
+**Scoring guide (4 points).** 2 points: 4.605 versus 1.151 years; 2 points: distinguish modeled litter mass loss from net nutrient release and soil stocks, identifying necessary chemistry/budget information.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->

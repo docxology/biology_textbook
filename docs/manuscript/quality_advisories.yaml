@@ -5147,31 +5147,31 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:147:ce855f36551e",
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:147:a6d125ccfadf",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md",
       "line": 147,
-      "excerpt": "16. Evaluate evidence for phosphorus control of eutrophication in a specified lake experiment. Would ambient N:P = 35 alone establish the same conclusion? Why do absence of a large gaseous P reservoir and response in one lake not establish universal freshwater P limitation or guaranteed recovery after detergent restrictions?",
-      "rationale": "The revised prompt explicitly asks whether an ambient ratio alone can establish local limitation or guaranteed recovery. Elser et al. report N, P and combined responses in freshwater; Ptacnik et al. show nutrient-fraction and bioassay-response dependence. Lack of a gaseous P reservoir cannot supply missing local availability, demand or recovery evidence. Sources: https://pubmed.ncbi.nlm.nih.gov/17922835/ ; https://doi.org/10.1007/s10021-010-9380-z .",
-      "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
+      "excerpt": "16. In a hypothetical matched lake bioassay, day-7 relative phytoplankton biomass is stipulated as control = 1, +N = 1, +P = 2, and +N+P = 2. These are synthetic teaching values; no replication or uncertainty is supplied. What pattern do they support, and what remains unestablished? Would ambient N:P = 35 alone establish the same conclusion? Why do absence of a large gaseous P reservoir and response in one case not establish universal freshwater P limitation or guaranteed recovery after detergent restrictions?",
+      "rationale": "The question now supplies a finite, explicitly hypothetical matched four-treatment record: control/+N/+P/+N+P biomass 1/1/2/2 at day 7. It supports a P-responsive endpoint under those stipulated conditions, not statistical significance without replication/uncertainty, universal freshwater limitation, or recovery after a named policy. The data are not attributed to Elser or Ptacnik and do not modify the finite lab packet. Ambient nutrient fractions, availability, demand, watershed/internal loading and the experimental endpoint remain necessary boundaries. Sources: https://pubmed.ncbi.nlm.nih.gov/17922835/ ; https://doi.org/10.1007/s10021-010-9380-z .",
+      "reviewer": "Workflowz integration owner; BiologyDeepPrintedAdversary findings and primary/accounting review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:152:a7b25518764b",
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:152:d12752a37822",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md",
       "line": 152,
-      "excerpt": "**Scoring guide (4 points).** 2 points: matched phosphorus-addition/control evidence and ratio-only inference limit; 2 points: lake-specific bioavailability, watershed/internal loading and recovery limits.",
-      "rationale": "The four-point rubric now explicitly scores the ratio-only inference limit requested in the revised Q16 stem, together with matched phosphorus-addition/control evidence and local supply/recovery conditions. The term only is part of rejecting an insufficient diagnostic, not an absolute claim that ratios are never informative. Elser and Ptacnik support the distinction between a useful indicator and an experimental diagnosis.",
-      "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
+      "excerpt": "**Scoring guide (4 points).** 1 point: P-responsive pattern from the four supplied treatments; 1 point: replication/uncertainty and generalization limits; 1 point: ratio-only and gaseous-reservoir inference limits; 1 point: local supply and recovery conditions.",
+      "rationale": "Each of four one-point criteria corresponds to an explicit part of the revised self-contained Q16 stem: the treatment pattern, replication/uncertainty limits, insufficiency of an ambient ratio or reservoir property, and local supply/recovery conditions. Ratio-only rejects an insufficient diagnostic, not useful ratio evidence in a specified context. The hypothetical values are a teaching fixture, not published bioassay observations.",
+      "reviewer": "Workflowz integration owner; BiologyDeepPrintedAdversary findings and primary/accounting review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:159:f6f8fb9a2485",
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:159:42133450f521",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md",
       "line": 159,
-      "excerpt": "**Answer (Q17, Application).** In the stipulated exponential litter-loss model, 90% loss leaves M/M0 = 0.1, so t = -ln(0.1)/k. The supplied k values give about 4.605 years and 1.151 years. The larger k implies faster mass loss under this model, not a measured universal temperate/tropical contrast. Soil nutrient stocks or clearing vulnerability cannot be inferred from k alone; inputs, mineralization, uptake and losses also need a stated budget. See \\cref{sec:unit_X_ecosystem_ecology}.",
-      "rationale": "For the explicitly stipulated exponential mass-loss law, setting remaining fraction 0.1 gives -ln(0.1)/k, hence about 4.605 and 1.151 years at k=0.5 and 2 per year. A single loss constant cannot determine a soil nutrient stock: different input, uptake and loss budgets can share that k. The statement correctly limits the hypothetical contrast rather than converting it into universal biome measurements or clearing vulnerability.",
-      "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
+      "excerpt": "**Answer (Q17, Application).** In the stipulated model, 90% mass loss leaves $M(t)/M_0=0.1$, so $t=-\\ln(0.1)/k$. The supplied values give about 4.605 years and 1.151 years. The larger $k$ implies faster modeled mass loss, not a measured universal temperate/tropical contrast. Net nutrient release requires litter chemistry and microbial mineralization/immobilization information; soil nutrient stocks additionally require inputs, uptake, and losses in a stated budget. See \\cref{sec:unit_X_ecosystem_ecology}.",
+      "rationale": "The explicitly stipulated exponential remaining-mass law gives t=-ln(0.1)/k, approximately 4.605 and 1.151 years for 0.5 and 2 per year. The typeset formula and units do not turn the illustrative cohorts into measured biome constants. Litter mass loss does not by itself quantify net nutrient release because chemistry and microbial mineralization/immobilization matter; a soil nutrient stock additionally requires input, uptake and loss accounting. The revised rubric scores those requested limits, not unasked temperature/moisture causality.",
+      "reviewer": "Workflowz integration owner; BiologyDeepPrintedAdversary findings and primary/accounting review 2026-11-09"
     },
     {
       "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_X/questions_ecosystem_ecology.md:195:9fe912fe3df2",
@@ -9026,6 +9026,15 @@
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:402:51293992fa4c",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 402,
+      "excerpt": "> **Concept Check:** Use the preceding synthetic carbon budget, not a current ocean-uptake observation. Stipulate a 20% reduction in its **net ocean uptake** of 2.9 Pg C/yr, with all other flows fixed and no feedbacks for 50 years. Calculate the new annual atmospheric accumulation, its increase over 5.1 Pg C/yr, and the additional carbon retained over 50 years. Convert that additional carbon to CO$_2$ mass using 44/12. Why does this exercise neither isolate the solubility pump nor determine actual warming?",
+      "rationale": "All other flows fixed is an explicit closed counterfactual assumption for the already synthetic annual carbon budget, not a claim about real feedbacks or solubility-pump behavior. Net ocean uptake becomes 2.32 instead of 2.9 Pg C/yr, adding 0.58 to the 5.1 atmospheric residual, for 5.68 Pg C/yr. At constant conditions the additional 50-year mass is 29 Pg C or 106.333 Pg CO2 using 44/12; no temperature result is established. The native closed-model consumer reproduces these balances and records the missing warming/feedback model.",
+      "reviewer": "Workflowz integration owner; actual printed-page finding and native closed-accounting consumer 2026-11-09"
+    },
+    {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:429:d0bba7054548",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
@@ -9035,136 +9044,136 @@
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:560:089387432733",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:568:089387432733",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 560,
+      "line": 568,
       "excerpt": "This reference is not invariant cellular composition or a universal local nutrient-limitation switch. Marine microalgal composition varies with physiology and conditions \\citep{geider2002redfield}. In Baltic nutrient-addition bioassays, particulate N:P near 16 occurred under different limitation classes, and indicators depended on the nutrient fraction and response measured \\citep{ptacnik2010redfield}. Their fitted thresholds are not replacement universal constants. Distinguish incoming load, dissolved inorganic supply, total nutrients and particulate composition; use matched control, +N, +P and +N+P experiments to test local hypotheses.",
       "rationale": "Geider and La Roche describe variable marine-microalgal C:N:P; access here was institutional abstract/metadata, not full PDF. Ptacnik et al. compare nutrient fractions and enrichment responses in Baltic bioassays; particulate N:P near 16 occurs across limitation classes. Their regional response-dependent thresholds do not supply a universal replacement. The paragraph correctly requires fractions, demand and matched experiments. Sources: https://doi.org/10.1017/S0967026201003456 ; https://doi.org/10.1007/s10021-010-9380-z .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:566:e1b959bc8ed8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:574:e1b959bc8ed8",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 566,
+      "line": 574,
       "excerpt": "> **Concept Check:** A lake experiment compares matched nutrient additions with and without P. Explain what a larger response with P supports under those conditions. What controls and measurements would distinguish N limitation, P limitation and co-limitation elsewhere, and why does reduced detergent P not guarantee immediate recovery when internal/watershed loading persists?",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:743:c9d2b221ed5e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:751:c9d2b221ed5e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 743,
+      "line": 751,
       "excerpt": "Warming can accelerate microbial decomposition, while moisture, nutrient supply, plant inputs and disturbance also affect net soil-carbon balance. The sign and magnitude require a specified site or scenario rather than a universal comparison with plant productivity. For northern circumpolar permafrost-region soils, Hugelius et al. (2014) estimated about 1,300 Pg organic carbon, including about 800 Pg perennially frozen; the stock does not specify a century-scale release or temperature increment \\citep{hugelius2014carbon}. Turetsky et al. (2020) showed that abrupt thaw and vegetation regrowth alter modeled carbon balance under specified warming scenarios \\citep{turetsky2020thaw}.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:804:3f4423b425d4",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:812:3f4423b425d4",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 804,
+      "line": 812,
       "excerpt": "Biology, geochemistry, hydrology and atmosphere form a coupled system with stabilizing and amplifying feedbacks, not a purposeful superorganism. Present oxygen near 21% does not establish an invariant narrow set point: geological reconstructions include substantial variation and values above 26% \\citep{glasspool2010oxygen}. Test each feedback and timescale rather than infer fixed oxygen, salinity or universal fire thresholds from habitability.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:829:897a86ec17d5",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:837:897a86ec17d5",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 829,
+      "line": 837,
       "excerpt": "Forest evapotranspiration supplies moisture to local and downwind precipitation. Transpiration is distinct from evaporation of intercepted water, soil water and inland waters; precipitation-origin and evaporation-destination recycling fractions use different denominators. Estimates depend on region, period, dataset and metric \\citep{vanderent2014recycling}. Land-use change can alter these fluxes and patterns, but an unspecified recycling fraction establishes neither a universal tropical-forest rainfall percentage nor a savannification threshold.",
       "rationale": "The original moisture-recycling paper distinguishes transpiration/interception/direct evaporation and precipitation-origin versus evaporation-destination fractions, with scale and region dependence. This statement adopts those metric boundaries and removes the untraced oak-day and universal forest-rainfall numbers; it asserts no replacement fraction or savannification threshold. Source definitions/methods/results: https://doi.org/10.5194/esd-5-471-2014 .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:954:a680f31592e0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:962:a680f31592e0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 954,
+      "line": 962,
       "excerpt": "At $10^{12}$ m², the baseline-relative difference is $-7$ Pg C over 50 years. Baseline uptake would have stored $+5$ Pg, whereas the warmed system actually releases 2 Pg ($40\\times50\\times10^{12}$ g C). Forgone uptake plus actual release totals the 7-Pg difference; it is wrong to call all 7 Pg newly released carbon. Constant fluxes for 50 years are a sensitivity assumption, not a forecast.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:958:8a22ef05384a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:966:8a22ef05384a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 958,
+      "line": 966,
       "excerpt": "The structural lesson is that NEP is a small residual of large opposing fluxes. This sensitivity example holds production, respiratory response and other transfers fixed; real feedbacks, acclimation, moisture and disturbance can alter them. It demonstrates neither a universal warming threshold nor an inevitable ecosystem tipping point.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:974:c60c8347bf0c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:982:c60c8347bf0c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 974,
+      "line": 982,
       "excerpt": "(d) Explain why sufficiently large nutrient and organic loading can cause hypoxia even at a supplied N:P of 16:1. Distinguish loading, production, decomposition, oxygen inventory and ventilation from a ratio-only explanation.",
       "rationale": "This is a discriminating question, not a claim that every 16:1 input causes hypoxia. A ratio does not bound absolute loading, production, oxygen demand or ventilation. The separate stipulated no-resupply inventory in parts (c) and the reasoning check gives potential demand about 267 mg/L against only 8 mg/L oxygen; a balanced N:P ratio does not remove that mass-balance possibility.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:976:7f723717bb48",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:984:7f723717bb48",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 976,
+      "line": 984,
       "excerpt": "**Reasoning check:** The fixed-quota capacities are 40/16 = 2.5 versus 1 biomass unit, so P is exhausted first under the stated model. Potential oxygen demand is about 267 mg/L; the supplied inventory reaches 2 mg/L after oxidation of 2.25 g C/m³ and zero after 3 g C/m³. Further consumption crosses the strict hypoxia threshold below 2 mg/L; complete aerobic oxidation of 100 g C/m³ is impossible without resupply. The remaining carbon and its subsequent fate require additional processes, not negative dissolved oxygen.",
       "rationale": "Under the printed no-resupply one-mole-O2-per-mole-C assumptions, 1 g C/m3 equals 1 mg C/L and demand is C times 32/12. Consumption of 6 mg O2/L corresponds to 2.25 g C/m3, and the entire 8 mg/L inventory supports 3 g C/m3. Complete oxidation of 100 g C/m3 would require about 266.7 mg O2/L and is impossible within this closed aerobic inventory. The impossibility is explicitly conditional; no negative oxygen, reaction rate or empirical time is inferred.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:986:4c946ab1528a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:994:4c946ab1528a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 986,
+      "line": 994,
       "excerpt": "(b) Explain why lack of a direct market price is not evidence of zero value or a universal ranking below marketed services. How can benefit transfer, site conditions, method choice and potential double counting change a conservation valuation?",
       "rationale": "The question asks why absence of a market price does not establish zero value or a universal cross-service ordering, and asks students to evaluate benefit transfer, context, methods and double counting. This is consistent with the accepted manuscript valuation limitations, not a new measured hierarchy or evidence that a monetary estimate by itself improves policy. Source: https://doi.org/10.1016/j.gloenvcha.2014.04.002 .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1050:f0a91628edca",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1058:f0a91628edca",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1050,
+      "line": 1058,
       "excerpt": "| **Redfield ratio** | Approximate broad-scale molar C:N:P reference of 106:16:1; not a fixed cellular quota or universal limitation threshold |",
       "rationale": "This key-term definition retains the approximate oceanic molar reference while explicitly separating it from fixed cellular demand and universal local limitation. Variable composition and nutrient-fraction/bioassay-dependent indicators support that boundary; the chapter supplies a separately labeled hypothetical quota counterexample rather than assigning measurements to taxa. Sources: https://doi.org/10.1017/S0967026201003456 ; https://doi.org/10.1007/s10021-010-9380-z .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1077:85f4f3c5cd42",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1084:85f4f3c5cd42",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1077,
+      "line": 1084,
       "excerpt": "4. Use the synthetic annual budget above, not an empirical permafrost forecast. Suppose heterotrophic respiration rises from 56.5 to 57.0 Pg C/yr and all other fluxes remain fixed. (a) Calculate the new atmospheric accumulation. (b) Explain the double counting if the same 0.5 Pg C/yr is also added as a separate permafrost emission. (c) Convert that increment to Pg CO$_2$/yr using 44/12 and to ppm/yr using the assumed 2.13 Pg C/ppm. Distinguish carbon mass, CO$_2$ mass and concentration; none of these conditional results establishes a future warming trajectory.",
       "rationale": "The fixed-other-flux condition defines a synthetic one-variable carbon-accounting exercise: raising Rh by 0.5 Pg C/yr raises the stipulated residual from 5.1 to 5.6; adding the identical permafrost flow again double counts it. Carbon/CO2 mass and ppm conversions are specified assumptions, not an empirical permafrost rate or warming forecast.",
       "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1089:1e0d10804282",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1096:1e0d10804282",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1089,
+      "line": 1096,
       "excerpt": "10. Compare the proposed DMS-cloud chain in the CLAW hypothesis with permafrost-carbon feedback. Identify the measurements needed to establish each link, its sign, timescale and magnitude rather than assuming a universal planetary thermostat.",
       "rationale": "This review question labels CLAW as proposed and asks for evidence for individual links, sign, timescale and magnitude rather than asserting a universal thermostat. Chapter discussion explicitly retains debated strength; neither the DMS pathway nor a generic negative-feedback label proves planetary regulation. This accepts the evidence-seeking question, not a new empirical feedback magnitude or a claim to have disproved the hypothesis.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1134:989bb7479040",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1141:989bb7479040",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1134,
+      "line": 1141,
       "excerpt": "- **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \\citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.",
       "rationale": "Official AR6 WGIII Annex II §A.II.8/Table 9 directly gives N2O GWP100=273 and a separate lifetime of 109 years. The assigned summary and the substantive nitrogen-cascade statement at line 497 correctly identify a mass-based, 100-year integrated emission metric, not instantaneous forcing or temperature. The diagram also labels its shorthand GWP100/IPCC AR6; the prose supplies the metric boundary. Source: https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-II.pdf.",
       "reviewer": "WorkflowzFinalMitigationRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1136:10cceea31d09",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1143:10cceea31d09",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1136,
+      "line": 1143,
       "excerpt": "- **Sulfur cycle:** microbial transformations link sulfur pools; CLAW proposes a DMS-cloud feedback, not an established universal thermostat. Acid-deposition outcomes depend on emissions and ecosystem conditions.",
       "rationale": "The summary calls CLAW a proposed DMS-cloud feedback, consistent with the preceding hypothesis discussion and its explicit uncertain strength. It does not present the pathway as a demonstrated universal closed-loop thermostat or assert a measured effect size. The acid-deposition statement is conditional on emissions and ecosystem conditions, not an invariant recovery claim.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"

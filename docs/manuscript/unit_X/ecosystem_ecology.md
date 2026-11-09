@@ -56,7 +56,7 @@ By the end of this chapter, you should be able to:
 
 ## Ecosystem Concepts and System Boundaries
 
-An **ecosystem** comprises most organisms (biotic component) and the physical/chemical environment (abiotic component) in a defined area, interacting through energy flow and nutrient cycling \citep{bormann1967}. Ecosystems vary from a few liters (rock pool) to thousands of km$^2$ (boreal forest). Their defining features are:
+An **ecosystem** comprises organisms (biotic component) and the physical/chemical environment (abiotic component) within a defined boundary, interacting through energy flow and nutrient cycling \citep{bormann1967}. Ecosystems vary from a few liters (rock pool) to thousands of km$^2$ (boreal forest). Their defining features are:
 
 1. **Energy input** (solar or chemical) drives biological activity
 2. **Nutrient cycling** — atoms cycle repeatedly between biotic and abiotic phases (unlike energy, which flows linearly through and out of the system)
@@ -97,14 +97,14 @@ The **Millennium Ecosystem Assessment** (2005) reported that 15 of the 24 ecosys
 
 **Trophic levels** (from Greek *trophe* = nourishment) describe feeding position in the food web:
 
-: Ecosystem Services and Human Well-Being: Trophic level and Organisms. {#tbl:unit_X_ecosystem_ecology_ecosystem_services_and_human_well_being_2}
+: Selected trophic roles, example organisms, and energy sources; a species' position depends on its diet and food web. {#tbl:unit_X_ecosystem_ecology_ecosystem_services_and_human_well_being_2}
 | Trophic level | Organisms | Energy source |
 | ------------- | --------- | ------------- |
-| 1 — Producers ([**autotroph**](#gl:autotroph)s) | Plants, algae, cyanobacteria, chemolithotrophs | Solar energy (GPP) or chemical energy |
-| 2 — Primary consumers (herbivores) | Insects, zooplankton, ungulates, small mammals | NPP consumed |
+| 1 — Producers ([**autotroph**](#gl:autotroph)s) | Plants, algae, cyanobacteria, chemolithotrophs | Light or energy-yielding chemical oxidation |
+| 2 — Primary consumers (herbivores) | Insects, zooplankton, ungulates, small mammals | Producer biomass |
 | 3 — Secondary consumers (carnivores) | Spiders, small fish, small birds | Primary consumer biomass |
 | 4 — Tertiary consumers | Large fish, raptors | Secondary consumer biomass |
-| Apex — Top predators | Orca, wolf, lion, large sharks | Top-down regulation |
+| Apex — Top predators | Orca, wolf, lion, large sharks | Prey biomass |
 | [**Decomposer**](#gl:decomposer)/detritivore (parallel) | Bacteria, fungi, termites, ants, earthworms, millipedes | Dead organic matter and soil organic pathways |
 
 ### Ecological Efficiency Across Trophic Transfers
@@ -275,33 +275,33 @@ Different methods access different components of NPP and apply across different 
 | Method | Scale | Approach | Captures | Misses |
 | ------ | ----- | -------- | -------- | ------ |
 | **Harvest method** | Plot (m$^2$–ha) | Clip aboveground biomass at peak; correct for litterfall, herbivory, mortality | ANPP directly | BNPP; rapid turnover; non-peak production |
-| **Eddy covariance** | Hectares (canopy footprint) | Tower-mounted sonic anemometer + IRGA measure CO$_2$ flux 10–20 Hz; partition NEP → GPP, $R_e$ | NEP at half-hourly resolution; 24/7/365 | Primarily the tower footprint; tall tower needed for forests |
+| **Eddy covariance** | Tower footprint | Wind/CO$_2$ covariance plus storage correction; partition NEE for GPP and $R_e$ | Net CO$_2$ exchange in the sampled footprint | GPP and $R_e$ are derived; low turbulence, gap filling, and partitioning require quality control |
 | **Remote sensing** | Regional / global | MODIS NDVI → fAPAR (fraction absorbed PAR) → light-use-efficiency NPP models (e.g., MOD17) | Continental and global scales | Hidden BNPP; saturation in dense canopies; cloud occlusion |
 | **$^{14}$C uptake** | Aquatic, bottle | Add NaH$^{14}$CO$_3$; incubate; filter and count $^{14}$C in cells | Phytoplankton primary production | Mostly net (some respired $^{14}$C lost); bottle effects |
 | **O$_2$ light/dark bottles** | Aquatic community | Light change = net community production; dark loss = total community respiration | GPP inferred if light and dark respiration match | NPP not isolated unless heterotrophic respiration is excluded or independently corrected; divide by incubation time |
 | **Litterfall traps + stem increment** | Forest plot | Annual leaf and twig fall + dendrometer band; sum = ANPP | Long-term forest dynamics | Belowground; understory |
 | **Minirhizotrons / ingrowth cores** | Plot, root-specific | Image roots through transparent tubes or harvest from buried mesh cores | BNPP estimates | Disturbance artifacts; coarse roots underrepresented |
 
-**Eddy covariance** is the current gold standard for ecosystem-level carbon flux measurement. A global network of ~800 flux towers (FLUXNET) provides continuous GPP, $R_e$, and NEP measurements across biomes; the data drive every modern terrestrial carbon model and are a primary input to the IPCC reports.
+**Eddy covariance** estimates net ecosystem CO$_2$ exchange (NEE) from turbulent fluxes and a storage correction over a tower footprint. Report the sign convention and accounting boundary when relating NEE to NEP. FLUXNET processing filters low-turbulence data, fills gaps, and estimates GPP and ecosystem respiration by model-based partitioning; those components are not separately, continuously measured by the tower. Quality flags and method-dependent uncertainty accompany the estimates \citep{pastorello2020fluxnet}.
 
-**Cross-validation matters.** Eddy covariance NEP at the Harvard Forest tower agreed with biometric (harvest + litterfall + dendrometer) NEP within 15% over 12 years (Barford et al. 2001, *Science*) — independent confirmation that the flux community's numbers are real, not artifacts of filtering or gap-filling.
+**Cross-validation matters.** Compare flux-derived carbon budgets with independent biometric or chamber estimates using compatible footprints, time windows, and component boundaries. Agreement in a particular comparison does not establish absence of processing bias at other sites or times. Retain quality flags, uncertainty, and the partitioning method when reporting estimates \citep{pastorello2020fluxnet}.
 
 ### ANPP, BNPP, and Their Ratio
 
-Total NPP partitions into **aboveground** (ANPP — leaves, stems, reproductive organs) and **belowground** (BNPP — roots, root exudates, mycorrhizal carbon transfer). Belowground production is notoriously hard to measure but is often the larger fraction:
+Total NPP can be partitioned into **aboveground** production (ANPP) and **belowground** production (BNPP). Specify the treatment of tissue turnover, root exudates, and mycorrhizal carbon transfers before comparing measurements. For the new stipulated cases below, assume ANPP + BNPP = NPP and $f=\mathrm{ANPP}/\mathrm{NPP}$. These are accounting inputs for arithmetic, not measured biome averages.
 
-: ANPP, BNPP, and Their Ratio: Biome and ANPP/NPP. {#tbl:unit_X_ecosystem_ecology_anpp_bnpp_and_their_ratio}
-| Biome | ANPP/NPP | BNPP/NPP | BNPP / ANPP | Driver |
-| ----- | -------- | -------- | ----------- | ------ |
-| Tropical rainforest | 0.65–0.75 | 0.25–0.35 | 0.4 | Resource-rich; allocation favors canopy competition |
-| Temperate deciduous forest | 0.55–0.65 | 0.35–0.45 | 0.7 | Seasonal, balanced |
-| Temperate grassland | 0.30–0.40 | 0.60–0.70 | 1.5–2.5 | Drought, fire, grazing favor root storage |
-| Tundra | 0.20–0.30 | 0.70–0.80 | 3–4 | Cold soils; nutrient acquisition expensive; root protection from freezing |
-| Boreal forest | 0.40–0.55 | 0.45–0.60 | 1.0–1.3 | Slow N mineralisation; mycorrhizal demand high |
+: Stipulated aboveground/belowground NPP allocation cases: fractions sum to one and ratios are derived, not field estimates. {#tbl:unit_X_ecosystem_ecology_anpp_bnpp_and_their_ratio}
+| Case | ANPP/NPP ($f$) | BNPP/NPP ($1-f$) | BNPP/ANPP ($(1-f)/f$) | Basis |
+| ---- | ------------- | ---------------- | -------------------- | ----- |
+| A | 0.20 | 0.80 | 4.00 | Stipulated fractions; derived ratio |
+| B | 0.40 | 0.60 | 1.50 | Stipulated fractions; derived ratio |
+| C | 0.50 | 0.50 | 1.00 | Stipulated fractions; derived ratio |
+| D | 0.60 | 0.40 | 0.67 (rounded) | Stipulated fractions; derived ratio |
+| E | 0.80 | 0.20 | 0.25 | Stipulated fractions; derived ratio |
 
-Globally, BNPP is roughly half of total NPP — meaning *half* of the planet's photosynthate is invested below the soil surface, where carbon turnover times can stretch into millennia. Ignoring BNPP in carbon-stock estimates underestimates terrestrial sequestration by 30–50 % for grasslands and tundra.
+For $f>0$, total production follows $\mathrm{NPP}=\mathrm{ANPP}/f$. Equal ANPP therefore need not imply equal NPP. Neither ANPP nor BNPP is a carbon stock or sequestration rate: carbon storage additionally depends on respiration, export, disturbance, and the accounting interval. A belowground fraction of NPP is also not the same fraction of GPP, which includes carbon subsequently lost through autotrophic respiration.
 
-> **Concept Check:** A grassland and a forest both report ANPP = 400 g C/m$^2$/yr. Which ecosystem has higher *total* NPP, and why does this matter for policy (e.g., carbon-credit accounting under REDD+)?
+> **Concept Check:** In two explicitly stipulated cases, a grassland and a forest each have ANPP = 400 g C/m$^2$/yr. Assume $f=0.40$ for this grassland and $f=0.60$ for this forest. Calculate NPP in each case. Why do these production estimates alone not determine soil carbon storage or carbon credits?
 
 > **Concept Check:** A tropical rainforest has GPP = 3,000 g C/m$^2$/yr. Autotrophic respiration consumes 50% and heterotrophic respiration consumes 80% of NPP. Calculate NPP and NEP. What additional export/disturbance information is required to determine net carbon storage? Compare D = 0 with D = 400 g C/m$^2$/yr using NBP = NEP − D.
 
@@ -397,9 +397,9 @@ Methane hydrates store carbon in ice-like structures in sediments. Warming-drive
 **4. CO$_2$ fertilization effect (negative feedback, partially):**
 Higher atmospheric CO$_2$ increases photosynthetic rate (especially in C3 plants), partially offsetting emissions. However, this effect is limited by nitrogen and phosphorus availability, and saturates at high CO$_2$ levels. FACE (Free-Air CO$_2$ Enrichment) experiments show ~15-25% NPP increase at 550 ppm, but diminishing returns beyond this.
 
-> 🔬 **Clinical Connection — Ocean Acidification and Food Security:** Ocean acidification threatens the $100 billion/year global shellfish industry. Oyster larvae in Pacific Northwest hatcheries experienced mass mortality beginning ~2005, traced to corrosive upwelled water with low $\Omega_{aragonite}$. Hatcheries now monitor real-time carbonate chemistry and [**buffer**](#gl:buffer) intake water with sodium carbonate. Wild shellfish populations cannot be similarly managed. By 2100, oyster calcification rates are projected to decline 25-40% under RCP 8.5, with cascading effects on coastal economies and nutrition — particularly in developing nations dependent on shellfish protein.
+> 🔬 **Clinical Connection — Ocean Acidification and Food Security: A Scoped Hatchery Case:** In 2009 records from an Oregon oyster hatchery, carbonate chemistry at the intake during spawning was associated with later cohort production and midstage growth metrics; this was a record-based study, not a randomized CO$_2$ exposure trial \citep{barton2012oyster}. A 2015 Pacific Northwest account describes carbonate-chemistry monitoring, intake/spawning timing, and sodium-carbonate [**buffer**](#gl:buffer) treatment as local management responses, with continuing constraints \citep{barton2015hatcheryadaptation}. These site- and stage-specific observations do not quantify a worldwide industry value, a 2100 calcification loss, or management success in natural populations.
 
-> **Concept Check:** The ocean currently absorbs ~2.9 Pg C/yr from the atmosphere. If ocean warming reduces the solubility pump by 20%, how much additional CO$_2$ would remain in the atmosphere annually? What would be the approximate additional warming contribution over 50 years?
+> **Concept Check:** Use the preceding synthetic carbon budget, not a current ocean-uptake observation. Stipulate a 20% reduction in its **net ocean uptake** of 2.9 Pg C/yr, with all other flows fixed and no feedbacks for 50 years. Calculate the new annual atmospheric accumulation, its increase over 5.1 Pg C/yr, and the additional carbon retained over 50 years. Convert that additional carbon to CO$_2$ mass using 44/12. Why does this exercise neither isolate the solubility pump nor determine actual warming?
 
 ---
 
@@ -432,47 +432,55 @@ In an anaerobic acetate/nitrate chemostat, nitrate limitation favored DNRA, wher
 ---
 config:
   layout: dagre
+  themeVariables:
+    fontSize: 18px
+  flowchart:
+    padding: 12
+    nodeSpacing: 32
+    rankSpacing: 24
 ---
 flowchart TD
-    subgraph Inputs["A. Atmospheric nitrogen and industrial input"]
+    subgraph Inputs["A. Biological and industrial nitrogen fixation"]
         direction LR
-        N2["Atmospheric N₂<br/>78%; strong triple bond"] -->|"Haber–Bosch"| HB["Industrial fixation<br/>Ammonia production"]
-        HB --> FERT["Ammonium fertilizer<br/>Selected input route"]
+        N2["Atmospheric N₂<br/>78% of dry air"]
+        N2 -->|"Biological fixation<br/>Nitrogenase"| NINPUT["NH₃ / NH₄⁺<br/>Same pool as B"]
+        N2 -->|"Haber–Bosch"| HB["Industrial NH₃"]
+        HB --> FERT["NH₄⁺ fertilizer<br/>Selected route"]
+        FERT -->|"Application"| NINPUT
     end
-    subgraph Biological["B. Biological transformations: material flows"]
+    subgraph Biological["B. Transformations of reactive nitrogen"]
         direction LR
-        NH3["NH₃ / NH₄⁺<br/>Ammonia / ammonium"] -->|"Nitrification step 1<br/>Nitrosomonas"| NO2["NO₂⁻<br/>Nitrite"]
-        NO2 -->|"Nitrification step 2<br/>Nitrobacter"| NO3["NO₃⁻<br/>Nitrate"]
-        NH3 -->|"Assimilation<br/>GS/GOGAT"| ORG["Organic N<br/>Amino acids; proteins"]
-        ORG -->|"Ammonification<br/>Decomposers"| NH3
+        NH3["NH₃ / NH₄⁺"] -->|"Nitrification 1"| NO2["NO₂⁻<br/>Nitrite"]
+        NO2 -->|"Nitrification 2"| NO3["NO₃⁻<br/>Nitrate"]
+        NH3 -->|"Assimilation"| ORG["Organic N"]
+        ORG -->|"Ammonification"| NH3
         NO3 -->|"Plant uptake"| ORG
     end
     subgraph Returns["C. Denitrification and atmospheric return"]
         direction LR
-        NR["Nitrate<br/>Same NO₃⁻ pool as B"] -->|"Denitrification<br/>Pseudomonas"| N2O["N₂O<br/>Nitrous oxide<br/>GWP100 about 273<br/>CO₂ = 1; IPCC AR6"]
+        NR["Nitrate<br/>Same NO₃⁻ pool as B"] -->|"Denitrification"| N2O["N₂O<br/>GWP100 ≈ 273<br/>CO₂ = 1; AR6"]
         N2O -->|"Further reduction"| N2R["Atmospheric N₂<br/>Same pool as A"]
     end
-    subgraph Effects["D. Excess reactive N: transport versus environmental effects"]
+    subgraph Effects["D. Potential effects of excess reactive nitrogen"]
         direction LR
-        EUTR["Nitrate leaching / runoff<br/>Eutrophication → algal blooms<br/>→ hypoxic dead zones"]
-        OZONE["N₂O → stratospheric NO<br/>Catalytic ozone depletion"]
-        WARM["N₂O radiative forcing<br/>Climate warming"]
+        EUTR["Nitrate transport<br/>Eutrophication<br/>Potential hypoxia"]
+        OZONE["N₂O → NO<br/>Stratospheric ozone loss"]
+        WARM["N₂O forcing<br/>Climate warming"]
         EUTR ~~~ OZONE ~~~ WARM
     end
-    N2 -->|"Biological N₂ fixation<br/>Nitrogenase"| NH3
-    FERT -->|"Application"| NH3
-    Biological -->|"Nitrate to denitrification"| Returns
+    Inputs -.-|"Shared ammonia / ammonium pool"| Biological
+    Biological -.-|"Shared nitrate pool"| Returns
     Returns ~~~ Effects
     classDef readable fill:#eef5fa,stroke:#526777,color:#111111
-    class N2,HB,FERT,NH3,NO2,NO3,ORG,NR,N2O,N2R,EUTR,OZONE,WARM readable
+    class N2,HB,FERT,NINPUT,NH3,NO2,NO3,ORG,NR,N2O,N2R,EUTR,OZONE,WARM readable
     style Inputs fill:#fafafa,stroke:#526777,color:#17212b
     style Biological fill:#fafafa,stroke:#526777,color:#17212b
     style Returns fill:#fafafa,stroke:#526777,color:#17212b
     style Effects fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Separate nitrogenase and industrial ammonium-fertilizer routes enter the ammonia/ammonium pool. Nitrification supplies nitrate; assimilation and ammonification exchange inorganic and organic nitrogen; denitrification returns nitrogen through N₂O. Repeated atmospheric and nitrate boxes refer to shared pools, not extra stocks. Environmental-effect panels are distinct from material-flow arrows; the diagram is not a closed global budget. -->
+<!-- alt: Four horizontal panels separate biological and industrial fixation, transformations of reactive nitrogen, denitrification, and potential environmental effects. Solid arrows show selected material routes. Repeated ammonia/ammonium, nitrate, and atmospheric nitrogen boxes denote shared pools; dotted arrowless links identify repeated pools, not extra fluxes. The overview is not a closed global nitrogen budget. -->
 
-*Selected nitrogen-cycle routes: biological nitrogenase and the industrial ammonium-fertilizer example supply reactive nitrogen by different processes; assimilation, ammonification and nitrification redistribute it. Denitrification can return nitrate nitrogen through N$_2$O to N$_2$. Repeated nitrate and atmospheric boxes represent shared pools across panels. Nitrate transport can support eutrophication and oxygen demand; N$_2$O radiative forcing and stratospheric NO-mediated ozone loss are separate effects. Other inputs and pathways are omitted, so this is not a closed global budget. GWP100 about 273 is the specified AR6 mass-based, 100-year CO$_2$-relative metric, not a nitrogen flux.*
+*Selected nitrogen-cycle routes: biological nitrogenase and the industrial ammonium-fertilizer example supply reactive nitrogen by different processes; assimilation, ammonification, and nitrification redistribute it. Organism and enzyme examples are in the preceding table. Repeated boxes denote shared pools; dotted arrowless links identify the same ammonia/ammonium or nitrate pool across panels, not transfers. Solid arrows show selected material routes. Denitrification can return nitrate nitrogen through N$_2$O to N$_2$. Nitrate transport can support eutrophication and oxygen demand; N$_2$O radiative forcing and stratospheric NO-mediated ozone loss are separate potential effects. Omitted inputs and pathways prevent treating this as a closed global budget. GWP100 about 273 is the specified AR6 mass-based, 100-year CO$_2$-relative metric, not a nitrogen flux.*
 
 ### Biological Nitrogen Fixation
 
@@ -817,7 +825,7 @@ For biology, the water cycle is also a vegetation and land-use cycle. Roots, sto
 
 ### Key Hydrological Fluxes
 
-: Key Hydrological Fluxes: Process and Rate (10^3 km^3/yr). {#tbl:unit_X_ecosystem_ecology_key_hydrological_fluxes}
+: Global hydrological fluxes (10$^3$ km$^3$/yr). {#tbl:unit_X_ecosystem_ecology_key_hydrological_fluxes}
 | Process | Rate (10$^3$ km$^3$/yr) | Description |
 | ------- | ----------------------- | ----------- |
 | **Evaporation** (ocean) | 434 | Largest single flux |
@@ -1050,10 +1058,9 @@ flowchart LR
 | **Redfield ratio** | Approximate broad-scale molar C:N:P reference of 106:16:1; not a fixed cellular quota or universal limitation threshold |
 | **Reactive nitrogen cascade** | Sequential environmental damage as anthropogenic N moves through compartments |
 | **REDD+** | International mechanism for carbon payments to prevent deforestation |
-| **Eddy covariance** | Micrometeorological method for measuring ecosystem carbon flux |
+| **Eddy covariance** | Estimates turbulent ecosystem–atmosphere CO$_2$ exchange; storage correction, quality control, and model-based GPP/respiration partitioning have distinct roles |
 | **CLAW hypothesis** | Proposed DMS-aerosol-cloud-albedo feedback; its strength and climatic effect require evidence |
-| **ANPP / BNPP** | Aboveground / belowground net primary production; ratio varies from 0.4 (rainforest) to 3+ (tundra) |
-| **Eddy covariance** | Continuous tower-based measurement of ecosystem CO$_2$ flux; gold standard for NEP |
+| **ANPP and BNPP** | Aboveground and belowground components of NPP; in the stated two-component accounting, $f=\mathrm{ANPP}/\mathrm{NPP}$ and $\mathrm{BNPP}/\mathrm{ANPP}=(1-f)/f$ for $f>0$ |
 | **Martin curve** | Power-law attenuation of organic-matter flux with depth in the ocean |
 | **Hubbard Brook** | Long-running watershed experiment that demonstrated the dominant role of vegetation in nutrient retention |
 | **CLORPT** | Jenny's five soil-forming state factors: climate, organisms, relief, parent material, time |
@@ -1092,7 +1099,7 @@ flowchart LR
 13. The Hubbard Brook clear-cut experiment increased streamwater NO$_3^-$ losses 26-fold. Trace the mechanism through (a) cessation of plant uptake, (b) accelerated decomposition without canopy cooling, (c) elevated water tables and reduced transpiration. Why is this evidence that mature forests function as quasi-closed nutrient systems?
 14. Compare four methods for measuring NPP (harvest, eddy covariance, $^{14}$C, MODIS remote sensing). For each, give one ecosystem where it is the *most* defensible method and one where it would systematically underestimate true NPP.
 15. A coastal upwelling zone has surface NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4; a subtropical gyre has NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1. (a) Calculate export production for each. (b) If both export equal *fractions* of carbon below 1,000 m via a Martin curve with common reference depth $z_0=100$ m and exponent $b=0.858$, which contributes more to long-term carbon sequestration per unit area? (c) How does climate-driven stratification of the surface ocean change both numbers?
-16. Explain the ANPP/BNPP partition for a temperate grassland (BNPP/ANPP ≈ 2) vs. a tropical rainforest (BNPP/ANPP ≈ 0.4). Why does this partition affect (a) carbon-credit accounting under REDD+, (b) ecosystem response to drought, (c) long-term soil organic carbon accumulation?
+16. In two stipulated cases, ANPP is 300 g C/m$^2$/yr. Let $f=\mathrm{ANPP}/\mathrm{NPP}$ be 0.30 in case A and 0.60 in case B, with ANPP + BNPP = NPP. Calculate NPP, BNPP, and BNPP/ANPP for each. What additional evidence is needed to infer drought response, soil carbon storage, or carbon-credit benefits? Distinguish production allocation from net storage and a demonstrated policy effect.
 17. Compare N:P ratios of 6, 16 and 35 under an explicitly stipulated, fully bioavailable fixed-quota N:P demand of 16:1. Then explain why these ratios without that model do not uniquely establish nutrient limitation, co-limitation or diatom/cyanobacterium/dinoflagellate dominance in nature.
 18. Evaluate Gaia-style claims by comparing specified stabilizing and amplifying feedbacks. Why do organismal selection, coupled dynamics and present habitability not by themselves establish a purposeful planetary superorganism?
 
@@ -1134,7 +1141,7 @@ print(food_web_trophic_levels(web))
 - **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.
 - **Phosphorus cycle:** weathering, recycling and sedimentation matter; atmospheric particles can also transport P. Limitation is local and experimental, not determined by the absence of a large gaseous reservoir. Reserve inventories require dated definitions and are not exhaustion forecasts.
 - **Sulfur cycle:** microbial transformations link sulfur pools; CLAW proposes a DMS-cloud feedback, not an established universal thermostat. Acid-deposition outcomes depend on emissions and ecosystem conditions.
-- **Measuring NPP:** harvest, eddy covariance (FLUXNET), $^{14}$C uptake, MODIS remote sensing — each captures different components; ANPP/BNPP partition varies from 0.4 (rainforest) to >3 (tundra) and shifts conclusions about global carbon storage.
+- **Measuring NPP:** harvest, eddy covariance (FLUXNET), $^{14}$C uptake, and remote sensing capture different components and use different inferences. GPP/respiration partitioning, aboveground/belowground allocation, and net carbon storage must be distinguished; the allocation cases here are stipulated, not measured biome averages.
 - **Rainfall variability:** vegetation activity depends on event timing and intensity as well as precipitation totals, so productivity arguments should separate daily rainfall variability from mean water supply \citep{feldman2024rainfallvariability}.
 - **Hubbard Brook \citep{bormann1967}:** the clear-cut experiment showed live vegetation retains 80–95% of nutrient inputs; mature forests are quasi-closed for most nutrients. Open vs. closed nutrient regimes governed by mean residence time $\tau = X/O$.
 - **Ocean ecosystem ecology:** half of global NPP; productivity zones (euphotic, mesopelagic, abyssopelagic, upwelling, gyres, polar); biological pump exports ~10–15 Pg C/yr; Martin curve attenuates flux with depth.
