@@ -173,7 +173,7 @@ flowchart TD
     E -->|Violated| J["GENE FLOW<br/>Movement of alleles"]
     F -->|Violated| K["NATURAL SELECTION<br/>Differences in reproductive contribution"]
 
-    G --> L{{"Assumption departure:<br/>investigate the mechanism"}}
+    G --> L["Assumption departure:<br/>investigate the mechanism"]
     H --> L
     I --> L
     J --> L
