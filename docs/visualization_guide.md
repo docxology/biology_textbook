@@ -47,6 +47,14 @@ figures and inline Mermaid require both metadata fields. The reader stops at
 unrelated content rather than borrowing a later caption. Printed-page proofs
 must reject empty text markers before searching for the actual caption.
 
+The project-local Puppeteer profile selects CPU-only rasterization with
+`--disable-gpu`. A same-source native reproduction exposed low-bit pixel drift
+in headless diagram borders even when text, layout and compiler metadata matched;
+the compositor-only deterministic flag also reproduced that drift. CPU-only
+renders matched across both locked CLI installations in the controlled comparison.
+This is a tested host profile, not a cross-platform pixel guarantee. Do not hide
+drift by rounding colors, quantizing pixels or relaxing artifact comparisons.
+
 ### Meaning and limits of graphical abstracts
 
 Unit maps are selected relationship overviews, not prerequisite graphs or causal proof. Use two or three named groups, short sentence-case labels and arrowless labeled connectors. Reserve arrows for explicitly scoped material/information transfer or an actual modeled transition. Use dark text on light fills, without emoji or color-only meaning. Caption and alt text must explain the connections and omissions, not merely name colors.

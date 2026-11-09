@@ -90,6 +90,14 @@ on other hosts. Standard offline/cache flags are honored. Preserve the same
 canonicalization uses the locked `pypdf` dependency.
 No Docker run or byte-identical cross-platform PDF is asserted.
 
+The supplied project-local Puppeteer profile uses CPU-only rasterization to avoid
+observed low-bit headless-compositor drift. Keep that profile when reproducing the
+recorded host build; changing browser flags changes the rendering experiment.
+Record browser, Node, Mermaid CLI and Python/image-library versions alongside the
+source/runtime receipt. Matching source and timestamps alone does not establish
+matching rasterizer inputs. The profile remains host-specific: it is not a bundled
+browser, a hostile-content sandbox or a cross-platform bitwise guarantee.
+
 Exporting is not remote publication or Zenodo deposition. Follow the actual host's
 identity/admission/review policy for commits, pushes, tags and releases; this CLI
 has no remote-write permission or bypass. A release blocked by policy remains
