@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+type: software
+title: "biology_textbook"
+authors:
+  - family-names: Friedman
+    given-names: Daniel Ari
+    orcid: "https://orcid.org/0000-0001-6232-9096"
+repository-code: "https://github.com/docxology/biology_textbook"
+abstract: "Open-source introductory biology textbook, Introduction to Biology: A Generative Approach — chapters with paired paper labs and an assessment-question bank, figures generated programmatically via matplotlib and Mermaid, a curated reference list and glossary, built with uv and pytest. CC BY 4.0."
+license: Apache-2.0
