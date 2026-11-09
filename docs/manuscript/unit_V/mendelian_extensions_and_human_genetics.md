@@ -617,42 +617,38 @@ Since $0.470 < 7.815$, we fail to reject H$_0$. The data are consistent with a 9
 ### Inheritance Pattern Recognition
 
 ```mermaid
-sequenceDiagram
-    participant Q as Question
-    participant A as Analysis
-    participant R as Result
-
-    Q->>A: Is the trait present in every generation?
-    A->>A: If YES: likely dominant
-    A->>A: If NO (skips generations): likely recessive
-
-    Q->>A: Are males and females equally affected?
-    A->>A: If YES: likely autosomal
-    A->>A: If males >> females: likely X-linked recessive
-
-    Q->>A: Was a paternal X allele transmitted to a son?
-    A->>A: A son receives paternal Y, not X
-    A->>A: A carrier mother may have affected sons
-
-    Q->>A: Are all children of affected mothers affected?
-    A->>A: If YES: consider mitochondrial inheritance
-
-    A->>R: Dominant vs Recessive
-    A->>R: Autosomal vs X-linked vs Mitochondrial
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    G["Generations<br/>Repeated: dominance candidate<br/>Skipping: recessiveness candidate"]
+    X["Sex distribution<br/>Male excess: X-linked recessive candidate<br/>Similar: autosomal candidate"]
+    E["Inspect parent-specific transmission"]
+    PX["Paternal X<br/>Not passed to sons<br/>in the stated XY model"]
+    MT["Maternal mtDNA<br/>Variable phenotype<br/>with heteroplasmy"]
+    R["Compare hypotheses<br/>Penetrance, family size<br/>and de novo variants"]
+    G --> E
+    X --> E
+    E --> PX
+    E --> MT
+    PX --> R
+    MT --> R
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827
 ```
-<!-- alt: Sequence diagram showing pedigree analysis works as a decision tree: affected relatives across generations, sex bias, and transmission through parents distinguish dominant, recessive, X-linked, mitochondrial, and de novo patterns. Mitochondrial disease can arise from mitochondrial-DNA or nuclear-DNA variants, and heteroplasmy means maternal transmission can produce variable severity rather than identical outcomes. -->
+<!-- alt: Flowchart showing pedigree evidence generates inheritance hypotheses rather than a diagnosis from one pattern. In the stated XY model, paternal X transmission differs from paternal Y transmission; allele transmission must be separated from phenotype. Mitochondrial disease can arise from mitochondrial-DNA or nuclear-DNA variants, and heteroplasmy can produce variable severity. -->
 
-*Pedigree analysis works as a decision tree: affected relatives across generations, sex bias, and transmission through parents distinguish dominant, recessive, X-linked, mitochondrial, and de novo patterns. Mitochondrial disease can arise from mitochondrial-DNA or nuclear-DNA variants, and heteroplasmy means maternal transmission can produce variable severity rather than identical outcomes \citep{gorman2016mitochondrialdiseases}.*
+*Pedigree evidence generates inheritance hypotheses rather than a diagnosis from one pattern. In the stated XY model, paternal X transmission differs from paternal Y transmission; allele transmission must be separated from phenotype. Mitochondrial disease can arise from mitochondrial-DNA or nuclear-DNA variants, and heteroplasmy can produce variable severity \citep{gorman2016mitochondrialdiseases}.*
 
-: Inheritance Pattern Recognition: Pattern and Key Diagnostic Clues. {#tbl:unit_V_mendelian_extensions_and_human_genetics_inheritance_pattern_recognition}
+: Pedigree-pattern hypotheses: transmission expectations and phenotype limits. {#tbl:unit_V_mendelian_extensions_and_human_genetics_inheritance_pattern_recognition}
 | Pattern | Key Diagnostic Clues |
 |---------|---------------------|
-| **Autosomal dominant** | Affected in every generation; unaffected parents produce primarily unaffected children; males and females equally affected; affected individuals have at least one affected parent |
-| **Autosomal recessive** | Often skips generations; affected children from unaffected (carrier) parents; consanguinity increases risk; males and females equally affected |
-| **X-linked recessive** | Males affected far more than females; carrier mothers pass to ~50% of sons; affected fathers cannot pass to sons (but most daughters are carriers); no male-to-male transmission |
-| **X-linked dominant** | Both sexes affected but more females than males; affected father passes the allele to daughters but not sons; affected heterozygous mother passes to ~50% of sons and ~50% of daughters |
-| **Mitochondrial** | Most children of an affected mother are affected; affected father does NOT transmit; maternal inheritance primarily |
-| **Y-linked** | Primarily males affected; most sons of affected father are affected |
+| **Autosomal dominant** | Vertical expression can be consistent with dominance in either sex; de novo variants and incomplete penetrance can leave no affected parent |
+| **Autosomal recessive** | Affected children can have unaffected carrier parents; consanguinity can increase shared-allele risk; either sex can be affected |
+| **X-linked recessive** | A heterozygous mother transmits the allele to half her sons in the simple model; a father passes his X to daughters, not sons. Daughter phenotype depends on genotype and expression, not a fixed carrier label |
+| **X-linked dominant** | A father passes the X-linked allele to daughters, not sons; a heterozygous mother has a one-half transmission probability per child in the stated model. Phenotype still depends on penetrance |
+| **Mitochondrial DNA** | Maternal mtDNA transmission can produce variable phenotype/severity through heteroplasmy; nuclear causes of mitochondrial disease can follow different inheritance patterns |
+| **Y-linked** | In the stated XY model, non-pseudoautosomal Y-linked variants pass from father to son; variant transmission does not itself guarantee an affected phenotype |
 
 ### Worked Pedigree Problem
 
@@ -778,7 +774,7 @@ A good genetics answer separates the Mendelian transmission model from the evide
 - **Human genetic disorders**: Huntington's disease (CAG repeat expansion, autosomal dominant, anticipation); PKU (autosomal recessive, screened almost universally at birth, dietary therapy); CF, sickle cell, Tay-Sachs as paradigm autosomal recessive disorders maintained at elevated frequencies by likely heterozygote advantage.
 - **GWAS**: Genome-wide association studies extend Mendel's logic to millions of common variants, revealing that complex traits are highly polygenic, that most causal variants are non-coding, and that polygenic risk scores can predict disease risk at the individual level.
 - **Chi-squared test**: $\chi^2 = \sum \frac{(O-E)^2}{E}$; df = k-1; compare to critical value at $\alpha = 0.05$.
-- **Pedigree analysis**: Autosomal dominant (every generation, equal sex ratio), autosomal recessive (skips generations, consanguinity), X-linked recessive (males >> females, no male-to-male), mitochondrial (maternal primarily).
+- **Pedigree analysis** compares inheritance hypotheses rather than diagnosing from a visual pattern. Generation and sex distributions depend on family size, penetrance and de novo events. In the stated XY model, paternal X/Y transmission differs from phenotype; mtDNA transmission is maternal, while nuclear causes of mitochondrial disease can follow other patterns.
 - **Connections:** See \cref{sec:unit_V_chromosomal_inheritance} for linkage and sex chromosomes, \cref{sec:unit_V_population_genetics} for allele frequencies in populations, and \nameref{sec:unit_IV_unit_intro} for the molecular basis of alleles.
 
 ---

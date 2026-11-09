@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "checked_as_of": "2026-11-08",
+  "checked_as_of": "2026-11-09",
   "policy": {
     "valid_scientific_absolute": "Auditable definition, named technical term, quantitative boundary condition, or deliberately qualified scientific statement. Each exact occurrence retains a specific rationale; this is not whole-corpus or full-text source certification.",
     "needs_qualifier": "Should be revised; audit fails if the same advisory still appears.",
@@ -5840,145 +5840,145 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:248:b6f46ecfebf3",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:219:b6f46ecfebf3",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 248,
+      "line": 219,
       "excerpt": "> 2. **A site-specific counterexample:** Replacing mouse Irs1 Ser307 (human Ser312) with alanine worsened insulin resistance in the studied high-fat-fed mice, contrary to a universal inhibitory-site interpretation \\citep{copps2010irs1}.",
       "rationale": "Copps's actual Summary and Results identify the mouse Ser307/human Ser312 correspondence, alanine knock-in and high-fat-fed comparison. The intervention did not rescue insulin sensitivity; the authors report worsened glucose intolerance, compensatory pancreatic changes and impaired proximal signaling (https://pmc.ncbi.nlm.nih.gov/articles/PMC3314336/). The textbook uses this as a site- and preparation-specific counterexample, not evidence that all IRS1 serine phosphorylation is beneficial. It does not falsely characterize every individual insulin-tolerance comparison as statistically significant.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:249:2c75c73f4b56",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:220:2c75c73f4b56",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 249,
+      "line": 220,
       "excerpt": "> 3. **Endpoint and tissue distinction:** Impaired muscle/adipose glucose uptake, hepatic glucose production and compensatory insulin secretion require different measurements; one phosphorylation marker cannot identify all three.",
       "rationale": "A phosphorylation measurement is not itself a measurement of glucose uptake, hepatic glucose-production rate or insulin secretion. Copps illustrates the distinction concretely by separately measuring tissue signaling, glucose/insulin tolerance, plasma insulin and pancreatic beta-cell area (https://pmc.ncbi.nlm.nih.gov/articles/PMC3314336/). The sentence requires appropriate endpoint measurements rather than claiming that a marker can never be informative.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:250:026f843fc663",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:221:026f843fc663",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 250,
+      "line": 221,
       "excerpt": "> These mechanisms can impair insulin signaling, but their importance depends on tissue and preparation; GLUT4 translocation concerns responsive muscle and adipose cells, not a universal hepatic glucose transporter. Metformin can lower hepatic glucose production without requiring AMPK in the studied mouse knockout preparations; AMPK activation is not proof of a unique drug mechanism \\citep{foretz2010metformin}. See \\cref{sec:unit_II_cell_signaling} for RTK signaling.",
       "rationale": "The GLUT4 statement correctly locates the relevant insulin-responsive trafficking mechanism in muscle/adipose cells rather than assigning it to hepatic glucose transport. Foretz's Results/Figure 1 directly show metformin suppression of cultured mouse hepatocyte glucose production without AMPK alpha1/alpha2; Figure 2 separately shows retained glucose-excursion lowering in liver-deficient mice (https://pmc.ncbi.nlm.nih.gov/articles/PMC2898585/). These bounded genetic results defeat a necessary-AMPK interpretation in those preparations, not all possible AMPK contributions or human mechanisms.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:530:6355a3d21c83",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:501:6355a3d21c83",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 530,
+      "line": 501,
       "excerpt": "Writing the ratio as $(2[\\mathrm{ATP}]+[\\mathrm{ADP}])/(2A_{\\mathrm{total}})$ explains the half-weight on ADP. For a positive total pool with nonnegative components, $0\\leq EC\\leq1$: EC=0 requires all adenylate to be AMP, and EC=1 requires all adenylate to be ATP. Total adenylate is conserved only when the specified model or experimental conditions justify that assumption.",
       "rationale": "The independent final refutation caught the reversed respectively association. Direct substitution into EC=(ATP+ADP/2)/(ATP+ADP+AMP) gives 0 for a positive AMP-only pool and 1 for a positive ATP-only pool. With nonnegative components and positive total, the equality conditions require ADP=ATP=0 and ADP=AMP=0, respectively. The corrected explicit associations preserve these assumptions; conservation is conditional, not asserted for every cell.",
       "reviewer": "Integration owner: exact repairs from WorkflowzFinalAdvisoryRefutation and adjacent-context recheck"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:532:47a602938139",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:503:47a602938139",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 532,
+      "line": 503,
       "excerpt": "EC alone does not determine the AMP:ATP or ADP:ATP ratio unless additional constraints are supplied. AMPK also depends on nucleotide binding, activation-loop phosphorylation, upstream kinases and cellular context; there is no universal EC activation window that can be inferred from this formula \\citep{hardie2012ampk}.",
       "rationale": "For an interior EC value, one weighted ratio leaves multiple nucleotide compositions possible; the chapter supplies an explicit same-total counterexample. Xiao's biochemical/structural primary separately distinguishes AMP allostery from ADP protection against dephosphorylation (https://pmc.ncbi.nlm.nih.gov/articles/PMC3078618/), and Hawley's primary demonstrates Ca2+-linked activation without disturbed adenine nucleotide levels (https://pubmed.ncbi.nlm.nih.gov/16054095/). Thus EC is not an AMPK-activity calibration. Pure-pool endpoint cases are mathematical degeneracies, not evidence for a physiological activation window; the endpoint-order defect is separately classified. The only changed adjacent context is the explicit correction to EC=0 for AMP-only and EC=1 for ATP-only positive pools; it does not alter the non-identifiability argument or add an AMPK threshold.",
       "reviewer": "Integration owner: exact repairs from WorkflowzFinalAdvisoryRefutation and adjacent-context recheck"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:545:12bf536425e6",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:516:12bf536425e6",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 545,
+      "line": 516,
       "excerpt": "Yet AMP:ATP is 0 in A and $0.2/0.8=0.25$ in B. These are algebraic teaching compositions, not measurements or claims about equilibrium cells. The scalar therefore cannot reconstruct all three pools without further assumptions. Neither score alone proves kinase activation: a biological study needs the actual preparation, nucleotide state and appropriate AMPK activity/phosphorylation readouts with controls.",
       "rationale": "Both stipulated pools total 1 mM: 0.6+0.5×0.4=0.8 and 0.8+0.5×0=0.8. Their AMP:ATP ratios are 0 and 0.25, respectively. This is a valid algebraic non-identifiability witness because adenylate-kinase equilibrium was expressly not imposed. The zero components do not invalidate that teaching construction, and neither composition is represented as a measured physiological cell or kinase-activation experiment.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:548:d738f2d2ae66",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:519:d738f2d2ae66",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 548,
+      "line": 519,
       "excerpt": "> Metformin is used in type 2 diabetes, but observing AMPK activation does not establish that AMPK uniquely mediates every drug effect. Foretz et al. found that metformin still inhibited glucose production in the studied AMPK-deficient mouse hepatocytes and liver models \\citep{foretz2010metformin}. This is preparation-, genotype- and exposure-specific evidence, not a universal human mechanism or a prescribing recommendation. Mechanistic AMPK or mTORC1 results also do not by themselves establish anti-aging or anticancer benefit in patients.",
       "rationale": "Foretz's relevant full Results were accessible: glucose output was directly assayed in AMPK-null hepatocyte cultures, while the liver-knockout mouse experiment measured blood-glucose excursions after metformin and glucose challenge (https://pmc.ncbi.nlm.nih.gov/articles/PMC2898585/). Together these support the preparation-specific conclusion cited here; the in-vivo challenge is not an independently measured hepatic flux. The paragraph makes no numerical human benefit, lifespan or anticancer-outcome claim from those mechanistic endpoints.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:552:f6d4641d367b",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:523:f6d4641d367b",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 552,
+      "line": 523,
       "excerpt": "> **Concept Check (Synthesis):** Aerobic glycolysis in cancer does not mean mitochondrial ATP production is absent. (a) Compare the net 2 ATP per glucose from glycolytic fermentation with the higher, coupling- and shuttle-dependent total from complete aerobic oxidation; distinguish yield, production rate, precursor demands and NADPH-generating routes. (b) Draw a deliberately simplified mTORC1 input model combining growth-factor, amino-acid and energy signals. Identify which additional measurements would be needed to predict a response to lower glucose rather than treating one input as a universal switch. (c) Explain why a drug-induced change in ATP pools, AMPK phosphorylation or mTORC1 signaling does not alone establish an anticancer clinical outcome.",
       "rationale": "The question correctly separates ATP yield, ATP-production rate and biosynthetic/redox demands. Human NSCLC isotope-infusion evidence demonstrates that enhanced glycolysis and glucose oxidation can coexist, rather than aerobic glycolysis proving absent mitochondrial metabolism (https://pubmed.ncbi.nlm.nih.gov/26853473/; primary abstract). Its mTORC1 task expressly requests a simplified input model and additional measurements, not a deterministic single-input prediction. In the adjoining phosphate example, EC=2.5/4=0.625 and a tenfold Pi increase changes hydrolysis free energy by +RT ln(10), approximately 5.93 kJ/mol; inspected atp_free_energy source implements the stated mM-to-1-M convention.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:581:50ea85c60fca",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:552:50ea85c60fca",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 581,
+      "line": 552,
       "excerpt": "**Step 4 — Interpret within the model.** A has the larger estimated local response under these constructed conditions. If the classical summation assumptions apply, the unmeasured coefficients sum to approximately $1-0.30-0.10=0.60$; their individual values and signs remain unknown. This does not establish a universal glycolytic-control range, rule out dominance elsewhere, or predict a large drug perturbation from a local derivative.",
       "rationale": "Read the entire synthetic perturbation setup. The two estimates are (0.03/10)/(1/100)=0.30 and (0.01/10)/(1/100)=0.10. Their conditional summation residual is approximately 0.60, not an estimate of each remaining enzyme. One-percent finite differences approximate a local derivative and do not determine nonlinear drug responses; the text preserves both qualifications.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:754:8b2f1d7b30c4",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:687:8b2f1d7b30c4",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 754,
+      "line": 687,
       "excerpt": "For an explicit flux ledger, let forward PFK flux be 50 and reverse FBPase flux 49 μmol/min. Net forward flux is then 1 μmol/min. Increasing forward flux alone by 10% to 55 while holding reverse flux at 49 yields net 6: a $(6-1)/1=500\\%$ increase relative to the original net. Equal opposing fluxes of 50 would instead give zero net, for which a relative percentage change is undefined. This held-reverse-flux example illustrates a rheostat at an ATP cost; it is not a universal response to changing both enzymes. The displayed amplification factor is 99 for the 50/49 baseline and pertains to equal fractional changes in opposite directions, not the forward-only 10% perturbation just calculated.",
       "rationale": "Owen's primary abstract confirms the three-person, 5–6-week cohort rather than a three-day generalization. The explicit flux ledger has net 1→6 after forward-only 50→55 with reverse 49, a 500% increase; zero baseline has no defined relative percentage. The separate factor 99 is correctly assigned to opposing fractional perturbations.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:839:17151965ed00",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:772:17151965ed00",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 839,
+      "line": 772,
       "excerpt": "Do not assign a universal 0.1--0.3 control band to glycolytic enzymes or infer a clinical drug response from an unsourced coefficient list. Estimate control in the actual model or preparation and distinguish local sensitivity from intervention efficacy.",
       "rationale": "The actual definition is a dimensionless logarithmic steady-state sensitivity, with enzyme-scaling assumptions stated for summation. Summation alone supplies no universal coefficient interval or finite-intervention bound. The chapter's homogeneous countermodel J=e²/b+9b gives a 10% first-order estimate but a 12.5% actual change for e:1→1.5 at b=1, consistent with the supplied numerical witness. Torres's liver-extract titration is preparation-specific empirical support, not a universal glycolytic band (https://pmc.ncbi.nlm.nih.gov/articles/PMC1146541/).",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:852:b229fba90da2",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:785:b229fba90da2",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 852,
+      "line": 785,
       "excerpt": "| **Imaging MS** | Pixel size, ionization, matrix and sampling geometry | Spatially resolved mass signals | Tissue localization | Quantification and identity need validation; no universal detection limit |",
       "rationale": "The row describes spatial mass signals rather than equating signal intensity with identified analyte concentration. A primary experiment using equally spiked rabbit tissue homogenates found tissue-dependent imaging intensities even after isotope-standard correction, and examined section thickness and calibration effects (https://pubmed.ncbi.nlm.nih.gov/27934123/; abstract). This supports the stated quantification/matrix boundary. The row assigns no instrument-independent detection threshold and no automatic chemical identity to an m/z image.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:856:dec717717ebb",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:789:dec717717ebb",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 856,
+      "line": 789,
       "excerpt": "1. **Identification.** An LC-MS feature is not necessarily a distinct metabolite: adducts, isotopes, fragments and isomers complicate assignment. Report the actual feature/analyte denominator, standards and identification evidence rather than a universal confidently identified fraction.",
       "rationale": "Mahieu and Patti's primary abstract reports that grouping degenerate LC/MS features and removing nonbiological signals radically reduced the analyte count in one E. coli dataset (https://pubmed.ncbi.nlm.nih.gov/28914531/). It directly supports distinguishing features from metabolites, not importing that study's reduction fraction into all experiments. The textbook appropriately requires identification evidence, standards and an explicit denominator; isomer identity is not inferred solely from exact mass.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:858:d2928fb20129",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:791:d2928fb20129",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 858,
+      "line": 791,
       "excerpt": "3. **Flux ≠ concentration.** A high intermediate concentration can reflect increased supply or reduced removal. Stable-isotope tracing can constrain fluxes under a specified model, but it is not the only method: direct substrate/product rates and perturbation experiments can also measure appropriate pathway fluxes \\citep{torres1986flux}.",
       "rationale": "Steady-state concentration can remain unchanged while balanced production/removal rates increase, so pool size alone does not fix flux. Torres actually recorded pathway flux by NADH decay and estimated control by enzyme titration, demonstrating an appropriate non-isotope route (https://pmc.ncbi.nlm.nih.gov/articles/PMC1146541/; primary abstract). The subsequent paragraph also requires a specified network, applicable kinetics and boundary conditions for coefficient reconstruction rather than treating selected elasticities as automatically sufficient.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:908:7dc6760a2f5a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:841:7dc6760a2f5a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 908,
+      "line": 841,
       "excerpt": "- **Energy charge** \\cref{eq:unit_III_energy_charge} is a normalized phosphorylation-state score from 0 to 1. It does not uniquely determine nucleotide composition, ATP-hydrolysis free energy or AMPK activity; a universal physiological window is not imposed here.",
       "rationale": "The targeted EC summary agrees with the equation and worked counterexamples: normalization bounds the phosphorylation-state score, same-EC pools can have different nucleotide ratios, and changing Pi changes ATP-hydrolysis free energy without changing EC. AMPK is independently modulated by nucleotide binding and phosphorylation; actual primary evidence includes ADP protection against dephosphorylation (https://pmc.ncbi.nlm.nih.gov/articles/PMC3078618/) and Ca2+-linked activation without nucleotide-level disturbance (https://pubmed.ncbi.nlm.nih.gov/16054095/). The summary therefore does not supply a biochemical or diagnostic EC threshold.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:917:5faaf901ebda",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:850:5faaf901ebda",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 917,
+      "line": 850,
       "excerpt": "- **Metabolic control analysis** (\\cref{eq:unit_III_mca_summation}) permits distributed control but does not exclude a dominant step. Coefficients describe a specified state and perturbation boundary, not universal intervention limits.",
       "rationale": "This MCA summary follows the theorem's actual logical strength. A single capacity-scaled reaction between fixed substrate/product reservoirs has J proportional to its enzyme activity and coefficient 1, so dominance is compatible with summation. Distributed coefficients are also allowed. Local coefficients concern the specified state and perturbation boundary; neither this theorem nor the synthetic example establishes universal clinical intervention limits.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
@@ -6641,127 +6641,127 @@
       "reviewer": "Workflowz integration owner; independent PAM counterexample verified, 2026-11-08"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:144:d8ea239581e8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:133:d8ea239581e8",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 144,
+      "line": 133,
       "excerpt": "**Absolute refractory period:** For a specified membrane and stimulation protocol, this is the post-spike interval during which another spike cannot be evoked, largely because sodium-channel availability is reduced. An interval around 1–2 ms is illustrative, not universal. Refractoriness contributes to normal forward propagation, but stimulation in the middle of an axon can launch spikes in both directions; neither directionality nor a fixed firing-rate ceiling follows from local inactivation alone.",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:165:45666e98a124",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:154:45666e98a124",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 165,
+      "line": 154,
       "excerpt": "Here $a$ is axon radius and $a_0$ is a reference radius; this is a conditional scaling, not a universal velocity law \\citep{rushton1951fibresize}. Increasing diameter reduces axial resistance, increasing velocity. Squid giant axon (500 um diameter) achieves ~25 m/s by brute-force gigantism.",
       "rationale": "The preceding normalized velocity ratio is dimensionally valid and explicitly conditional on fixed membrane/channel and resistivity properties. Rushton’s scanned pages 101 and 120–121 support conditional size-scaling reasoning, not a universal velocity constant. The adjacent squid numerical example was not independently authenticated as a preparation-specific measurement.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:178:cbcf83ca6603",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:167:cbcf83ca6603",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 178,
+      "line": 167,
       "excerpt": "Along an intact myelinated axon, a propagating action potential is regenerated at **nodes of Ranvier**, where voltage-gated Na$^+$ channels are concentrated. This is propagation, not a universal site of initial spike generation; cortical pyramidal neurons, for example, initiate spikes in the axon initial segment \\citep{kole2008ais}. Node geometry, spacing and density estimates require a specified preparation and measurement method \\citep{ritchie1977nodalchannels,harris2012whitematter}.",
       "rationale": "The context distinguishes nodal propagation/regeneration from initial spike generation and passive attenuation from active maintenance. Kole’s actual abstract supports the cortical-pyramidal AIS example; geometry and density are not presented as universal constants. https://www.nature.com/articles/nn2040.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:180:caa8dec4c002",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:169:caa8dec4c002",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 180,
+      "line": 169,
       "excerpt": "**Saltatory conduction:** The AP appears to \"jump\" between nodes. For comparable membrane/channel and nodal properties and geometrically similar internodes, velocity can scale approximately linearly with fiber diameter. Expressed in axon diameter $d$, this also requires a fixed g-ratio (axon diameter/outer fiber diameter), giving $\\theta \\propto d$ as a conditional model scaling, not a universal speed law \\citep{rushton1951fibresize}:",
       "rationale": "Fixed g-ratio correctly connects outer-fiber and axon diameter; nodal and internodal assumptions bound the approximately linear myelinated scaling. Rushton’s page-120 summary explicitly requires comparable materials/pattern and geometric similarity. https://pmc.ncbi.nlm.nih.gov/articles/PMC1392008/.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:210:560eade08c8b",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:199:560eade08c8b",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 210,
+      "line": 199,
       "excerpt": "**The fundamental insight:** Myelination permits rapid conduction without giant axons. Its energetic comparator matters: holding diameter fixed differs from holding conduction speed fixed, because an equally fast unmyelinated alternative would require a larger diameter. Speed and space efficiency do not establish a universal ATP saving \\citep{harris2012whitematter}.",
       "rationale": "The full context correctly separates equal-diameter from equal-speed comparators and distinguishes speed/space benefits from ATP savings. Harris–Attwell is a rodent-based calculated energy budget, not a universal energetic ratio. Its methods and Table 1 support including both nodal and effective internodal capacitance. https://pmc.ncbi.nlm.nih.gov/articles/PMC3272449/.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:212:e9fc99754f0d",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:201:e9fc99754f0d",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 212,
+      "line": 201,
       "excerpt": "The **ATP cost per spike** depends on sodium charge subsequently extruded, not nodal surface fraction alone. Nodal sodium current also charges effective internodal capacitance. In a simplified capacitive model for one node and its two adjacent half-internodes, let $C_{\\mathrm{node}}$ and $C_{\\mathrm{internode,eff}}$ be lumped capacitances in farads and approximate their voltage excursions by the same $\\Delta V$ in volts. The spike-associated sodium-pumping cost for this repeat unit is $N_{\\mathrm{ATP}}\\approx\\eta(C_{\\mathrm{node}}+C_{\\mathrm{internode,eff}})\\Delta V/(3e)$ ATP molecules per spike, where $\\eta$ is a preparation/model-dependent ionic-current-overlap factor and $e$ is elementary charge; three Na$^+$ are extruded per ATP. Sum repeat-unit costs over the specified axonal length to estimate its propagation cost. This excludes resting currents, housekeeping and glial costs. Harris and Attwell's rodent-based model shows that glial maintenance can offset axonal spike savings under its assumptions; it does not define a universal energetic benefit or prove that myelination never saves energy \\citep{harris2012whitematter}.",
       "rationale": "For the explicitly specified repeat unit, F×V/C gives an ion count, and division by three converts sodium extrusion into ATP molecules per spike. The shared voltage excursion and overlap factor are model assumptions; length summation and excluded resting/glial costs are explicit. Harris–Attwell supports possible maintenance offsets, not either universal savings or universal absence of savings.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:355:418549221877",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:335:418549221877",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 355,
+      "line": 335,
       "excerpt": "**NMDA receptor — coincidence detection:** With glutamate and glycine/D-serine co-agonist occupancy, depolarization reduces voltage-dependent extracellular Mg$^{2+}$ block and can favor calcium entry. This supports a molecular contribution to Hebbian plasticity \\citep{hebb1949}, not a guarantee of LTP whenever cells are coactive. Induction protocol, calcium dynamics and cell/synapse type determine whether strengthening, depression or no lasting change follows.",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:357:0d7676eddfc0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:337:0d7676eddfc0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 357,
+      "line": 337,
       "excerpt": "**Concept Check:** At a synapse with $n=10$ vesicles and $q=0.5$ mV, the expected response is $npq$. Compute it at $p=0.2$ and at the physical maximum $p=1$. Can increasing release probability alone bridge the 15-mV gap from $-70$ to $-55$ mV? Explain why even release of all ten vesicles gives only 5 mV, and identify an additional change (more sites, larger quantal response, or summation across inputs) needed for threshold crossing.",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:359:d3b2dbf01e13",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:339:d3b2dbf01e13",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 359,
+      "line": 339,
       "excerpt": "**Concept Check (Analyze) — NMDA coincidence detection and plasticity.** Under specified extracellular Mg$^{2+}$ and saturating glutamate/co-agonist conditions, sketch the voltage dependence of NMDA current, distinguishing gradual relief of block from a universal hard threshold. How could removing Mg$^{2+}$ sensitivity alter coincidence dependence? Design matched stimulation, receptor-expression, calcium and synaptic-response measurements to test the effect; do not assume a receptor mutation or PKA/CaMKII perturbation uniquely determines LTP in every synapse.",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:687:a84750534718",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:667:a84750534718",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 687,
+      "line": 667,
       "excerpt": "**Bidirectional plasticity:** The same synapse can undergo LTP or LTD under different induction protocols. The **BCM (Bienenstock-Cooper-Munro) rule** models a sliding modification threshold ($\\theta_M$) influenced by recent postsynaptic activity; it is not a universal ordering of calcium thresholds across synapse types. At cerebellar parallel-fiber–Purkinje-cell synapses, paired parallel- and climbing-fiber input can recruit large Ca$^{2+}$ signals, PKC activation and AMPA-receptor internalization for LTD. Coesmans et al.'s rat experiments found a higher calcium threshold for parallel-fiber LTD than for parallel-fiber LTP, the inverse of the conventional hippocampal ordering. Parallel-fiber LTD can contribute to motor adaptation without being its only plasticity site.",
       "rationale": "The cerebellar versus hippocampal calcium-ordering distinction survives primary endpoint checking. Coesmans reports PF-LTD requiring a higher calcium amplitude than PF-LTP; De Zeeuw separately reports Purkinje-targeted PKC inhibition blocking cultured-cell LTD and VOR-gain adaptation in mice; Wang/Linden separately reports postsynaptic dynamin/amphiphysin interference blocking cultured Purkinje LTD. The chapter/key explicitly distinguish these preparations and do not make LTD the exclusive learning substrate. The conventional hippocampal phosphatase/endocytosis account and sliding BCM threshold are not imposed universally. Primary abstracts: https://pubmed.ncbi.nlm.nih.gov/15541316/ ; https://pubmed.ncbi.nlm.nih.gov/9539124/ ; https://pubmed.ncbi.nlm.nih.gov/10774731/.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:759:dc879a0f58ee",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:739:dc879a0f58ee",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 759,
+      "line": 739,
       "excerpt": "The direct mean (1.92) and Poisson failure estimate (3.22) disagree. That challenges a single-parameter Poisson description, assuming all zero and nonzero events were correctly classified; it does not identify a best alternative. Fit binomial or heterogeneous-site likelihoods to the full histogram, include detection errors, and compare predictions before claiming a better fit.",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:838:1655bb8dd2a7",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:818:1655bb8dd2a7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 838,
+      "line": 818,
       "excerpt": "11. At a synapse, mEPP amplitude is 0.5 mV and mean EPP amplitude is 4.5 mV under approximately linear low-release conditions. (a) Estimate mean quantal content. (b) Under a Poisson model, calculate failure probability. (c) If mean release is stipulated to scale as extracellular [Ca$^{2+}$]$^4$ over 1–2 mM, predict the fold change on doubling calcium. Why does this local empirical slope neither establish a universal relation nor count bound ions per fusion?",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:877:07c9ea9a2121",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:857:07c9ea9a2121",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 877,
+      "line": 857,
       "excerpt": "- **Myelination:** Nodal regeneration links passive current spread through internodes. Geometry-dependent models can yield approximately linear diameter scaling, but neither fiber speed examples nor nodal area determine a universal ATP saving. Axonal spike cost and total axon--glia maintenance are different budgets \\citep{harris2012whitematter}.",
       "rationale": "Accept this bounded summary. Rushton's primary theoretical paper pp.101/120 conditions diameter scaling on specific material properties and dimensional similarity; p.120 contrasts approximately linear myelinated scaling with square-root unmyelinated scaling. This supports 'geometry-dependent models can yield,' not a universal law for arbitrary geometry. Harris–Attwell separately calculates spike sodium-pumping costs, resting-potential costs and housekeeping, and compares spike savings with oligodendrocyte maintenance. The summary correctly distinguishes those budgets. Sources U1 and H1.",
       "reviewer": "WorkflowzPrintedClaimAdversarial#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:880:0f91737d133c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:860:0f91737d133c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 880,
+      "line": 860,
       "excerpt": "- **Protocol-specific plasticity:** A conventional hippocampal NMDA-dependent LTP example recruits Ca$^{2+}$, CaMKII and AMPA-receptor phosphorylation/insertion, with later transcriptional and structural changes. Hippocampal LTD can recruit phosphatases and AMPA internalization; it is not a universal opposite pathway. Cerebellar parallel-fiber--Purkinje-cell LTD can instead involve larger calcium signals and PKC-dependent signaling \\citep{coesmans2004cerebellarplasticity,dezeeuw1998pkc,wang2000endocytosis}.",
       "rationale": "The summary names a conventional hippocampal mechanism without making it the definition of all potentiation/depression. Coesmans experimentally found higher calcium requirements for cerebellar PF-LTD than PF-LTP, and De Zeeuw separately tested Purkinje-cell PKC dependence. Those are valid counterexamples to a universal low-calcium-LTD rule, not a universal cerebellar learning theory. Sources: https://pubmed.ncbi.nlm.nih.gov/15541316/ ; https://pubmed.ncbi.nlm.nih.gov/9539124/ .",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#2"
@@ -8816,6 +8816,69 @@
       "line": 505,
       "excerpt": "NMD has homeostatic functions beyond aberrant-transcript quality control, including regulation of particular alternatively spliced physiological isoforms during development and cellular responses. These roles do not specify one universal transcript fraction or disease outcome \\citep{kurosaki2019nmd}.",
       "rationale": "Kurosaki et al. (2019) review physiological NMD, including regulated alternative splicing, development and cellular responses. The sentence explicitly declines to infer a universal transcript fraction or disease outcome, and it distinguishes aberrant-transcript quality control from pathogen detection. This classification is not certification of every unchanged clinical or experimental claim in the chapter.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_II/questions_membrane_transport.md:122:3372cdd3c4be",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/questions/unit_II/questions_membrane_transport.md",
+      "line": 122,
+      "excerpt": "**Answer (Q17, Application).** Vesicular synaptobrevin, syntaxin-1 and SNAP-25 contribute four helices to the neuronal SNARE bundle. Progressive assembly brings the membranes close and supplies free energy, but that fact does not establish a universal energy barrier, fusion time or autonomous cellular fusion mechanism. Rabs, tethers, SM/priming factors and calcium-sensitive regulators contribute to targeting and controlled release. Depending on toxin type, botulinum proteolysis cleaves a relevant SNARE and disrupts the functional assembly needed for regulated acetylcholine release at the affected terminal. Do not substitute an unscoped energy pair for evidence of membrane fusion \\citep{rizo2022neurotransmitterrelease}. See \\cref{sec:unit_II_membrane_transport}.",
+      "rationale": "The question and key explicitly select the neuronal SNARE example. Four helices are contributed by synaptobrevin, syntaxin-1 and the two SNAP-25 helices. Rizo (2022), checked as review synthesis in selected full-text sections, supports regulated assembly rather than a universal numerical fusion barrier or clock. The botulinum statement is conditional on toxin type and an appropriate SNARE substrate; it does not assign one target or response to all toxins or preparations. The flagged universal language rejects an unsupported inference rather than asserting one.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/membrane_transport.md:691:bc3e95ae1b50",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_II/membrane_transport.md",
+      "line": 691,
+      "excerpt": "In the neuronal SNARE example, synaptobrevin, syntaxin-1 and SNAP-25 contribute four helices to a tight complex. The zipper model describes progressive assembly from membrane-distal toward membrane-proximal regions. Assembly supplies free energy, but comparing one unscoped assembly energy with one barrier does not establish a universal fusion mechanism or rate: membrane composition, geometry and regulatory proteins matter \\citep{rizo2022neurotransmitterrelease}.",
+      "rationale": "Rizo (2022) describes progressive neuronal SNARE assembly together with membrane and regulatory interactions. Assembly free energy alone cannot identify a preparation-independent barrier, fusion rate or complete cellular mechanism. The excerpt deliberately separates this model from unscoped numerical energies and names membrane composition, geometry and regulators as relevant conditions. The cited review was inspected in selected sections, not treated as new experimental measurement or universal mechanistic proof.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/membrane_transport.md:709:9deff4507b3b",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_II/membrane_transport.md",
+      "line": 709,
+      "excerpt": "4. **Triggering and fusion.** Calcium binding to synaptotagmin-1 alters protein/membrane interactions and favors fast fusion in the selected synchronous model. The detailed molecular transitions remain working models, not a universal fixed concentration, distance or clock \\citep{rizo2022neurotransmitterrelease}.",
+      "rationale": "The statement selects synaptotagmin-1 and fast synchronous release, rather than assigning calcium sensing to every family member or every secretory pathway. Rizo (2022) presents molecular configurations and regulatory interactions as working models. The flagged universal phrase explicitly refuses to infer a fixed concentration, distance or clock from the cartoon; no such value is being accepted by this review.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:251:7ae2a30328bf",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
+      "line": 251,
+      "excerpt": "- **Complexin:** A SNARE-binding regulator with stimulating and restraining roles in working models of primed release. Its function is not captured by a mandatory single clamp-displacement step in a universal fusion sequence \\citep{rizo2022neurotransmitterrelease}.",
+      "rationale": "Selected full-text sections of Rizo (2022), independently checked in BiologyCompactContentRefutation#1, describe complexin stimulation, restraint and preparation-dependent models. The sentence rejects a mandatory single clamp-displacement sequence while retaining complexin regulation. It does not claim that displacement never occurs or that one proposed configuration has been experimentally established for all release modes.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:256:2cdf36525273",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
+      "line": 256,
+      "excerpt": "Miniature EPPs report spontaneous quantal responses, but their amplitudes vary across events and preparations. A single measured amplitude is not a universal 0.5-mV constant. Distinguish a stipulated identical-quanta model from measured quantal-size variability, release-site heterogeneity and nonlinear voltage summation.",
+      "rationale": "The original del Castillo–Katz work distinguishes fluctuating events and mean quantal content; selected scanned pages, not raw data, were independently inspected. The chapter now states the fixed-q homogeneous linear model separately from observed amplitude variability. A measured miniature event cannot establish a universal 0.5-mV value across events or preparations. The flagged absolute is a rejection of that unsupported invariant, not rejection of a stipulated constant-q teaching model.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:311:3b3e701aa08a",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
+      "line": 311,
+      "excerpt": "3. **The low-release condition.** With $n=100,p=0.02$, $m=2$ and the mean current is $1$ nA. The exact failure probability is $0.98^{100}\\approx0.1326$; the Poisson approximation gives $e^{-2}\\approx0.1353$. Their closeness is a property of this stipulated small-$p$ example, not a universal failure rate. In the ideal identical-quanta model, amplitudes occur at $0,q,2q,\\ldots$; visible peaks in a measured histogram also depend on quantal-size variability and recording noise.",
+      "rationale": "For the explicitly synthetic independent-site model n=100, p=0.02 and q=0.5 nA, exact binomial enumeration gives mean release approximately 2, failure 0.13261955589475294, current variance approximately 0.49 nA squared and CV approximately 0.70. The Poisson failure exp(-2)=0.1353352832366127 is an approximation, not an empirical or universal rate. The text preserves identical-quanta and recording-noise limits instead of inferring visible measured histogram peaks from a probability mass function alone.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:651:57ae260518fd",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
+      "line": 651,
+      "excerpt": "| **Y-linked** | In the stated XY model, non-pseudoautosomal Y-linked variants pass from father to son; variant transmission does not itself guarantee an affected phenotype |",
+      "rationale": "Within the stated ordinary XY segregation model, a non-pseudoautosomal Y-linked allele follows paternal-Y transmission. Pseudoautosomal loci are explicitly excluded, and allele transmission is separated from expression or disease. The flagged guarantee is negated: penetrance and genetic or environmental context prevent a transmission rule from certifying an affected phenotype. This review does not generalize the XY model to all sex-determination systems.",
       "reviewer": "wfz-biology-textbook-release"
     }
   ]

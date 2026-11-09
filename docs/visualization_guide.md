@@ -55,6 +55,14 @@ renders matched across both locked CLI installations in the controlled compariso
 This is a tested host profile, not a cross-platform pixel guarantee. Do not hide
 drift by rounding colors, quantizing pixels or relaxing artifact comparisons.
 
+The shared inline-source normalizer keeps HTML line breaks renderable with the
+locked CLI in both standalone and template-assisted paths. A backend conversion
+to literal `\n` must not leak into a printed state label. Preserve source identities
+through the same normalizer in collection, rendering and hydrated-source checks.
+For compact print, shorten and structure labels before increasing raster size:
+a wide nine-participant sequence or an over-tall graph can still have tiny text
+on the page. Review actual clipped PNG/PDF size; square padding is not legibility.
+
 ### Meaning and limits of graphical abstracts
 
 Unit maps are selected relationship overviews, not prerequisite graphs or causal proof. Use two or three named groups, short sentence-case labels and arrowless labeled connectors. Reserve arrows for explicitly scoped material/information transfer or an actual modeled transition. Use dark text on light fills, without emoji or color-only meaning. Caption and alt text must explain the connections and omissions, not merely name colors.

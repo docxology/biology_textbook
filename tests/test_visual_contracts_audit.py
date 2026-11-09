@@ -103,6 +103,14 @@ def test_explicit_source_line_break_survives_standalone_normalization(monkeypatc
     assert r"\n" not in normalized
 
 
+@pytest.mark.parametrize("prefix", ["", "---\nconfig:\n  layout: dagre\n---\n"])
+def test_authored_state_label_breaks_remain_renderable_html(prefix: str) -> None:
+    source = prefix + "stateDiagram-v2\n A --> B: first<br/>second"
+    normalized = normalise_inline_mermaid_source(source)
+    assert "first<br/>second" in normalized
+    assert r"first\nsecond" not in normalized
+
+
 def test_inline_publication_requires_real_cli(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     from biology.visual_contracts import render_inline_mermaid_assets
 

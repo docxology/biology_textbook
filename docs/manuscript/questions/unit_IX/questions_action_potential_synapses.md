@@ -115,12 +115,12 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
-13. Quantal analysis of neurotransmitter release: at the neuromuscular junction, each synaptic vesicle contains ~10,000 ACh molecules (one "quantum"). The miniature end-plate potential (mEPP) = 0.4 mV. A normal EPSP = 40 mV. Estimate the quantal content (m = EPSP/mEPP). What parameter does the quantal content depend on (n = number of release sites, p = release probability)?
+13. In an illustrative low-release neuromuscular-junction model, the mean miniature EPP is $q=0.4$ mV and the mean evoked EPP over repeated comparable stimuli is $2.0$ mV. Assume $n$ equivalent release sites with probability $p$, fixed quantal size and approximately linear voltage summation. Estimate mean quantal content $m$, relate it to $n$ and $p$, and explain why neither a particular trial nor the separate values of $n$ and $p$ follow from these means.
 
 <!-- SOLUTION
-**Answer (Q13, Application).** Quantal model: EPP = n·p·q, where q (quantal size) is the postsynaptic response to one vesicle (the mEPP) and quantal content m = number of quanta released per stimulus ≈ EPP/mEPP. Substituting the stated values: m = 40 mV ÷ 0.4 mV = **100 quanta per stimulus**. (This linear estimate assumes responses sum approximately linearly and is reasonable when the EPP is not strongly attenuated by nonlinear summation.) Quantal content depends on m = n × p, where n is the number of release-ready vesicles/release sites and p is the per-vesicle release probability (each ~0.1–0.4 at physiological Ca²⁺ at the NMJ). Thus m can fall if either n drops (Lambert–Eaton, vesicle depletion) or p drops (low extracellular Ca²⁺, high Mg²⁺) — a quantitatively interpretable, biologically plausible result. See \cref{sec:unit_IX_action_potential_synapses}.
+**Answer (Q13, Application).** In the stipulated model, $E[\mathrm{EPP}]=npq$ and mean quantal content is $m=E[\mathrm{EPP}]/q=2.0/0.4=5$ quanta per stimulus. A trial releasing $k$ quanta has response $kq$; its realized $k$ can differ from the mean. The mean constrains the product $np$, not the separate site count and release probability. The numerical inputs are synthetic teaching values, not a normal-response reference range. Linear voltage summation must be justified in a real preparation; large EPPs approaching the reversal potential require nonlinear-summation correction. See \cref{sec:unit_IX_action_potential_synapses}.
 
-**Scoring guide (4 points).** 2 points: $m=100$ with the $m=np$ relation; 2 points: linear amplitude approximation caveat.
+**Scoring guide (4 points).** 2 points: mean $m=5$ with $m=np$; 1 point: trial-versus-mean and $n,p$ ambiguity; 1 point: linear-amplitude assumption.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->

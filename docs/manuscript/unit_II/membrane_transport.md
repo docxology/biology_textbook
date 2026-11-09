@@ -660,37 +660,25 @@ In myelinated axons, Schwann cells in the PNS or oligodendrocytes in the CNS pro
 **Exocytosis:** secretory vesicles fuse with the plasma membrane, releasing contents extracellularly.
 
 ```mermaid
-sequenceDiagram
-    participant V as Vesicle (v-SNARE: VAMP/synaptobrevin)
-    participant T as Target membrane (t-SNAREs: syntaxin + SNAP-25)
-    participant R as Regulatory proteins
-
-    Note over V,T: Step 1: Tethering
-    V->>T: Rab GTPase + tethering factors bring vesicle close
-
-    Note over V,T: Step 2: Docking
-    V->>T: v-SNARE (VAMP) engages t-SNAREs (syntaxin + SNAP-25)
-
-    Note over V,T: Step 3: Priming
-    R->>V: Munc18 + Munc13 prepare SNARE complex
-    R->>V: Complexin clamps the primed state (prevents premature fusion)
-
-    Note over V,T: Step 4: Ca2+ trigger
-    R->>V: Ca2+ influx → synaptotagmin binds Ca2+ → displaces complexin
-
-    Note over V,T: Step 5: Fusion
-    V->>T: SNARE complex zippers (4-helix bundle) → membrane fusion (~0.2 ms)
-    T->>V: Vesicle contents released
-
-    Note over V,T: Step 6: Recycling
-    R->>V: NSF + alpha-SNAP disassemble SNARE complex (ATP-dependent)
-    V->>V: v-SNARE recycled for next round
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    T["Tethering and target recognition<br/>Rab proteins and tethering factors"]
+    P["Docking / priming<br/>SNARE assembly with SM-protein regulation"]
+    F["Membrane fusion<br/>SNAREs bring membranes together;<br/>regulators depend on the pathway"]
+    C["Cargo delivery<br/>Vesicle and target membranes become continuous"]
+    R["SNARE recycling<br/>NSF ATPase with SNAP adaptors"]
+    T --> P --> F --> C --> R
+    R -. reusable SNARE components .-> P
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827
 ```
-<!-- alt: Sequence diagram showing SNARE-mediated vesicle fusion during regulated exocytosis. The v-SNARE on the vesicle (VAMP/synaptobrevin) and t-SNAREs on the target membrane (syntaxin + SNAP-25) form a tight four-helix bundle that drives membrane fusion. Synaptotagmin acts as the Ca^2+ sensor that triggers fusion in <1 ms. -->
+<!-- alt: Flowchart showing selected SNARE-mediated exocytosis checkpoints. SNARE assembly helps bring membranes together, while targeting and regulatory machinery depend on the pathway. NSF-mediated recycling uses SNAP adaptors; this distinction matters when interpreting ATP-dependent disassembly. -->
 
-*SNARE-mediated vesicle fusion during regulated exocytosis. The v-SNARE on the vesicle (VAMP/synaptobrevin) and t-SNAREs on the target membrane (syntaxin + SNAP-25) form a tight four-helix bundle that drives membrane fusion. [**Synaptotagmin**](#gl:synaptotagmin) acts as the Ca$^{2+}$ sensor that triggers fusion in <1 ms.*
+*Selected SNARE-mediated exocytosis checkpoints. SNARE assembly helps bring membranes together, while targeting and regulatory machinery depend on the pathway. NSF-mediated recycling uses SNAP adaptors; this distinction matters when interpreting ATP-dependent disassembly \citep{rizo2022neurotransmitterrelease,zhao2015snarerecycling}.*
 
-- **Synaptic vesicle fusion:** Ca$^{2+}$ entry through voltage-gated Ca$^{2+}$ channels triggers synaptotagmin, fusion occurs in <0.2 ms (fastest biological membrane fusion)
+- **Synaptic vesicle fusion:** Calcium entry through voltage-gated channels couples to [**synaptotagmin**](#gl:synaptotagmin)-dependent release. The selected fast synchronous mode can occur within a millisecond after calcium entry; slower asynchronous release also occurs \citep{rizo2022neurotransmitterrelease}.
 - **Insulin secretion:** glucose metabolism raises ATP/ADP ratio, closes K$_{ATP}$ channels, depolarization opens Ca$^{2+}$ channels, Ca$^{2+}$ triggers insulin granule exocytosis
 
 > **Clinical Connection: Botulinum Toxin and Tetanus Toxin**
@@ -700,26 +688,26 @@ sequenceDiagram
 
 ### SNARE Mechanism in Detail
 
-The SNARE hypothesis (Rothman, Schekman, Südhof — 2013 Nobel Prize in Physiology or Medicine) explains how vesicles fuse with target membranes with both spatial and temporal precision. Each fusion event requires a quartet of helices contributed by a v-SNARE (on the vesicle) and t-SNAREs (on the target membrane). The four-helix bundle "**zippers**" from the membrane-distal N-terminus toward the membrane-proximal C-terminus, releasing ~35 $k_B T$ of free energy per SNARE complex — enough to overcome the kinetic barrier (~25 $k_B T$) for membrane fusion.
+In the neuronal SNARE example, synaptobrevin, syntaxin-1 and SNAP-25 contribute four helices to a tight complex. The zipper model describes progressive assembly from membrane-distal toward membrane-proximal regions. Assembly supplies free energy, but comparing one unscoped assembly energy with one barrier does not establish a universal fusion mechanism or rate: membrane composition, geometry and regulatory proteins matter \citep{rizo2022neurotransmitterrelease}.
 
-**Compartment-specific SNARE pairs** ensure that each vesicle fuses primarily with its correct target:
+**Selected SNARE combinations** contribute to pathway specificity together with Rabs, tethering factors and SM proteins. The R/Q classification describes motif chemistry rather than a fixed vesicle/target location. The mammalian ER--Golgi quaternary example contains Sec22b, syntaxin-5, membrin and Bet1; membrin and GS27 are aliases, not two different subunits \citep{xu2000ergolgisnare}.
 
-: SNARE Mechanism in Detail: Compartment pair and v-SNARE. {#tbl:unit_II_membrane_transport_snare_mechanism_in_detail}
-| Compartment pair | v-SNARE | t-SNAREs |
+: Selected SNARE combinations: pathway context and R/Q motif roles. {#tbl:unit_II_membrane_transport_snare_mechanism_in_detail}
+| Selected pathway context | R-SNARE example | Q-SNARE components |
 | ---------------- | ------- | -------- |
 | Synaptic vesicle → presynaptic membrane | VAMP2 (synaptobrevin) | Syntaxin-1 + SNAP-25 |
-| ER → cis-Golgi (COPII) | Sec22 / Bet1 | Syntaxin-5 + Membrin + GS27 |
+| ER--Golgi quaternary example | Sec22b | Syntaxin-5 + membrin (GS27) + Bet1 |
 | Endosome → late endosome | VAMP7 / VAMP8 | Syntaxin-7 + Vti1b + Syntaxin-8 |
 | Late endosome → lysosome | VAMP7 | Syntaxin-7 + Vti1b + Syntaxin-8 |
 | Golgi → plasma membrane (constitutive) | VAMP2 / VAMP3 / VAMP4 | Syntaxin-3/4 + SNAP-23 |
 
-**The five steps of SNARE-mediated fusion:**
+**A regulated synaptic-fusion working model:**
 
-1. **Tethering.** Rab GTPases on the vesicle (e.g., Rab3 on synaptic vesicles, Rab1 on ER-derived vesicles) bind their effectors on the target membrane (long coiled-coil tethers like p115 or large multi-subunit complexes like the exocyst). Tethering is reversible and provides ~100 nm initial contact.
-2. **Docking.** The four SNARE helices begin to pair through their N-terminal regions. SM proteins (Sec1/Munc18 family) chaperone the syntaxin partner, holding it in an open conformation. At synapses, Munc18 + Munc13 prepare syntaxin-1 for SNARE assembly.
-3. **Priming.** Partial zippering brings the vesicle within ~5 nm of the target membrane. **Complexin** binds the half-zippered SNARE complex, clamping it in a metastable state ready to release on demand. Without complexin, vesicles fuse spontaneously; with complexin primarily, they cannot fuse — both must be present for regulated fusion.
-4. **Triggering.** At the synapse, action-potential-evoked Ca$^{2+}$ entry through voltage-gated Ca$^{2+}$ channels reaches ~10 μM at the active zone within microseconds. Synaptotagmin-1 (Ca$^{2+}$ sensor with two C2 domains) binds Ca$^{2+}$ and PIP$_2$, displaces complexin, and releases the SNAREs to complete zippering. The whole event takes <0.2 ms — the fastest known protein-mediated fusion.
-5. **Disassembly.** After fusion, the cis-SNARE complex (the four helices now in the same membrane) is dismantled by **NSF** (N-ethylmaleimide-sensitive factor, an AAA+ ATPase) and its adaptor **alpha-SNAP**. This requires ATP hydrolysis (~1 ATP per SNARE complex) and recycles the SNAREs for the next round.
+1. **Tethering.** Rab proteins and their effectors help recognize and bring membranes together; geometry and partners depend on the trafficking pathway.
+2. **Preparation.** In the neuronal model, Munc18-1 binds closed syntaxin-1, and Munc13 helps open syntaxin and organize SNARE assembly. This is not a rule that an SM protein simply holds syntaxin open.
+3. **Priming.** Partially assembled SNARE machinery is regulated by synaptotagmin and complexin. Their stabilizing, stimulating and restraining interactions are not reduced to an obligatory two-protein on/off clamp.
+4. **Triggering and fusion.** Calcium binding to synaptotagmin-1 alters protein/membrane interactions and favors fast fusion in the selected synchronous model. The detailed molecular transitions remain working models, not a universal fixed concentration, distance or clock \citep{rizo2022neurotransmitterrelease}.
+5. **Disassembly.** The NSF AAA$^+$ ATPase and alpha-SNAP adaptor support ATP-dependent disassembly of SNARE complexes. Do not assign ATPase identity to alpha-SNAP or an untraced fixed ATP cost to each complex \citep{zhao2015snarerecycling}.
 
 ### Vesicle Coat Proteins in Detail
 
@@ -840,7 +828,7 @@ flowchart LR
 - The Na$^+$/K$^+$-ATPase maintains ionic gradients essential for membrane potential, cell volume, and secondary active transport, consuming ~25% of cellular ATP.
 - ABC transporters use ATP to transport diverse substrates; clinical significance includes multidrug resistance (MDR1) and cystic fibrosis (CFTR).
 - The Nernst equation gives the equilibrium potential of each ion; the Goldman equation gives the actual membrane potential for multiple ions simultaneously.
-- SNARE proteins mediate membrane fusion in exocytosis; synaptotagmin is the Ca$^{2+}$ sensor for regulated secretion.
+- Neuronal SNARE-mediated fusion involves targeting, priming and regulated assembly; synaptotagmin-1 is a fast calcium sensor in selected synchronous-release models.
 - Endocytosis types (clathrin-mediated, caveolar, phagocytosis, macropinocytosis) internalise specific cargo or bulk fluid.
 - **Connections:** See \cref{sec:unit_I_water_and_life} for water and [**osmosis**](#gl:osmosis), \nameref{sec:unit_IX_unit_intro} for excitable tissues, and \cref{sec:unit_II_cell_signaling} for receptor-mediated signaling.
 

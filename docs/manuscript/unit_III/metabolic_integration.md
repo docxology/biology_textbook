@@ -94,53 +94,24 @@ These modes are reciprocally regulated because of shared cofactors and master re
 | Insulin/Glucagon ratio | High | Low |
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart LR
-    subgraph FED ["FED STATE (Absorptive)"]
-        direction TB
-        F1["High blood glucose"] --> F2["Insulin secretion ↑"]
-        F2 --> F3["Glycolysis ↑"]
-        F2 --> F4["Glycogen synthesis ↑"]
-        F2 --> F5["Lipogenesis ↑"]
-        F2 --> F6["Protein synthesis ↑"]
-        F2 --> F7["GLUT4 translocation"]
-        F2 --> F8["mTORC1 ON"]
-        F2 --> F9["AMPK OFF"]
-    end
-
-    subgraph FASTED ["FASTED STATE (Post-absorptive)"]
-        direction TB
-        FA1["Low blood glucose"] --> FA2["Glucagon secretion ↑"]
-        FA2 --> FA3["Glycogenolysis ↑"]
-        FA2 --> FA4["Gluconeogenesis ↑"]
-        FA2 --> FA5["β-oxidation ↑"]
-        FA2 --> FA6["Lipolysis ↑"]
-        FA2 --> FA7["AMPK ON"]
-        FA2 --> FA8["mTORC1 OFF"]
-        FA2 --> FA9["Autophagy ↑"]
-    end
-
-    subgraph STARVED ["STARVATION (>72 h)"]
-        direction TB
-        S1["Very low glucose"] --> S2["Ketogenesis ↑↑"]
-        S2 --> S3["Brain ketone use increases;<br/>glucose is still required;<br/>fraction varies with duration/context"]
-        S1 --> S4["Muscle protein<br/>catabolism ↓<br/>(protein sparing)"]
-        S1 --> S5["Gluconeogenesis<br/>from glycerol + AAs"]
-    end
-
-    FED -->|"4-6 h after meal"| FASTED
-    FASTED -->|">72 h"| STARVED
-
-    style FED fill:#e6ffe6
-    style FASTED fill:#fff3e6
-    style STARVED fill:#ffe6e6
+    I["Insulin<br/>after a meal"] --> S["Liver storage;<br/>GLUT4 uptake in<br/>muscle/adipose"]
+    L["Lower insulin<br/>in fasting"] --> A["Permits adipose<br/>fatty-acid release"]
+    G["Glucagon<br/>at the liver"] --> H["Glucose output<br/>and ketogenesis"]
+    P["Prolonged fasting:<br/>duration/context"] --> B["Brain: more ketone use;<br/>glucose still needed"]
+    classDef default fill:#ffffff,stroke:#333333,color:#111111,font-size:20px;
 ```
-<!-- alt: Flowchart showing metabolic states from fed to starvation, showing the hormonal switches and metabolic pathway changes at each stage. Insulin dominates the fed state; glucagon dominates fasting; ketogenesis sustains the brain during starvation. -->
+<!-- alt: Flowchart showing selected feeding and fasting programs, not timed on/off switches. Insulin favors fed-state storage and GLUT4 traffic; lower insulin permits adipose fatty-acid release, while glucagon's depicted targets are hepatic. During prolonged fasting, brain ketone use can increase without eliminating glucose demand. Tissue, other hormones, nutritional reserves and duration modulate these responses. -->
 
-*Metabolic states from fed to starvation, showing the hormonal switches and metabolic pathway changes at each stage. Insulin dominates the fed state; glucagon dominates fasting; ketogenesis sustains the brain during starvation.*
+*Selected feeding and fasting programs, not timed on/off switches. Insulin favors fed-state storage and GLUT4 traffic; lower insulin permits adipose fatty-acid release, while glucagon's depicted targets are hepatic. During prolonged fasting, brain ketone use can increase without eliminating glucose demand. Tissue, other hormones, nutritional reserves and duration modulate these responses.*
 
 ### Fasting Physiology: Fuel Switch Timeline
 
-The body switches fuels in a programmed sequence as fasting progresses. The transitions are coordinated by falling insulin and rising glucagon (and later cortisol):
+The following stages are an orientation to changing fuel availability, not a programmed clock. Falling insulin, hepatic glucagon signaling, other hormones, activity and nutritional reserves shape overlapping, tissue-specific responses.
 
 : Fasting Physiology: Fuel Switch Timeline: Time post-meal and Predominant fuel. {#tbl:unit_III_metabolic_integration_fasting_physiology_fuel_switch_timeline}
 | Time post-meal | Predominant fuel | Liver process | Brain fuel | Notes |
@@ -639,92 +610,54 @@ Proposed by Randle et al. (1963, *The Lancet*), the Randle cycle describes **rec
 
 ### Metabolic Flexibility Across Feeding and Fasting
 
-**Metabolic flexibility** = the ability to switch between glucose and fat oxidation in response to fuel availability. Assessed by the respiratory quotient (RQ):
+**Metabolic flexibility** is the capacity to adjust substrate use when nutrient availability and hormonal conditions change. At the level of metabolic reactions, the respiratory quotient (RQ) is:
 
 \begin{equation}
 RQ = \frac{\text{CO}_2 \text{ produced}}{\text{O}_2 \text{ consumed}}
 \label{eq:unit_III_metabolic_integration_worked_5}
 \end{equation}
 
-- RQ = 1.0: pure glucose oxidation
-- RQ = 0.7: pure fat oxidation
-- Healthy individuals: RQ ~0.95 post-meal → ~0.75 fasting (rapid switching)
-- Obese/T2D individuals: RQ remains ~0.85 in fasting → "metabolic inflexibility"
+- Complete glucose oxidation gives RQ = 6/6 = 1; complete palmitate oxidation gives RQ = 16/23 ≈ 0.70. These are stoichiometric examples, not patient measurements.
+- Whole-body gas exchange measures the respiratory exchange ratio (RER). Relating it to tissue RQ or substrate-oxidation rates requires a specified model and measurement conditions. Net lipogenesis, gluconeogenesis, and imbalances in ketone or lactate production/utilization can confound simple fuel-fraction calculations \citep{frayn1983substrateoxidation}.
+
+A fixed RQ/RER value is not a diagnosis of obesity, insulin resistance or type 2 diabetes. Compare responses to defined feeding/fasting or substrate challenges with matched conditions; distinguish the measured gas-exchange response from the inferred pathway fluxes.
 
 ---
 
 ## Hormonal Coordination at the Whole-Organism Level
 
 ```mermaid
-graph LR
-    subgraph Hormones
-        INS["Insulin<br/>(β-cells, fed)"]
-        GLU["Glucagon<br/>(α-cells, fasted)"]
-        EPI["Epinephrine<br/>(adrenal, stress)"]
-        CORT["Cortisol<br/>(adrenal, chronic stress)"]
-    end
-
-    subgraph Liver
-        L1["Glycogen synthesis ↑"]
-        Lgly["Glycogenolysis ↑"]
-        L2["Lipogenesis ↑"]
-        Lgng["Gluconeogenesis ↑"]
-        L3["Ketogenesis ↑<br/>low-insulin fasting context"]
-    end
-
-    subgraph Muscle
-        M1["Glucose uptake (GLUT4) ↑"]
-        M2["Glycogenolysis ↑"]
-        M3["Protein synthesis ↑"]
-        Mprot["Proteolysis ↑"]
-    end
-
-    subgraph Adipose
-        A1["Lipogenesis ↑"]
-        A2["Lipolysis ↑"]
-    end
-
-    subgraph Brain
-        B1["Glucose (primary fuel)"]
-        B2["Ketones (starvation)"]
-    end
-
-    INS -->|"↑ GS, ↑ GK"| L1
-    INS -->|"Fed-state anabolism"| L2
-    INS -->|"↑ GLUT4"| M1
-    INS -->|"↑ LPL, ↓ HSL"| A1
-    INS -->|"↑ mTORC1"| M3
-
-    GLU -->|"Hepatic phosphorylase activation"| Lgly
-    GLU -->|"Hepatic fasting program"| Lgng
-    GLU -->|"Low-insulin hepatic context"| L3
-
-    EPI -->|"Hepatic phosphorylase activation"| Lgly
-    EPI -->|"Supports hepatic glucose output"| Lgng
-    EPI -->|"↑ Phosphorylase"| M2
-    EPI -->|"β₃-AR → ↑ HSL"| A2
-
-    CORT -->|"Hepatic gene regulation"| Lgng
-    CORT -->|"Context-dependent proteolysis"| Mprot
-    CORT -->|"Permissive/context-dependent effects"| A2
-
-    style INS fill:#e6ffe6
-    style GLU fill:#ffe6e6
-    style EPI fill:#fff3e6
-    style CORT fill:#e6f3ff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    F["Fed nutrient context<br/>Insulin from pancreatic β-cells"]
+    FA["Fasting context<br/>Glucagon with low insulin"]
+    S["Stress context<br/>Epinephrine and cortisol"]
+    FO["Liver: glycogen and lipid synthesis<br/>Muscle: GLUT4 and protein synthesis<br/>Adipose: fuel storage"]
+    FAO["Liver: glycogenolysis and gluconeogenesis<br/>Ketogenesis in a low-insulin context"]
+    SO["Liver: glucose supply<br/>Muscle/adipose: fuel mobilization<br/>Tissue and exposure matter"]
+    F -->|selected anabolic responses| FO
+    FA -->|hepatic fasting program| FAO
+    S -->|selected counter-regulatory responses| SO
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827
 ```
-<!-- alt: Graph showing selected mammalian metabolic responses, with anabolic and catabolic outputs separated. Glucagon arrows denote hepatic fasting responses, not direct human-adipose lipolysis; epinephrine and cortisol effects depend on tissue and context. -->
+<!-- alt: Flowchart showing selected fed, fasting and stress programs, not a complete inventory of hormone actions. The fasting card combines hepatic glucagon signaling with a low-insulin context; FFA mobilization is not evidence of a direct human-adipose glucagon effect. Tissue and exposure matter. -->
 
-*Selected mammalian metabolic responses, with anabolic and catabolic outputs separated. Glucagon arrows denote hepatic fasting responses, not direct human-adipose lipolysis; epinephrine and cortisol effects depend on tissue and context.*
+*Selected fed, fasting and stress programs, not a complete inventory of hormone actions. The fasting card combines hepatic glucagon signaling with a low-insulin context; FFA mobilization is not evidence of a direct human-adipose glucagon effect. Tissue and exposure matter.*
 
-: Metabolic Flexibility Across Feeding and Fasting: Hormone and Stimulus. {#tbl:unit_III_metabolic_integration_metabolic_flexibility_across_feeding_and_fasting}
+: Hormonal coordination: stimulus, target tissue and context-dependent metabolic responses. {#tbl:unit_III_metabolic_integration_metabolic_flexibility_across_feeding_and_fasting}
 | Hormone | Stimulus | Liver | Muscle | Adipose |
 | ------- | -------- | ----- | ------ | ------- |
-| Insulin | High glucose | Glycogen synthesis; lipogenesis; gluconeogenesis OFF | GLUT4; glycogen synthesis; protein synthesis | GLUT4; lipogenesis; lipolysis OFF |
-| Glucagon | Low glucose | Glycogenolysis; gluconeogenesis ON; ketogenesis | Minimal (no glucagon receptor) | Lipolysis (via FFA release) |
-| Epinephrine | Stress/exercise | Glycogenolysis; gluconeogenesis | Glycogenolysis; glucose uptake | Lipolysis (beta$_3$-AR → cAMP → PKA → HSL) |
-| Cortisol | Chronic stress | Gluconeogenesis (PEPCK gene induction) | Protein catabolism → AAs for GNG | Lipolysis (central redistribution) |
-| Leptin | Adiposity signal | Central: inhibits NPY/AgRP → appetite suppression | FA oxidation (via AMPK) | Lipogenesis suppressed |
+| Insulin | Nutrient availability | Favors glycogen/lipid storage; suppresses glucose output | GLUT4 recruitment; glycogen and protein synthesis | Glucose uptake/storage; reduced lipolysis |
+| Glucagon | Fasting context | Glycogenolysis and gluconeogenesis; ketogenesis with low insulin | Predominantly indirect systemic effects | No lipolysis increase in the cited physiological-dose human protocol |
+| Epinephrine | Stress/exercise | Supports hepatic glucose output | Glycogenolysis; response depends on activity | Adrenergic regulation of lipolysis; receptor balance and depot matter |
+| Cortisol | Sustained stress/exposure | Context-dependent transcriptional support for glucose production | Context-dependent protein turnover and amino-acid supply | Lipid mobilization/storage and distribution depend on exposure |
+
+In the cited glucagon experiment, seven healthy young men underwent controlled hormone infusions with abdominal subcutaneous microdialysis. Increased glucagon did not increase interstitial glycerol under that protocol; this is not a result for every species, adipose depot, dose or endocrine state \citep{gravholt2001glucagonlipolysis}.
+
+Brain fuel use provides a separate context: glucose is important, and ketones can contribute during prolonged fasting \citep{Owen1967}. Leptin adds an adiposity-related signal to hypothalamic feeding circuits rather than a liver-specific appetite switch. Its central role should be distinguished from preparation-specific peripheral effects, not placed in the liver column as a fixed response.
 
 ---
 
@@ -913,7 +846,7 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 - **Ketone bodies** (acetoacetate, β-hydroxybutyrate) sustain the brain during starvation; liver produces but cannot use them. Fasting fuel switching varies with nutritional reserves, tissue, illness, and duration rather than a fixed terminal timeline from glycogen → fatty acids → ketones over hours-to-weeks.
 - **Randle cycle:** fatty acid–glucose reciprocal inhibition; disrupted in type 2 diabetes.
 - **Substrate cycles** enable ultrasensitive flux control and thermogenesis; amplification factor = (v$_1$ + v$_2$)/(v$_1$ - v$_2$).
-- **Metabolic flexibility** (RQ switching) is impaired in obesity/T2D due to lipid intermediate accumulation and insulin resistance.
+- **Metabolic flexibility** is context-dependent adjustment of substrate use. Stoichiometric RQ examples, measured whole-body RER and cellular oxygen-consumption/acidification readouts require different assumptions and controls; none is a stand-alone diagnosis of obesity or type 2 diabetes.
 - **Metabolic control analysis** (\cref{eq:unit_III_mca_summation}) permits distributed control but does not exclude a dominant step. Coefficients describe a specified state and perturbation boundary, not universal intervention limits.
 - **Metabolomics** measures pools; flux measurements, perturbations and adequately specified kinetic/isotope models provide complementary information. None alone automatically identifies every network control coefficient.
 - **Visceral adipose** is a metabolically active endocrine organ whose portal-vein drainage drives hepatic insulin resistance, NAFLD, and chronic systemic inflammation.
@@ -985,7 +918,7 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 | **Phosphorylase kinase** | Multi-subunit kinase activated by PKA; phosphorylates glycogen phosphorylase to active "a" form |
 | **Randle cycle** | Reciprocal inhibition of glucose and fatty acid oxidation in heart and muscle |
 | **Substrate cycle** | Two opposing reactions running simultaneously; amplifies flux control; generates heat |
-| **Metabolic flexibility** | Ability to switch between glucose and fat oxidation; impaired in obesity and T2D |
+| **Metabolic flexibility** | Context-dependent capacity to adjust substrate use as nutrient supply and demand change; measured gas exchange requires defined conditions and controls |
 | **SIRT1** | NAD$^+$-dependent deacetylase; caloric restriction sensor; activates PGC-1alpha |
 | **Metabolic syndrome** | Cluster of central obesity, insulin resistance, dyslipidaemia, hypertension, hyperglycaemia |
 | **Visceral adipose tissue** | Fat depot draining via portal vein to liver; endocrine organ secreting TNF-α, IL-6, RBP4 |

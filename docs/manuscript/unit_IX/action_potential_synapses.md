@@ -77,34 +77,23 @@ At steady state: $x_\infty(V) = \alpha_x / (\alpha_x + \beta_x)$; time constant:
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Closed: At rest (V = -70 mV)
-
-    state "Na+ Channel States" as NaCh {
-        Closed --> Open: Depolarization increases activation<br/>HH conductance scales with m³h<br/>not three literal activation gates
-        Open --> Inactivated: Fast inactivation; h decreases<br/>phenomenological HH variable<br/>not a literal pore-blocking ball
-        Inactivated --> Closed: Repolarization promotes recovery<br/>h increases and m decreases<br/>rates depend on voltage and model
+    [*] --> Closed: Resting example
+    state "Na+ Channel Availability" as NaCh {
+        Closed --> Open: Depolarization / activation
+        Open --> Inactivated: Fast inactivation
+        Inactivated --> Closed: Repolarization / recovery
     }
-
-    note right of Open
-        Na+ rushes IN
-        V rises toward +50 mV
-        Duration: ~0.5 ms
-        UPSTROKE of AP
-    end note
-
-    note right of Inactivated
-        Cannot reopen regardless
-        of stimulus strength
-        ABSOLUTE refractory period
-        Contributes to normal
-        forward propagation
-    end note
-
     note right of Closed
-        Ready to fire again
-        All gates reset
-        Channel can be
-        activated by new stimulus
+        Low activation variable m
+        Recovered availability h
+    end note
+    note right of Open
+        Inward Na+ current
+        Conductance scales with m³h
+    end note
+    note right of Inactivated
+        Availability h is reduced
+        Recovery depends on voltage and time
     end note
 ```
 <!-- alt: State diagram showing a simplified Na^+-channel state schematic. Hodgkin–Huxley gating variables describe conductance phenomenologically; the m^3h form is not proof of three literal activation gates and a pore-blocking ball. Molecular inactivation involves conformational gating, with IFM-linked mechanisms studied in mammalian channels. -->
@@ -234,43 +223,37 @@ Treatment: Disease-modifying therapies (interferons, natalizumab, ocrelizumab) r
 ### Presynaptic Machinery for Vesicle Fusion
 
 ```mermaid
-sequenceDiagram
-    participant AP as Action Potential
-    participant VGCC as Ca2+ Channels (Cav2.1/2.2)
-    participant Ca as Ca2+ ions
-    participant Syt as Synaptotagmin-1 (Ca2+ sensor)
-    participant SNARE as SNARE Complex<br/>(Synaptobrevin + Syntaxin + SNAP-25)
-    participant Cpx as Complexin (fusion clamp)
-    participant Ves as Synaptic Vesicle
-    participant Cleft as Synaptic Cleft (20 nm)
-    participant Rec as Postsynaptic Receptors
-
-    AP->>VGCC: Depolarization opens<br/>voltage-gated Ca2+ channels
-    VGCC->>Ca: Ca2+ influx<br/>[Ca2+] rises to 100 uM<br/>in nanodomain near channel
-    Note over Ca: Only ~10-25 nm from<br/>docked vesicle
-    Ca->>Syt: Ca2+ binds C2 domains<br/>of synaptotagmin-1<br/>and couples to fusion
-    Syt->>Cpx: Displaces complexin clamp<br/>from partially zippered SNARE
-    Cpx->>SNARE: SNARE complex completes<br/>zippering (N→C terminal)
-    SNARE->>Ves: Vesicle membrane pulled<br/>into fusion with plasma membrane
-    Ves->>Cleft: NT released in <1 ms<br/>(~5000 molecules per vesicle)
-    Cleft->>Rec: NT diffuses 20 nm<br/>Binds postsynaptic receptors
-    Note over Cleft: Cleared by:<br/>1. Reuptake transporters<br/>2. Enzymatic degradation<br/>3. Diffusion
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    AP["Presynaptic action potential"]
+    CA["Voltage-gated Ca2+ channels<br/>Local Ca2+ influx"]
+    SYT["Synaptotagmin-1 example<br/>Ca2+ sensing and membrane interactions"]
+    P["Munc18/Munc13-dependent priming<br/>SNAREs with complexin regulation"]
+    F["Final SNARE assembly and membrane fusion<br/>Fast synchronous release"]
+    NT["Transmitter enters the cleft<br/>and binds postsynaptic receptors"]
+    CL["Clearance by reuptake,<br/>enzymatic breakdown and/or diffusion"]
+    AP --> CA --> SYT --> F --> NT --> CL
+    P -->|primed machinery| F
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827
 ```
-<!-- alt: Sequence diagram showing molecular machinery of synaptic vesicle fusion. Depolarization opens Ca^2+ channels. Ca^2+ binds synaptotagmin-1, which displaces the complexin fusion clamp and triggers full SNARE complex zippering, forcing the vesicle membrane to fuse with the plasma membrane and release neurotransmitter into the cleft. -->
+<!-- alt: Flowchart showing a simplified synaptotagmin-1 example of fast synchronous release. Calcium sensing and membrane interactions act on primed SNARE complex machinery; the arrows organize the working model, not an atomic movie or a fixed sequence of complexin displacement. Release modes and molecular interactions require preparation-specific evidence. -->
 
-*Molecular machinery of synaptic vesicle fusion. Depolarization opens Ca$^{2+}$ channels. Ca$^{2+}$ binds [**synaptotagmin**](#gl:synaptotagmin)-1, which displaces the complexin fusion clamp and triggers full [**SNARE complex**](#gl:snare-complex) zippering, forcing the vesicle membrane to fuse with the plasma membrane and release neurotransmitter into the cleft.*
+*A simplified [**synaptotagmin**](#gl:synaptotagmin)-1 example of fast synchronous release. Calcium sensing and membrane interactions act on primed [**SNARE complex**](#gl:snare-complex) machinery; the arrows organize the working model, not an atomic movie or a fixed sequence of complexin displacement. Release modes and molecular interactions require preparation-specific evidence \citep{rizo2022neurotransmitterrelease}.*
 
 **Key proteins:**
-- **SNARE complex:** The minimal fusion machinery. **Synaptobrevin** (v-SNARE, on vesicle membrane) + **syntaxin** + **SNAP-25** (both t-SNAREs, on plasma membrane). The four α-helices zipper together N-to-C terminally, pulling membranes into contact.
+- **SNARE complex:** Synaptobrevin on the vesicle, syntaxin-1 and SNAP-25 on the plasma membrane contribute a four-helix bundle; SNAP-25 contributes two helices. Assembly helps bring membranes together, but regulated neuronal fusion also involves priming, calcium sensing and membrane interactions \citep{rizo2022neurotransmitterrelease}.
 - **Synaptotagmin-1:** A fast Ca$^{2+}$ sensor whose C2 domains couple calcium binding to membrane interactions and SNARE-mediated fusion. Molecular binding-site counts require biochemical/structural evidence. An effective calcium–release slope near four does not by itself count ions or establish microscopic binding cooperativity: alternative sensor arrangements can reproduce that slope \citep{dittrich2013excesscalcium}.
 - **Munc18 / Munc13:** Priming factors that prepare SNARE complexes for fast fusion
 - **RIM:** Active zone scaffold protein. Positions vesicles within nanometres of Ca$^{2+}$ channels.
-- **Complexin:** "Fusion clamp." Binds partially zippered SNARE complex and prevents spontaneous fusion. Ca$^{2+}$/synaptotagmin displaces complexin to trigger release.
-- **NSF + alpha-SNAP:** After fusion, these AAA$^+$ ATPases disassemble SNARE complexes for recycling.
+- **Complexin:** A SNARE-binding regulator with stimulating and restraining roles in working models of primed release. Its function is not captured by a mandatory single clamp-displacement step in a universal fusion sequence \citep{rizo2022neurotransmitterrelease}.
+- **NSF and alpha-SNAP:** NSF is the AAA$^+$ ATPase; alpha-SNAP is an adaptor, not another ATPase. Together they support ATP-dependent SNARE-complex disassembly and recycling; a fixed one-ATP-per-complex stoichiometry is not assumed \citep{zhao2015snarerecycling}.
 
-**Quantal release (Katz, Nobel 1970):** Neurotransmitter is released in discrete packets (quanta), each corresponding to the contents of one vesicle \citep{delcastillo1954quantal}. The end-plate potential (EPP) at the NMJ = n $\times$ p $\times$ q, where n = number of release-ready vesicles, p = release probability per vesicle, q = quantal size (postsynaptic response to one vesicle).
+**Quantal release:** Classical neuromuscular-junction experiments motivated a vesicle-based quantal model \citep{delcastillo1954quantal}. For a homogeneous model with $n$ available release sites, release probability $p$, fixed quantal response $q$ and approximately linear summation, the **mean** end-plate potential is $npq$. A trial with $k$ released quanta has model response $kq$.
 
-Miniature EPPs (mEPPs) represent spontaneous release of single vesicles and have a constant amplitude (~0.5 mV at the NMJ). The evoked EPP is an integer multiple of the mEPP amplitude.
+Miniature EPPs report spontaneous quantal responses, but their amplitudes vary across events and preparations. A single measured amplitude is not a universal 0.5-mV constant. Distinguish a stipulated identical-quanta model from measured quantal-size variability, release-site heterogeneity and nonlinear voltage summation.
 
 ### Synaptic Vesicle Pools
 
@@ -311,31 +294,28 @@ The post-spike EPSC amplitude is proportional to $u \cdot x$. This single model 
 
 > **Clinical Connection:** Lambert-Eaton myasthenic syndrome (LEMS) is an autoimmune disorder targeting presynaptic P/Q-type Ca$^{2+}$ channels at the NMJ, dramatically reducing initial release probability. The hallmark on bedside testing is **post-tetanic facilitation** — strength briefly improves after sustained voluntary contraction, reflecting accumulated Ca$^{2+}$ partially compensating for reduced channel number. Treatment with **3,4-diaminopyridine** (a K$^+$ channel blocker that prolongs presynaptic AP duration → more Ca$^{2+}$ entry per spike) increases initial $p$ and restores neuromuscular transmission.
 
-### Worked Example: Quantal Analysis at the Neuromuscular Junction
+### Worked Example: Quantal Currents and Poisson Limits at the NMJ
 
-> **Mathematical Background:** Quantal analysis uses Poisson statistics. For a review of probability and statistical reasoning, see \nameref{sec:appendix_math_review}.
+> **Mathematical Background:** An independent-site binomial model has a Poisson limit under additional conditions. For probability and statistical reasoning, see \nameref{sec:appendix_math_review}.
 
-**Problem:** At the frog NMJ, miniature end-plate potentials and evoked end-plate potentials revealed that transmitter release occurs in vesicle-sized quanta \citep{delcastillo1954quantal}. Suppose spontaneous miniature end-plate potentials (mEPPs) have mean amplitude $q = 0.5$ mV (the postsynaptic response to one vesicle's worth of acetylcholine). An evoked end-plate potential (EPP) under normal Ca$^{2+}$ averages $V_{\text{EPP}} = 25$ mV. Estimate the quantal content $m$ (mean number of vesicles released per action potential), then predict the failure rate when extracellular Ca$^{2+}$ is reduced enough to drop $m$ to 2.
+**Problem:** Classical frog-NMJ experiments supported quantal transmitter release \citep{delcastillo1954quantal}. Consider a separate **synthetic voltage-clamp example**, using inward-current amplitude magnitudes. Assume a fixed holding potential, invariant miniature end-plate current $q=0.5$ nA and linear current addition. The mean evoked EPC is $25$ nA from $n=100$ independent, identical release sites. Estimate mean quantal content $m$ and release probability $p$. Compare exact binomial failures, the Poisson approximation and current variability with a second stipulated condition having the same $n,q$ but $p=0.02$.
 
 **Solution.**
 
-1. **Quantal content from the mEPP ratio.** Quantal release theory: $V_{\text{EPP}} = m \cdot q \;\Rightarrow\; m = V_{\text{EPP}} / q = 25 / 0.5 = 50$ vesicles per AP.
-2. **Poisson statistics of release.** For $n$ independent, identical sites with probability $p$, $k$ is binomial: $m=np$, $P_0=(1-p)^n$, variance $np(1-p)$. Poisson statistics approximate this when $n$ is large and $p$ small at fixed $m$; independence alone is insufficient. Under that approximation, The probability of zero release ("failure") is
+1. **Mean current and quantal content.** In this model, $E[I_{\mathrm{EPC}}]=npq=mq$. Thus $m=25/0.5=50$ quanta per stimulus and $p=m/n=0.5$. A trial releasing $k$ quanta has amplitude $kq$, not necessarily the mean amplitude.
+2. **Exact failures and the Poisson limit.** Independent, identical sites give $k\sim\operatorname{Binomial}(n,p)$, $P_0=(1-p)^n$ and $\operatorname{Var}(k)=np(1-p)$. The Poisson approximation requires large $n$ and small $p$ at fixed $m=np$; independence alone is insufficient. At $n=100,p=0.5$,
 
-   $$P(k = 0) = e^{-m}.$$
+   $$P_0=0.5^{100}\approx7.89\times10^{-31},\qquad e^{-50}\approx1.93\times10^{-22}.$$
 
-   At $m=50$, a Poisson approximation gives $e^{-50}\approx1.9\times10^{-22}$, but it is not justified for $n=100,p=0.5$: the exact binomial failure probability is $0.5^{100}\approx7.89\times10^{-31}$ and variance is 25 rather than 50. Both failure probabilities are small; their difference still matters for identifying the model.
+   Both values are small, but the Poisson model is not justified by their shared mean. It also predicts variance 50 instead of the binomial variance 25.
+3. **The low-release condition.** With $n=100,p=0.02$, $m=2$ and the mean current is $1$ nA. The exact failure probability is $0.98^{100}\approx0.1326$; the Poisson approximation gives $e^{-2}\approx0.1353$. Their closeness is a property of this stipulated small-$p$ example, not a universal failure rate. In the ideal identical-quanta model, amplitudes occur at $0,q,2q,\ldots$; visible peaks in a measured histogram also depend on quantal-size variability and recording noise.
+4. **Current variance and coefficient of variation.** Fixed $q$ gives
 
-3. **Low-Ca$^{2+}$ regime, $m=2$.** Stipulate that lowering extracellular calcium reduces mean quantal content to 2. A steep calcium–release relation is compatible with this change, but its slope and magnitude depend on the preparation and range; neither uniquely identifies sensor stoichiometry:
+   $$\operatorname{Var}(I_{\mathrm{EPC}})=q^2np(1-p),\qquad \mathrm{CV}=\sqrt{\frac{1-p}{np}}.$$
 
-   $$P(\text{failure}) = e^{-2} \approx 0.135 = 13.5\%.$$
+   At $m=50,p=0.5$, the current variance is $6.25$ nA$^2$ and CV is $0.10$, not the Poisson value $1/\sqrt{50}\approx0.14$. At $m=2,p=0.02$, the variance is $0.49$ nA$^2$ and CV is $0.70$, close to the Poisson value $1/\sqrt{2}\approx0.71$.
 
-   More than one in eight spikes now triggers zero release. The EPP histogram becomes multi-modal: discrete peaks at $0, q, 2q, 3q, \ldots$ separated by the quantal step. The visibility of these peaks is the empirical signature captured in classical quantal analysis \citep{delcastillo1954quantal}.
-
-4. **Sanity check — variance.** Poisson predicts $\text{Var}(V_{\text{EPP}}) = m \cdot q^2$ so the coefficient of variation is $1/\sqrt{m}$. At $m = 50$, CV $\approx 0.14$ (smooth, near-deterministic release). At $m = 2$, CV $\approx 0.71$ (noisy, single-vesicle steps visible in the post-synaptic record). This CV-vs-$m$ scaling is the standard tool for inferring $m$ at central synapses where mEPSCs are harder to isolate.
-
-**Interpretation.** This simplified NMJ example illustrates high safety factor ($m \approx 50$ on a $\sim 100$-vesicle RRP per active zone, so $p \approx 0.5$) precisely because failure is intolerable for survival behaviors. Central synapses, by contrast, often run at $m = 1$–$5$ — they accept failures in exchange for the ability to perform fine probabilistic computation. The quantal framework converts the same molecular machinery (vesicles + Ca$^{2+}$ + SNAREs) into wildly different reliability regimes by tuning a single biophysical knob: $p$.
-
+**Interpretation.** Mean current, failure frequency and variance constrain different aspects of a specified release model. Without an independently justified site count, the mean constrains the product $np$, not its factors. These synthetic values do not establish an anatomical vesicle-pool size, a typical central-synapse release range, an NMJ safety factor or a survival explanation. Current additivity at fixed voltage also does not justify summing large voltage EPPs without nonlinear correction.
 
 ### Postsynaptic Receptors and Ionotropic/Metabotropic Signaling
 
@@ -875,7 +855,7 @@ print(round(exc.peak_current_pA, 2), round(inh.peak_current_pA, 2))
 - **Refractory periods:** Absolute (Na$^+$ inactivated, h about 0, 1-2 ms): cannot fire. Relative (K$^+$ channels open, membrane hyperpolarised, 5-10 ms): stronger stimulus needed.
 - **Na$^+$ channel states:** Closed (ready) to Open (conducting, ~0.5 ms) to Inactivated (blocked from inside, cannot reopen). TTX and local anaesthetics block the pore.
 - **Myelination:** Nodal regeneration links passive current spread through internodes. Geometry-dependent models can yield approximately linear diameter scaling, but neither fiber speed examples nor nodal area determine a universal ATP saving. Axonal spike cost and total axon--glia maintenance are different budgets \citep{harris2012whitematter}.
-- **Chemical synapse:** AP opens Cav2.1/2.2 channels. Ca$^{2+}$ binds synaptotagmin-1. Complexin displaced. SNARE complex zippers. Vesicle fuses. NT released in <1 ms. Quantal release (Katz).
+- **Chemical synapse:** Presynaptic calcium entry couples to calcium sensing and primed SNARE machinery in the selected fast-release model. Munc18/Munc13 and complexin regulate this machinery; a mandatory single complexin-displacement step is not assumed. The quantal mean $npq$ requires the stated release and summation assumptions \citep{rizo2022neurotransmitterrelease}.
 - **Neurotransmitters:** Glutamate (AMPA/NMDA/mGluR, excitatory); GABA (GABA$_A$/GABA$_B$, inhibitory); ACh (nicotinic/muscarinic); DA (D1-D5, reward/motor); 5-HT (mood/sleep); NE (arousal); neuropeptides (volume transmission, pain, reward).
 - **Protocol-specific plasticity:** A conventional hippocampal NMDA-dependent LTP example recruits Ca$^{2+}$, CaMKII and AMPA-receptor phosphorylation/insertion, with later transcriptional and structural changes. Hippocampal LTD can recruit phosphatases and AMPA internalization; it is not a universal opposite pathway. Cerebellar parallel-fiber--Purkinje-cell LTD can instead involve larger calcium signals and PKC-dependent signaling \citep{coesmans2004cerebellarplasticity,dezeeuw1998pkc,wang2000endocytosis}.
 - **Drug mechanisms:** Cocaine (DAT block), morphine (mu agonist), SSRIs (SERT block), benzodiazepines (GABA$_A$ PAM), ketamine (NMDA block), botulinum toxin (SNAP-25 cleavage).

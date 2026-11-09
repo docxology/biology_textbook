@@ -123,7 +123,9 @@ def normalise_inline_mermaid_source(source: str) -> str:
         return source.replace(r"\n", "<br/>")
     ensure_import_paths()
     module = import_module("infrastructure.rendering._pdf_mermaid")
-    return str(module._normalise_mermaid_source(source))
+    # CLI 12.2 prints legacy escaped newlines literally in state labels.
+    # Keep renderable HTML breaks canonical in both standalone/template paths.
+    return str(module._normalise_mermaid_source(source)).replace(r"\n", "<br/>")
 
 
 def inline_mermaid_sources() -> Iterable[tuple[int, Path, int, str]]:
