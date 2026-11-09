@@ -76,32 +76,29 @@ Chromatin-associated proteins can form locally enriched assemblies. **Condensate
 | Nuclear speckles | SRSF, SON, MALAT1 | Storage and assembly of splicing factors |
 | Cajal bodies | Coilin, snRNPs | snRNP and telomerase RNP biogenesis |
 | PML bodies | PML, SUMO, p53 | DNA damage response; senescence; viral defense |
-| Super-enhancer condensates | BRD4, Mediator, Pol II CTD | Robust transcription of cell-identity genes |
+| Super-enhancer-associated assemblies | BRD4, Mediator, Pol II CTD in specified studies | Enhancer-associated transcription; annotation alone does not establish LLPS or a fixed output |
 | Polycomb bodies | CBX2 (PRC1) phase-separated | Polycomb domain compaction in *cis* |
 
-**Conceptual link to TADs:** Condensates operate *within* TADs and at promoter–enhancer loops; disrupting CTCF boundaries can move an oncogenic enhancer adjacent to a silent proto-oncogene (**enhancer hijacking**), a structural-variant mechanism increasingly catalogued in pediatric tumors.
+**Chromatin contacts and assembly properties are distinct observations:** Disrupting a CTCF boundary can alter enhancer–promoter contacts and contribute to enhancer hijacking. This does not make a TAD a universal physical container for condensates or establish the material state of an enriched transcriptional assembly.
 
 ```mermaid
-flowchart LR
-    SE["Super-enhancer cluster\n(H3K27ac high)"] --> C["Biomolecular condensate\n(BRD4, Mediator, CDK7/9)"]
-    C --> P["Promoter-proximal Pol II\nrelease from pausing"]
-    P --> Tx["Robust transcription\n(e.g. MYC, lineage TF)"]
-    BET["BET inhibitor (JQ1)"] -.->|displaces BRD4| C
-    CDK8["CDK8 phosphorylates Mediator"] -.->|dissolves condensate| C
-    style SE fill:#2ecc71,color:#fff
-    style C fill:#3498db,color:#fff
-    style BET fill:#e74c3c,color:#fff
-    style CDK8 fill:#f39c12,color:#fff
+flowchart TD
+    SE["Enhancer-cluster annotation<br/>Specified cell and ChIP-seq assay"] -->|measurement plan| C["Test occupancy and assembly state<br/>BRD4, Mediator and Pol II"]
+    C --> P["Measure transcription and viability<br/>Matched dose, time and controls"]
+    BET["BET probe<br/>Test BRD4 target engagement"] -.->|perturb and measure| C
+    KIN["Kinase perturbation<br/>Substrate and off-target controls"] -.->|perturb and measure| C
+    classDef measured fill:#f4f8fb,stroke:#526777,color:#17212b
+    class SE,C,P,BET,KIN measured
 ```
-<!-- alt: Flowchart showing super-enhancer–associated condensate bridging enhancers to paused Pol II; BET inhibitors weaken acetyl-lysine engagement of BRD4 and dissolve the condensate; CDK8-mediated phosphorylation of Mediator disrupts condensate integrity. -->
+<!-- alt: Experimental workflow separates an enhancer-cluster annotation from measurements of BRD4/Mediator/Pol II occupancy, assembly state, transcription and viability. BET and kinase perturbations require target-engagement, substrate and off-target controls; the arrows are a measurement plan, not proof of condensate dissolution or clinical selectivity. -->
 
-*Super-enhancer–associated condensate bridging enhancers to paused Pol II; BET inhibitors weaken acetyl-lysine engagement of BRD4 and dissolve the condensate; CDK8-mediated phosphorylation of Mediator disrupts condensate integrity.*
+*Annotation, material state and causal output require distinct evidence. This workflow proposes controlled measurements, not an obligatory super-enhancer-to-liquid-compartment pathway. Altered BRD4 occupancy or transcription after a BET/kinase perturbation does not by itself demonstrate dissolution, a specific phosphorylation mechanism or patient benefit.*
 
-**Clinical angle — drugging condensates:**
-- **BET bromodomain inhibitors** (e.g., JQ1, OTX015, birabresib, molibresib, mivebresib) displace BRD4 from acetylated chromatin, collapsing condensate-associated transcription at *MYC* and other dependency genes.
-- **CDK7 inhibitors** (THZ1, SY-5609) and **CDK9 inhibitors** target the kinases concentrated in transcription condensates.
-- **EZH2 inhibitors** (tazemetostat) shrink PRC2-mediated repressive domains.
-- **Tumor cells with super-enhancer-driven oncogenes (MYCN-amplified neuroblastoma, MLL-rearranged leukaemia, *TAL1*-driven T-cell acute lymphoblastic leukaemia) can be highly sensitive** to BET inhibition, but response depends on enhancer wiring, compensatory transcription factors, and therapeutic window rather than on super-enhancer status alone.
+**Research perturbations and clinical boundaries:**
+- **BET bromodomain perturbation:** JQ1 is a research probe; birabresib (OTX015), molibresib and mivebresib are investigational examples here. Measure BRD4 target engagement, locus occupancy, nascent transcription and viability rather than infer condensate dissolution from reduced *MYC* RNA.
+- **Kinase perturbation:** CDK7/CDK9 inhibition can affect transcriptional processes. Establish substrate engagement and off-target effects; changes in Pol II phosphorylation, Mediator occupancy and material state are different readouts.
+- **EZH2 perturbation:** Enzymatic inhibition can test PRC2-dependent chromatin regulation, not liquid-state dissolution by definition. Tazemetostat's U.S. withdrawal is addressed in the current regulatory discussion below.
+- **Dependency versus selectivity:** Compare specified tumor and nontransformed preparations, dose/time responses and orthogonal perturbations. Enhancer association alone does not establish oncogene addiction, selective killing or a patient therapeutic window.
 
 > **Worked Example — Relative Hi-C Contact Frequency:** Under the illustrative scaling $P(s)\propto s^{-1.1}$, the contact frequency at 700 kb relative to 50 kb is $(700/50)^{-1.1}\approx0.055$. This is a dimensionless relative frequency, not a 5.5% absolute contact probability. A trans-contact probability measured with a different normalization cannot be divided into it to infer an enrichment. An absolute comparison requires matched bin sizes, sequencing depth, distance/background normalization, and cell populations. Contacts suggest candidate interactions; perturbation and expression measurements test function.
 
@@ -408,7 +405,7 @@ flowchart TD
 - **Genomic imprinting:** Parent-of-origin-dependent expression is locus-, promoter-, tissue- and stage-specific. The canonical IGF2/H19 insulator model and neuronal UBE3A imprinting illustrate distinct mechanisms; BWS/SRS have heterogeneous molecular etiologies.
 - **X-chromosome inactivation:** XIST acts in cis and recruits repressive pathways. Inactivation is incomplete, with escape inside and outside PARs varying by gene, tissue and individual; Barr-body count does not establish exact dosage equalization.
 - **Chromatin remodellers:** SWI/SNF (BAF/PBAF — slide+eject; mutated in ~20 % cancers), ISWI (spacing), CHD/NuRD (repressive sliding + HDAC), INO80/SWR1 (H2A.Z exchange).
-- **3D genome:** TADs by loop extrusion (CTCF + cohesin); A/B compartments; LADs at the lamina; phase-separated condensates at super-enhancers (BRD4, Mediator, Pol II CTD); CDK8 dissolves condensates by phosphorylating Mediator.
+- **3D genome:** Loop-extrusion models involve CTCF/cohesin; A/B compartments, lamina association, enhancer contacts and enriched assemblies describe different measurements. Super-enhancer annotation is not proof of LLPS, and transcriptional inhibition is not proof of a particular condensate-dissolution mechanism.
 - **miRNA / lncRNA / piRNA:** DROSHA → DICER → RISC for miRNA; lncRNAs (XIST, HOTAIR, MALAT1, NEAT1) scaffold complexes; piRNAs silence transposons in germline.
 - **Mitotic / germline reprogramming:** Maintenance via DNMT1+UHRF1 (H3K18ub-coupled) and read-write feedback for histone marks. CAF-1 deposits new histones at the fork. Two waves of epigenetic erasure (post-fertilization; PGC). Imprints protected during early post-fertilization reprogramming but erased in PGCs and re-established sex-specifically during gametogenesis.
 - **Clinical translation:** Some DNMT, HDAC, mutant-IDH, and menin inhibitors have product- and indication-specific approvals. Tazemetostat U.S. indications were withdrawn in 2026; BET and condensate-targeting examples here are investigational. Name cohort, endpoint, jurisdiction, and date before interpreting benefit.
@@ -481,7 +478,7 @@ flowchart TD
 | **A/B compartment** | Megabase-scale active vs. repressed chromatin neighborhoods |
 | **LAD** | Lamina-Associated Domain; gene-poor regions tethered to nuclear periphery |
 | **LLPS / condensate** | LLPS: coexistence of dense and dilute liquid phases; condensate: an enriched assembly, not a mechanism by itself |
-| **Super-enhancer** | Large enhancer cluster with dense Mediator/BRD4/H3K27ac; drives high transcriptional output |
+| **Super-enhancer** | Operationally annotated high-signal enhancer cluster in a specified cell/assay/analysis; not a phase-separation mechanism or clinical dependency by definition |
 | **Bivalent domain** | Simultaneous H3K4me3 + H3K27me3 at developmental gene promoters in ES cells |
 | **SWI/SNF (BAF)** | ATP-dependent remodeller; mutated in ~20 % cancers (ARID1A, SMARCB1, PBRM1) |
 | **ISWI / CHD/NuRD / INO80** | Other remodeller families: spacing / repressive sliding+HDAC / H2A.Z exchange |

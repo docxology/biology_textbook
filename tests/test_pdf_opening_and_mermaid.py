@@ -115,6 +115,7 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
         ("biology.pipeline.numbering", "MANUSCRIPT_DIR", manuscript),
         ("biology.pipeline.rendering", "PROJECT_ROOT", tmp_path),
         ("biology.pipeline.rendering", "OUTPUT_DIR", injected),
+        ("biology.visual_contracts.render", "PROJECT_ROOT", tmp_path),
     ):
         monkeypatch.setattr(f"{module}.{name}", value)
     pdf = render_textbook()
@@ -196,6 +197,132 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
             assert image.format == "PNG"
             image.load()
             assert cast(tuple[int, int], image.convert("L").getextrema())[0] < 200
+
+
+def test_real_pdf_chapter_links_survive_unit_zero_counter_reset(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Resolve native PDF links, not just matching labels in a shared aux file."""
+    if discover_template_root(PROJECT) is None:
+        pytest.skip("explicit template integration dependency is unavailable")
+    if any(shutil.which(tool) is None for tool in ("mmdc", "pandoc", "xelatex", "bibtex", "pdftotext")):
+        pytest.skip("native PDF toolchain is unavailable")
+    manuscript = tmp_path / "docs" / "manuscript"
+    fixtures = {}
+    units = []
+    canonical_config = yaml.safe_load(
+        (PROJECT / "docs" / "manuscript" / "config.yaml").read_text(encoding="utf-8"),
+    )
+    for unit, prefix, title_prefix in (
+        ("unit_0", "opening", "Opening"), ("unit_I", "core", "Core"),
+    ):
+        configured_chapters = []
+        source_unit = next(record for record in canonical_config["units"] if record["id"] == unit)
+        for number, chapter in enumerate(source_unit["chapters"][:4], start=1):
+            path = manuscript / unit / chapter["file"]
+            title, slug, label = (
+                f"{title_prefix} chapter {number}", f"{prefix}-{number}", f"sec:{prefix}_{number}",
+            )
+            marker = f"TARGET{prefix.upper()}{number}"
+            fixtures[path] = (
+                title, slug, label, f"0.{number}" if unit == "unit_0" else str(number), marker,
+            )
+            body = (
+                f"# {title} {{#{slug}}}\n\n"
+                + rf"\label{{{label}}}" + "\n\n"
+                f"{marker}\n\n## Detail\n\n" + rf"\label{{{label}_detail}}" + "\n\n"
+                "Detail body.\n\n### Nested detail\n\n"
+                + rf"\label{{{label}_nested}}" + "\n\nNested body.\n\n\\clearpage\n"
+            )
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(body, encoding="utf-8")
+            configured_chapters.append({"file": path.name, "title": title})
+        units.append({"id": unit, "label": "0" if unit == "unit_0" else "I",
+                      "title": title_prefix, "directory": unit, "chapters": configured_chapters})
+    (manuscript / "unit_I" / "unit_intro.md").write_text(
+        "# Core orientation {.unnumbered}\n\nORIENTATIONPAGE\n\n\\clearpage\n", encoding="utf-8",
+    )
+    navigation = ["# Navigation {.unnumbered}\n\nNAVIGATIONPROBE"]
+    for title, slug, label, _display_number, _marker in fixtures.values():
+        navigation.append(
+            f"[{title}](#{slug}): "
+            + rf"\cref{{{label}}}; \cref{{{label}_detail}}; \cref{{{label}_nested}}."
+        )
+    (manuscript / "navigation.md").write_text(
+        "\n\n".join([*navigation, r"\clearpage"]), encoding="utf-8",
+    )
+    shutil.copy2(PROJECT / "docs" / "manuscript" / "preamble.md", manuscript / "preamble.md")
+    config = {
+        "book": {"title": "Chapter navigation regression", "author": "Fixture Author",
+                 "edition": "1.1", "year": 2026, "license": "CC BY 4.0", "code_license": "Apache-2.0"},
+        "units": units,
+        "front_matter": {"include_front_matter": True, "files": ["navigation.md"]},
+    }
+    (manuscript / "config.yaml").write_text(yaml.safe_dump(config), encoding="utf-8")
+    injected = tmp_path / "output" / "manuscript"
+    for module, name, value in (
+        ("biology.pipeline.collection", "PROJECT_ROOT", tmp_path),
+        ("biology.pipeline.collection", "MANUSCRIPT_DIR", manuscript),
+        ("biology.pipeline.collection", "CONFIG_FILE", manuscript / "config.yaml"),
+        ("biology.pipeline.injection", "PROJECT_ROOT", tmp_path),
+        ("biology.pipeline.injection", "MANUSCRIPT_DIR", manuscript),
+        ("biology.pipeline.injection", "OUTPUT_DIR", injected),
+        ("biology.pipeline.numbering", "MANUSCRIPT_DIR", manuscript),
+        ("biology.pipeline.rendering", "PROJECT_ROOT", tmp_path),
+        ("biology.pipeline.rendering", "OUTPUT_DIR", injected),
+        ("biology.visual_contracts.render", "PROJECT_ROOT", tmp_path),
+    ):
+        monkeypatch.setattr(f"{module}.{name}", value)
+    pdf = render_textbook()
+    reader = PdfReader(pdf)
+    extracted = subprocess.run(
+        ["pdftotext", str(pdf), "-"], capture_output=True, text=True,
+        check=True, stdin=subprocess.DEVNULL,
+    ).stdout
+    page_texts = [" ".join(text.split()) for text in extracted.rstrip("\f").split("\f")]
+    assert len(page_texts) == len(reader.pages)
+    navigation_pages = [index for index, text in enumerate(page_texts) if "NAVIGATIONPROBE" in text]
+    assert len(navigation_pages) == 1
+    auxiliary = pdf.with_name("_combined_manuscript.aux").read_text(encoding="utf-8")
+    named_destinations = reader.named_destinations
+    link_targets = []
+    for reference in reader.pages[navigation_pages[0]].get("/Annots", []):
+        annotation = reference.get_object()
+        if annotation.get("/Subtype") != "/Link":
+            continue
+        if "/Dest" in annotation:
+            link_targets.append(annotation["/Dest"])
+        elif "/A" in annotation:
+            action = annotation["/A"].get_object()
+            if action.get("/S") == "/GoTo":
+                link_targets.append(action["/D"])
+    chapter_destinations = set()
+    target_pages = set()
+    for title, _slug, label, display_number, marker in fixtures.values():
+        expected_pages = [index for index, text in enumerate(page_texts) if marker in text]
+        assert len(expected_pages) == 1
+        expected_page = expected_pages[0]
+        assert re.search(
+            r"(?<![\d.])" + re.escape(display_number) + r"\s*"
+            + r"\s*".join(re.escape(word) for word in title.split()) + r"\b", page_texts[expected_page],
+        )
+        for suffix in ("", "_detail", "_nested"):
+            # Aux labels identify the link name; only PDF objects prove its target.
+            match = re.search(
+                r"\\newlabel\{" + re.escape(label + suffix)
+                + r"\}\{\{[^}]*\}\{[^}]*\}\{[^}]*\}\{([^}]*)\}", auxiliary,
+            )
+            assert match is not None
+            destination_name = match[1]
+            assert destination_name in link_targets
+            destination = named_destinations[destination_name]
+            actual_page = reader.get_destination_page_number(destination)
+            assert actual_page == expected_page, (label + suffix, expected_page, actual_page)
+            if not suffix:
+                chapter_destinations.add(destination_name)
+                target_pages.add(actual_page)
+    assert len(chapter_destinations) == len(fixtures)
+    assert len(target_pages) == len(fixtures)
 
 
 @pytest.mark.parametrize("mode,rectangle,expected", [

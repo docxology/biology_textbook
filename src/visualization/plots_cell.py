@@ -119,9 +119,9 @@ def plot_chromosome_structure(output_dir: Path) -> Path:
         ax.add_patch(cap)
 
     # Centromere and kinetochore disks.
-    ax.add_patch(mpatches.Ellipse((5.0, 3.0), 1.35, 0.85, facecolor=centromere_color, edgecolor="black", lw=1.0))
-    ax.add_patch(mpatches.Circle((4.62, 3.0), radius=0.14, facecolor="white", edgecolor="black", linewidth=0.7))
-    ax.add_patch(mpatches.Circle((5.38, 3.0), radius=0.14, facecolor="white", edgecolor="black", linewidth=0.7))
+    ax.add_patch(mpatches.Ellipse((5.0, 3.0), 1.35, 0.85, facecolor=centromere_color, edgecolor="black", lw=1.0, zorder=3))
+    ax.add_patch(mpatches.Circle((4.62, 3.0), radius=0.14, facecolor="white", edgecolor="black", linewidth=0.7, zorder=4))
+    ax.add_patch(mpatches.Circle((5.38, 3.0), radius=0.14, facecolor="white", edgecolor="black", linewidth=0.7, zorder=4))
 
     labels = [
         ("Telomeres\nTTAGGG repeats", (1.4, 5.25), (2.75, 5.05)),
@@ -141,6 +141,7 @@ def plot_chromosome_structure(output_dir: Path) -> Path:
             va="center",
             arrowprops={"arrowstyle": "->", "color": GRAY, "lw": 1.1},
             bbox={"boxstyle": "round,pad=0.3", "facecolor": "white", "edgecolor": "#cccccc", "alpha": 0.92},
+            zorder=5,
         )
 
     legend_handles = [

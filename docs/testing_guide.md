@@ -83,6 +83,10 @@ Default review audits its supplied artifact directory; the CLI owns selection an
 
 `tests/test_manuscript_transactions.py` parses actual hydrated Markdown with Pandoc to verify that answer code remains inside its answer while ordinary code and mathematical expressions retain their content. Cases cover code-only, leading, middle and trailing answer code. Native PDF tests separately exercise question-list boundaries and TeX grid width. A passing log threshold alone is not table readability proof: inspect the PDF and distinguish physical page bounds from within-page cell overlap.
 
+Actual PDF navigation must resolve named destinations and link annotations to the intended physical body pages, especially across the Unit 0 section-counter reset. Matching a semantic label to a heading alias in the same `.aux` file can agree on the wrong destination. The native `test_real_pdf_chapter_links_survive_unit_zero_counter_reset` fixture exercises chapters and descendants through collection, injection, numbering, the manuscript preamble and rendering; temporary path redirection is not a mocked renderer. Display numbers, semantic IDs and PDF-internal destination names are distinct contracts.
+
+Question-list AST checks establish source structure only. Reader coverage additionally needs each configured bank's actual PDF extent, numbered prompt and corresponding printed answer in order. Record the matched pages and any missing/ambiguous items; do not call source existence or 1–30 source numbering a printed-flow result. Even complete text/link coverage does not certify every formula, answer's scientific validity, screen-reader order, physical print or PDF/UA conformance.
+
 ---
 
 ## Test organization
@@ -132,7 +136,7 @@ These domain and invariant/quality tables are navigation aids, not a current cou
 | `test_logging_compat.py` | Logging helper compatibility across checkout layouts |
 | `test_maintenance_engine_smoke.py` | Smoke imports for extracted maintenance engines under `src/biology/` |
 | `test_pdf_log_quality.py` | PDF-log checker reports undefined references and severe overfull boxes above the configured threshold |
-| `test_pdf_opening_and_mermaid.py` | Real native PDFs for cover/opening and inline Mermaid; actual Pandoc question/answer hierarchy and TeX course-grid width |
+| `test_pdf_opening_and_mermaid.py` | Real native PDFs for cover/opening, rich inline captions and Mermaid; actual chapter/descendant destination routing across Unit 0, Pandoc question/answer hierarchy and TeX course-grid width |
 | `test_question_answer_refinement.py` | Preserve authored answers; reject unsupported automatic repair without writes |
 | `test_script_quality.py` | Mermaid metadata normalization and assessment dry-run nonwriting behavior |
 | `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |

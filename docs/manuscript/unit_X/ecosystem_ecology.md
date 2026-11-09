@@ -314,7 +314,7 @@ Globally, BNPP is roughly half of total NPP — meaning *half* of the planet's p
 : Carbon Reservoirs Across Atmosphere, Ocean, Land, and Rock: Reservoir and Size (Pg C). {#tbl:unit_X_ecosystem_ecology_carbon_reservoirs_across_atmosphere_ocean_land_and_rock}
 | Reservoir | Size (Pg C) | Turnover time | Notes |
 | --------- | ----------- | ------------- | ----- |
-| Atmosphere | ~860 (2024) | Years | 421 ppm CO$_2$ (Keeling Curve) |
+| Atmosphere | ~900 (derived reference) | Years | NOAA 2024 global annual mean: 422.79 ppm CO$_2$; mass estimated using an assumed 2.13 Pg C/ppm, not an independent stock measurement \citep{noaa2026globalco2} |
 | Vegetation | ~560 | Decades | Mainly tropical forests |
 | Soil organic carbon | 1,500-2,400 | Decades-millennia | Largest terrestrial reservoir |
 | Northern circumpolar permafrost-region soil organic carbon | ~1,300 (uncertainty ~1,100–1,500); ~800 perennially frozen | Stock, not an emission timescale | Hugelius et al. (2014); overlaps soil carbon rather than adding a disjoint reservoir \citep{hugelius2014carbon} |
@@ -323,6 +323,8 @@ Globally, BNPP is roughly half of total NPP — meaning *half* of the planet's p
 | Lithosphere (fossil fuels) | ~3,700 (recoverable) | Geological timescales | Being transferred to atmosphere |
 | Marine sediments (carbonate) | >60,000,000 | Millions of years | Long-term geological storage |
 
+NOAA's data file created on 9 October 2026 reports a **2024 global annual mean of 422.79 ppm** CO$_2$ in dry air, with reported uncertainty 0.09 ppm. This is a globally averaged marine-surface series, not the single-station Mauna Loa Keeling Curve. Using the assumed conversion 2.13 Pg C per ppm gives approximately 900 Pg C; uncertainty in this mass conversion is not quantified by the concentration uncertainty alone. The dated concentration observation and derived stock must not be confused with the separate synthetic annual flux budget below \citep{noaa2026globalco2}.
+
 ### Annual Carbon Fluxes: A Conserved Teaching Budget
 
 The diagram uses a synthetic, rounded annual budget in Pg C/yr, authored for accounting practice, not a dated empirical global assessment. Positive flux into the atmosphere is a source. Land GPP=120, autotrophic respiration=60, and heterotrophic respiration=56.5 imply net land uptake=3.5. Gross ocean uptake=92 and outgassing=89.1 imply net ocean uptake=2.9. With fossil emissions=10 and land-use emissions=1.5, atmospheric accumulation is 5.1. Use either gross or net accounting, never both. Permafrost respiration is not added again as an independent flow in this closed record.
@@ -330,7 +332,7 @@ The diagram uses a synthetic, rounded annual budget in Pg C/yr, authored for acc
 ```mermaid
 graph LR
     subgraph "Global Carbon Cycle — Annual Fluxes (Pg C/yr)"
-        ATM["Atmosphere<br/>860 Pg C<br/>421 ppm CO₂"]
+        ATM["Atmosphere<br/>~900 Pg C (derived)<br/>~423 ppm CO₂ (2024 global mean)"]
         LAND["Terrestrial<br/>Biosphere"]
         OCEAN["Ocean"]
         FF["Fossil Fuels<br/>3,700 Pg C"]
@@ -347,9 +349,9 @@ graph LR
 
     PERM -.->|"Included within land; no extra flux"| LAND
 ```
-<!-- alt: Graph showing carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is 5.1 Pg C per year in this synthetic teaching budget, not a measured annual CO_2. -->
+<!-- alt: Solid arrows show synthetic annual carbon fluxes among the atmosphere, land, ocean and emission sources; a dotted link marks permafrost already included in land accounting. The atmospheric stock is derived from a dated NOAA concentration reference, while the flux residual is 5.1 Pg C per year under the stipulated budget. -->
 
-*Carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is 5.1 Pg C per year in this synthetic teaching budget, not a measured annual CO$_2$.*
+*Annual fluxes in Pg C/yr are synthetic accounting inputs, giving net atmospheric accumulation of 5.1 Pg C/yr, not a measured annual growth rate. The separate atmospheric reference rounds NOAA's observed 2024 global annual mean of 422.79 ppm to 423 ppm; approximately 900 Pg C is derived using the assumed 2.13 Pg C/ppm conversion. The 2024 date identifies the concentration reference, not the synthetic flux year. Permafrost is included within land rather than added as an independent extra flow \citep{noaa2026globalco2}.*
 
 ### The Biological Pump
 
@@ -1070,7 +1072,7 @@ flowchart LR
 
 3. Iron fertilization experiments (Martin 1990: "Give me half a tanker of iron and I will give you an ice age") showed that adding Fe to HNLC ocean regions triggers phytoplankton blooms. (a) Explain why these regions are high in N and P but low in phytoplankton. (b) Why doesn't iron fertilization cause long-term net CO$_2$ drawdown? (c) What are the ecological risks of large-scale iron fertilization?
 
-4. The permafrost carbon feedback is estimated to release 1-1.5 Pg CO$_2$-equivalent per year for each degree of additional warming. Current warming projections suggest 2-4$^\circ$C above pre-industrial by 2100. Calculate the range of additional CO$_2$-equivalent that permafrost might contribute over 80 years, assuming linear temperature rise. Compare with annual fossil fuel emissions of ~10 Pg C/yr.
+4. Use the synthetic annual budget above, not an empirical permafrost forecast. Suppose heterotrophic respiration rises from 56.5 to 57.0 Pg C/yr and all other fluxes remain fixed. (a) Calculate the new atmospheric accumulation. (b) Explain the double counting if the same 0.5 Pg C/yr is also added as a separate permafrost emission. (c) Convert that increment to Pg CO$_2$/yr using 44/12 and to ppm/yr using the assumed 2.13 Pg C/ppm. Distinguish carbon mass, CO$_2$ mass and concentration; none of these conditional results establishes a future warming trajectory.
 
 5. Compare the nitrogen and phosphorus cycles in terms of: (a) whether they have a significant atmospheric phase, (b) the primary anthropogenic disruption, (c) the main environmental consequence, and (d) whether the element can be industrially synthesized from atmospheric or geological sources.
 
@@ -1078,9 +1080,9 @@ flowchart LR
 
 7. Explain the biological pump in detail. Why is it important for climate regulation? If ocean warming stratifies the surface layer more strongly (reducing nutrient upwelling), what happens to the efficiency of the biological pump and atmospheric CO$_2$?
 
-8. The Keeling Curve shows atmospheric CO$_2$ rising from 315 ppm in 1958 to 421 ppm in 2024. Given that ~55% of anthropogenic CO$_2$ emissions are absorbed by land and ocean sinks: (a) What would atmospheric CO$_2$ be without these sinks? (b) If ocean acidification reduces the ocean's capacity to absorb CO$_2$ by 15%, how much additional CO$_2$ would remain in the atmosphere per year?
+8. In the stipulated budget, fossil plus land-use emissions total 11.5 Pg C/yr, net land uptake is 3.5 and net ocean uptake is 2.9 Pg C/yr. (a) Calculate atmospheric accumulation with and without these two sinks. (b) Holding every other flux fixed, calculate the additional accumulation if net ocean uptake falls by 15%, and express that increment in ppm/yr using the assumed 2.13 Pg C/ppm. This perturbation is a teaching scenario, not a measured acidification response or a projection derived from the NOAA concentration series.
 
-9. A farmer applies 200 kg N/ha as ammonium nitrate fertiliser. Primarily 40% is taken up by the corn crop. Trace the fate of the remaining 120 kg N/ha through the nitrogen cycle: what fraction is likely denitrified, leached as nitrate, volatilised as NH$_3$, and converted to N$_2$O? What is the total environmental cost of this "excess" nitrogen?
+9. Stipulate an application of 200 kg N/ha and crop uptake of 40%. Calculate the nitrogen not taken up by the crop, then distinguish possible soil retention, microbial immobilization, nitrate leaching, denitrification, ammonia volatilization and N$_2$O production. Explain why uptake alone cannot assign fractions to these remaining pools or losses. Specify the soil, hydrological, management and flux measurements needed, and define an environmental-cost metric before proposing a numerical cost.
 
 10. Compare the CLAW hypothesis (DMS-cloud feedback) with the permafrost carbon feedback. One is a negative feedback and one is positive. Explain which is which, their relative magnitudes, and their implications for Earth's climate trajectory.
 11. Assign trophic levels with `food_web_trophic_levels` for a three-species chain; verify tuna-style pyramids require multiplying efficiencies.

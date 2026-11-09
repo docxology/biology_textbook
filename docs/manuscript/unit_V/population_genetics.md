@@ -157,7 +157,7 @@ Therefore, at equilibrium:
 
 This can also be written as $(p + q)^2 = 1$, which is simply the binomial expansion.
 
-**Key insight**: HW equilibrium is reached in a **single generation** of random mating (for autosomal loci), and allele frequencies do not change across generations.
+**Key insight:** For an autosomal locus with the same allele frequencies in both sexes, random union of gametes produces the expected genotype proportions $p^2$, $2pq$, and $q^2$ at fertilization in one generation. Constancy of allele frequencies across generations requires additional assumptions; random mating alone does not rule out evolution.
 
 ```mermaid
 flowchart TD
@@ -167,13 +167,13 @@ flowchart TD
     A --> E["4. No Migration (Gene Flow)"]
     A --> F["5. No Natural Selection"]
 
-    B -->|Violated| G["GENETIC DRIFT: Random Allele Frequency Changes"]
-    C -->|Violated| H["ASSORTATIVE MATING / INBREEDING: Changes Genotype Frequencies"]
-    D -->|Violated| I["MUTATION: Introduces New Alleles"]
-    E -->|Violated| J["GENE FLOW: Homogenizes Populations"]
-    F -->|Violated| K["NATURAL SELECTION: Changes Allele Frequencies"]
+    B -->|Violated| G["GENETIC DRIFT<br/>Sampling variation"]
+    C -->|Violated| H["NONRANDOM MATING<br/>Can redistribute genotypes"]
+    D -->|Violated| I["MUTATION<br/>Allelic transitions"]
+    E -->|Violated| J["GENE FLOW<br/>Movement of alleles"]
+    F -->|Violated| K["NATURAL SELECTION<br/>Differences in reproductive contribution"]
 
-    G --> L{{"All Violations = Evolutionary Forces"}}
+    G --> L{{"Assumption departure:<br/>investigate the mechanism"}}
     H --> L
     I --> L
     J --> L
@@ -182,9 +182,9 @@ flowchart TD
     style A fill:#4a90d9,color:#fff
     style L fill:#d9534f,color:#fff
 ```
-<!-- alt: Flowchart showing five assumptions of Hardy-Weinberg equilibrium and the evolutionary forces that result from their violation. HWE serves as a null model - deviations indicate evolutionary forces are acting. -->
+<!-- alt: Five Hardy–Weinberg assumptions branch to drift, nonrandom mating, mutation, gene flow and selection. Their convergence calls for investigation, not proof of allele-frequency evolution; nonrandom mating can redistribute genotype proportions while allele frequencies remain unchanged. -->
 
-*The five assumptions of Hardy-Weinberg equilibrium and the evolutionary forces that result from their violation. HWE serves as a null model -- deviations indicate evolutionary forces are acting.*
+*Departures from Hardy–Weinberg assumptions require investigation, not an automatic inference of allele-frequency evolution. Drift, mutation, gene flow and selection can affect allele frequencies; nonrandom mating can redistribute genotypes without doing so. In a stipulated complete-selfing model without genotype-dependent selection, starting proportions (AA, Aa, aa) = (0.25, 0.50, 0.25) become (0.375, 0.25, 0.375) after one generation while p = q = 0.5 remains unchanged. Genotype-proportion departure and allele-frequency change are different observations.*
 
 ### Testing for Hardy-Weinberg Equilibrium
 

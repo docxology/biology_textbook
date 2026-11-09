@@ -1001,3 +1001,29 @@ claims:
     evidence_date: 2025-04-16
     checked_as_of: 2026-11-08
     refresh_trigger: "New native-infection, expression-timing, ring-nuclease functional evidence or correction; retain distinction from biochemical and overexpression assays."
+  - claim_id: noaa-global-co2-2024-reference
+    file: docs/manuscript/unit_X/ecosystem_ecology.md
+    source_path: docs/manuscript/unit_X/ecosystem_ecology.md
+    anchor_text: "2024 global annual mean of 422.79 ppm"
+    claim_text: "NOAA's data file created 9 October 2026 reports a 2024 globally averaged marine-surface annual mean CO2 dry-air mole fraction of 422.79 ppm with reported uncertainty 0.09 ppm. The approximately 900 Pg C stock is a separate calculation using an assumed 2.13 Pg C/ppm, not an independently measured stock; the neighboring annual flux budget remains synthetic."
+    topic: atmospheric carbon reference and units
+    source_tier: official_primary
+    citekey: noaa2026globalco2
+    url: https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_gl.txt
+    url_or_citekey: noaa2026globalco2
+    evidence_date: 2026-10-09
+    checked_as_of: 2026-11-09
+    refresh_trigger: "NOAA data-file revision or release review; retain the explicitly dated global series and distinguish observation, assumed conversion and synthetic flux exercise."
+  - claim_id: oliceridine-label-safety-boundary
+    file: docs/manuscript/unit_II/cell_signaling.md
+    source_path: docs/manuscript/unit_II/cell_signaling.md
+    anchor_text: "label revised in December 2025"
+    claim_text: "The OLINVYK label revised December 2025, DailyMed SPL version 11 published 5 January 2026, identifies initial U.S. approval in 2020, retains serious/life-threatening/fatal respiratory-depression warnings and lists constipation among common adverse reactions. An assay-defined signaling-bias classification alone does not establish a comparative clinical safety advantage."
+    topic: signaling bias and regulatory safety
+    source_tier: official_primary
+    citekey: trevena2025olinvyklabel
+    url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ce167984-8b9d-40b7-84ce-d0f33fff1eaa
+    url_or_citekey: trevena2025olinvyklabel
+    evidence_date: 2026-01-05
+    checked_as_of: 2026-11-09
+    refresh_trigger: "FDA/DailyMed label revision or a specified comparative clinical safety study; do not substitute cell-assay bias for patient-outcome evidence."

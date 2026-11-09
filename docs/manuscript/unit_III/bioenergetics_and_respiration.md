@@ -619,41 +619,44 @@ Oxidative phosphorylation (OxPhos) accounts for ~90% of ATP production in aerobi
 ### Electron Transport Chain (ETC)
 
 ```mermaid
-sequenceDiagram
-    participant NADH as NADH (matrix)
-    participant CI as Complex I<br/>(NADH:UQ oxidoreductase)<br/>46 subunits, 1 MDa<br/>Pumps 4 H⁺
-    participant Q as Ubiquinone (Q)<br/>Lipid-soluble<br/>mobile carrier
-    participant CII as Complex II<br/>(Succinate DH)<br/>4 subunits<br/>No H⁺ pumping
-    participant CIII as Complex III<br/>(Cytochrome bc₁)<br/>Q cycle<br/>Pumps 4 H⁺/2e⁻
-    participant CytC as Cytochrome c<br/>Soluble<br/>IMS carrier
-    participant CIV as Complex IV<br/>(Cytochrome c oxidase)<br/>Pumps 2 H⁺/2e⁻
-    participant O2 as O₂ → H₂O
-    participant CV as Complex V<br/>(ATP synthase)<br/>~3 H⁺ per ATP
-
-    NADH->>CI: 2 electrons (NADH → NAD⁺ + H⁺)
-    CI->>Q: Electrons via FMN → Fe-S clusters → Q
-    Note over CI: 4 H⁺ pumped to IMS
-
-    CII->>Q: FADH₂ → FAD (from succinate)
-    Note over CII: 0 H⁺ pumped (no energy)
-
-    Q->>CIII: QH₂ delivers electrons
-    Note over CIII: Q cycle: 4 H⁺ per 2e⁻
-    CIII->>CytC: Electron to cytochrome c
-
-    CytC->>CIV: Electron delivery
-    Note over CIV: 2 H⁺ pumped; 2 H⁺ consumed
-    CIV->>O2: 4e⁻ + 4H⁺ + O₂ → 2H₂O
-
-    Note over CV: PMF drives H⁺ through F₀ channel
-    Note over CV: γ-subunit rotates 120° per ATP
-    Note over CV: ~3 H⁺ per ATP synthesized
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ENTRY["1. Alternative electron inputs into Q"]
+        direction LR
+        CI["Matrix NADH → NAD⁺ + H⁺<br/>Complex I: 46 subunits, 1 MDa<br/>FMN → Fe-S clusters<br/>4 H⁺ pumped to IMS"] -->|"2e⁻"| Q["Ubiquinone (Q)<br/>Lipid-soluble carrier<br/>Reduced to QH₂"]
+        CII["Succinate → fumarate<br/>Complex II: 4 subunits<br/>Bound FADH₂ → FAD<br/>0 H⁺ pumped"] -->|"2e⁻ via Fe-S"| Q
+    end
+    subgraph TRANSFER["2. QH₂ continuation: Complex III Q cycle"]
+        direction LR
+        QH2["QH₂<br/>From stage 1"] -->|"Net 2e⁻"| CIII["Complex III (bc₁)<br/>4 H⁺ to IMS per 2e⁻<br/>Net Q-cycle accounting"]
+        CIII -->|"1e⁻ to each carrier"| CytC["2 cytochrome c reduced<br/>Soluble IMS carriers"]
+    end
+    subgraph OXYGEN["3. Cytochrome c continuation: oxygen reduction"]
+        direction LR
+        CytC2["Reduced cytochrome c<br/>From stage 2"] -->|"1e⁻ at a time"| CIV["Complex IV<br/>Per 2e⁻: 2 H⁺ pumped to IMS<br/>Plus 2 matrix H⁺ consumed<br/>in water formation"]
+        CIV -->|"4e⁻ total"| WATER["O₂ + 4 matrix H⁺ + 4e⁻<br/>→ 2 H₂O"]
+    end
+    subgraph ATP["4. Gradient use: no electron transfer to Complex V"]
+        direction LR
+        PMF["PMF built by I, III, IV"] -->|"H⁺ return: IMS → matrix"| CV["Complex V (ATP synthase)<br/>H⁺ through F₀ channel<br/>γ rotates 120° per ATP<br/>~3 H⁺ per ATP (rounded)"]
+        CV -->|"Rotary catalysis"| PRODUCT["ADP + Pi → ATP"]
+    end
+    ENTRY -->|"QH₂ continues"| TRANSFER
+    TRANSFER -->|"Cytochrome c continues"| OXYGEN
+    OXYGEN -.->|"PMF coupling, not e⁻ flow"| ATP
+    classDef component fill:#ffffff,stroke:#526777,color:#111111
+    class CI,CII,Q,QH2,CIII,CytC,CytC2,CIV,WATER,PMF,CV,PRODUCT component
+    style ENTRY fill:#eef5fa,stroke:#526777,color:#17212b
+    style TRANSFER fill:#eef5fa,stroke:#526777,color:#17212b
+    style OXYGEN fill:#eef5fa,stroke:#526777,color:#17212b
+    style ATP fill:#f8f0e8,stroke:#526777,color:#17212b
 ```
-<!-- alt: Sequence diagram showing electron transport passes reducing equivalents from NADH and FADH2 through complexes I-IV to oxygen, with proton pumping by complexes I, III, and IV building the gradient for ATP synthase. -->
+<!-- alt: Four continued stages show alternative Complex I and II electron inputs into Q, Complex III transferring a net electron pair to two cytochrome c carriers with four protons delivered to the intermembrane space, and Complex IV reducing oxygen. Per electron pair, Complex IV pumps two protons and separately consumes two matrix protons in water formation. A distinct PMF-coupling connector leads to ATP synthase, which uses proton return rather than electron transfer. -->
 
-*Electron transport passes reducing equivalents from NADH and FADH2 through complexes I-IV to oxygen, with proton pumping by complexes I, III, and IV building the gradient for ATP synthase.*
-
-*Electron flow through the ETC complexes I--IV and proton pumping that generates the proton motive force (Mermaid).* ATP synthase (Complex V) uses this PMF to synthesize ATP via rotary catalysis.
+*Electron transport and ATP synthesis in four continued stages, not a spatial membrane map or a timeline of separate events. Repeated QH₂ and cytochrome c labels continue the same electron path; Complex I and II are alternative inputs, not consecutive steps. Pumping totals per electron pair are 10 H$^+$ for NADH entry and 6 H$^+$ for Complex II entry. Complex III's Q-cycle value is net 4 H$^+$ delivered to the intermembrane space (IMS) per 2e$^-$, not per cytochrome c. Complex IV pumps 2 H$^+$ per 2e$^-$ and separately consumes 2 matrix H$^+$ to make water; its displayed oxygen-reduction equation sums two electron pairs. The dotted connector denotes PMF coupling, not electron transfer to ATP synthase. The rounded ~3 H$^+$/ATP motor value is illustrative; species-dependent c-ring stoichiometry, transport costs, and leak are treated below.*
 
 **Complex I (NADH:ubiquinone oxidoreductase):**
 - Largest ETC complex (~46 subunits in mammals, ~1 MDa)

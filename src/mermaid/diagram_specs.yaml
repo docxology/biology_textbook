@@ -4,65 +4,19 @@ diagrams:
   name: atp_synthesis
   title: 'Oxidative Phosphorylation: Electron Flow to ATP'
   nodes:
-  - - NADH
-    - NADH electrons
-  - - FADH
-    - FADH2 electrons
-  - - CI
-    - Complex I pumps H+
-  - - CII
-    - Complex II feeds Q
-  - - Q
-    - Ubiquinone pool
-  - - CIII
-    - Complex III pumps H+
-  - - CIV
-    - Complex IV pumps H+
-  - - Pm
-    - Proton-motive force
-  - - ATP
-    - ATP synthase
-  - - O2
-    - O2 reduced to water
-  - - ATPP
-    - ADP + Pi to ATP
+  - - Electron
+    - 'Electron routes<br/>NADH → I → Q<br/>Succinate → II<br/>(bound FAD) → Q<br/>Q → III → cyt c → IV<br/>O₂ → H₂O at IV'
+  - - Protons
+    - 'Net H⁺ to IMS<br/>per two electrons:<br/>I: 4; II: 0<br/>III: 4; IV: 2<br/>Water formation at IV<br/>also uses matrix H⁺'
+  - - Coupling
+    - 'Proton-motive force<br/>H⁺ gradient + voltage<br/>across inner membrane<br/>H⁺ returns to matrix<br/>via ATP synthase<br/>ADP + Pi → ATP'
   edges:
-  - - NADH
-    - CI
-    - 2 e-
-  - - FADH
-    - CII
-    - 2 e-
-  - - CI
-    - Q
-    - ''
-  - - CII
-    - Q
-    - ''
-  - - Q
-    - CIII
-    - ''
-  - - CIII
-    - CIV
-    - cytochrome c
-  - - CIV
-    - O2
-    - terminal acceptor
-  - - CI
-    - Pm
-    - 4 H+
-  - - CIII
-    - Pm
-    - 4 H+
-  - - CIV
-    - Pm
-    - 2 H+
-  - - Pm
-    - ATP
-    - H+ flow
-  - - ATP
-    - ATPP
-    - rotary catalysis
+  - - Electron
+    - Protons
+    - coupled translocation
+  - - Protons
+    - Coupling
+    - builds PMF
   direction: LR
 - type: state
   factory: cell_cycle_diagram
@@ -1294,54 +1248,25 @@ diagrams:
 - type: flowchart
   factory: viral_replication_cycle_diagram
   name: viral_lytic_cycle
-  title: Lytic Viral Replication Cycle
+  title: 'T4 Phage Lytic Cycle: Early and Late Expression'
   nodes:
-  - - V
-    - Free virion
-  - - Att
-    - Attachment to receptor
   - - Entry
-    - Genome entry
-  - - Ecl
-    - Eclipse phase
-  - - Rep
-    - Genome replication
-  - - Prot
-    - Viral protein synthesis
-  - - Ass
-    - Capsid assembly
-  - - Lys
-    - Cell lysis
-  - - Rel
-    - Virion release
+    - 'T4 in E. coli<br/>Attachment → DNA entry<br/>Early/middle expression<br/>makes replication proteins'
+  - - Production
+    - 'DNA replication continues<br/>during coupled late expression<br/>Progeny DNA + structural proteins<br/>→ assembly and packaging'
+  - - Release
+    - 'Infectious progeny<br/>Cell lysis → virion release<br/>New host infection'
   edges:
-  - - V
-    - Att
-    - host range
-  - - Att
-    - Entry
-    - penetration
   - - Entry
-    - Ecl
-    - no infectious virus
-  - - Ecl
-    - Rep
-    - host machinery
-  - - Rep
-    - Prot
-    - mRNA expression
-  - - Prot
-    - Ass
-    - structural proteins
-  - - Ass
-    - Lys
-    - burst
-  - - Lys
-    - Rel
-    - new virions
-  - - Rel
-    - V
-    - new virions
+    - Production
+    - replication machinery
+  - - Production
+    - Release
+    - mature progeny
+  - - Release
+    - Entry
+    - next infection
+  direction: LR
 - type: flowchart
   factory: x_inactivation_diagram
   name: x_inactivation_diagram

@@ -1,4 +1,8 @@
-"""LaTeX section-numbering directives for injected manuscript files."""
+"""LaTeX section-numbering directives for injected manuscript files.
+
+These display numbers also identify PDF section destinations: the manuscript
+preamble binds hyperref's ``theHsection`` to ``thesection`` across counter resets.
+"""
 
 from __future__ import annotations
 

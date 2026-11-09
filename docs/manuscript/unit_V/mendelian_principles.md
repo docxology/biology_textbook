@@ -94,10 +94,10 @@ Mendel's genius was **quantitative**: he counted offspring in each class and app
 flowchart TD
     A["Diploid Parent: Yy (heterozygous)"] --> B["DNA Replication in S Phase"]
     B --> C["Each Homolog Now Has Sister Chromatids"]
-    C --> D["Meiosis I: Homologs Pair at Metaphase I"]
+    C --> D["Prophase I: Homologs Pair<br/>Metaphase I: Bivalents Align"]
     D --> E["Anaphase I: Homologs Segregate"]
-    E --> F["Cell 1: YY (sisters still joined)"]
-    E --> G["Cell 2: yy (sisters still joined)"]
+    E --> F["Cell 1: Y-bearing homolog<br/>Sister chromatids still joined"]
+    E --> G["Cell 2: y-bearing homolog<br/>Sister chromatids still joined"]
     F --> H["Meiosis II: Sisters Separate"]
     G --> I["Meiosis II: Sisters Separate"]
     H --> J["Gamete: Y"]
@@ -111,9 +111,9 @@ flowchart TD
     style L fill:#f0ad4e,color:#000
     style M fill:#f0ad4e,color:#000
 ```
-<!-- alt: Flowchart showing molecular basis of the Law of Segregation. A heterozygous (Yy) individual produces equal proportions of Y and y gametes because homologous chromosomes separate at anaphase I of meiosis. -->
+<!-- alt: In the single-locus Yy model, homologs pair in prophase I, align as bivalents at metaphase I and separate at anaphase I. Meiosis II separates sister chromatids, yielding equal Y and y gametes; duplicated sisters are not a diploid YY or yy genotype. -->
 
-*Molecular basis of the Law of Segregation. A [**heterozygous**](#gl:heterozygous) (Yy) individual produces equal proportions of Y and y gametes because homologous chromosomes separate at anaphase I of meiosis.*
+*Single-locus basis of the Law of Segregation. Homologs pair during prophase I and aligned bivalents separate at anaphase I. After meiosis I each depicted cell has one homolog with joined sister chromatids; these duplicated copies do not make a diploid YY or yy genotype. Meiosis II separates the sisters, producing equal proportions of Y and y gametes in the stated model.*
 
 ### The Molecular Basis of Mendel's Laws: From Bivalents to Binomials
 

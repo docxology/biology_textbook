@@ -226,11 +226,11 @@ C5b initiates the **terminal pathway**: C5b → C5b-C6 → C5b-C6-C7 (membrane-i
 
 #### Effector functions
 
-- **Opsonisation:** C3b coats pathogen → recognized by phagocyte receptors **CR1** (C3b/C4b), **CR3** (iC3b), **CR4**. Opsonised particles are 1000-fold more efficiently phagocytosed.
+- **Opsonization:** C3b and its processed fragments coat targets and promote recognition by phagocyte complement receptors: CR1 recognizes C3b/C4b, while CR3 and CR4 recognize iC3b. Uptake depends on the target, deposited complement, receptor state and assay; no universal 1000-fold enhancement follows from the pathway alone.
 - **Membrane attack complex (MAC):** C5b-9 polymerizes in target membrane, forming a 10 nm pore.
-- **Anaphylatoxins (chemotaxis and inflammation):** C3a and **C5a** (the most potent) recruit neutrophils, activate mast cells, increase vascular permeability, and amplify local inflammation.
+- **Anaphylatoxins (inflammatory signaling):** C3a and C5a have cell- and context-dependent effects. C5a is a potent neutrophil chemoattractant; in the cited isolated-human-neutrophil assays, C3a did not induce the same chemotactic response. This does not exclude indirect recruitment effects or responses in other tissues; see the assay-specific distinction in \cref{sec:unit_VII_host_immunity_and_vaccines} \citep{ehrengruber1994c3ac5a,muldur2021neutrophils}.
 - **Immune complex clearance:** CR1 on erythrocytes binds C3b-coated immune complexes and ferries them to liver/spleen for disposal.
-- **B cell co-stimulation:** C3d coupled to antigen lowers the BCR signaling threshold ~10,000 fold via CR2 (CD21).
+- **B-cell co-stimulation:** Antigen-associated C3d can engage CR2 (CD21) and the B-cell co-receptor machinery alongside BCR recognition. The cited mouse experiment found hen egg lysozyme fused to two or three murine C3d copies to be 1000- or 10,000-fold more immunogenic, respectively, than HEL alone. Those construct-specific immunogenicity comparisons are not a universal 10,000-fold reduction in the BCR signaling threshold \citep{dempsey1996c3d}.
 
 #### Amplification dynamics and regulation
 

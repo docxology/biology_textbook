@@ -5669,6 +5669,15 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_signaling.md:327:0a2848374d67",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_II/cell_signaling.md",
+      "line": 327,
+      "excerpt": "- **Oliceridine / TRV130:** This μ-opioid agonist received initial U.S. approval in 2020. Classifying a ligand's signaling bias does not guarantee a respiratory or gastrointestinal safety advantage in patients. The label revised in December 2025 retains warnings for serious, life-threatening or fatal respiratory depression and lists constipation among common adverse reactions \\citep{trevena2025olinvyklabel}.",
+      "rationale": "DailyMed OLINVYK SPL version 11, revised December 2025 and published 5 January 2026, retains respiratory-depression warnings and common constipation. This denies a guaranteed inference from cell-assay bias, not the possibility of a comparative clinical benefit; no unread clinical trial endpoint is claimed.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
+    },
+    {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_signaling.md:348:7f1ce0534bb2",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_II/cell_signaling.md",
@@ -5939,10 +5948,10 @@
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/bioenergetics_and_respiration.md:758:957634f52af2",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/bioenergetics_and_respiration.md:761:957634f52af2",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/bioenergetics_and_respiration.md",
-      "line": 758,
+      "line": 761,
       "excerpt": "At 180 mV, one mole of protons moving down the electrochemical gradient supplies about 17.4 kJ. An illustrative 11/3 proton-motive equivalents per ATP supplies about 63.7 kJ/mol ATP. This is a thermodynamic budget under stated assumptions, not a universal measured surplus or response-time prediction.",
       "rationale": "The excerpts preserve matched thermodynamic states and distinguish free-energy accounting from calorimetric heat. F×0.180 V gives approximately 17.4 kJ/mol protons, and multiplication by the stipulated 11/3 equivalents gives approximately 63.7 kJ/mol ATP, expressly not a universal measured surplus.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
@@ -6578,37 +6587,46 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:249:ed6bd8301e31",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:82:759a16551953",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 249,
+      "line": 82,
+      "excerpt": "**Chromatin contacts and assembly properties are distinct observations:** Disrupting a CTCF boundary can alter enhancer–promoter contacts and contribute to enhancer hijacking. This does not make a TAD a universal physical container for condensates or establish the material state of an enriched transcriptional assembly.",
+      "rationale": "A chromatin contact-domain boundary and the material state/extent of an enriched assembly are distinct measurements. Boundary perturbation can change regulatory contacts without proving a TAD is a physical liquid container; this closes the chapter's otherwise contradictory inference while retaining its existing system-dependent LLPS/compaction evidence.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:246:ed6bd8301e31",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
+      "line": 246,
       "excerpt": "| DNMT inhibitors | Azacitidine/decitabine trap maintenance methyltransferase | Established product-specific myeloid indications; not a universal cancer indication |",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:304:55dc501b64ce",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:301:55dc501b64ce",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 304,
+      "line": 301,
       "excerpt": "> **Problem:** IDH1-R132H converts αKG to **R/D-2-hydroxyglutarate**. Explain the expected TET and selected histone-demethylase effects, then evaluate whether HIF stabilization follows universally. Separate the biochemical rationale for mutant-IDH inhibition from clinical evidence for vorasidenib.",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:309:e9f6929f51df",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:306:e9f6929f51df",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 309,
+      "line": 306,
       "excerpt": "> 3. **Enantiomer/enzyme counterexample:** R/D-2HG must not be conflated with S/L-2HG. Koivunen et al. found that R-2HG could stimulate EglN/PHD prolyl hydroxylases and lower HIF in their human-astrocyte model, whereas S-2HG behaved differently. Thus neither universal PHD inhibition/HIF stabilization nor universal HIF suppression follows from mutant IDH alone \\citep{Koivunen2012R2HG}.",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:469:8a9b6370a385",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:466:8a9b6370a385",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 469,
+      "line": 466,
       "excerpt": "| **DNMT3A/3B** | De novo methyltransferases; DNMT3L can stimulate activity in defined contexts, with germline imprint-establishment requirements distinct from universal catalytic dependence \\citep{Chedin2002DNMT3L} |",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
@@ -6648,6 +6666,24 @@
       "excerpt": "NMD has homeostatic functions beyond aberrant-transcript quality control, including regulation of particular alternatively spliced physiological isoforms during development and cellular responses. These roles do not specify one universal transcript fraction or disease outcome \\citep{kurosaki2019nmd}.",
       "rationale": "Kurosaki et al. (2019) review physiological NMD, including regulated alternative splicing, development and cellular responses. The sentence explicitly declines to infer a universal transcript fraction or disease outcome, and it distinguishes aberrant-transcript quality control from pathogen detection. This classification is not certification of every unchanged clinical or experimental claim in the chapter.",
       "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:623:2ed9aa2c2ada",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 623,
+      "excerpt": "- **Signal and size:** ChIP-seq enrichment and regional span depend on the measured factor, preparation, peak definition and clustering choices; neither a universal 10-fold density threshold nor a fixed 25–50-kb size defines this category.",
+      "rationale": "Whyte et al. 2013 PMC Summary and Results/Figure1 distinguish total signal from constituent density and define exceptional Mediator-rich domains in specified murine cells. Their ESC and pro-B comparisons have different region spans; the text correctly rejects turning these study-specific measurements into universal H3K27ac/fixed-size category thresholds.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:625:e9b519817fe7",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 625,
+      "excerpt": "- **Annotation:** Report the cell, assay, region-stitching and ranking/cutoff choices. Mediator-based classification in the cited study and H3K27ac-based annotations are related measurements, not interchangeable universal counts.",
+      "rationale": "The inspected Whyte2013 Results compare Mediator, H3K27ac and other measured features, finding Mediator optimal in that ESC analysis. Different assay, stitching and ranking choices cannot be assumed to yield an identical universal census; no new measured count or cutoff is invented.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:637:50ae0d0e9d0a",
@@ -7053,6 +7089,24 @@
       "excerpt": "11. A person with nephrotic syndrome, severe proteinuria and serum albumin 1.8 g/dL has bilateral pitting edema. Explain how reduced plasma oncotic pressure can favor filtration in a classical calculation, then distinguish that calculation from revised steady-state fluid exchange. What measurements of lymphatic return, renal sodium balance and pressures would support a mechanism? Why do neither pitting nor an albumin infusion prove a universal sustained venular-reabsorption mechanism or guarantee immediate edema resolution?",
       "rationale": "Rapid baroreflex action need not fully compensate severe pressure/volume loss. Revised steady-state fluid exchange distinguishes glycocalyx/subglycocalyx gradients and lymphatic balance from classical end-point arithmetic or transient reabsorption. A classical positive filtration pressure alone does not measure sustained flow, drainage capacity or edema mechanism; nephrotic edema also requires renal sodium, pressure and lymphatic context, not a guaranteed albumin-infusion response.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/immune_system_defense.md:229:630199a0c4f0",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/immune_system_defense.md",
+      "line": 229,
+      "excerpt": "- **Opsonization:** C3b and its processed fragments coat targets and promote recognition by phagocyte complement receptors: CR1 recognizes C3b/C4b, while CR3 and CR4 recognize iC3b. Uptake depends on the target, deposited complement, receptor state and assay; no universal 1000-fold enhancement follows from the pathway alone.",
+      "rationale": "Receptor-ligand identities distinguish C3b/C4b recognition by CR1 from iC3b recognition by CR3/CR4. A pathway without target, deposition, receptor-state and uptake measurements cannot specify a universal 1000-fold phagocytosis ratio; the unscoped numerical claim is removed, not replaced by an observed alternative.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/immune_system_defense.md:233:c35923bc1875",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/immune_system_defense.md",
+      "line": 233,
+      "excerpt": "- **B-cell co-stimulation:** Antigen-associated C3d can engage CR2 (CD21) and the B-cell co-receptor machinery alongside BCR recognition. The cited mouse experiment found hen egg lysozyme fused to two or three murine C3d copies to be 1000- or 10,000-fold more immunogenic, respectively, than HEL alone. Those construct-specific immunogenicity comparisons are not a universal 10,000-fold reduction in the BCR signaling threshold \\citep{dempsey1996c3d}.",
+      "rationale": "The verified Dempsey et al. 1996 primary abstract (PMID 8553069, DOI 10.1126/science.271.5247.348) reports mouse HEL fused to two/three murine C3d copies as 1000/10000-fold more immunogenic. The text preserves those construct comparisons and rejects transferring an immunogenicity endpoint into a universal BCR signaling-threshold ratio; publisher full text was not accessed.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/immune_system_defense.md:568:cce6d1c3e2fa",
@@ -8927,82 +8981,91 @@
       "reviewer": "wfz-biology-textbook-release / scientific-visual delta review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:328:e03d3027fbcd",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:330:e03d3027fbcd",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 328,
+      "line": 330,
       "excerpt": "The diagram uses a synthetic, rounded annual budget in Pg C/yr, authored for accounting practice, not a dated empirical global assessment. Positive flux into the atmosphere is a source. Land GPP=120, autotrophic respiration=60, and heterotrophic respiration=56.5 imply net land uptake=3.5. Gross ocean uptake=92 and outgassing=89.1 imply net ocean uptake=2.9. With fossil emissions=10 and land-use emissions=1.5, atmospheric accumulation is 5.1. Use either gross or net accounting, never both. Permafrost respiration is not added again as an independent flow in this closed record.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:372:97ce787cc27e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:374:97ce787cc27e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 372,
+      "line": 374,
       "excerpt": "- A warming increment requires a specified emissions pathway, thaw trajectory, release fraction, gas mix, vegetation response and climate model. No universal additional temperature range follows from this stock estimate.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:373:3d42e090acde",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:375:3d42e090acde",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 373,
+      "line": 375,
       "excerpt": "- Turetsky et al. (2020)'s inventory modeling found that abrupt thaw can substantially increase carbon emissions omitted by gradual-thaw-only models, with different outcomes under RCP4.5 and RCP8.5. This is scenario-dependent evidence, not proof that every current model omits abrupt thaw or that a single sharp global threshold controls all permafrost \\citep{turetsky2020thaw}.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:563:e1b959bc8ed8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:565:e1b959bc8ed8",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 563,
+      "line": 565,
       "excerpt": "> **Concept Check:** A lake experiment compares matched nutrient additions with and without P. Explain what a larger response with P supports under those conditions. What controls and measurements would distinguish N limitation, P limitation and co-limitation elsewhere, and why does reduced detergent P not guarantee immediate recovery when internal/watershed loading persists?",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:740:c9d2b221ed5e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:742:c9d2b221ed5e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 740,
+      "line": 742,
       "excerpt": "Warming can accelerate microbial decomposition, while moisture, nutrient supply, plant inputs and disturbance also affect net soil-carbon balance. The sign and magnitude require a specified site or scenario rather than a universal comparison with plant productivity. For northern circumpolar permafrost-region soils, Hugelius et al. (2014) estimated about 1,300 Pg organic carbon, including about 800 Pg perennially frozen; the stock does not specify a century-scale release or temperature increment \\citep{hugelius2014carbon}. Turetsky et al. (2020) showed that abrupt thaw and vegetation regrowth alter modeled carbon balance under specified warming scenarios \\citep{turetsky2020thaw}.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:802:3f4423b425d4",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:804:3f4423b425d4",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 802,
+      "line": 804,
       "excerpt": "Biology, geochemistry, hydrology and atmosphere form a coupled system with stabilizing and amplifying feedbacks, not a purposeful superorganism. Present oxygen near 21% does not establish an invariant narrow set point: geological reconstructions include substantial variation and values above 26% \\citep{glasspool2010oxygen}. Test each feedback and timescale rather than infer fixed oxygen, salinity or universal fire thresholds from habitability.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:952:a680f31592e0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:954:a680f31592e0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 952,
+      "line": 954,
       "excerpt": "At $10^{12}$ m², the baseline-relative difference is $-7$ Pg C over 50 years. Baseline uptake would have stored $+5$ Pg, whereas the warmed system actually releases 2 Pg ($40\\times50\\times10^{12}$ g C). Forgone uptake plus actual release totals the 7-Pg difference; it is wrong to call all 7 Pg newly released carbon. Constant fluxes for 50 years are a sensitivity assumption, not a forecast.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:956:8a22ef05384a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:958:8a22ef05384a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 956,
+      "line": 958,
       "excerpt": "The structural lesson is that NEP is a small residual of large opposing fluxes. This sensitivity example holds production, respiratory response and other transfers fixed; real feedbacks, acclimation, moisture and disturbance can alter them. It demonstrates neither a universal warming threshold nor an inevitable ecosystem tipping point.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1129:989bb7479040",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1075:85f4f3c5cd42",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1129,
+      "line": 1075,
+      "excerpt": "4. Use the synthetic annual budget above, not an empirical permafrost forecast. Suppose heterotrophic respiration rises from 56.5 to 57.0 Pg C/yr and all other fluxes remain fixed. (a) Calculate the new atmospheric accumulation. (b) Explain the double counting if the same 0.5 Pg C/yr is also added as a separate permafrost emission. (c) Convert that increment to Pg CO$_2$/yr using 44/12 and to ppm/yr using the assumed 2.13 Pg C/ppm. Distinguish carbon mass, CO$_2$ mass and concentration; none of these conditional results establishes a future warming trajectory.",
+      "rationale": "The fixed-other-flux condition defines a synthetic one-variable carbon-accounting exercise: raising Rh by 0.5 Pg C/yr raises the stipulated residual from 5.1 to 5.6; adding the identical permafrost flow again double counts it. Carbon/CO2 mass and ppm conversions are specified assumptions, not an empirical permafrost rate or warming forecast.",
+      "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1131:989bb7479040",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 1131,
       "excerpt": "- **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \\citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.",
       "rationale": "Official AR6 WGIII Annex II §A.II.8/Table 9 directly gives N2O GWP100=273 and a separate lifetime of 109 years. The assigned summary and the substantive nitrogen-cascade statement at line 497 correctly identify a mass-based, 100-year integrated emission metric, not instantaneous forcing or temperature. The diagram also labels its shorthand GWP100/IPCC AR6; the prose supplies the metric boundary. Source: https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-II.pdf.",
       "reviewer": "WorkflowzFinalMitigationRefutation#2"

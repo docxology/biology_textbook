@@ -93,14 +93,14 @@ def plot_water_potential_transpiration(
     external_vapor = np.linspace(0.0075, 0.0125, 90)
     conductances = [0.10, 0.20, 0.35]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 5))
-    ax1.plot(solutes, psi_s, color=SERIES2[0], linewidth=2.2, label="solute potential psi_s")
-    ax1.plot(solutes, psi_total, color=SERIES2[1], linestyle="--", linewidth=2.2, label="total psi at psi_p=0.5 MPa")
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7.6, 8.2))
+    ax1.plot(solutes, psi_s, color=SERIES2[0], linewidth=2.2, label=r"Solute potential $\psi_s$")
+    ax1.plot(solutes, psi_total, color=SERIES2[1], linestyle="--", linewidth=2.2, label=r"Total potential ($\psi_p=0.5$ MPa)")
     ax1.axhline(0, color=GRAY, linewidth=0.9, linestyle=":")
-    ax1.set_xlabel("Solute concentration (mol L^-1)", fontsize=12)
-    ax1.set_ylabel("Water potential (MPa)", fontsize=12)
-    ax1.set_title("Water Potential Components", fontsize=13)
-    ax1.legend(fontsize=9, frameon=False)
+    ax1.set_xlabel(r"Solute concentration (mol L$^{-1}$)", fontsize=14)
+    ax1.set_ylabel("Water potential (MPa)", fontsize=14)
+    ax1.set_title("Water Potential at Fixed Turgor Pressure", fontsize=15)
+    ax1.legend(fontsize=11, frameon=False)
 
     for conductance, color, linestyle in zip(conductances, SERIES3, ("-", "--", "-.")):
         flux = [
@@ -112,14 +112,14 @@ def plot_water_potential_transpiration(
             for external in external_vapor
         ]
         ax2.plot(external_vapor, flux, color=color, linestyle=linestyle, linewidth=2.2, label=f"g = {conductance:g}")
-    ax2.set_xlabel("External water vapor mole fraction (mol/mol)", fontsize=12)
-    ax2.set_ylabel("Transpiration flux (mmol m^-2 s^-1)", fontsize=12)
-    ax2.set_title("Illustrative Transpiration\nInternal vapor mole fraction = 0.013 mol/mol", fontsize=12)
-    ax2.legend(title="g (mol m$^{-2}$ s$^{-1}$)", fontsize=9, title_fontsize=9, frameon=False)
+    ax2.set_xlabel("External water vapor mole fraction (mol/mol)", fontsize=14)
+    ax2.set_ylabel(r"Transpiration flux (mmol m$^{-2}$ s$^{-1}$)", fontsize=14)
+    ax2.set_title("Illustrative Transpiration\nInternal vapor mole fraction = 0.013 mol/mol", fontsize=15)
+    ax2.legend(title="g (mol m$^{-2}$ s$^{-1}$)", fontsize=11, title_fontsize=11, frameon=False)
 
     for ax in (ax1, ax2):
-        ax.tick_params(labelsize=10)
-    fig.suptitle("Illustrative Plant Water Potential and Transpiration", fontsize=15, fontweight="bold")
+        ax.tick_params(labelsize=12)
+    fig.suptitle("Illustrative Water Potential and Transpiration", fontsize=16, fontweight="bold")
     fig.tight_layout()
     return _save_figure(fig, output_dir, "water_potential_transpiration.png")
 

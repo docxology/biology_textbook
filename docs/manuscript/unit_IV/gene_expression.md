@@ -151,7 +151,7 @@ flowchart TB
 | Ser7-P | CDK7 | snRNA gene-specific processing |
 
 > **Clinical Connection: Transcription-Targeted Cancer Therapy**
-> Several cancers are "transcription-addicted" -- dependent on super-enhancers driving oncogene expression. CDK7 inhibitors (THZ1) and CDK9 inhibitors collapse super-enhancer-driven transcription programs. BET bromodomain inhibitors (JQ1, OTX015) displace BRD4 from acetylated [**histone**](#gl:histone)s at enhancers, suppressing MYC and other oncogene transcription. These represent a new class of epigenetic cancer therapeutics.
+> Some experimental cancer models show dependencies on particular transcriptional regulators and oncogene programs. BET bromodomain probes and kinase perturbations can test these dependencies, but a super-enhancer annotation or reduced transcription does not establish condensate dissolution, tumor-selective toxicity or patient benefit. JQ1 and THZ1 are experimental probes, not evidence of an approved treatment; distinguish target engagement, gene-specific effects, global transcription and viability.
 
 ---
 
@@ -612,22 +612,22 @@ This provides fine-tuning: repression gives ~70-fold regulation; attenuation add
 - **HATs** (histone acetyltransferases, e.g., p300/CBP, PCAF): acetylate histone tails (primarily H3K9, H3K14, H3K27, H4K16), neutralizing positive charge, weakening histone-DNA interaction, and recruiting bromodomain-containing factors -- associated with active transcription
 - **HDACs** (histone deacetylases): remove acetyl groups and often participate in gene silencing. Vorinostat and romidepsin have U.S. CTCL indications; romidepsin's separate PTCL accelerated approval was withdrawn July 30, 2021, not its CTCL indication \citep{fda2026withdrawncancer}.
 
-**Transcription factor combinatorics**: The human genome encodes ~1,500-2,000 transcription factors. Gene expression is controlled by the combinatorial binding of multiple TFs at enhancers, which together produce richer logic than any single TF in isolation. Three canonical principles:
+**Transcription-factor combinatorics:** Sequence-specific TFs, chromatin-associated readers and coactivators have distinct roles in enhancer regulation. Their combined effects require a defined readout and comparison model. Three useful distinctions are:
 
-1. **Synergy:** Two TFs bound at adjacent sites produce more than the sum of their individual effects. Cooperative DNA binding (when one TF stabilizes the binding of the next via direct protein–protein contact or by inducing DNA bending) and synergistic activation (when each TF independently recruits a different co-activator) both contribute. The interferon-β enhanceosome shows ~10× synergy: each individual TF drives about 5-fold transcription, but together they drive > 1000-fold induction.
+1. **Synergy requires a stated reference.** Cooperative DNA binding and coactivator recruitment can contribute to a joint transcriptional response, but their presence does not specify a fixed gain. In a stipulated matched-readout example, baseline $R_0=1$, single-factor responses $R_A=2$ and $R_B=3$, and joint response $R_{AB}=5$ are arbitrary units. The additive-increment reference is $R_A+R_B-R_0=4$, whereas a multiplicative-fold reference gives $R_A R_B/R_0=6$. The same joint response exceeds one reference but not the other; it is not an unqualified experimental synergy ratio.
 2. **Quenching:** A repressor TF bound near an activator can inhibit the activator without displacing it (e.g., via histone deacetylation recruitment, or by sequestering coactivators in a non-productive complex). Examples: GAL80 quenches GAL4 in yeast; BCL6 quenches NF-κB in germinal-center B cells.
-3. **Enhanceosome:** A specific stereochemical assembly where the TF binding sites are positioned such that the eight or more factors must bind simultaneously and cooperatively to activate transcription. Spacing between binding sites is critical (loss of even one base-pair spacing destroys cooperative assembly). The IFN-β enhanceosome (3.7 kb upstream): NF-κB (p50/p65), IRF3, IRF7, ATF2/c-Jun, plus the architectural protein HMGA1 wraps the entire 55-bp regulatory region into a defined 3D conformation that primarily forms during viral infection.
+3. **Enhanceosome architecture is preparation-specific.** Panne and colleagues combined DNA-binding-domain structures to model the IFN-β enhancer assembly containing ATF-2/c-Jun, IRF-3/IRF-7 and NF-κB. Their model describes eight proteins forming a continuous DNA-recognition surface and implicates DNA-conformational changes and additional components such as CBP in cooperative occupancy. This is not a rule that each enhancer requires eight simultaneously bound factors or that changing one base pair necessarily destroys assembly \citep{panne2007ifnb}.
 
-**Super-enhancers — the high-output regulatory class.** First operationally defined by Whyte and Young (2013), super-enhancers are unusually large regulatory regions (median ~10 kb, often >50 kb) characterized by:
-- **H3K27ac density:** at least 10-fold higher than typical enhancers, often spanning multiple H3K27ac peaks
-- **BRD4 occupancy:** the BET-family reader concentrates here, as do Mediator and lineage-defining TFs
-- **MED1/MED12 enrichment:** super-enhancers are constructed largely from Mediator-bound elements
-- **Transcriptional output:** drives high-output expression of cell-identity genes (e.g., *MYC* in cancer cell lines, lineage-defining TFs like *SOX2* in ES cells, *PU.1* in hematopoietic cells)
-- **Phase separation:** super-enhancer condensates concentrate Pol II, BRD4, Mediator, CDK7/9 — see \cref{sec:unit_IV_epigenetic_inheritance_and_disease} for detailed mechanism
-- **Identification:** ROSE (Rank Ordering of Super-Enhancers) algorithm — rank H3K27ac signal across most enhancers; the inflection point distinguishes super-enhancers (top ~3 % of enhancers, accounting for ~30 % of H3K27ac signal) from typical enhancers
-- **Therapeutic implication:** BET inhibitors (JQ1, OTX015, molibresib, mivebresib) preferentially collapse super-enhancer-driven transcription, providing tumor selectivity. CDK7 (THZ1, SY-5609) and CDK9 (AZD4573) inhibitors disrupt the condensate phosphorylation machinery.
+**Super-enhancers: Operational Annotations in Specified Cells.** Whyte and colleagues identified clustered, master-factor/Mediator-enriched enhancer domains in murine embryonic stem cells and examined related domains in differentiated cells \citep{whyte2013superenhancers}:
+- **Study scope:** Their ESC analysis identified 231 large domains containing approximately 40% of enhancer-associated Mediator signal. These are reported results for that cell/assay/analysis, not fixed percentages of a genome's enhancers or H3K27ac.
+- **Signal and size:** ChIP-seq enrichment and regional span depend on the measured factor, preparation, peak definition and clustering choices; neither a universal 10-fold density threshold nor a fixed 25–50-kb size defines this category.
+- **Readers versus TFs:** BRD4 is a chromatin-associated reader and Mediator is a coactivator complex, not a pair of sequence-specific transcription factors.
+- **Annotation:** Report the cell, assay, region-stitching and ranking/cutoff choices. Mediator-based classification in the cited study and H3K27ac-based annotations are related measurements, not interchangeable universal counts.
+- **Target assignment:** Proximity or enrichment suggests candidate regulatory relationships; contact and perturbation evidence help test which genes depend on a region.
+- **Material state:** An enhancer-cluster annotation, protein enrichment or punctum does not establish LLPS. Distinguish chromatin binding, assembly, material properties and transcriptional consequences; see \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+- **Perturbation:** The original ESC experiments compared expression after reducing Oct4 or Mediator. Those results do not establish a generic cancer dependency or a clinical therapeutic window for a BET/CDK inhibitor.
 
-The combination of synergy + enhanceosome organization + super-enhancer condensates explains why a few hundred lineage-defining genes can be expressed at very high levels in each cell type, while the rest of the genome is largely inactive.
+Enhancer organization, cooperative occupancy and regulatory sensitivity describe related but distinct observations. Their interpretation requires the cell state, assay, reference model and perturbation; an annotation alone does not show that the remaining genome is inactive or identify a phase-separation mechanism.
 
 ### RNA-Based Regulation
 

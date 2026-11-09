@@ -28,10 +28,14 @@
 % the complete hypersetup as a belt-and-braces override.
 % -----------------------------------------------------------------------
 \PassOptionsToPackage{colorlinks=true,urlcolor=red,linkcolor=red,citecolor=red}{hyperref}
+% Section destinations follow the display-number authority in
+% src/biology/pipeline/numbering.py, including its Unit 0 -> core counter reset.
+% Subsection and subsubsection destinations inherit this section identity.
 
 \AtBeginDocument{%
   \hypersetup{colorlinks=true,urlcolor=red,linkcolor=red,citecolor=red,
               anchorcolor=red,filecolor=red,menucolor=red}%
+  \renewcommand{\theHsection}{\thesection}%
 }
 
 % -----------------------------------------------------------------------

@@ -63,6 +63,10 @@ For compact print, shorten and structure labels before increasing raster size:
 a wide nine-participant sequence or an over-tall graph can still have tiny text
 on the page. Review actual clipped PNG/PDF size; square padding is not legibility.
 
+For continued-stage mechanism diagrams, label repeated carriers explicitly and distinguish physical transfer from coupling. The ETC example keeps alternative Complex I/II entries, net Complex III Q-cycle accounting, and Complex IV proton pumping separate from protons consumed in water formation; ATP synthase uses the gradient, not an incoming electron. Registered library diagrams are separately reviewed assets, not automatically printed pages. Their organism/program scope belongs in the graphic: the T4/E. coli example must not imply one gene-expression sequence for every virus.
+
+For stacked quantitative panels, verify that the real generated line arrays remain unchanged when only geometry and typography change. Layer order is semantic in structural cartoons: centromeres, kinetochore disks and their leader tips must not be hidden by chromosome-arm strokes. Final-size inspection remains necessary after either change; source font targets and successful PNG decoding do not certify readability.
+
 ### Meaning and limits of graphical abstracts
 
 Unit maps are selected relationship overviews, not prerequisite graphs or causal proof. Use two or three named groups, short sentence-case labels and arrowless labeled connectors. Reserve arrows for explicitly scoped material/information transfer or an actual modeled transition. Use dark text on light fills, without emoji or color-only meaning. Caption and alt text must explain the connections and omissions, not merely name colors.
