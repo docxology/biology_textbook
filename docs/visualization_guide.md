@@ -41,6 +41,12 @@ uv run --frozen --extra dev python scripts/audit_visual_contracts.py --figures-r
 
 Inline rendering/cleanup requires a real directory beneath this project's `output/`, with no symlink/non-directory ancestors; an arbitrary OS temporary directory is not admitted. This is not a universal sandbox for every writer: figure/registered-diagram generators and manifest report writers accept supplied destinations. The commands are a recipe, not an exercised pass or accessibility certification.
 
+Visual-manifest readers consume complete adjacent physical lines, not a fixed
+character window that can silently truncate long alt text or captions. Raw
+figures and inline Mermaid require both metadata fields. The reader stops at
+unrelated content rather than borrowing a later caption. Printed-page proofs
+must reject empty text markers before searching for the actual caption.
+
 ### Meaning and limits of graphical abstracts
 
 Unit maps are selected relationship overviews, not prerequisite graphs or causal proof. Use two or three named groups, short sentence-case labels and arrowless labeled connectors. Reserve arrows for explicitly scoped material/information transfer or an actual modeled transition. Use dark text on light fills, without emoji or color-only meaning. Caption and alt text must explain the connections and omissions, not merely name colors.

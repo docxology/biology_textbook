@@ -7127,10 +7127,10 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VI/unit_intro.md:138:d26fe04a1d64",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VI/unit_intro.md:136:d26fe04a1d64",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VI/unit_intro.md",
-      "line": 138,
+      "line": 136,
       "excerpt": "> **Try it yourself:** Use explicit                   for replicates             , each with                            . Count fixed, lost and still-polymorphic runs separately. Identical seeds replay one trajectory, not independent replication. Eventual fixation probability is 0.5 under neutrality; finite-horizon fixation among all runs need not be 0.5.",
       "rationale": "Distinct explicit seeds generate replicates; replaying one seed is not independent sampling. Neutral eventual fixation probability .5 is different from the fraction fixed during a finite horizon because polymorphic runs remain. Actual source contains the inline seed/API expressions missing from the packet's stripped excerpt.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"

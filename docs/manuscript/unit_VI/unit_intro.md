@@ -67,10 +67,8 @@ graph TD
     V ---|"heritable differences"| S
     V ---|"stochastic sampling"| D
     S ---|"fitness in context"| A
-    S ---|"conditional divergence"| E
-    D ---|"conditional divergence"| E
-    G ---|"migration context"| E
-    I ---|"historical questions"| T
+    P ---|"conditional divergence"| E
+    I ---|"historical questions"| H
     F ---|"model-based inference"| T
     C ---|"calibration assumptions"| T
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b

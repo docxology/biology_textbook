@@ -15,6 +15,8 @@ from biology.visual_contracts.models import (
 from biology.visual_contracts_paths import OUTPUT_FIGURES, PROJECT_ROOT
 from textbook_paths import ensure_project_paths
 
+_LINE_RE = re.compile(r"[^\n]*(?:\n|$)")
+
 
 def ensure_import_paths() -> None:
     ensure_project_paths()
@@ -44,9 +46,8 @@ def tokens(text: str) -> set[str]:
 
 
 def first_alt_after(text: str, offset: int) -> str:
-    window = text[offset : offset + 800]
-    for line in window.splitlines():
-        stripped = line.strip()
+    for line in _LINE_RE.finditer(text, offset):
+        stripped = line.group().strip()
         if not stripped:
             continue
         match = _ALT_RE.fullmatch(stripped)
@@ -57,9 +58,8 @@ def first_alt_after(text: str, offset: int) -> str:
 
 
 def first_caption_after_mermaid(text: str, offset: int) -> str:
-    window = text[offset : offset + 800]
-    for line in window.splitlines():
-        stripped = line.strip()
+    for line in _LINE_RE.finditer(text, offset):
+        stripped = line.group().strip()
         if not stripped:
             continue
         if _ALT_RE.fullmatch(stripped):

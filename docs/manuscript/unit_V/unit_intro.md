@@ -88,6 +88,8 @@ move through the chapters, keep a two-column note: **claim** on the left,
 unit, each major idea should be tied to a measurement, model, citation, or
 paper-based lab decision.
 
+\clearpage
+
 ## Chapter Roadmap {.unnumbered}
 
 | Chapter | Core question | Quantitative lens |

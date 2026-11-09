@@ -9,7 +9,11 @@ from PIL import Image
 
 from biology.visual_contracts import VisualRecord, check_records
 from biology.visual_contracts.audit import contrast_ratio
-from biology.visual_contracts.helpers import dimensions
+from biology.visual_contracts.helpers import (
+    dimensions,
+    first_alt_after,
+    first_caption_after_mermaid,
+)
 from biology.visual_contracts.scan import normalise_inline_mermaid_source
 
 
@@ -60,8 +64,9 @@ def test_dimensions_decode_the_actual_png(tmp_path: Path) -> None:
     assert dimensions(str(path)) == (41, 67)
 
 
-def test_missing_caption_and_alt_remain_blocking() -> None:
-    codes = {f.code for f in check_records([record(caption="", alt="")])}
+@pytest.mark.parametrize("kind", ["raw_figure", "inline_mermaid"])
+def test_missing_caption_and_alt_remain_blocking(kind: str) -> None:
+    codes = {f.code for f in check_records([record(kind=kind, caption="", alt="")])}
     assert {"missing-caption", "missing-alt"} <= codes
 
 
@@ -104,3 +109,18 @@ def test_inline_publication_requires_real_cli(tmp_path: Path, monkeypatch: pytes
     monkeypatch.setenv("PATH", str(tmp_path / "empty-bin"))
     with pytest.raises(RuntimeError):
         render_inline_mermaid_assets(tmp_path / "figures")
+
+
+@pytest.mark.parametrize("alt_repeats,caption_repeats", [(20, 1), (8, 12)])
+def test_complete_adjacent_metadata_survives_long_lines(alt_repeats: int, caption_repeats: int) -> None:
+    alt = " ".join(["Labeled cellular relationships show conditional transport and regulatory interactions."] * alt_repeats)
+    caption = " ".join(["Selected cellular relationships depend on biological context and model assumptions."] * caption_repeats)
+    prefix = "Earlier prose and metadata must not be read.\n```mermaid\nflowchart LR\n A --- B\n```\n"
+    text = prefix + f"<!-- alt: {alt} -->\n\n*{caption}*\n\n## Next section\n\n*Unrelated later caption.*\n"
+    assert first_alt_after(text, len(prefix)) == alt
+    assert first_caption_after_mermaid(text, len(prefix)) == caption
+
+
+def test_caption_reader_stops_at_unrelated_content() -> None:
+    text = "\n<!-- alt: Labeled cellular transport and regulation. -->\n\nAuthored explanatory prose.\n\n*Later cellular transport caption.*\n"
+    assert first_caption_after_mermaid(text, 0) == ""

@@ -67,7 +67,7 @@ graph TD
     R ---|"life-cycle connection"| D
     H ---|"developmental regulation"| D
     H ---|"signal context"| F
-    F ---|"transport regulation"| W
+    F ---|"transport context"| S
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style S fill:#fafafa,stroke:#526777,color:#17212b
     style L fill:#fafafa,stroke:#526777,color:#17212b

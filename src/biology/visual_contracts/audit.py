@@ -72,19 +72,20 @@ def check_records(records: list[VisualRecord]) -> list[Finding]:
                 )
             seen_labels[record.label] = record
 
-        if record.kind == "raw_figure":
-            if (
-                record.source_path.startswith("docs/manuscript/unit_")
-                and not record.label.startswith("fig:unit_")
-            ):
-                findings.append(
-                    Finding(
-                        "unit-prefixed-label",
-                        record.source_path,
-                        record.line,
-                        f"label must start with fig:unit_: {record.label}",
-                    )
+        if (
+            record.kind == "raw_figure"
+            and record.source_path.startswith("docs/manuscript/unit_")
+            and not record.label.startswith("fig:unit_")
+        ):
+            findings.append(
+                Finding(
+                    "unit-prefixed-label",
+                    record.source_path,
+                    record.line,
+                    f"label must start with fig:unit_: {record.label}",
                 )
+            )
+        if record.kind in {"raw_figure", "inline_mermaid"}:
             if not record.caption:
                 findings.append(Finding("missing-caption", record.source_path, record.line, record.asset_path))
             if not record.alt:
