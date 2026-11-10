@@ -279,17 +279,13 @@ def check_artifact_counts(artifact_dir: Path | None = None) -> list[str]:
 
 
 def check_tracked_artifact_hygiene() -> list[str]:
-    """Fail if generated/cache artifacts under this WIP tree are tracked by git."""
-    result = subprocess.run(
-        ("git", "ls-files", "--", "."),
-        cwd=PROJECT,
-        check=False,
-        stdin=subprocess.DEVNULL,
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode != 0:
-        return [result.stderr.strip() or "git ls-files failed"]
+    """Fail if this project's index tracks generated/cache artifacts."""
+    from biology.pipeline.release_assets import _git
+
+    try:
+        tracked = _git(PROJECT, "ls-files", "-z", "--", ".")
+    except subprocess.CalledProcessError as exc:
+        return [(exc.stderr or "").strip() or "git ls-files failed"]
 
     forbidden = (
         "/output/",
@@ -301,7 +297,7 @@ def check_tracked_artifact_hygiene() -> list[str]:
     )
     offenders = [
         path
-        for path in result.stdout.splitlines()
+        for path in tracked.split("\0")
         if any(fragment in f"/{path}" for fragment in forbidden)
     ]
     return [f"tracked generated/cache artifact: {path}" for path in offenders]

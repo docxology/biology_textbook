@@ -1,4 +1,4 @@
-"""Dependency failure and ordering regressions for publication gates."""
+"""Publication dependency, failure and source-custody regressions."""
 
 from __future__ import annotations
 
@@ -71,3 +71,72 @@ def test_command_step_prevents_renderer_bytecode_writes(
     step = CommandStep("renderer-import", (sys.executable, "-c", code), tmp_path)
     assert run_command_step(step) == 0
     assert not (tmp_path / "__pycache__").exists()
+
+
+
+def test_tracked_artifact_hygiene_ignores_an_unrelated_index(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Real source binding and hygiene must inspect the same project index."""
+    import hashlib
+    import subprocess
+
+    from biology.pipeline.release_assets import source_state
+    from biology.quality import publication_gate as gate
+
+    project, unrelated = tmp_path / "project", tmp_path / "unrelated"
+    project.mkdir()
+    unrelated.mkdir()
+    def git(root: Path, *args: str) -> str:
+        return subprocess.run(
+            ["git", "-c", "core.fsmonitor=false", "-C", str(root), *args],
+            check=True, capture_output=True, text=True, stdin=subprocess.DEVNULL,
+            timeout=30,
+        ).stdout.strip()
+    for root in (project, unrelated):
+        git(root, "init", "--initial-branch=main")
+    artifact = project / "output" / "forbidden.txt"
+    artifact.parent.mkdir()
+    artifact.write_text("Tracked generated-artifact fixture\n")
+    git(project, "add", ".")
+    git(project, "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+        "-c", "commit.gpgsign=false", "commit", "-m", "tracked output fixture")
+    git(unrelated, "read-tree", "--empty")
+    before = {path.relative_to(unrelated): hashlib.sha256(path.read_bytes()).hexdigest()
+              for path in unrelated.rglob("*") if path.is_file()}
+    monkeypatch.setattr(gate, "PROJECT", project)
+    ordinary = gate.check_tracked_artifact_hygiene()
+    assert any("output/forbidden.txt" in issue for issue in ordinary)
+    expected_state = source_state(project)
+    monkeypatch.setenv("GIT_INDEX_FILE", str(unrelated / ".git" / "index"))
+    assert source_state(project) == expected_state
+    assert gate.check_tracked_artifact_hygiene() == ordinary
+    assert {path.relative_to(unrelated): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in unrelated.rglob("*") if path.is_file()} == before
+
+
+
+@pytest.mark.parametrize("relative", ["output/α-generated.txt", "  cached.pyc"])
+def test_tracked_artifact_hygiene_preserves_machine_path_names(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, relative: str,
+) -> None:
+    """Git quoting and significant path whitespace cannot hide tracked artifacts."""
+    import subprocess
+
+    from biology.quality import publication_gate as gate
+
+    root = tmp_path / "project"
+    root.mkdir()
+    def git(*args: str) -> None:
+        subprocess.run(
+            ["git", "-c", "core.fsmonitor=false", "-C", str(root), *args],
+            check=True, capture_output=True, stdin=subprocess.DEVNULL, timeout=30,
+        )
+    git("init", "--initial-branch=main")
+    git("config", "--local", "core.quotePath", "true")
+    artifact = root / relative
+    artifact.parent.mkdir(parents=True, exist_ok=True)
+    artifact.write_bytes(b"real tracked generated-artifact fixture")
+    git("add", ".")
+    monkeypatch.setattr(gate, "PROJECT", root)
+    assert any(relative in issue for issue in gate.check_tracked_artifact_hygiene())

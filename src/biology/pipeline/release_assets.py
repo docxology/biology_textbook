@@ -36,7 +36,8 @@ def _git(root: Path, *args: str) -> str:
         capture_output=True, text=True, check=True,
         env=env,
     )
-    return result.stdout.strip()
+    # Keep significant whitespace in NUL-delimited machine paths.
+    return result.stdout.rstrip("\n")
 
 
 def source_state(root: Path) -> dict[str, str | bool]:

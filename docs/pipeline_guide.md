@@ -88,6 +88,9 @@ must not bind another repository. Source cleanliness checks disable fsmonitor fo
 that Git process: a stale cached changed-path set cannot certify the release source.
 Other configuration, authentication and transport policy remain inherited; no host
 or repository configuration is rewritten.
+The tracked-artifact scan uses the same explicit-project Git boundary and
+NUL-delimited filenames, so another inherited index or Git-quoted path cannot
+erase a generated-artifact finding.
 The runner installs locked Python/Node dependencies and executes the real full gate
 into the restored project's output tree. Git, uv, Python 3.15.2, compatible Node/npm,
 Pandoc, XeLaTeX and Chrome/Chromium are prerequisites; review `.puppeteer.json`
