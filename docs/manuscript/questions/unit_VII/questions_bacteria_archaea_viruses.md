@@ -25,7 +25,7 @@ SOLUTION -->
 2. What is the Gram stain? What does Gram-positive vs Gram-negative indicate about cell wall structure?
 
 <!-- SOLUTION
-**Answer (Q2, Recall).** The Gram stain (Hans Christian Gram, 1884) is a differential stain that sorts bacteria by cell-wall architecture. Gram-positive cells retain the crystal-violet–iodine complex because they have a thick multilayered peptidoglycan wall and stain purple. Gram-negative cells have a thin peptidoglycan layer plus an outer membrane containing lipopolysaccharide (LPS); the decolorizer washes out the primary stain so they take up the safranin counterstain and appear pink. See \cref{sec:unit_VII_bacteria_archaea_viruses}.
+**Answer (Q2, Recall).** The Gram stain (Hans Christian Gram, 1884) is a differential envelope-associated phenotype. In the typical Gram-positive pattern, a thick peptidoglycan wall retains the crystal-violet–iodine complex and appears purple. In the typical Gram-negative pattern, a thin peptidoglycan layer and outer membrane permit loss of the primary stain during decolorization, followed by a pink safranin counterstain. These usual patterns are not definitive species identification, proof of every envelope component or antibiotic susceptibility testing; Gram-variable organisms and preparation conditions limit inference. See \cref{sec:unit_VII_bacteria_archaea_viruses}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 3. Describe the replication cycle of a bacteriophage. Distinguish lytic from lysogenic cycles.

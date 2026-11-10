@@ -12,7 +12,7 @@ By the end of this chapter, you should be able to:
 
 1. Compare the three domains \citep{woese1977} of life and explain how rRNA phylogeny established the Bacteria-[**Archaea**](#gl:archaea)-Eukarya classification.
 2. Describe bacterial cell structure including peptidoglycan architecture, Gram staining outcomes, and the clinical significance of LPS.
-3. Trace the **peptidoglycan biosynthesis pathway** through MurA-MurF, lipid I, and lipid II, identifying the antibiotic targeting each step and the resistance mechanism that defeats it.
+3. Trace **peptidoglycan assembly** through precursor synthesis, lipid I/lipid II, translocation and wall assembly; locate selected antibiotic targets and distinguish target inhibition, resistance mechanisms and measured susceptibility.
 4. Classify bacteria by morphology, arrangement, and metabolic type, and identify major pathogenic groups.
 5. Explain horizontal [**gene**](#gl:gene) transfer mechanisms (transformation, transduction, conjugation) and their role in bacterial evolution and antibiotic resistance \citep{lawrence1998}.
 6. Describe **two-component signal transduction**, **biofilm** formation, and **quorum sensing** as the molecular basis of bacterial sociality, and link them to chronic infections and device-associated disease.
@@ -92,9 +92,9 @@ The bacterial cell wall is composed of **peptidoglycan** (also called murein), a
 
 The presence of **D-amino acids** (D-glutamate, D-alanine) is unusual in biology -- most proteins use exclusively L-amino acids. D-amino acids confer resistance to host proteases, which evolved to cleave L-amino acid [**peptide bond**](#gl:peptide-bond)s.
 
-### Peptidoglycan Biosynthesis: A Step-by-Step Antibiotic Atlas
+### Peptidoglycan Assembly and Selected Antibiotic Targets
 
-Peptidoglycan biosynthesis proceeds in three spatial compartments — cytoplasm, inner-membrane interface, and periplasm — and nearly every step has a clinically deployed antibiotic that targets it. Understanding the pathway is therefore equivalent to understanding the chemotherapy of bacterial infection. The pathway begins with the housekeeping sugar **UDP-N-acetylglucosamine (UDP-GlcNAc)** and ends with a covalently cross-linked sacculus surrounding the entire cell.
+Peptidoglycan assembly links cytoplasmic precursor synthesis, membrane-associated lipid carriers and assembly on the external face of the cytoplasmic membrane. In Gram-negative bacteria that external compartment is the periplasm. Selected antibiotics inhibit enzymes, bind substrates or interfere with carrier recycling; not every biosynthetic step below is assigned a therapeutic drug. The scheme begins with **UDP-N-acetylglucosamine (UDP-GlcNAc)** and follows a representative stem/cross-link architecture, not an invariant sequence of eleven druggable reactions.
 
 ```mermaid
 ---
@@ -104,50 +104,50 @@ config:
 flowchart TB
     subgraph CYT["1. Cytoplasm: sugar and peptide precursors"]
         direction LR
-        S1["UDP-GlcNAc"] -->|MurA| S2["UDP-GlcNAc-EP<br/>Fosfomycin inhibits MurA"]
+        S1["UDP-GlcNAc"] -->|MurA; PEP| S2["UDP-GlcNAc-EP<br/>Fosfomycin inhibits MurA"]
         S2 -->|MurB; NADPH| S3["UDP-MurNAc"]
         S3 --> S4["MurC–F: ATP-dependent ligation<br/>L-Ala, D-Glu, meso-DAP<br/>and D-Ala–D-Ala<br/>→ UDP-MurNAc-pentapeptide"]
         DA["L-Ala → D-Ala → D-Ala–D-Ala<br/>Alr then Ddl<br/>D-cycloserine inhibits both"] -->|precursor supply| S4
     end
     subgraph MEM["2. Inner membrane: lipid carriers"]
         direction LR
-        S5["MraY: pentapeptide + C55-P<br/>→ Lipid I"] --> S6["MurG adds GlcNAc<br/>→ Lipid II"]
-        S6 --> S6b["MurJ flips Lipid II<br/>Carrier recycled as C55-P<br/>Bacitracin blocks C55-PP recycling"]
+        S5["MraY transfers<br/>phospho-MurNAc-pentapeptide<br/>to C55-P → Lipid I"] --> S6["MurG adds GlcNAc<br/>→ Lipid II"]
+        S6 --> S6b["MurJ flips membrane-anchored Lipid II"]
     end
-    subgraph PER["3. Periplasm: polymer and cross-links"]
-        direction LR
-        S7["Lipid II → glycan polymer<br/>Vancomycin binds D-Ala–D-Ala<br/>Blocks polymerization / cross-linking"] --> S8["PBP transpeptidation<br/>D-Ala–meso-DAP cross-links<br/>β-lactams inhibit PBPs<br/>→ mature peptidoglycan"]
+    subgraph PER["3. External face: periplasm in Gram-negative bacteria"]
+        S7["Lipid II → glycan polymer<br/>Vancomycin binds D-Ala–D-Ala"] --> S8["PBP transpeptidation<br/>Example: D-Ala–meso-DAP cross-links<br/>β-lactams inhibit PBPs<br/>→ mature peptidoglycan"]
+        S7 -->|carrier released| R["C55-PP<br/>Bacitracin sequesters carrier"] -->|dephosphorylation and reuse| R2["C55-P"]
     end
     CYT --> MEM --> PER
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Three staged panels trace peptidoglycan synthesis from UDP-GlcNAc to mature wall. The Alr and Ddl branch supplies D-Ala–D-Ala to MurC–F precursor assembly and is inhibited by D-cycloserine, not assigned to MurC–F. Four other callouts locate fosfomycin at MurA, bacitracin at C55-PP recycling, vancomycin at D-Ala–D-Ala, and beta-lactams at PBPs. Panel arrows continue the pathway. -->
+<!-- alt: Three panels trace cytoplasmic precursors, membrane-associated lipid I and lipid II, and external wall assembly. Alr and Ddl supply D-Ala–D-Ala and are inhibited by D-cycloserine. Fosfomycin inhibits MurA. MurJ flips lipid II; a separate branch after polymerization releases C55-PP for dephosphorylation and reuse, blocked by bacitracin binding. Vancomycin recognizes D-Ala–D-Ala and beta-lactams inhibit PBP transpeptidation. The external compartment is the periplasm in Gram-negative bacteria. -->
 
-*Peptidoglycan synthesis in three spatial stages, with five antibiotic targets. Alr and Ddl supply D-Ala–D-Ala for precursor assembly; D-cycloserine inhibits this branch, not MurC–F. Fosfomycin inhibits MurA, bacitracin blocks C55 carrier recycling, vancomycin binds the D-Ala–D-Ala terminus, and β-lactams inhibit PBP transpeptidation. Panel arrows continue the cytoplasm-to-periplasm pathway; the adjacent table supplies step-specific detail.*
+*Peptidoglycan precursor synthesis, membrane translocation, external assembly and a distinct carrier-recycling branch. EP denotes the sugar-bound enolpyruvyl group, not free lactate; Alr/Ddl supply the D-Ala–D-Ala branch. MurJ-mediated flipping is not carrier recycling or lysobactin binding. Bacitracin sequesters released C55-PP and limits reuse; vancomycin recognizes the precursor terminus and β-lactams inhibit PBP transpeptidation. The shown meso-DAP stem/cross-links are selected examples; species differ. This author-created biochemical schematic is not a susceptibility or treatment algorithm.*
 
-: Peptidoglycan Biosynthesis: A Step-by-Step Antibiotic Atlas: Step and Enzyme / process. {#tbl:unit_VII_bacteria_archaea_viruses_peptidoglycan_biosynthesis_a_step_by_step_antibiotic_atlas}
-| Step | Enzyme / process | Drug | Mechanism of inhibition | Spectrum |
-|------|------------------|------|-------------------------|----------|
-| 1 | MurA (UDP-GlcNAc enolpyruvyl transferase) | **Fosfomycin** | Phosphoenolpyruvate analog; covalently inhibits MurA active-site Cys via epoxide ring opening | Broad (UTIs, *E. coli*, *Enterococcus*) |
-| 2 | MurB (UDP-GlcNAc-EP reductase) | (No clinical drug; preclinical leads) | Reduces enolpyruvyl ether to D-lactate | — |
-| 3 | MurC, MurD, MurE, MurF (amino-acid ligases) | (Preclinical pyrazolopyrimidines, hydrazides) | Block ATP-dependent ligation of L-Ala, D-Glu, meso-DAP/L-Lys, and D-Ala–D-Ala | Investigational |
-| 4 | Alr / Ddl (D-Ala racemase, D-Ala-D-Ala ligase) | **D-cycloserine** | D-Ala structural analog; covalently traps both racemase and ligase active-site residues | Anti-TB (second-line) |
-| 5 | MraY (phospho-MurNAc-pentapeptide translocase) | **Tunicamycin** (research primarily); muraymycins (preclinical) | Blocks attachment of pentapeptide to C55 lipid carrier (Lipid I formation) | Toxic to humans (also blocks N-glycosylation) |
-| 6 | MurG (UDP-GlcNAc:Lipid I GlcNAc transferase) | (Preclinical) | Blocks Lipid I → Lipid II conversion | Investigational |
-| 7 | C55-PP recycling (BacA/UppP phosphatase) | **Bacitracin** | Sequesters undecaprenyl-pyrophosphate, blocking dephosphorylation; bactoprenol pool exhausted | Topical (Gram-positive) |
-| 8 | Lipid II flipping (MurJ flippase) | **Lysobactin** family (preclinical) | Trap Lipid II in cytoplasm | Investigational |
-| 9 | Lipid II (D-Ala-D-Ala terminus) | **Vancomycin, teicoplanin, dalbavancin, oritavancin** | Glycopeptide H-bonds to D-Ala-D-Ala; sterically blocks PBP access and transglycosylation | MRSA, *C. difficile*, VRE-susceptible enterococci |
-| 10 | Transglycosylation + transpeptidation by PBPs | **Penicillins, cephalosporins, carbapenems, monobactams** | β-lactam ring acylates PBP active-site serine (suicide substrate; mimics D-Ala–D-Ala) | Broad |
-| 11 | Lipid II / membrane | **Daptomycin** (membrane), **lipoglycopeptides**, **nisin** (lantibiotic) | Bind Lipid II / depolarize membrane | MRSA, VRE |
+: Peptidoglycan assembly and selected inhibitor examples. Rows organize targets, not an invariant reaction count or current drug inventory; a dash means no inhibitor selected here. {#tbl:unit_VII_bacteria_archaea_viruses_peptidoglycan_biosynthesis_a_step_by_step_antibiotic_atlas}
+| Item | Enzyme / process | Selected inhibitor example | Biosynthetic process / inhibitor action | Evidence boundary |
+|------|------------------|----------------------------|-----------------------------------------|-------------------|
+| 1 | MurA | **Fosfomycin** | Transfers an enolpyruvyl group from PEP to UDP-GlcNAc; fosfomycin covalently modifies a susceptible active-site cysteine | Target chemistry is not an isolate's clinical susceptibility |
+| 2 | MurB | — | NADPH/FAD-dependent reduction yields the sugar-bound lactyl moiety of UDP-MurNAc, not free D-lactate | Enzyme kinetics \citep{benson1997murbkinetics} |
+| 3 | MurC–F | — | ATP-dependent ligation adds L-Ala, D-Glu, meso-DAP or L-Lys, then intact D-Ala–D-Ala to build the stem | Distinct ligases, not a verified shared inhibitor class |
+| 4 | Alr / Ddl | **D-cycloserine** | Alr supplies D-Ala; Ddl ligates D-Ala–D-Ala. Inhibition involves a PLP-derived Alr adduct versus phosphorylated cycloserine bound to *E. coli* DdlB | Different measured mechanisms \citep{fenn2003cycloserine,batson2017cycloserine} |
+| 5 | MraY | **Tunicamycin** | Transfers phospho-MurNAc-pentapeptide to C55-P, forming lipid I; tunicamycin inhibits MraY | Structural research, not a regimen \citep{chung2013mray,hakulinen2017mray} |
+| 6 | MurG | — | Transfers GlcNAc from UDP-GlcNAc to lipid I, forming lipid II | Biosynthetic reaction, not an unnamed inhibitor claim |
+| 7 | Carrier recycling | **Bacitracin** | Sequesters external membrane-associated C55-PP, preventing dephosphorylation and limiting usable C55-P regeneration | Substrate binding, not direct phosphatase inhibition \citep{economou2013bacitracin} |
+| 8 | Lipid II translocation | **MTSES with engineered MurJ** | Chemical modification of selected single-Cys MurJ variants blocks flipping of membrane-anchored lipid II | *E. coli* experimental tool, not a general drug \citep{sham2014murj} |
+| 9 | Lipid II recognition | **Vancomycin; lysobactin** | Vancomycin recognizes D-Ala–D-Ala; lysobactin binds precursor substrate, not MurJ | Lysobactin's *S. aureus* cellular assays support impaired surface utilization \citep{lee2016lysobactin} |
+| 10 | PBP transpeptidation | **Beta-lactams** | Acylate a susceptible PBP's active-site serine and inhibit peptide cross-linking | Compound, PBP and resistance context matter |
+| 11 | Membrane / precursor interactions | **Daptomycin; nisin** | Daptomycin acts at the membrane; nisin recognizes lipid II and forms pores | Different mechanisms; in-vitro activity is not a shared indication |
 
-**Resistance recapitulates the pathway.** Each drug elicits a corresponding resistance trick: VanA-type vancomycin resistance in enterococci (VRE) replaces D-Ala-D-Ala with D-Ala-D-Lac, abolishing one of the five hydrogen bonds that vancomycin exploits (≥ 1000-fold MIC increase; the binding free-energy loss is ~12 kJ/mol per H-bond); MRSA expresses **PBP2a** (encoded by *mecA*) with low β-lactam affinity (K$_i$ rises ~ 1000×); β-lactamases hydrolyse the β-lactam ring before it reaches its PBP target, with extended-spectrum β-lactamases (ESBLs) and carbapenemases (KPC, NDM, OXA-48) progressively defeating each new generation of β-lactams. The pathway thus serves as a unifying framework — biosynthetic step, drug, and resistance mechanism are three views of the same chemistry.
+**Target affinity, cellular inhibition and fitness are different endpoints.** VanA-type pathways replace D-Ala-D-Ala-ending precursors with D-Ala-D-Lac-ending precursors and reduce the susceptible precursor pool. In a defined ligand-binding study, loss of an amide hydrogen bond and an unfavorable lone-pair interaction both contributed to reduced vancomycin affinity; that binding result is not a universal MIC ratio or a fixed energy per hydrogen bond \citep{mccomas2003vancomycinbinding}. MRSA's modified PBPs can bind many traditional beta-lactams poorly, while beta-lactamases hydrolyze particular beta-lactam substrates; their substrate spectra differ rather than constituting an inevitable sequence that defeats each newer drug. A biochemical binding measurement, an isolate's growth-inhibition endpoint and competitive fitness require different experiments and conditions.
 
-> **Clinical Connection: Why Vancomycin Stopped Working — and How Daptomycin Took Over**
-> Vancomycin was introduced in 1958 and remained dependable for almost 30 years. The first VRE isolates appeared in 1986–1988 in European and US hospitals, driven by agricultural use of avoparcin (a glycopeptide growth promoter in livestock); by the early 2000s VRE had spread globally. The molecular trick is elegant: a single ester linkage (D-Ala-D-Lac instead of the D-Ala-D-Ala amide) costs the bacterium nothing but eliminates one of the five H-bonds anchoring vancomycin. Daptomycin (FDA-approved 2003) bypasses the resistance entirely — it inserts into the cell membrane in a Ca$^{2+}$-dependent manner, depolarizing it without requiring a peptidoglycan binding site. Daptomycin resistance is now emerging too (mprF and yycG mutations alter membrane charge), continuing the arms race.
+> **Clinical Connection: Altered Precursors, Alternative Targets and Fitness Costs**
+> Resistance is not automatically cost-free. In experiments with a VanB/Tn1549 system, non-induced carriage and induced or constitutive expression had different growth, competition and mouse-colonization consequences; the findings depended on genetic background and experimental conditions and are not a universal numerical cost for VanA resistance \citep{foucault2010induciblefitness}. Daptomycin illustrates a different target: bacterial membrane association and depolarization rather than vancomycin's precursor recognition. It does not bypass resistance entirely: the dated 2025 prescribing information documents nonsusceptible isolates and separates in-vitro activity from established clinical indications \citep{cubicinrf2025label}. Neither this mechanism comparison nor a stain substitutes for isolate- and infection-specific clinical assessment.
 
-### Gram Staining: The Foundational Diagnostic Test
+### Gram Staining: Envelope Phenotypes and Diagnostic Limits
 
-The [**Gram stain**](#gl:gram-stain), developed by Hans Christian Gram in 1884, remains the single most important initial test in clinical microbiology. The procedure exploits differences in cell wall architecture:
+The [**Gram stain**](#gl:gram-stain), developed by Hans Christian Gram in 1884, is a differential staining procedure that reveals typical envelope-associated phenotypes. It is neither definitive species identification nor an antibiotic susceptibility test. The usual patterns follow from cell wall architecture and sample preparation:
 
 ```mermaid
 ---
@@ -177,13 +177,13 @@ flowchart TB
 - **Core oligosaccharide**: Short sugar chain linking Lipid A to the O-antigen
 - **O-antigen**: Variable polysaccharide extending outward; serotype-specific; target of antibodies
 
-When Gram-negative bacteria lyse during infection, released LPS triggers massive innate immune activation through the TLR4-MD2 receptor complex. This can lead to a cytokine cascade (TNF-α, IL-1β, IL-6), systemic inflammation, disseminated intravascular coagulation (DIC), and septic shock -- a life-threatening condition with mortality rates of 30-50%.
+LPS released from Gram-negative bacteria can activate innate immunity through the TLR4-MD2 receptor complex, contributing to cytokine signaling, systemic inflammation, coagulation abnormalities and septic shock. This mechanism does not establish a universal mortality percentage or prove that Gram-negative infections are intrinsically more dangerous than Gram-positive infections; clinical severity depends on pathogen, host, infection site and care context.
 
-> **Clinical Connection: Gram Staining in Diagnosis**
-> The Gram stain is typically the first test performed on clinical specimens (blood cultures, cerebrospinal fluid, sputum). Results within 15 minutes guide empirical antibiotic therapy before culture results are available (24-72 hours). For bacterial meningitis, Gram-positive diplococci suggest *Streptococcus pneumoniae* (treat with ceftriaxone + vancomycin), while Gram-negative diplococci suggest *Neisseria meningitidis* (treat with ceftriaxone alone). This rapid distinction can be life-saving in an emergency where hours matter.
+> **Clinical Connection: Meningitis Clues Are Not a Treatment Algorithm**
+> In cerebrospinal fluid, Gram-positive diplococci can suggest *Streptococcus pneumoniae* and Gram-negative diplococci can suggest *Neisseria meningitidis*, but morphology is not definitive identification or susceptibility testing. WHO's 2025 guideline for acute community-acquired meningitis in children older than one month, adolescents and adults requires integrated interpretation: CSF Gram stain, white-cell count, protein and glucose findings cannot individually confirm or exclude meningitis, while culture and antimicrobial susceptibility testing have distinct roles. It also emphasizes that diagnostic delays must not delay indicated empiric treatment \citep{who2025meningitis}. The scope excludes neonatal and health-care-associated meningitis; this teaching comparison supplies neither a universal turnaround time nor a morphology-only regimen.
 
 > **Concept Check 1:**
-> A novel bacterium is isolated from a deep-sea hydrothermal vent. Gram staining produces a pink result. Predict the cell wall architecture and explain why the alcohol decolorization step removed the crystal violet-iodine complex from this organism.
+> A novel bacterium from a deep-sea hydrothermal vent gives a reproducible pink Gram-stain result with appropriate controls. Describe the typical envelope architecture consistent with that phenotype and explain the decolorization step. What additional evidence would be needed to establish its actual envelope, identity and antibiotic susceptibility rather than treating the stain as proof?
 
 > **Concept Check 1b:**
 > A clinical microbiology lab tests a bacterial isolate against six wall-targeted antibiotics. The isolate is resistant to vancomycin (MIC > 256 μg/mL) but susceptible to ampicillin, fosfomycin, and bacitracin. Sequencing reveals a *vanA* operon. Using the peptidoglycan biosynthesis pathway, explain (a) which step is altered, (b) why vancomycin fails, and (c) why ampicillin still works.
@@ -1026,7 +1026,7 @@ flowchart LR
 ## Summary
 
 - **Three domains of life** (Bacteria, Archaea, Eukarya) were established by Woese's rRNA phylogeny \citep{woese1977}. Bacteria and Archaea share the prokaryotic cell plan but differ fundamentally in membrane lipids, cell wall chemistry, and transcriptional machinery.
-- **Bacterial cell walls** contain peptidoglycan, built in an 11-step pathway (MurA → MurB → MurC–F → MraY → MurG → MurJ flipping → transglycosylation → PBP transpeptidation) that is the target of fosfomycin, D-cycloserine, bacitracin, vancomycin, daptomycin, and β-lactams. Gram-positive bacteria have thick peptidoglycan with teichoic acids; Gram-negative bacteria have thin peptidoglycan plus an outer membrane with LPS (endotoxin, activates TLR4, causes septic shock).
+- **Peptidoglycan assembly and membrane function** provide different antibiotic targets. Selected wall-biosynthesis examples include MurA inhibition, D-Ala pathway inhibition, lipid-carrier recycling, precursor recognition and PBP inhibition; daptomycin acts at the membrane rather than being a peptidoglycan-synthesis enzyme inhibitor. Typical Gram-positive and Gram-negative staining patterns reflect envelope differences, not guaranteed drug responses or a ranking of infection severity. LPS can activate TLR4 signaling, but severe infection is not confined to Gram-negative organisms.
 - **Bacterial growth equation** $N(t) = N_0 \cdot 2^{t/t_d}$ (\cref{eq:unit_VII_bacterial_growth}) describes exponential phase; the natural-log form gives a linear plot whose slope is the specific growth rate $\mu = (\ln 2)/t_d$.
 - **Bacterial metabolic diversity** exceeds most eukaryotes: photoautotrophs, chemoautotrophs (lithotrophs), and heterotrophs with varied oxygen relationships.
 - **Two-component systems** (sensor histidine kinase + response regulator, His→Asp phosphotransfer) are the dominant prokaryotic signal-transduction architecture; **biofilms** (matrix + persisters, c-di-GMP master regulator) and **quorum sensing** (AHL/AIP/AI-2) underpin chronic infections and 65–80 % of clinical infections.
@@ -1045,9 +1045,9 @@ flowchart LR
 | Term | Definition |
 |------|-----------|
 | **Peptidoglycan** | Bacterial cell wall polymer of NAG-NAM glycan strands cross-linked by tetrapeptide chains; target of beta-lactam antibiotics |
-| **Lipid II** | Lipid-anchored peptidoglycan precursor (undecaprenyl-PP-MurNAc-pentapeptide-GlcNAc); target of vancomycin, nisin, daptomycin |
+| **Lipid II** | Lipid-anchored peptidoglycan precursor (undecaprenyl-PP-MurNAc-pentapeptide-GlcNAc); recognized by vancomycin and nisin. Distinct from daptomycin's membrane action |
 | **Lipopolysaccharide (LPS)** | Gram-negative outer membrane component (lipid A + core + O-antigen); endotoxin that activates TLR4 and can cause septic shock |
-| **Gram stain** | Differential staining technique distinguishing thick-walled (Gram-positive, purple) from thin-walled (Gram-negative, pink) bacteria |
+| **Gram stain** | Differential stain yielding typical purple or pink envelope phenotypes; neither definitive organism identification nor antibiotic susceptibility testing |
 | **Two-component system (TCS)** | Sensor histidine kinase + response regulator pair that converts an environmental stimulus into a transcriptional output via His→Asp phosphotransfer |
 | **Biofilm** | Surface-attached, EPS-encased microbial community; 10–1000× more antibiotic tolerant than planktonic cells |
 | **c-di-GMP** | Cyclic-di-guanosine-monophosphate; master second messenger that switches between motile (low) and biofilm (high) lifestyles |
@@ -1067,7 +1067,7 @@ flowchart LR
 | **Baltimore classification** | System classifying viruses into seven classes based on genome type and replication strategy |
 | **Reverse transcriptase** | RNA-dependent DNA polymerase; used by retroviruses (HIV) to convert RNA genome to dsDNA |
 | **Prion** | Infectious misfolded protein (PrP$^{Sc}$) that templates conversion of normal PrP$^C$; no nucleic acid |
-| **MRSA** | Methicillin-resistant *Staphylococcus aureus*; carries mecA gene encoding PBP2a with low beta-lactam affinity |
+| **MRSA** | Methicillin-resistant *Staphylococcus aureus*; *mecA*/*mecC*-associated modified PBPs (PBP2a/PBP2c) can support resistance to many traditional beta-lactams; responses remain drug- and isolate-specific |
 | **ESKAPE pathogens** | Six priority antibiotic-resistant organisms: Enterococcus, S. aureus, Klebsiella, Acinetobacter, Pseudomonas, Enterobacter |
 | **Asgard archaea** | Deep-branching archaeal lineages (Loki, Thor, Odin, Heimdall, Hela, Hermod) containing eukaryotic signature proteins; closest known relatives of eukaryotes |
 | **Eukaryotic signature proteins (ESPs)** | Proteins (actin, ESCRT, ubiquitin-like, Rab GTPases) encoded by Asgard archaea that were once thought to be eukaryote-specific |
@@ -1079,7 +1079,7 @@ flowchart LR
 
 ## Review Questions
 
-1. Compare the cell wall structure of Gram-positive and Gram-negative bacteria. Explain why Gram-negative sepsis is often more dangerous than Gram-positive sepsis, focusing on the role of LPS and TLR4 signaling.
+1. Compare typical Gram-positive and Gram-negative envelopes. Explain how LPS can activate TLR4-mediated inflammation, and why that mechanism alone cannot rank infection severity or select an antibiotic regimen from a Gram-stain result.
 
 2. A researcher isolates a bacterium from a hot spring (85 degrees C, pH 3) that has ether-linked lipids, no peptidoglycan, and an RNA polymerase with 12 subunits. To which domain does this organism most likely belong? Justify your classification using at least three molecular features.
 
@@ -1101,7 +1101,7 @@ flowchart LR
 11. **Synthetic culture calculation.** With $t_d=30$ min and $N_0=5\times10^3$ CFU/mL, calculate time to a stipulated culture target $10^9$ CFU/mL. Then model a hypothetical instantaneous four-log reduction and a 60-minute lag before regrowth. These are artificial culture assumptions, not a clinical dosing model: sepsis is not defined by a universal circulating CFU threshold.
 12. Estimate phage amplification after three rounds if burst size $B=150$ and every virion infects --- relate to the logistic assumptions that break down in real cultures.
 13. Why are archaeal antibiotics rare compared with bacterial antibiotics, given clinical need?
-14. **Peptidoglycan pathway integration.** Place fosfomycin, D-cycloserine, bacitracin, vancomycin, and ampicillin on the peptidoglycan biosynthesis pathway and explain why a single resistance mutation generally confers resistance to a single of them — but VanA-type vancomycin resistance and PBP2a (mecA) MRSA evade two by altering different parts of the same step.
+14. **Peptidoglycan pathway integration.** Place fosfomycin, D-cycloserine, bacitracin, vancomycin and ampicillin at their selected targets. Distinguish enzyme inhibition, substrate binding and altered-target resistance. Why can neither pathway position nor a single resistance mechanism alone establish the breadth of cross-resistance or an isolate's clinical susceptibility?
 15. **Two-component systems and antibiotic stewardship.** PhoQ-PhoP modifies lipid A in response to host antimicrobial peptides. Explain how this TCS contributes to colistin resistance and why a PhoQ inhibitor would be expected to "re-sensitize" *Salmonella* to polymyxins.
 16. **Biofilm pharmacology.** A patient with a *S. aureus* prosthetic-knee infection fails six weeks of vancomycin. Explain four distinct biofilm-related reasons for this failure and design a combination strategy targeting at least two of them.
 17. **Phage therapy resistance.** A clinical phage cocktail uses three phages with non-overlapping receptors (LPS O-antigen, OmpC, type IV pilus). Estimate the probability that a single bacterium escapes the full cocktail by independent mutation and explain why cocktails have outperformed single-phage therapies in trials.

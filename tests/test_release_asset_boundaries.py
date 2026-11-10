@@ -430,3 +430,42 @@ def test_standalone_lock_ignores_an_untrusted_containing_uv_workspace(tmp_path: 
     assert result.returncode == 0, result.stderr
     assert (project / "uv.lock").read_bytes() == own_before
     assert outside_lock.read_bytes() == outside_before
+
+
+
+def test_export_rejects_changed_source_hidden_by_stale_fsmonitor(
+    export_project: Path, renderer_snapshot: Path, tmp_path: Path,
+) -> None:
+    """Real Git cache output must not certify different licensed source bytes."""
+    import subprocess
+    import sys
+
+    from biology.pipeline.release_assets import build_release_assets
+
+    root = export_project
+    def git(*args: str) -> str:
+        return subprocess.run(
+            ["git", "-C", str(root), *args], check=True, capture_output=True,
+            text=True, stdin=subprocess.DEVNULL, timeout=30,
+        ).stdout.strip()
+
+    # A real version-2 protocol provider deliberately reports a stale empty delta.
+    # Python, subprocess, Git and the release consumer are not monkeypatched.
+    hook = tmp_path / "stale-fsmonitor.py"
+    hook.write_text(
+        "#!" + sys.executable + "\nimport sys\n"
+        'sys.stdout.buffer.write(b"fixture-token\\0")\n'
+    )
+    hook.chmod(0o755)
+    git("config", "--local", "core.fsmonitor", str(hook))
+    git("config", "--local", "core.fsmonitorHookVersion", "2")
+    git("update-index", "--fsmonitor")
+    git("update-index", "--fsmonitor-valid", "LICENSE")
+    (root / "LICENSE").write_text("Different live source-license fixture\n")
+    assert git("status", "--porcelain", "--untracked-files=all") == ""
+    assert "LICENSE" in git("-c", "core.fsmonitor=false", "status", "--porcelain")
+    destination = root / "output" / "must-not-export"
+    with pytest.raises(ValueError, match="clean validated main"):
+        build_release_assets(root, destination, renderer_snapshot)
+    assert not destination.exists()
+    assert git("config", "--local", "core.fsmonitor") == str(hook)

@@ -84,8 +84,10 @@ project directory and ignores inherited project/interpreter selectors and uv
 configuration files; it must not synchronize an unrelated active environment.
 Source-state capture and Git restoration also discard inherited repository, worktree,
 common-store, index, object-store and namespace selectors. Explicit project paths
-must not bind another repository. Git configuration, authentication and transport
-policy remain inherited; no host or repository configuration is rewritten.
+must not bind another repository. Source cleanliness checks disable fsmonitor for
+that Git process: a stale cached changed-path set cannot certify the release source.
+Other configuration, authentication and transport policy remain inherited; no host
+or repository configuration is rewritten.
 The runner installs locked Python/Node dependencies and executes the real full gate
 into the restored project's output tree. Git, uv, Python 3.15.2, compatible Node/npm,
 Pandoc, XeLaTeX and Chrome/Chromium are prerequisites; review `.puppeteer.json`

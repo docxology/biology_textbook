@@ -448,8 +448,8 @@ classDiagram
 - **Nucleoid:** condensed region containing the circular chromosome (typically 1--6 Mbp); not bounded by a membrane; associated with nucleoid-associated proteins (NAPs: HU, H-NS, Fis, IHF) that organize chromosome topology.
 - **Plasmids:** small circular DNA molecules (1--200 kb) carrying accessory [**gene**](#gl:gene)s (antibiotic resistance, [**virulence**](#gl:virulence) factors, metabolic capabilities); replicate independently; horizontally transferable between cells.
 
-> **Clinical Connection: Gram Staining and Antibiotic Selection**
-> The Gram stain, developed by Hans Christian Gram in 1884, remains the most important rapid diagnostic test in clinical microbiology. Gram-positive infections (thick peptidoglycan) respond to beta-lactam antibiotics (penicillins, cephalosporins) that inhibit peptidoglycan cross-linking by transpeptidases (PBPs). Gram-negative infections are intrinsically more resistant because the outer membrane excludes many antibiotics; treatment often requires aminoglycosides or carbapenems that penetrate through porins. The rise of multi-drug-resistant Gram-negative bacteria (e.g., carbapenem-resistant *Klebsiella pneumoniae*) is a major public health crisis. see \cref{sec:unit_II_cell_structure} for membrane permeability.
+> **Clinical Connection: Gram Staining Is Not Susceptibility Testing**
+> Gram staining reveals a cell-envelope phenotype, not an organism's identity or antibiotic susceptibility. Beta-lactams inhibit susceptible penicillin-binding proteins (PBPs) involved in peptidoglycan cross-linking, but a thick wall does not guarantee susceptibility: Gram-positive MRSA can produce modified PBP2a with low affinity for many traditional beta-lactams \citep{cdc2025mrsalaboratories}. A Gram-negative outer membrane can restrict particular drugs, but permeability, efflux and resistance determinants vary; the stain alone cannot select an antibiotic class or regimen. Clinical interpretation also requires the infection site, patient context, organism identification, validated susceptibility testing and applicable guidance. See \cref{sec:unit_II_cell_structure} for membrane permeability.
 
 > **Concept Check 4:** Why are archaea resistant to antibiotics that target peptidoglycan synthesis (e.g., penicillin, vancomycin)?
 
@@ -797,7 +797,7 @@ These questions have no single correct answer — they are designed to provoke d
 | **Surface-area-to-volume ratio** | The ratio $A/V = 3/r$ for a sphere; constrains maximum cell size |
 | **Prokaryote** | Cell lacking a membrane-bound nucleus; Bacteria and Archaea |
 | **Eukaryote** | Cell with a true membrane-bound nucleus and organelles |
-| **Gram staining** | Differential stain distinguishing thick-peptidoglycan (Gram-positive) from thin-peptidoglycan + outer membrane (Gram-negative) bacteria |
+| **Gram staining** | Differential envelope phenotype: typical Gram-positive cells retain crystal violet; typical Gram-negative cells decolorize and take up counterstain. Not organism identification or antibiotic susceptibility testing |
 | **Endosymbiotic theory** | Mitochondria and chloroplasts originated from engulfed bacteria (alpha-proteobacteria and cyanobacteria, respectively) |
 | **Photoautotroph** | Organism using light energy and CO$_2$ as carbon source |
 | **Chemoheterotroph** | Organism using chemical energy from organic compounds |

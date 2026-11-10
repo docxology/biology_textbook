@@ -1066,3 +1066,29 @@ claims:
     evidence_date: 2026-05-27
     checked_as_of: 2026-11-09
     refresh_trigger: "USGS commodity release, revision or reserve-definition change; preserve report version, rock-mass units and inventory-versus-prediction distinction."
+  - claim_id: gram-stain-is-not-susceptibility-2025
+    file: docs/manuscript/unit_II/cell_theory.md
+    source_path: docs/manuscript/unit_II/cell_theory.md
+    anchor_text: "Gram staining reveals a cell-envelope phenotype"
+    claim_text: "The dated CDC laboratory page describes mecA/PBP2a-associated MRSA as a counterexample to inferring beta-lactam susceptibility from a Gram-positive stain. The textbook uses this laboratory/mechanistic boundary, not the page's historical breakpoint table or an exhaustive current list of exceptions. Gram phenotype alone does not identify an isolate or select a regimen."
+    topic: diagnostic phenotype and antimicrobial susceptibility
+    source_tier: official_primary
+    citekey: cdc2025mrsalaboratories
+    url: https://www.cdc.gov/mrsa/php/laboratories/index.html
+    url_or_citekey: cdc2025mrsalaboratories
+    evidence_date: 2025-06-27
+    checked_as_of: 2026-11-09
+    refresh_trigger: "Release review or CDC laboratory-page revision; preserve phenotype, target and susceptibility distinctions without importing historical breakpoints or prescribing advice."
+  - claim_id: community-meningitis-diagnostic-scope-2025
+    file: docs/manuscript/unit_VII/bacteria_archaea_viruses.md
+    source_path: docs/manuscript/unit_VII/bacteria_archaea_viruses.md
+    anchor_text: "WHO's 2025 guideline for acute community-acquired meningitis"
+    claim_text: "WHO's 10 April 2025 guidance covers acute community-acquired meningitis in children older than one month, adolescents and adults, not neonatal or health-care-associated meningitis. It separates suggestive CSF Gram morphology, integrated interpretation, culture and susceptibility testing, and says diagnostic delays must not delay indicated empiric treatment. No morphology-only regimen, universal turnaround or replacement guideline is asserted."
+    topic: acute community-acquired meningitis diagnostic and treatment-evidence boundaries
+    source_tier: official_primary
+    citekey: who2025meningitis
+    url: https://www.who.int/publications/i/item/9789240108042
+    url_or_citekey: who2025meningitis
+    evidence_date: 2025-04-10
+    checked_as_of: 2026-11-09
+    refresh_trigger: "Release review or WHO guideline update/correction; recheck population, diagnostic limits and no-delay guidance. Do not turn a teaching phenotype comparison into a clinical regimen."

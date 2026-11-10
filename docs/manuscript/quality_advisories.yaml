@@ -9411,6 +9411,51 @@
       "excerpt": "\\nameref{sec:unit_X_unit_intro} returns to systems questions from \\nameref{sec:unit_0_unit_intro}: energy flow, carbon and nitrogen cycling, and organization across scales. The illustrative rule of roughly ten percent trophic transfer varies among systems; thermodynamics constrains energy budgets but does not derive one universal transfer efficiency. Population dynamics, community assembly, and succession can be examined with systems models, including selected attractor and bifurcation models from \\cref{sec:unit_0_complex_adaptive_systems}. Such comparisons require ecological mechanisms and evidence, not an assumption that a shared mathematical motif explains every ecosystem.",
       "rationale": "Energy budgets constrain trophic transfer but do not derive a universal ten-percent efficiency. Shared mathematical motifs likewise do not establish identical ecological mechanisms. The passage explicitly distinguishes illustrative heuristics, model assumptions and supporting ecological evidence.",
       "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_theory.md:452:c5daf60417aa",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_II/cell_theory.md",
+      "line": 452,
+      "excerpt": "> Gram staining reveals a cell-envelope phenotype, not an organism's identity or antibiotic susceptibility. Beta-lactams inhibit susceptible penicillin-binding proteins (PBPs) involved in peptidoglycan cross-linking, but a thick wall does not guarantee susceptibility: Gram-positive MRSA can produce modified PBP2a with low affinity for many traditional beta-lactams \\citep{cdc2025mrsalaboratories}. A Gram-negative outer membrane can restrict particular drugs, but permeability, efflux and resistance determinants vary; the stain alone cannot select an antibiotic class or regimen. Clinical interpretation also requires the infection site, patient context, organism identification, validated susceptibility testing and applicable guidance. See \\cref{sec:unit_II_cell_structure} for membrane permeability.",
+      "rationale": "The Gram-positive phenotype does not logically entail beta-lactam susceptibility: the independently read CDC2025 laboratory mechanism supplies MRSA/PBP2a as a counterexample. The paragraph retains typical envelope and drug-target biology while explicitly separating phenotype, identification, tested susceptibility, site and patient/guidance context. It makes no universal regimen or antibiotic-class ranking.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:143:96993c33e266",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 143,
+      "excerpt": "**Target affinity, cellular inhibition and fitness are different endpoints.** VanA-type pathways replace D-Ala-D-Ala-ending precursors with D-Ala-D-Lac-ending precursors and reduce the susceptible precursor pool. In a defined ligand-binding study, loss of an amide hydrogen bond and an unfavorable lone-pair interaction both contributed to reduced vancomycin affinity; that binding result is not a universal MIC ratio or a fixed energy per hydrogen bond \\citep{mccomas2003vancomycinbinding}. MRSA's modified PBPs can bind many traditional beta-lactams poorly, while beta-lactamases hydrolyze particular beta-lactam substrates; their substrate spectra differ rather than constituting an inevitable sequence that defeats each newer drug. A biochemical binding measurement, an isolate's growth-inhibition endpoint and competitive fitness require different experiments and conditions.",
+      "rationale": "Independently checked McComas2003 original binding abstract and the CDC MRSA mechanism; separate read-only clinical refutation confirmed the endpoint distinction. The statements reject universal MIC/per-bond-energy extrapolation and inevitable drug-generation defeat. Defined ligand affinity, cell growth inhibition and competitive fitness are different experiments, not interchangeable numerical endpoints.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:146:135b03f85fc1",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 146,
+      "excerpt": "> Resistance is not automatically cost-free. In experiments with a VanB/Tn1549 system, non-induced carriage and induced or constitutive expression had different growth, competition and mouse-colonization consequences; the findings depended on genetic background and experimental conditions and are not a universal numerical cost for VanA resistance \\citep{foucault2010induciblefitness}. Daptomycin illustrates a different target: bacterial membrane association and depolarization rather than vancomycin's precursor recognition. It does not bypass resistance entirely: the dated 2025 prescribing information documents nonsusceptible isolates and separates in-vitro activity from established clinical indications \\citep{cubicinrf2025label}. Neither this mechanism comparison nor a stain substitutes for isolate- and infection-specific clinical assessment.",
+      "rationale": "Independently read Foucault2010 VanB/Tn1549 main-text competition/colonization results and the March2025 CUBICINRF official label1.1–1.5,5.9,12.4; a separate clinical refutation confirmed these limits. Costs depend on expression/background/conditions, not a universal VanA constant. The label documents nonsusceptible isolates and distinguishes in-vitro evidence from established indications; no resistance-bypass or prescribing guarantee is asserted.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:180:053002498c28",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 180,
+      "excerpt": "LPS released from Gram-negative bacteria can activate innate immunity through the TLR4-MD2 receptor complex, contributing to cytokine signaling, systemic inflammation, coagulation abnormalities and septic shock. This mechanism does not establish a universal mortality percentage or prove that Gram-negative infections are intrinsically more dangerous than Gram-positive infections; clinical severity depends on pathogen, host, infection site and care context.",
+      "rationale": "The paragraph preserves LPS–TLR4-mediated inflammatory mechanisms while explicitly rejecting an unscoped mortality percentage and a Gram-based intrinsic severity hierarchy. Pathogen, host, site and care context are named; no reverse universal ranking or substituted empirical mortality measurement is introduced. Independent clinical refutation checked matching summaries/review/key/lab consumers and found no reversed severity claim.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:183:5840352b9d85",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 183,
+      "excerpt": "> In cerebrospinal fluid, Gram-positive diplococci can suggest *Streptococcus pneumoniae* and Gram-negative diplococci can suggest *Neisseria meningitidis*, but morphology is not definitive identification or susceptibility testing. WHO's 2025 guideline for acute community-acquired meningitis in children older than one month, adolescents and adults requires integrated interpretation: CSF Gram stain, white-cell count, protein and glucose findings cannot individually confirm or exclude meningitis, while culture and antimicrobial susceptibility testing have distinct roles. It also emphasizes that diagnostic delays must not delay indicated empiric treatment \\citep{who2025meningitis}. The scope excludes neonatal and health-care-associated meningitis; this teaching comparison supplies neither a universal turnaround time nor a morphology-only regimen.",
+      "rationale": "The directly read WHO2025 community-acquired meningitis guidanceA.2.2 enumerates Gram stain, white-cell count, protein and glucose as nonconfirmatory/nonexcluding individual findings, separately from culture/ASTA.2.3; B.2.1 says diagnostic delay must not delay indicated empiric therapy. Separate clinical refutation caught the broader individual-CSF-test paraphrase, now corrected to the exact preliminary test set. Age/community scope and exclusions remain explicit, with neither a morphology-only regimen, universal turnaround nor wait-for-AST advice.",
+      "reviewer": "wfz-biology-textbook-release"
     }
   ]
 }

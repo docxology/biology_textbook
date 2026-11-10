@@ -182,7 +182,7 @@
 
 [**Glycolysis**]{#gl:glycolysis} [Gk *glykys* = sweet + *lysis* = splitting] — The 10-step cytosolic pathway that converts glucose (6C) to 2 pyruvate (3C), yielding a net 2 ATP and 2 NADH per glucose under standard textbook accounting. It does not require oxygen directly and is among the most ancient and widespread central metabolic pathways, though some organisms use modified glycolytic routes. → \cref{sec:unit_III_bioenergetics_and_respiration}
 
-[**Gram stain**]{#gl:gram-stain} [named for Hans Christian Gram, Danish bacteriologist, 1884] — A differential microbiological stain that distinguishes thick-peptidoglycan bacteria (Gram-positive: retain crystal violet, purple) from thin-peptidoglycan + outer membrane bacteria (Gram-negative: lose crystal violet, pink after safranin counterstain). → \cref{sec:unit_II_cell_theory}
+[**Gram stain**]{#gl:gram-stain} [named for Hans Christian Gram, Danish bacteriologist, 1884] — A differential envelope-associated stain: typical Gram-positive cells retain crystal violet and appear purple; typical Gram-negative cells decolorize and take up a pink counterstain. Preparation and organism-specific variation limit inference; this phenotype is not definitive identification or antibiotic susceptibility testing. → \cref{sec:unit_II_cell_theory}
 
 ---
 

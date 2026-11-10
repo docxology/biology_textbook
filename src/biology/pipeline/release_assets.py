@@ -30,8 +30,9 @@ def _git(root: Path, *args: str) -> str:
     for name in _GIT_CONTEXT_VARIABLES:
         env.pop(name, None)
     env["GIT_OPTIONAL_LOCKS"] = "0"
+    # A cached fsmonitor changed-path set cannot certify source cleanliness.
     result = subprocess.run(
-        ["git", "-C", str(root), f"--work-tree={root.resolve()}", *args], stdin=subprocess.DEVNULL,
+        ["git", "-c", "core.fsmonitor=false", "-C", str(root), f"--work-tree={root.resolve()}", *args], stdin=subprocess.DEVNULL,
         capture_output=True, text=True, check=True,
         env=env,
     )
