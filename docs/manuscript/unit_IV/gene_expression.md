@@ -89,16 +89,27 @@ Bacteria and archaea both lack a nucleus, but their promoter-recognition systems
 
 ### Eukaryotic Transcription and RNA Polymerase Specialization
 
-**Three nuclear RNA polymerases:**
+**Nuclear RNA polymerases: shared functions and named experimental systems.** The functional division below uses mammalian product/promoter examples; the assembly counts are separately identified yeast structural results, not an inventory measured in one generic eukaryotic cell.
 
-: Eukaryotic Transcription and RNA Polymerase Specialization: Feature and RNA Pol I. {#tbl:unit_IV_gene_expression_eukaryotic_transcription_and_rna_polymerase_specialization}
+: Nuclear polymerase functions, mammalian examples and characterized yeast assemblies. {#tbl:unit_IV_gene_expression_eukaryotic_transcription_and_rna_polymerase_specialization}
 | Feature | RNA Pol I | RNA Pol II | RNA Pol III |
 |---------|----------|-----------|------------|
-| **Products** | 45S pre-rRNA (18S, 5.8S, 28S rRNA) | Most mRNA; most snRNA, miRNA | tRNA, 5S rRNA, U6 snRNA, 7SL RNA |
-| **Location** | Nucleolus | Nucleoplasm | Nucleoplasm |
-| **Number of subunits** | 14 | 12 | 17 |
-| **Sensitivity to alpha-amanitin** | Resistant | Very sensitive (1 ug/mL) | Moderately sensitive (10 ug/mL) |
-| **Promoter elements** | UCE + core (recognized by UBF + SL1) | TATA box, Inr, DPE, BRE, [**CpG island**](#gl:cpg-island)s | Internal (type I, II) or upstream (type III) |
+| **Products (mammalian examples)** | Large pre-rRNA processed to 18S, 5.8S and 28S rRNA | mRNA and selected snRNA/miRNA precursors | tRNA, 5S rRNA, U6 snRNA, 7SL RNA |
+| **Typical nuclear compartment (mammalian examples)** | Nucleolus | Nucleoplasm | Nucleoplasm |
+| **Subunits in characterized yeast assemblies** | 14 | 12 | 17 |
+| **Promoter examples** | Mammalian UCE/core with UBF/SL1 | Alternative/context-dependent TATA, Inr, DPE, BRE or CpG-associated architectures | Gene-dependent internal (types I/II) or upstream (type III) elements |
+
+The 14-, 12- and 17-subunit assemblies are from *Saccharomyces cerevisiae* Pol I, initiation-competent Pol II and Pol III structures, respectively \citep{fernandeztornero2013poli,armache2003polii,hoffmann2015poliii}. A complete assembly must not be confused with a core preparation lacking peripheral subunits.
+
+**Alpha-amanitin: activity endpoints, not universal diagnostic doses.** Sensitivity depends on organism, preparation and assay. Two historical values that are often compressed into a generic teaching hierarchy came from different systems:
+
+: Historical alpha-amanitin activity-inhibition observations from named enzyme preparations. {#tbl:unit_IV_gene_expression_named_amanitin_assays}
+| Preparation | Concentration at 50% activity inhibition | Primary observation |
+| --- | --- | --- |
+| Purified yeast Pol II | 1.0 μg/mL | Schultz and Hall's 15-minute, 30-°C activity assay \citep{schultz1976amanitin} |
+| Partially purified calf-thymus Pol III | 10 μg/mL | Weil and Blatti's reported enzyme-activity endpoint \citep{weil1975poliii} |
+
+These are not living-cell treatment concentrations or directly comparable intrinsic potencies. In the yeast study, Pol III remained largely active at much higher concentrations, unlike the calf-thymus preparation; even Pol I inhibition depended on concentration. A yeast Pol II core cocrystal localizes alpha-amanitin near the bridge helix, but a binding structure is not a concentration-response curve \citep{schultz1976amanitin,bushnell2002amanitin}.
 
 The table is primarily the entry point. In eukaryotes, transcriptional output depends on promoter architecture, enhancer-promoter looping, chromatin accessibility, Mediator, pause release, and RNA processing. RNA Pol II is especially regulated because its C-terminal domain is phosphorylated in different patterns during initiation, elongation, splicing, 3'-end formation, and termination. A strong gene-expression claim therefore asks which polymerase is involved, which regulatory DNA element is active, which chromatin state permits access, and whether nascent-RNA, chromatin, or perturbation evidence supports the proposed mechanism.
 

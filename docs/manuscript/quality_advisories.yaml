@@ -5795,15 +5795,6 @@
       "reviewer": "wfz-biology-textbook-release / scientific-visual delta review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_theory.md:555:2985279e1506",
-      "classification": "valid_scientific_absolute",
-      "source_path": "docs/manuscript/unit_II/cell_theory.md",
-      "line": 555,
-      "excerpt": "4. **Division machinery:** Organelle division is coordinated with the host. Many plastids retain FtsZ-based components; mammalian mitochondrial fission instead uses host dynamin-related DRP1 machinery. FtsZ is not universal in mitochondria.",
-      "rationale": "One-dimensional diffusion times, spherical A/V and uptake units are consistent with supplied inputs; internal respiratory area is not external exchange area. DRP1 and inferred LUCA are appropriately bounded. Hutchison's primary paper reports 473 genes/149 unknown functions and context-dependent minimization (http://cba.mit.edu/docs/papers/16.04.minimal.pdf). Papastavrou's abstract reports propagation/selection of hammerhead RNA, not autonomous polymerase replication or an integrated cell (https://pubmed.ncbi.nlm.nih.gov/38437533/).",
-      "reviewer": "WorkflowzFinalClaimRefutation#1"
-    },
-    {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_theory.md:571:db10e8f4b39e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_II/cell_theory.md",
@@ -6677,73 +6668,73 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:199:34aedb5fa961",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:210:34aedb5fa961",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 199,
+      "line": 210,
       "excerpt": "*Canonical nuclear-encoded mammalian mRNA processing and surveillance. Capping, splicing, and polyadenylation can overlap transcription before export. Translation-dependent recognition can route susceptible transcripts into NMD; a premature stop does not by itself guarantee degradation.*",
       "rationale": "This is an explicitly canonical mammalian processing/surveillance cartoon. Its qualified statement rejects the unsupported inference that a premature stop alone guarantees degradation; Kurosaki et al. (2019) describe EJC-dependent and independent recognition and context-dependent target discrimination. The caption does not claim universal processing or a measured target fraction.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:437:b0bb99dcfbb3",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:448:b0bb99dcfbb3",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 437,
+      "line": 448,
       "excerpt": "> Relative sparing of mammalian cytosolic translation is not a guarantee of safety. Mitochondrial ribosomes retain bacterial-derived features; particular drugs and mitochondrial rRNA variants can increase adverse effects, including aminoglycoside-associated ototoxicity.",
       "rationale": "Differential action on bacterial versus mammalian cytosolic translation does not logically guarantee patient safety. The primary abstract of Prezant et al. (1993), PMID 7689389, reports mitochondrial 12S-rRNA A1555G in studied families with aminoglycoside-associated and non-syndromic deafness (https://pubmed.ncbi.nlm.nih.gov/7689389/). This supports the susceptibility/target-context limitation, not a universal adverse-effect rate, individual risk calculation or current prescribing recommendation.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:500:a6d73c3b8e8b",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:511:a6d73c3b8e8b",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 500,
+      "line": 511,
       "excerpt": "2. **Initiation and coding-region translation.** Ribosomal scanning/elongation removes associated factors from traversed RNA. A sufficiently close downstream EJC can also be displaced by the terminating ribosome's reach. In lab card B, stop 170 and junction 200 place the stipulated EJC at 176–180, only 6–10 nt downstream; a downstream EJC is not automatically persistent. More distant retained EJCs can promote the qualified EJC-dependent pathway \\citep{kurosaki2019nmd}.",
       "rationale": "The actual finite lab B supplies stop 170 and junction 200. With the stated 20–24-nt upstream deposition, the EJC is at 176–180, only 6–10 nt beyond the stop. Kurosaki et al. (2019), Figure 1 and the EJC-dependent section, explicitly explain that a sufficiently close downstream EJC can be displaced by the terminating ribosome. The replacement rejects the old blanket downstream-persistence inference and does not turn geometry into guaranteed decay.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:516:e2784eedb67e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:527:e2784eedb67e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 516,
+      "line": 527,
       "excerpt": "NMD has homeostatic functions beyond aberrant-transcript quality control, including regulation of particular alternatively spliced physiological isoforms during development and cellular responses. These roles do not specify one universal transcript fraction or disease outcome \\citep{kurosaki2019nmd}.",
       "rationale": "Kurosaki et al. (2019) review physiological NMD, including regulated alternative splicing, development and cellular responses. The sentence explicitly declines to infer a universal transcript fraction or disease outcome, and it distinguishes aberrant-transcript quality control from pathogen detection. This classification is not certification of every unchanged clinical or experimental claim in the chapter.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:623:2ed9aa2c2ada",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:634:2ed9aa2c2ada",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 623,
+      "line": 634,
       "excerpt": "- **Signal and size:** ChIP-seq enrichment and regional span depend on the measured factor, preparation, peak definition and clustering choices; neither a universal 10-fold density threshold nor a fixed 25–50-kb size defines this category.",
       "rationale": "Whyte et al. 2013 PMC Summary and Results/Figure1 distinguish total signal from constituent density and define exceptional Mediator-rich domains in specified murine cells. Their ESC and pro-B comparisons have different region spans; the text correctly rejects turning these study-specific measurements into universal H3K27ac/fixed-size category thresholds.",
       "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:625:e9b519817fe7",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:636:e9b519817fe7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 625,
+      "line": 636,
       "excerpt": "- **Annotation:** Report the cell, assay, region-stitching and ranking/cutoff choices. Mediator-based classification in the cited study and H3K27ac-based annotations are related measurements, not interchangeable universal counts.",
       "rationale": "The inspected Whyte2013 Results compare Mediator, H3K27ac and other measured features, finding Mediator optimal in that ESC analysis. Different assay, stitching and ranking choices cannot be assumed to yield an identical universal census; no new measured count or cutoff is invented.",
       "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:637:50ae0d0e9d0a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:648:50ae0d0e9d0a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 637,
+      "line": 648,
       "excerpt": "- Mechanism: guide–target pairing, often involving seed positions 2–8 in a 3′ UTR, can promote translational repression and deadenylation/decay; extensive pairing can permit Ago2 slicing. Measure RNA abundance and protein production separately: \\citet{guo2010mirna} found that reduced mRNA explained most reduced protein production in the mammalian systems tested, not a universal translation-only miRNA effect.",
       "rationale": "Guo's primary abstract reports matched ribosome profiling/RNA measurements and at least 84% contribution from reduced mRNA in tested interactions (https://pubmed.ncbi.nlm.nih.gov/20703300/). The excerpts appropriately avoid extending that result to every target/time and distinguish predicted site counts from measured repression or universal miRNA/siRNA potency rankings.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:664:1a21300dae12",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:675:1a21300dae12",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 664,
+      "line": 675,
       "excerpt": "Predicted target counts do not establish measured repression strength. Effects vary with target, guide abundance, site context and time; neither an RNA-class label nor a seed match alone gives a universal percentage or a ranking of miRNA versus siRNA silencing.",
       "rationale": "Guo's primary abstract reports matched ribosome profiling/RNA measurements and at least 84% contribution from reduced mRNA in tested interactions (https://pubmed.ncbi.nlm.nih.gov/20703300/). The excerpts appropriately avoid extending that result to every target/time and distinguish predicted site counts from measured repression or universal miRNA/siRNA potency rankings.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
@@ -7838,64 +7829,64 @@
       "reviewer": "wfz-biology-textbook-release / scientific-visual delta review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:447:4f5437dec319",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:449:4f5437dec319",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 447,
+      "line": 449,
       "excerpt": "**Quorum quenching as a therapeutic hypothesis.** Lactonases/acylases can reduce active AHL, receptor antagonists can alter signal response, and other circuit perturbations can change specified virulence phenotypes. Reduced direct killing does not guarantee weak resistance selection: resistance to an antivirulence quorum-quenching compound was demonstrated experimentally in *Pseudomonas aeruginosa* \\citep{maeda2012quorumresistance}. Signal stability also depends on pH, temperature and chain chemistry \\citep{yates2002ahllactonolysis}. Measure signal, growth, phenotype and resistance; clinical stage or benefit requires a named compound, trial and endpoint, none supplied for a class-wide claim here.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:611:a7f91e31cb53",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:614:a7f91e31cb53",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 611,
+      "line": 614,
       "excerpt": "*Lambda-specific lytic and lysogenic alternatives. CI represses lytic genes while the integrated prophage is copied with host DNA. DNA damage activates the SOS response; RecA stimulates CI autocleavage, followed by lytic derepression and prophage excision. The diagram omits detailed switch regulation and makes no fixed cycle-time or burst-size claim. Lambda's noncontractile tail differs from the separate T4 example below; these alternatives do not describe all phages or viruses.*",
       "rationale": "This is a selected lambda pathway, consistent with the adjacent lambda explanation and the paired Q4/Q13 autocleavage keys independently traced by BiologyRichCaptionRedTeam#2. DNA damage/SOS activates the RecA-stimulated CI-autocleavage route rather than treating RecA as a protease that directly cuts CI. Lambda has a noncontractile tail and is separated from the following T4 example. The flagged all phrase rejects extension of lambda integration/CI circuitry to every phage or virus, and the caption makes no fixed cycle-time or burst-size inference from the schematic.",
       "reviewer": "wfz-biology-textbook-release, closing BiologyRichCaptionRedTeam#2 scientific-consumer refutations"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:650:579918dccc3f",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:653:579918dccc3f",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 650,
+      "line": 653,
       "excerpt": "1. **Attachment and fusion:** gp120 binds CD4 and a coreceptor matched to the viral variant, CCR5 or CXCR4; gp41 mediates fusion. CCR5 use is common in transmission, but CXCR4 use does not follow a universal late-stage schedule.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:881:b0482d4646f3",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:884:b0482d4646f3",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 881,
+      "line": 884,
       "excerpt": "For canonical SpCas9 duplex targeting, **PAM recognition** helps distinguish an invader's protospacer flank from the repeat-flanked spacer in the CRISPR array \\citep{doudna2012}. This is not a universal self/non-self test for all CRISPR types; the Type III comparison below has a different RNA-triggered mechanism.",
       "rationale": "The explicit canonical SpCas9 duplex qualifier follows the 2012 guide/PAM recognition evidence. The RNA-triggered Type III Cas10/cyclic-oligoadenylate mechanism in Athukoralage et al. 2020 (PMC6986909, main results and Fig. 1) supplies the counterexample to universal PAM-scanning. This approves the stated distinction between mechanisms, not a universal self/non-self rule or an exhaustive classification. The current neighboring diagram is restricted to representative DNA-targeting Type I/II examples.",
       "reviewer": "WorkflowzReleaseOwner-natural-guide-boundary"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:906:6e7176ca2d8d",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:909:6e7176ca2d8d",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 906,
+      "line": 909,
       "excerpt": "**Type II (Cas9)** supplied a route to engineered RNA-guided DNA targeting: the 2012 purified-system study demonstrated programmable duplex cleavage and proposed genome-editing uses \\citep{doudna2012}. For canonical SpCas9, a compatible flanking PAM and guide-target sequence are required; changing the guide does not make a genomic position automatically accessible or guarantee an edit. In cells, a nuclease-induced break can undergo end joining or template-dependent repair, with outcomes depending on cell and repair context. Base and prime editors use different chemistries; a prime-editing pegRNA also encodes the edit template, so \"no donor DNA\" is not \"no template\" \\citep{anzalone2019}. Cas12 and Cas13 systems have distinct DNA/RNA substrate properties. Eukaryotic RNA interference is another small-RNA-based system \\citep{fire1998}, not an identical mechanism to Type II DNA cleavage.",
       "rationale": "Read primary Jinek2012 main PAM Results and Anzalone2019 original abstract (PMID31634902, DOI10.1038/s41586-019-1711-4). SpCas9 duplex targeting is guide/PAM-constrained; the prime-editing guide both specifies target and encodes desired edit. No separate donor DNA therefore does not mean no template. This is a mechanistic distinction and an explicit refusal to guarantee genomic addressability or edit outcomes; it is not a new clinical or efficiency measurement. TypeII DNA cleavage and the separately cited eukaryotic RNA-interference pathway are not interchangeable systems. No full supplementary-data reanalysis is claimed.",
       "reviewer": "Workflowz integration owner; actual primary-source and paired-consumer closure, 2026-11-08"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:956:ff7b95e99183",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:959:ff7b95e99183",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 956,
+      "line": 959,
       "excerpt": "**Interpretation.** SpCas9 typically cleaves approximately three base pairs upstream of the PAM, here near the bond between positions 447 and 448, not automatically at position 450. The stipulated probabilities yield 100:1, but mismatch effects depend on sequence, nuclease, cell type and assay; no universal clinical acceptance ratio follows. High-fidelity nucleases and base editors are different modalities, and the named Cas9 therapies should not be described as base editing. Genome-wide off-target and rearrangement assays must be product- and context-specific.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1099:8c1bff5999c7",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1102:8c1bff5999c7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 1099,
+      "line": 1102,
       "excerpt": "11. **Synthetic culture calculation.** With $t_d=30$ min and $N_0=5\\times10^3$ CFU/mL, calculate time to a stipulated culture target $10^9$ CFU/mL. Then model a hypothetical instantaneous four-log reduction and a 60-minute lag before regrowth. These are artificial culture assumptions, not a clinical dosing model: sepsis is not defined by a universal circulating CFU threshold.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -9638,49 +9629,211 @@
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:495:744b09e48d19",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:497:744b09e48d19",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 495,
+      "line": 497,
       "excerpt": "**Measured permeability is preparation-specific.** Komatsu and Chong examined isolated *Sulfolobus acidocaldarius* polar lipid fraction E liposomes using fluorescent-dye leakage and proton-permeability assays over 25–85 °C. Dye leakage depended strongly on surface charge and packing; the approximately 60-nm liposomes had low but finite proton permeability in the reported 25–82-°C comparison \\citep{komatsu1998tetraetherpermeability}. These results do not establish zero leakage, water/ATP permeability rankings, universal bacterial failure at 60 or 100 °C, or intact-cell ATP synthesis at 100 °C. GrsA/GrsB experiments identify GDGT ring-forming activities, not instantaneous reversible removal of rings from an existing membrane \\citep{zeng2019gdgtcyclization}. Controlled *S. acidocaldarius* cultures also changed lipid composition with specific growth rate at fixed temperature and pH; temperature is not the sole explanatory variable \\citep{quehenberger2020archaeallipids}.",
       "rationale": "Komatsu1998 primary abstract specifies PLFE liposomes, dye/proton assays over25-85C and an approximately60nm preparation with finite proton permeability in the25-82C comparison. Neither these solutes nor this isolated preparation establish intact-cell ATP100C, water/ATP rankings, a bacterial60C failure threshold or the dated Pyrolobus growth limit as a membrane assay.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:503:f6a8a4726b4c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:505:f6a8a4726b4c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 503,
+      "line": 505,
       "excerpt": "- **Extreme halophiles:** *Halobacterium salinarum* illustrates regulated KCl-rich salt-in adaptation, not a fixed intracellular concentration in every condition \\citep{strahl2008halophile}. Separately, bacteriorhodopsin can use light to build a proton gradient that supports ATP synthesis; the cited *H. halobium* experiments measured this response in a defined preparation \\citep{danon1974photophosphorylation}. Halophily describes salt adaptation, not an energy pathway, and retinal-based phototrophy alone does not demonstrate CO₂ fixation. Protein adaptation includes surface hydration and solvent exposure as well as common acidic-residue enrichment; charge alone does not guarantee folding \\citep{tadeo2009halophilicproteins}.",
       "rationale": "Strahl2008 measured regulated intracellularK responses in H.salinarumR1 under specified potassium conditions. Danon1974 demonstrates named light-dependent ATP production, while Tadeo2009 tests multifactorial halophilic protein properties. Salt adaptation, phototrophic energy transduction and carbon fixation are different endpoints; acidic charge is not a sufficient universal folding guarantee.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:507:35107235b097",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:509:35107235b097",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 507,
+      "line": 509,
       "excerpt": "Traditional **Crenarchaeota** examples include thermophilic lineages; the selected culture descriptions below are not universal growth ranges or a current life-record table:",
       "rationale": "Traditional group labels introduce selected named culture examples rather than current exhaustive taxonomy or a life-record table. Barry2006, Blochl1997 and Zaparty2008 report different species/strain optima and ranges; one valid113C endpoint does not imply every member shares it or that culture-recovery instructions measure a maximum.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:552:12dad5067fa9",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:555:12dad5067fa9",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 552,
+      "line": 555,
       "excerpt": "> The cited *S. acidocaldarius* PLFE-liposome study measured fluorescent-dye leakage and proton permeability over 25–85 °C, with low but finite proton leakage in a reported 25–82-°C comparison. Explain how reduced proton leak could help preserve a chemiosmotic gradient. Why do those measurements not establish water/ATP permeability rankings or intact-cell ATP synthesis at 100 °C? Identify the preparation, endpoint and additional evidence needed rather than assigning all hyperthermophiles and mesophiles one membrane type.",
       "rationale": "The concept check preserves actual isolated-liposome preparation and proton/dye endpoints from Komatsu1998. Lower leak could preserve a chemiosmotic gradient, but no ATP synthesis at100C or water/ATP permeability was measured in the cited abstract. Zeng2019/Quehenberger2020 composition dependence prevents assigning one obligatory membrane type to all thermal categories.",
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1082:4872ad99a6c1",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1085:4872ad99a6c1",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 1082,
+      "line": 1085,
       "excerpt": "2. A researcher observes a prokaryotic microorganism from a hot spring (85 °C, pH 3) with ether-linked lipids, no bacterial peptidoglycan, and a 12-chain RNA polymerase in the examined preparation. Which domain is best supported by the combined molecular evidence, and what additional evidence would test that classification? Explain why the specified twelve-chain observation is not a universal archaeal count or a classification based on habitat alone.",
       "rationale": "The question stipulates a twelve-chain preparation and asks for combined molecular support plus further classification evidence. Jun2014 eleven-chain RNAP and variable archaeal architectures prevent turning that observation or hot/acidic habitat into a universal archaeal count or sole classifier. The task asks supported inference, not proof from one trait.",
       "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/glossary.md:413:ca6f1c249514",
+      "source_path": "docs/manuscript/glossary.md",
+      "line": 413,
+      "excerpt": "[**Chloroplast**]{#gl:chloroplast} [Gk *chloros* = green + *plastos* = formed] — A photosynthetic plastid in plants and algae, derived from a cyanobacterial endosymbiont, with thylakoid membranes and stroma. Retained organelle genomes vary in gene content and physical form: a circular reference map does not establish universally circular DNA molecules \\citep{oldenburg2004cpdna}. → \\cref{sec:unit_III_photosynthesis}",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Oldenburg and Bendich2004 directly examined maize-seedling chloroplast molecules and found predominantly linear/branched forms; circular maps and physical topology are distinct. The definition retains photosynthetic-plastid/cyanobacterial ancestry and does not replace all chloroplast DNA with a universal linear form or fixed gene count. Molecular independent refutation checked the named preparation and preserved its circular minority.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_VII/questions_bacteria_archaea_viruses.md:131:0699fb197f5f",
+      "source_path": "docs/manuscript/questions/unit_VII/questions_bacteria_archaea_viruses.md",
+      "line": 131,
+      "excerpt": "19. Compare the potential host specificity and resistance evolution of phages and antibiotics without assuming that either class has one universal spectrum or escape rate. Use the Patterson case, treated in 2016 and published by Schooley and colleagues in 2017, to distinguish observed recovery during combined care from a demonstrated phage-alone cure. How do the resistant isolates and subsequent reformulation limit claims that co-evolution or cocktails automatically prevent escape?",
+      "classification": "valid_scientific_absolute",
+      "rationale": "The prompt asks for comparison and causal discrimination rather than assuming an absolute phage/antibiotic spectrum or resistance rate. Schooley2017 and its clinical course support2016treatment,2017publication, concurrent care, resistant sampled isolates and reformulation; neither cocktail evolution nor recovery identifies a phage-alone effect. The evidence needed is supplied in the corrected chapter and case, not an unprovided clinical-success premise.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_theory.md:553:58f762c9953e",
+      "source_path": "docs/manuscript/unit_II/cell_theory.md",
+      "line": 553,
+      "excerpt": "2. **Retained genomes, variable physical forms:** Genome relationships support bacterial ancestry, but circularity is not universal. Linear mitochondrial DNA was characterized in *Tetrahymena pyriformis*, and maize-seedling chloroplast DNA was mainly linear or branched; a circular reference map is not a measurement of every molecule's topology \\citep{goldbach1979linearmtdna,oldenburg2004cpdna}.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Goldbach1979 linear Tetrahymena mtDNA and Oldenburg2004 predominantly linear/branched maize cpDNA are named experimental counterexamples to universal circularity, not evidence against bacterial ancestry or claims that all organelle molecules are linear. The passage explicitly separates reference-map representation from measured topology; independent primary refutation retained that limit.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_II/cell_theory.md:555:864ee461d6cd",
+      "source_path": "docs/manuscript/unit_II/cell_theory.md",
+      "line": 555,
+      "excerpt": "4. **Division machinery:** Organelle division is coordinated with the host. Many plastids retain FtsZ-based components; mammalian mitochondrial fission instead uses host dynamin-related DRP1 machinery. FtsZ is not universal in mitochondria \\citep{smirnova2001drp1}.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Smirnova2001 directly supports host dynamin-related Drp1 in mammalian mitochondrial division. The sentence retains many-plastidFtsZ and mammalian scope rather than declaring all organelle division bacterial or all organellesDRP1-based. Division into two is not itself refuted. This replaces the superseded no-citation binding with a specific primary-backed review, whose prior record remains in the preserved snapshot/history.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:104:20214cb97f97",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 104,
+      "excerpt": "**Alpha-amanitin: activity endpoints, not universal diagnostic doses.** Sensitivity depends on organism, preparation and assay. Two historical values that are often compressed into a generic teaching hierarchy came from different systems:",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Original Schultz1976 printedp1032/Fig4 and Weil1975 experimental abstract establish different organism/preparation50%-activity endpoints. The original yeastPolIII high-concentration response defeats a portable sensitivity hierarchy; the machine-readable abstract typoII does not override the printedIII. This heading scopes the following named table and does not deny valid1.0/10µg/mL measurements or imply living-cell dosing.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VI/phylogenetics.md:648:e5ad19036cf6",
+      "source_path": "docs/manuscript/unit_VI/phylogenetics.md",
+      "line": 648,
+      "excerpt": "- **Mitochondria:** Molecular phylogenies and bacterial-derived genetic/translation systems support alphaproteobacterial ancestry; present-day organelles are extensively remodeled. Mammalian mitoribosomes are about 55S rather than universally 70S, and mammalian fission uses host DRP1 machinery. Genome topology also varies: linear mitochondrial DNA was experimentally characterized in *Tetrahymena pyriformis*. Neither a sedimentation coefficient nor division into two establishes an unchanged bacterial mechanism \\citep{greber2015mitoribosome,smirnova2001drp1,goldbach1979linearmtdna}.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Greber2015 porcine55S assembly, Smirnova2001 mammalianDrp1 and Goldbach1979 linearTetrahymenaDNA refute a universal70S/circular/unmodified-bacterial bundle while preserving alphaproteobacterial ancestry. The scope is mammalian or named organism, not a universal55S/DRP1/linear opposite claim. Descriptive division into two is explicitly not sufficient evidence of ancestral mechanism.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VI/phylogenetics.md:809:e4d85aeaa1d5",
+      "source_path": "docs/manuscript/unit_VI/phylogenetics.md",
+      "line": 809,
+      "excerpt": "- **HGT** creates reticulate gene histories and spreads antibiotic resistance, while many conserved genes retain vertical signal. No universal transferred-gene percentage applies to all prokaryotic genomes; state the dataset, detection method and timescale.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Lawrence and Ochman1998 reports755/4288MG1655ORFs(17.6%) with composition, codon, genomic-context and comparative methods; it does not sample all prokaryotic genomes. Similar-composition donors can be missed. The summary preserves reticulate histories, resistance transfer and conserved vertical signal without a replacement universal percentage.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:430:499a04514a65",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 430,
+      "excerpt": "- **Extracellular DNA (eDNA)** — can be released by cell lysis, contribute to matrix structure and provide substrate for transformation by competent cells. Transfer frequency depends on organism and conditions; biofilm membership alone does not specify a universal multiplier.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "The statement describes possible matrix and competence-dependent transformation roles, not a new transfer-frequency measurement or a claim that every biofilm contains the same matrix/release pathway. Removing the unsupported1000-fold figure preserves the substrate-versus-uptake distinction and requires organism/conditions for quantitative comparisons; no universal enhancement or denominator is introduced.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:445:87b06eaa1269",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 445,
+      "excerpt": "**Biofilm antibiotic survival: transport and killing are different endpoints.** Biofilms contribute to chronic and device-associated infections, but a universal prevalence or tolerance multiplier cannot be inferred without a population, comparator and assay. Jefferson and colleagues studied defined *S. aureus* laboratory biofilms with fluorescent vancomycin: deep cells were labeled slowly, including in a PNAG-negative preparation. Mixing affected access, so this was not a universal 100-fold change in the drug's diffusion coefficient caused by matrix polysaccharide. Separate viable-count assays, defining bactericidal activity as a 99.9% reduction, reported biofilm/planktonic vancomycin MBC ratios of 250–600 under that study's protocols; biofilm and planktonic exposure periods differed. These are substantial, preparation-specific killing results, not MIC ratios or clinical dosing recommendations \\citep{jefferson2005biofilmvancomycin}.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Jefferson2005 original susceptibility methods/Fig1C define99.9%-killingMBCs and preparation-specific250–600ratios with different biofilm/planktonic exposures. Separate fluorescent-vancomycin experiments show delayed deep labeling, includingPNAG-negative preparations, and mixing effects. These are neitherMICs, a universal100-foldEPSdiffusion coefficient, a clinical exposure recommendation nor proof that every biofilm shares those mechanisms.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:447:5ea5cb60da82",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 447,
+      "excerpt": "In *P. aeruginosa* FRD1 colony biofilms, Walters and colleagues found that ciprofloxacin and tobramycin penetrated yet produced limited killing. Oxygen-limited, low-activity interiors were associated with tolerance, and dispersed cells regained susceptibility. Delivery, physiological tolerance and heritable resistance therefore require separate tests; these experiments establish neither a universal persister fraction nor an enzyme-concentration multiplier \\citep{walters2003biofilmtolerance}. Biofilms are relevant to cystic-fibrosis lung infections, prosthetic devices, catheter-associated infections, chronic wounds and dental plaque, but an individual patient's outcome cannot be assigned to one mechanism from treatment duration alone.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Walters2003 FRD1 colony-biofilm penetration, viable counts, oxygen/activity and resuspension experiments distinguish access from killing and reversible physiology from inherited resistance. Previously unexposed dispersed cells regained susceptibility; the passage does not say all treated survivors were reversed or derive a universal persister/enzyme fraction. Clinical outcome cannot be causally assigned from duration alone.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:453:18149d2e46f1",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 453,
+      "excerpt": "Some endospore-forming bacteria, including lineages traditionally grouped in *Bacillus* and *Clostridium*, enter a resistant dormant state during unfavorable conditions. Resistance varies with organism, preparation, agent and exposure; endospores are not a universal maximum of resistance to every treatment:",
+      "classification": "valid_scientific_absolute",
+      "rationale": "CDC steam guidance gives different sterilizer/load-specific exposures and monitoring; adjacent prion teaching also requires its own validated protocols. Resistance is an organism/agent/exposure comparison, not one absolute ranking of every biological structure. This introduction makes no new numerical resistance measurement or unsupported most-resistant superlative.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:457:b0f5664c9b08",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 457,
+      "excerpt": "- **Steam sterilization:** Effective processing requires steam contact and a validated cycle appropriate to the device, load, wrapping and sterilizer. CDC's guideline distinguishes different temperature/time combinations and load-dependent penetration; a single 121-°C, 15–20-minute recipe is not a general guarantee. This description is not an operating protocol \\citep{cdc2023steamsterilization}.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "The actually read CDC2023page distinguishes wrapped-supply gravity-displacement and prevacuum exposures and load-dependent steam penetration. Those named source conditions refute one universal121C/15–20minute recipe, not the validity of process-specific cycles. The textbook explicitly requires validated instructions and is not an operating procedure.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:560:ef24bf70dafe",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 560,
+      "excerpt": "> **Concept Check (Evaluate — Thermal Fitness, DNA Topology and PCR Evidence):** In Atomi and colleagues' *T. kodakarensis* KOD1 batch-culture experiment, a reverse-gyrase deletion strain still grew at 90 °C, with a specific growth rate 0.46 of the host rate. Host extracts, unlike mutant extracts, showed ATP-dependent positive supercoiling of plasmid DNA in a separate assay \\citep{atomi2004reversegyrase}. Takagi and colleagues reported a 75-°C activity optimum for recombinant KOD polymerase and detected 3′→5′ exonuclease activity \\citep{takagi1997kod}. In Cline and colleagues' PCR forward-mutation assay, reported average error rates were $1.3\\times10^{-6}$ for Pfu and $8.0\\times10^{-6}$ for Taq, per base pair per duplication; assay conditions affected fidelity \\citep{cline1996pcrfidelity}. (a) What does the viable deletion strain establish about necessity versus contribution at 90 °C? (b) Why do growth, a plasmid-topology assay, enzyme activity and genomic DNA melting require different preparations/endpoints? Negative supercoiling can favor local strand opening under specified mechanical conditions; do not treat it as a universal stabilizing melting-temperature shift \\citep{vlijm2015supercoiling}. (c) Calculate the reported Taq/Pfu error-rate ratio for that assay. What additional matched-buffer, template, cycling and heat-survival evidence would be needed to compare enzymes for a particular PCR application? Explain why neither these results nor a general charge argument establishes an unmeasured 95-versus-87-°C genomic melting comparison.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Independent original-primary refutation checked Atomi2004 same-conditionµΔ/µH=0.46 at90C, separate plasmid topology, Takagi1997 recombinant75Cactivity and Cline1996per-bp-per-duplication1.3e-6/8.0e-6 assays. The calculable ratio is about6.15 under that study, not universal fidelity. Vlijm2015 supports conditional local opening under imposed topology/force, not genomicTm. The question withholds unsupported95/87C and charge-causality conclusions rather than declaring them experimentally false.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:696:b37866325b64",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 696,
+      "excerpt": "- **Replication in susceptible hosts** — local amplification is possible, but burst size, adsorption, bacterial physiology and clearance determine whether it occurs; increasing bacterial density does not guarantee effective therapy.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Host-dependent replication requires susceptibility, physiology, adsorption and clearance; the stated toyODE already allows net decline despite hosts, and Schooley2017 documents clinical escape. Local amplification is possible, not an automatically increasing therapeutic dose or clinical benefit. No burst-size census or guaranteed compartmental effect is supplied.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:712:10fac32e31a4",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 712,
+      "excerpt": "**Phage population dynamics: an explicit toy model.** A one-compartment drug model can assume $C(t)=C_0e^{-k_e t}$; that is an assumption, not a universal description of every antibiotic. Phage dynamics can additionally depend on susceptible bacterial hosts, adsorption, replication and clearance. To isolate this feedback, consider the following Lotka–Volterra-like coupled ODE rather than treating it as a validated patient model:",
+      "classification": "valid_scientific_absolute",
+      "rationale": "C(t)=C0exp(-ke*t) is explicitly a one-compartment assumption; the following coupledODE is a stipulated model, not a universal antibiotic/phage PK law. Its algebraic feedback is retained without asserting that either model was fitted to patients or that host density alone validates therapy.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:722:00cc4477d442",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 722,
+      "excerpt": "2. **Immune responses** — binding antibodies and functional neutralization are different endpoints. Dedrick and colleagues detected weak antibody responses but no serum phage-neutralization in the tested follow-up samples; a universal 10-day neutralization rule is unsupported by that case. Patient, phage, route and exposure matter \\citep{dedrick2019phagecase}.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "Dedrick2019 original clinical/immunological results explicitly distinguish weak binding-antibody responses from no detected serum phage-neutralization in tested samples. This is a direct counterexample to a universal ten-day neutralization clock, not proof that antibodies are absent or neutralization can never occur. Patient/phage/route/exposure scope remains explicit.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:733:af36648275d2",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 733,
+      "excerpt": "> **Synthetic evidence scenario:** Stipulate that a cystic-fibrosis lung isolate of *P. aeruginosa* shows a 100-fold load decrease by day 5 and rebound by day 14 during a hypothetical phage cocktail, with *galU* mutations in rebound isolates. (a) What adsorption, receptor-complementation and phage-susceptibility evidence would connect the mutation to escape? (b) What matched fitness and virulence measurements would test a possible cost, rather than assuming one? (c) Design phage-only, tobramycin-only and combination comparisons to test suppression of rebound; neither the stipulated time course nor the mutation alone proves a clinical combination benefit.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "The100-fold/day5/day14/galU scenario is labeled synthetic and stipulates no observed patient result. Adsorption/complementation, matched fitness/virulence and single-agent/combination evidence are requested rather than supplied as hidden conclusions. Neither a mutation nor rebound alone establishes receptor causality, a fitness cost or clinical synergy; independent assessment refutation found no unasked efficacy premise.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1033:7900d9f2455b",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 1033,
+      "excerpt": "- **Two-component systems** couple sensor histidine kinases to response regulators in many bacterial signaling pathways. **Biofilms** and **quorum sensing** contribute to microbial community behavior and chronic/device-associated infection, but prevalence, antibiotic survival and regulatory mechanisms depend on the system; no universal clinical percentage or tolerance multiplier is established here.",
+      "classification": "valid_scientific_absolute",
+      "rationale": "This summary states system-dependent signaling/community roles, not a new infection-prevalence or tolerance measurement. The unverifiedCDC65–80%denominator and fixed multipliers are absent; primary Jefferson/Walters findings remain in the body with their assays. Many-bacterialTCS scope avoids turning one architecture into an all-prokaryote classifier.",
+      "reviewer": "wfz-biology-textbook-release / BioFinalPrintRefutation"
     }
   ]
 }

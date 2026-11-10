@@ -54,7 +54,7 @@
 
 [**Base pair (bp)**]{#gl:base-pair} [Gk *basis* = step, foundation] — A complementary nucleotide pair held by hydrogen bonds in double-stranded nucleic acids: A–T (2 H-bonds in DNA) and G–C (3 H-bonds). One bp ≈ 0.34 nm along the DNA helix. → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
-[**Biofilm**]{#gl:biofilm} [Gk *bios* = life + L *filum* = thread] — A structured community of microorganisms attached to a surface and enclosed in a self-produced extracellular polysaccharide matrix; regulated by quorum sensing; often up to 1,000-fold more antibiotic tolerant than planktonic cells because matrix diffusion limits, slow growth, stress responses, and persister cells overlap. → \cref{sec:unit_VII_bacteria_archaea_viruses}
+[**Biofilm**]{#gl:biofilm} [Gk *bios* = life + L *filum* = thread] — A structured, surface-associated microbial community enclosed in an extracellular matrix. Quorum sensing is one possible regulatory input. Antibiotic survival depends on organism, drug, physiology and assay; transport, bactericidal killing and inherited resistance are distinct endpoints, not one numerical tolerance multiplier. → \cref{sec:unit_VII_bacteria_archaea_viruses}
 
 [**Biome**]{#gl:biome} [Gk *bios* = life + *-ome* = mass/body] — A large-scale terrestrial or aquatic ecosystem characterized by a distinctive climate, vegetation, and fauna. Classified by Whittaker (1975) primarily by mean annual precipitation (MAP) and mean annual temperature (MAT). → \cref{sec:unit_X_biomes_and_conservation}
 
@@ -318,7 +318,7 @@
 
 [**Plasmid**]{#gl:plasmid} [Gk *plasma* = formed thing] — A genetic replicon capable of extrachromosomal replication. Plasmids occur in bacteria, archaea and some eukaryotes; circular and linear DNA plasmids have been characterized, and sizes and mobility vary. They can carry resistance, virulence or metabolic genes, but those functions are not defining requirements. → \cref{sec:unit_II_cell_theory}
 
-[**Polymerase chain reaction (PCR)**]{#gl:polymerase-chain-reaction} [Gk *polys* = many + L *merus* = part; Gk *kyklos* = circle; coined by Kary Mullis, 1983] — An *in vitro* method for amplifying a specific DNA sequence using repeated cycles of denaturation, primer annealing, and extension by Taq polymerase. Transformed molecular biology; Nobel Prize 1993. → \cref{sec:unit_IV_mutations_and_genomics}
+[**Polymerase chain reaction (PCR)**]{#gl:polymerase-chain-reaction} [Gk *polys* = many + L *merus* = part; Gk *kyklos* = circle; coined by Kary Mullis, 1983] — An *in vitro* method for amplifying a specific DNA sequence through repeated denaturation, primer annealing and DNA-polymerase extension. Thermostable enzymes such as Taq simplify thermal cycling; Taq is not part of the method's definition, and proofreading enzymes support other applications. → \cref{sec:unit_IV_mutations_and_genomics}
 
 [**Promoter**]{#gl:promoter} [L *promovere* = to move forward] — A DNA region at which transcription machinery assembles to direct initiation. Common bacterial σ70 promoters have −10/−35 elements; archaeal initiation uses TBP/TFB-related machinery; eukaryotic Pol II promoters can use TATA, initiator, and other elements with general transcription factors. "Prokaryotic" alone does not specify one promoter mechanism. → \cref{sec:unit_IV_gene_expression}
 
@@ -410,7 +410,7 @@
 
 [**Carrying capacity (K)**]{#gl:carrying-capacity} [L *capax* = able to hold] — In the logistic model $dN/dt=rN(1-N/K)$ with $r>0$, the positive equilibrium population $K$, where per-capita net growth is zero. A model may hold $K$ fixed; real environments can change with resources, interactions, and disturbance. $K$ is not an inviolable ceiling that a population can never exceed. → \cref{sec:unit_X_population_ecology}
 
-[**Chloroplast**]{#gl:chloroplast} [Gk *chloros* = green + *plastos* = formed] — A double-membrane plant organelle derived from a cyanobacterial endosymbiont; contains the thylakoid membranes (light reactions) and stroma (Calvin cycle); its own circular genome encodes ~80 proteins. → \cref{sec:unit_III_photosynthesis}
+[**Chloroplast**]{#gl:chloroplast} [Gk *chloros* = green + *plastos* = formed] — A photosynthetic plastid in plants and algae, derived from a cyanobacterial endosymbiont, with thylakoid membranes and stroma. Retained organelle genomes vary in gene content and physical form: a circular reference map does not establish universally circular DNA molecules \citep{oldenburg2004cpdna}. → \cref{sec:unit_III_photosynthesis}
 
 [**Coevolution**]{#gl:coevolution} [L *co-* = together + *evolutio* = unrolling] — The reciprocal evolutionary change in two or more species exerting strong selective pressure on each other; classic examples: plant-pollinator mutualism, host-parasite arms races, flowering plant-butterfly chemical coevolution (Ehrlich & Raven, 1964). → \cref{sec:unit_X_community_interactions}
 

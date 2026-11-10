@@ -458,7 +458,7 @@ classDiagram
 Prokaryotes have diverse structural and dynamic filaments. Experiments distinguish a protein's fold, its cellular function and its evolutionary history: a homologous component does not by itself identify the donor of an entire eukaryotic machine or date the origin of compartmentalization.
 
 : Selected prokaryotic cytoskeletal proteins: relationships and tested cellular roles, not a complete ancestral inventory. {#tbl:unit_II_cell_theory_the_prokaryotic_cytoskeleton_a_recent_revolution}
-| Protein / family | Relationship | Selected cellular role | Evidence / limit |
+| Protein / family | Relationship | Role | Evidence / limit |
 | ----------------- | -------------------- | -------- | ---------------- |
 | **FtsZ** | Tubulin-related GTPase | Division-site assemblies coordinate cytokinesis in studied bacteria | The 1998 structural comparison used archaeal *Methanococcus jannaschii* FtsZ; it did not identify a bacterial donor of the whole mitotic apparatus \citep{lowe1998ftsz} |
 | **MreB** | Actin homolog | Rod-shaped growth and coordination with lateral wall synthesis | In studied *E. coli*, rotation required cell-wall assembly, not MreB polymerization alone \citep{vanteeffelen2011mrebrotation} |
@@ -549,10 +549,10 @@ Lynn Margulis formalised the **endosymbiotic theory** (1967): mitochondria and c
 
 ### Evidence for Endosymbiosis
 
-1. **Double membranes:** Both organelles have inner (bacterial plasma membrane) and outer (phagocytic membrane) bilayers.
-2. **Circular DNA:** Mitochondrial and chloroplast genomes are circular, like bacterial chromosomes.
-3. **Bacterial-derived translation:** Organelle ribosomes retain evidence of bacterial ancestry, but sedimentation coefficients vary: mammalian mitoribosomes are about 55S, whereas chloroplast ribosomes are typically 70S. Antibiotic sensitivity is drug- and organelle-specific.
-4. **Division machinery:** Organelle division is coordinated with the host. Many plastids retain FtsZ-based components; mammalian mitochondrial fission instead uses host dynamin-related DRP1 machinery. FtsZ is not universal in mitochondria.
+1. **Membranes in context:** Double-membrane architecture in typical mitochondria and primary plastids is compatible with endosymbiotic ancestry. Membrane count alone neither proves that history nor identifies the ancestral source of every present-day bilayer.
+2. **Retained genomes, variable physical forms:** Genome relationships support bacterial ancestry, but circularity is not universal. Linear mitochondrial DNA was characterized in *Tetrahymena pyriformis*, and maize-seedling chloroplast DNA was mainly linear or branched; a circular reference map is not a measurement of every molecule's topology \citep{goldbach1979linearmtdna,oldenburg2004cpdna}.
+3. **Bacterial-derived translation:** Organelle ribosomes retain evidence of bacterial ancestry, but sedimentation coefficients vary: mammalian mitoribosomes are about 55S, whereas chloroplast ribosomes are typically 70S. Antibiotic sensitivity is drug- and organelle-specific \citep{greber2015mitoribosome}.
+4. **Division machinery:** Organelle division is coordinated with the host. Many plastids retain FtsZ-based components; mammalian mitochondrial fission instead uses host dynamin-related DRP1 machinery. FtsZ is not universal in mitochondria \citep{smirnova2001drp1}.
 5. **Phylogenetics:** rRNA sequences of mitochondria are most similar to **alpha-proteobacteria** (e.g., *Rickettsia*); chloroplasts to **cyanobacteria**.
 6. **Transfer of genes:** ~1,500 mitochondrial-origin genes now live in the nuclear genome (gene transfer to nucleus over evolutionary time).
 7. **Cardiolipin:** The inner mitochondrial membrane contains cardiolipin, a lipid characteristic of bacterial membranes.
@@ -601,8 +601,8 @@ The lytic cycle is the textbook image of viral infection: rapid, fatal, producti
 
 The lysogenic cycle has profound consequences. **Specialized transduction** carries host genes between bacteria when imprecise excision packages chromosomal DNA. Many bacterial **virulence factors are phage-encoded**: diphtheria toxin (β-phage in *Corynebacterium diphtheriae*), cholera toxin (CTXφ in *Vibrio cholerae*), Shiga toxin (Stx phage in EHEC *E. coli* O157:H7), botulinum toxin types C and D. The lysogen-to-lytic switch — controlled by a single repressor — is the prototype for many developmental switches and inspired the operon model of \citet{jacob1961}.
 
-> **Clinical Connection: Phage Therapy in the Antibiotic-Resistance Era**
-> Lytic bacteriophages can target antibiotic-resistant bacteria with exquisite specificity (one phage typically infects one species or even strain). Compassionate-use phage therapy has cured otherwise-fatal infections (Steffanie Strathdee, *A. baumannii* sepsis, 2017; cystic fibrosis *Mycobacterium abscessus*, 2019). Phages are now in late-stage clinical trials for chronic urinary infections and prosthetic-joint infections. Phage cocktails — designed to evade host-resistance evolution by targeting multiple receptors — are the closest realization of the "magic bullet" concept since penicillin.
+> **Clinical Connection: Historical Phage Cases and Causal Evidence**
+> Lytic phages can kill susceptible bacterial isolates, making isolate matching essential. Schooley and colleagues reported in 2017 that Tom Patterson, treated in 2016 for disseminated multidrug-resistant *Acinetobacter baumannii* infection, recovered during personalized phage therapy alongside antibiotics, drainage and intensive care; Steffanie Strathdee was his wife and a contributing researcher. Resistance to both original cocktails emerged in a sampled isolate, prompting reformulation \citep{schooley2017phagecase}. Dedrick and colleagues reported in 2019 that a lung-transplant recipient with cystic fibrosis and disseminated *Mycobacterium abscessus* infection improved during a three-phage cocktail plus antimicrobial treatment, although skin-lesion cultures remained positive during follow-up \citep{dedrick2019phagecase}. These uncontrolled reports support further investigation, not a phage-alone cure, guaranteed prevention of resistance or a class-wide claim about current trial stage.
 
 > **Concept Check 5c:** A *V. cholerae* strain loses its CTXφ prophage. The resulting strain can colonise the human gut but causes mild diarrhea. Why? What does this tell you about the relationship between cell theory's exclusion of viruses and the practical impact of viruses on cellular biology?
 
