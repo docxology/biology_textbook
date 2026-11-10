@@ -597,7 +597,7 @@ The lytic cycle is the textbook image of viral infection: rapid, fatal, producti
 1. **Attachment, penetration:** same as lytic.
 2. **Integration:** the phage genome (linear at injection) circularises and integrates into the host chromosome at a specific site (*attB*) via phage integrase. The integrated genome is now a **prophage**.
 3. **Quiescence:** the prophage is replicated passively with the host chromosome at every cell division. Lambda CI repressor blocks lytic gene expression. The bacterium grows and divides normally with the prophage as a stowaway. This state can persist for thousands of generations.
-4. **Induction:** stressors (UV, mitomycin C, low nutrients) activate the host SOS response → RecA cleaves CI repressor → lytic genes are derepressed → prophage excises → enters lytic cycle.
+4. **Induction:** DNA-damaging stress such as UV or mitomycin C can activate the host SOS response. Activated RecA stimulates lambda CI repressor autocleavage rather than directly cutting it as a protease; loss of repression permits lytic gene expression, prophage excision and entry into the lytic cycle \citep{little1984autodigestion}.
 
 The lysogenic cycle has profound consequences. **Specialized transduction** carries host genes between bacteria when imprecise excision packages chromosomal DNA. Many bacterial **virulence factors are phage-encoded**: diphtheria toxin (β-phage in *Corynebacterium diphtheriae*), cholera toxin (CTXφ in *Vibrio cholerae*), Shiga toxin (Stx phage in EHEC *E. coli* O157:H7), botulinum toxin types C and D. The lysogen-to-lytic switch — controlled by a single repressor — is the prototype for many developmental switches and inspired the operon model of \citet{jacob1961}.
 
@@ -654,7 +654,7 @@ Extremophiles expand our understanding of habitable environments in the solar sy
 - **Enceladus (Saturn's moon):** Hydrothermal vent-associated chemolithoautotrophs provide models for life powered by water-rock chemistry
 - **Titan:** While no known organisms thrive in liquid methane, the existence of extremophiles encourages consideration of exotic biochemistries
 
-> **Concept Check 6:** *Ferroplasma acidarmanus* lives at pH 0 (equivalent to battery acid), yet its internal pH is ~5.6. Calculate the proton concentration gradient across its membrane. How many orders of magnitude difference is this?
+> **Concept Check 6 — Stipulated pH calculation:** Consider a hypothetical membrane with external pH 0.0 and internal pH 5.6, using the same standard state and $\mathrm{pH}=-\log_{10}a_{\mathrm{H}^+}$ \citep{buck2002phdefinition}. Calculate $a_{\mathrm{H}^+,\mathrm{out}}/a_{\mathrm{H}^+,\mathrm{in}}$ and its logarithmic difference. Under what ideal-dilute/equal-activity-coefficient assumption would this also approximate the concentration ratio? Explain why pH values alone do not establish an exact concentration gradient or a new *Ferroplasma* measurement.
 
 ---
 

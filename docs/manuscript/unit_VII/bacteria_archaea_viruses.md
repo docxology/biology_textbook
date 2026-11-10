@@ -580,7 +580,7 @@ David Baltimore (Nobel Prize 1975) classified viruses by genome type and replica
 : Baltimore Classification by Genome Type and Replication Strategy: Class and Genome. {#tbl:unit_VII_bacteria_archaea_viruses_baltimore_classification_by_genome_type_and_replication_strategy}
 | Class | Genome | Replication Strategy | Examples |
 |-------|--------|---------------------|----------|
-| I | dsDNA | DNA -> mRNA (host RNA Pol) | Herpesviruses, adenoviruses, poxviruses, bacteriophage T4 |
+| I | dsDNA | DNA → mRNA; transcription machinery varies (a poxvirus-particle RNAP example \citep{kates1967poxrnap}) | Herpesviruses, adenoviruses, poxviruses, bacteriophage T4 |
 | II | ssDNA | ssDNA -> dsDNA -> mRNA | Parvoviruses, bacteriophage φX174 |
 | III | dsRNA | dsRNA -> mRNA (viral RdRp) | Reoviruses, rotaviruses |
 | IV | (+)ssRNA | RNA serves directly as mRNA | Poliovirus, rhinovirus, SARS-CoV-2, hepatitis C |
@@ -682,7 +682,7 @@ Prion diseases (transmissible spongiform encephalopathies) include:
 - **Kuru**: Transmitted among the Fore people of Papua New Guinea through ritual endocannibalism; studied by Gajdusek (Nobel Prize 1976)
 - **Chronic wasting disease (CWD)**: Affects cervids (deer, elk); spreading across North America
 
-Stanley Prusiner received the Nobel Prize in 1997 for his prion hypothesis -- initially controversial because it challenged the central dogma that most infectious agents require nucleic acid for replication.
+Stanley Prusiner received the Nobel Prize in 1997 for his work on prions. Protein-based infectious propagation challenged a nucleic-acid-genome requirement for the infectious agent, not Crick's central dogma: templating a protein conformation is distinct from transferring its residue-by-residue sequence into protein or nucleic acid \citep{crick1970}. The host still supplies the protein substrate; absence of an agent-encoded genome is not independence from host biology.
 
 > **Clinical Connection: Recovery During Combined Phage and Conventional Care**
 > In the 2016 Patterson case, published in 2017, recovery followed personalized phage mixtures during antibiotics, drainage and intensive support, and phage-resistant isolates required reformulation \citep{schooley2017phagecase}. The 2018 correction specifies that one component was purchased from DSMZ rather than isolated by the Navy team; report component-specific provenance instead of assuming one isolation history for the entire treatment \citep{schooley2018phagecorrection}. Isolate specificity can support precision targeting, but microbial-community effects, safety and clinical benefit still require measurement.
