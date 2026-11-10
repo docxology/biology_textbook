@@ -615,16 +615,18 @@ Bacteria are the most metabolically diverse domain of life. Major phyla include:
 
 Archaea were originally found primarily in extreme environments, but culture-independent methods (metagenomics) have revealed that they are ubiquitous -- in soils, oceans, and the human gut.
 
-- **Euryarchaeota**: The most diverse archaeal phylum.
-  - Methanogens (*Methanobacterium*, *Methanosarcina*): produce methane as a metabolic byproduct; dominant in [**anaerobic**](#gl:anaerobic) environments (wetlands, ruminant guts, landfills).
-  - Extreme halophiles (*Halobacterium*): thrive in salt-saturated environments; use bacteriorhodopsin for light-driven proton pumping.
-  - Thermoacidophiles (*Thermoplasma*): grow at [**pH**](#gl:ph) 1--2 and temperatures up to 60 degrees C.
-- **Crenarchaeota**: Many are hyperthermophiles. *Sulfolobus* grows at 80 degrees C and pH 2--3. *Thermoproteus* is an anaerobic sulfur-reducing hyperthermophile.
-- **TACK superphylum**: Thaumarchaeota (ammonia-oxidizing archaea -- major players in the nitrogen cycle), Aigarchaeota, Crenarchaeota, and Korarchaeota.
-- **Asgard archaea**: The most significant discovery in archaeal biology in decades. Named after Norse mythology:
-  - **Lokiarchaeota**: Discovered via metagenome-assembled genomes from Loki's Castle hydrothermal vent, Arctic Mid-Ocean Ridge. Contains **eukaryotic signature proteins** including homologs of [**actin**](#gl:actin), tubulin-like GTPases, ESCRT membrane remodeling complex, and Arp2/3 complex regulators.
-  - **Thorarchaeota**, **Odinarchaeota**, **Heimdallarchaeota**: Additional Asgard lineages with progressively more eukaryotic-like features.
-  - The Asgard archaea are the **closest known living relatives of eukaryotes**, supporting the "two-domain" tree (Eocyte hypothesis) in which eukaryotes arose from within Archaea rather than as a separate domain.
+The following are selected traditional groupings and named physiological examples, not an exhaustive current rank inventory or a ladder of complexity. Species, strains and cultivation endpoints must be specified before comparing limits.
+
+- **Traditional Euryarchaeota examples:**
+  - Methanogens (*Methanobacterium*, *Methanosarcina*): methane-producing archaea with lineage-dependent substrate use; wetlands, ruminant guts and landfills include suitable anaerobic habitats \citep{hutten1980methanogens}.
+  - Extreme halophiles (*Halobacterium salinarum*): regulated salt-in adaptation; retinal-based phototrophy is a separate energy process, not the definition of halophily \citep{strahl2008halophile,danon1974photophosphorylation}.
+  - Thermoacidophiles (*Thermoplasma acidophilum*): a wall-less example with a growth optimum near 59 °C and pH 1–2 in its original culture description, not a genus-wide 60-°C ceiling \citep{darland1970thermoplasma}.
+- **Traditional Crenarchaeota examples:** *Sulfolobus solfataricus* P2 (also called *Saccharolobus solfataricus*) was described with optima near 80 °C and acidic pH around 3 \citep{barry2006sulfolobus}. *Thermoproteus tenax* is an anaerobic sulfur-dependent hyperthermophile with autotrophic CO₂/H₂ and heterotrophic carbohydrate growth; reported optima are about 86 °C and pH 5.6 \citep{zaparty2008thermoproteus}.
+- **TACK grouping:** a historical grouping of Thaumarchaeota, Aigarchaeota, Crenarchaeota and Korarchaeota; the name alone is not a common physiological limit.
+- **Asgard archaea: genomic evidence and tested cellular complexity.** The 2015 Lokiarchaeal study reconstructed genomic material from Arctic sediment near Loki's Castle; the 2017 Asgard study grouped related early lineages \citep{spang2015asgard,zaremba2017asgard}.
+  - Genomes encode actin, actin-regulator, ubiquitin/ESCRT and other homologous components, with lineage-dependent repertoires. Small GTPases, tubulin and actin regulators are different protein families; a homolog list is not a demonstrated endomembrane system. Selected protein experiments and cultured-cell observations provide additional, distinct evidence \citep{hatano2022ubiquitinescrt,rodrigues2023asgardactin}.
+  - Loki-, Thor-, Odin- and Heimdall-associated names identify historical lineages, not a ladder of progressively more eukaryotic organisms or a complete current taxonomic inventory.
+  - Phylogenomics strongly supports Asgard-related archaeal ancestry for the eukaryotic nuclear-host component. The closest sampled branch depends on data and models: the corrected 2023 study and a 2025 analysis support different fine placements \citep{eme2023heimdall,eme2026correction,zhang2025asgard}. This is consistent with two-domain models, not direct proof of an engulfment mechanism or a complete reconstructed ancestral cell.
 
 ### Domain Eukarya and Endosymbiotic Origins
 
@@ -683,7 +685,7 @@ flowchart TD
 >
 > The spread of antibiotic resistance among pathogenic bacteria is fundamentally a problem of horizontal gene transfer. Resistance genes -- encoding [**enzyme**](#gl:enzyme)s that degrade antibiotics (beta-lactamases), modify antibiotics (aminoglycoside acetyltransferases), or pump them out of the cell (efflux pumps) -- are frequently carried on mobile genetic elements: plasmids, transposons, and integrons. A single conjugation event can transfer multi-drug resistance from a harmless gut bacterium to a pathogenic strain. The NDM-1 (New Delhi metallo-beta-lactamase) gene, first identified in 2008, has spread globally within years via plasmid-mediated HGT, conferring resistance to nearly every beta-lactam antibiotic class, including carbapenems -- the "last resort" drugs. Understanding HGT is essential for combating the antibiotic resistance crisis.
 
-> **Concept Check 5:** Explain why the discovery of Asgard archaea (particularly Lokiarchaeota) supports a two-domain rather than three-domain tree of life. What eukaryotic signature proteins were found in Lokiarchaeota genomes?
+> **Concept Check 5:** Distinguish evidence for an Asgard-related archaeal host from evidence about a particular protein's function or a cell's architecture. How can a phylogeny support a two-domain model while the closest sampled Asgard branch remains uncertain? Give an example of a genomic homolog and a separate experimental observation, and explain what neither establishes about historical engulfment.
 
 ---
 
@@ -803,7 +805,7 @@ For phylogenetic claims, separate tree signal, model choice, convergence, sampli
 - **Tree terminology**: Root (MRCA), nodes (divergence events), branches (lineages), tips (observed taxa), clades (monophyletic groups). Paraphyletic and polyphyletic groups are invalid in modern systematics. Synapomorphies define clades; symplesiomorphies and homoplasies do not.
 - **Reconstruction methods**: UPGMA (assumes clock; not recommended), Neighbor-Joining (fast, no clock), Maximum Parsimony (fewest changes; vulnerable to long-branch attraction), Maximum Likelihood (model-based; GTR+Γ+I; RAxML, IQ-TREE), Bayesian Inference (MCMC sampling; posterior probabilities; MrBayes, BEAST).
 - **Molecular clocks**: $d_{JC} = -\frac{3}{4}\ln(1 - \frac{4}{3}p)$; $t = d/(2\mu)$; calibrated from fossils and biogeographic events; strict vs. relaxed clocks accommodate rate variation.
-- **Three domains**: Bacteria (metabolically diverse; source of mitochondria and chloroplasts), Archaea (Asgard archaea closest to eukaryotes), Eukarya (Amorphea, Diaphoretickes, Excavata). Endosymbiosis produced mitochondria (alpha-proteobacterium) and chloroplasts (cyanobacterium).
+- **Cellular lineages and endosymbiosis:** the traditional three-domain framework distinguishes Bacteria, Archaea and Eukarya; two-domain models place the eukaryotic host lineage within Archaea. Asgard-related ancestry and finer branch placement require model-specific evidence. Mitochondrial alphaproteobacterial and chloroplast cyanobacterial ancestry are separate bacterial contributions, not evidence that all nuclear genes share one origin.
 - **HGT** is pervasive in prokaryotes (20--30% of genes); the tree of life is more accurately a web for prokaryotes. HGT drives antibiotic resistance spread.
 - **Human phylogeny**: Diverged from chimpanzees about 6--7 Mya; fossil record spans *Sahelanthropus* to *Homo sapiens*; Out-of-Africa dispersal; archaic introgression from Neanderthals (1--4% in non-Africans) and Denisovans (4--6% in Melanesians); adaptive introgression (EPAS1, HLA alleles).
 - **Connections:** See \cref{sec:unit_VII_bacteria_archaea_viruses} for HGT vs. vertical signal, \cref{sec:unit_IV_mutations_and_genomics} for variant interpretation, and \cref{sec:unit_X_biomes_and_conservation} for phylogenetic diversity in triage.
@@ -830,7 +832,7 @@ For phylogenetic claims, separate tree signal, model choice, convergence, sampli
 | **Substitution model** | Mathematical description of nucleotide or amino acid replacement probabilities (e.g., JC69, GTR+Γ+I) |
 | **Horizontal gene transfer** | Transfer of genetic material between organisms outside parent-offspring inheritance |
 | **Endosymbiosis** | Origin of organelles (mitochondria, chloroplasts) from free-living bacteria engulfed by ancestral eukaryotes |
-| **Asgard archaea** | Archaeal superphylum (Lokiarchaeota, Thorarchaeota, etc.) that are the closest known relatives of eukaryotes |
+| **Asgard archaea** | Related archaeal lineages important for reconstructing eukaryotic host ancestry; homolog repertoires and experimentally tested functions vary, and fine phylogenetic placement depends on data/models |
 | **Phylogenetic diversity (PD)** | Total branch length of a phylogeny containing a set of species; used in conservation prioritization |
 | **LECA** | Last Eukaryotic Common Ancestor; possessed nucleus, mitochondria, endomembrane system |
 | **Introgression** | Incorporation of alleles from one species into another through hybridization and backcrossing |
@@ -851,7 +853,7 @@ For phylogenetic claims, separate tree signal, model choice, convergence, sampli
 
 6. Describe the evidence supporting the endosymbiotic origin of mitochondria from alpha-proteobacteria. List at least four independent lines of evidence.
 
-7. Explain how Asgard archaea challenge the three-domain tree of life. What specific eukaryotic features have been found in Asgard genomes, and what does this imply about the origin of eukaryotes?
+7. Explain how phylogenomic studies of Asgard archaea support archaeal ancestry of the eukaryotic host. Distinguish homologous components, functions tested in selected proteins or extant cells, and inferred ancestral architecture. What uncertainty remains about fine placement and the timing/mechanism of mitochondrial acquisition?
 
 8. The SARS-CoV-2 pandemic relied heavily on phylogenetic analysis. Describe how Bayesian time-calibrated phylogenetics (BEAST) was used to (a) date the origin of the pandemic, (b) track the emergence of Variants of Concern, and (c) reconstruct transmission chains. How is a molecular clock calibrated for a virus with no fossil record?
 

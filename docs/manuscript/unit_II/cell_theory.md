@@ -378,129 +378,131 @@ Super-resolution methods bypass the Abbe diffraction limit, achieving resolution
 
 ## Prokaryotic Cells and Cellular Economy
 
-Prokaryotes (**pro** = before, **karyon** = nucleus) lack membrane-bound organelles. They include the domains **Bacteria** and **[Archaea](#gl:archaea)**.
+Prokaryotic cell organization lacks a membrane-bound nucleus. The term groups **Bacteria** and **[Archaea](#gl:archaea)** by this cellular feature; it is not a claim that they form a single evolutionary clade or lack every kind of internal compartment.
 
 ### Prokaryotic Cell Features and Constraints
 
-: Prokaryotic Cell Features and Constraints: Feature and Bacteria. {#tbl:unit_II_cell_theory_prokaryotic_cell_features_and_constraints}
+: Representative bacterial and archaeal cell features; chromosome architecture, envelopes and molecular machinery vary among lineages. {#tbl:unit_II_cell_theory_prokaryotic_cell_features_and_constraints}
 | Feature | Bacteria | Archaea |
 | ------- | -------- | ------- |
-| Diameter | 0.2--10 μm | 0.2--10 μm |
+| Cell size | Many examples are micrometer-scale; size varies | Size alone does not identify the domain |
 | Nucleus | Absent; nucleoid region | Absent; nucleoid |
-| DNA | Circular; single [**chromosome**](#gl:chromosome); often [**plasmid**](#gl:plasmid)s | Circular; [**histone**](#gl:histone)s present |
-| Cell wall | Peptidoglycan (most) | Pseudopeptidoglycan or S-layer |
-| Ribosomes | 70S (30S + 50S subunits) | 70S similar; unique rRNA |
-| Membrane lipids | Ester-linked; straight-chain fatty acids | Ether-linked; branched isoprenoids |
-| [**Intron**](#gl:intron)s | Rare | Present |
-| [**Transcription**](#gl:transcription) machinery | Bacterial-type RNA polymerase (4 subunits) | [**Eukaryote**](#gl:eukaryote)-like RNA polymerase (12+ subunits) |
-| DNA replication | DnaA origin recognition | Eukaryote-like ORC system |
-| [**CRISPR-Cas**](#gl:crispr-cas) | Common | Very common |
+| DNA | Often one circular [**chromosome**](#gl:chromosome); linear and multipartite genomes also occur \citep{fraser1997borrelia,heidelberg2000vibriochromosomes} | Chromosome organization and genome copy number vary; [**histone**](#gl:histone)s are not universal |
+| Cell wall | Peptidoglycan in many lineages; wall-less forms also occur | S-layers, pseudomurein in some methanogens, other envelopes or no wall |
+| Ribosomes | 70S cytosolic ribosomes; rRNA sequence informs phylogeny | 70S cytosolic ribosomes; shared sedimentation class does not mean identical composition |
+| Membrane lipids | Characteristic ester-linked fatty acids | Characteristic ether-linked isoprenoids; lipid architecture varies |
+| [**Intron**](#gl:intron)s | Occur in selected genes, including group I tRNA examples \citep{kuhsel1990trnaintron} | Some tRNAs contain introns; incidence varies by lineage \citep{sugahara2008archaealtrna} |
+| [**Transcription**](#gl:transcription) machinery | *E. coli* omega-containing core: five chains of four types \citep{minakhin2001rnacoreomega} | Multisubunit RNAP related to [**eukaryote**](#gl:eukaryote) Pol II; composition varies \citep{jun2014archaealpolymerase} |
+| DNA replication | DnaA-dependent origin in the *E. coli* example | Related Orc1/Cdc6-family initiators in many species; origin arrangements vary |
+| [**CRISPR-Cas**](#gl:crispr-cas) | Present in sampled lineages, not a universal feature | Occurrence also depends on lineage, dataset and detection criteria \citep{crawley2018crisprdisco} |
 
 ```mermaid
 classDiagram
     class Prokaryote {
         +No nuclear envelope
-        +70S ribosomes
-        +Circular chromosome
-        +Binary fission
+        +Cytosolic 70S ribosomes
+        +Chromosome arrangements vary
+        +Division machineries vary
     }
     class Bacteria {
-        +Peptidoglycan cell wall
-        +Ester-linked membrane lipids
-        +Bacterial RNA polymerase
-        +Sigma factor regulation
-        +Flagellar motor (H+ driven)
+        +Peptidoglycan in many lineages
+        +Typical ester-linked lipids
+        +Bacterial-type RNA polymerase
+        +Sigma-factor recognition examples
+        +H+ or Na+ flagellar motors
     }
     class Archaea {
-        +Pseudopeptidoglycan or S-layer
-        +Ether-linked isoprenoid lipids
-        +Eukaryote-like RNA polymerase
-        +Histone-like proteins
-        +Flagellar motor (ATP driven)
+        +Envelopes and walls vary
+        +Typical ether-isoprenoid lipids
+        +Pol-II-related RNA polymerase
+        +Lineage-dependent chromatin
+        +ATP-driven archaella examples
     }
     class Eukaryote {
-        +Nuclear envelope with pores
-        +80S ribosomes
-        +Linear chromosomes
-        +Mitosis / meiosis
-        +Membrane-bound organelles
-        +Endosymbiotic mitochondria
+        +Typical nucleated cell plan
+        +80S cytosolic ribosomes
+        +Linear nuclear chromosomes
+        +Mitosis or meiosis in relevant cells
+        +Endomembrane compartments
+        +Mitochondrial ancestry
     }
 
     Prokaryote <|-- Bacteria
     Prokaryote <|-- Archaea
-    Archaea ..> Eukaryote : Closer phylogenetic\nrelationship
-    Bacteria ..> Eukaryote : Endosymbiosis\n(mitochondria, chloroplasts)
+    Archaea ..> Eukaryote : Related information-processing\nmachinery
+    Bacteria ..> Eukaryote : Bacterial organelle\nancestry
 ```
-<!-- alt: Diagram showing classification diagram comparing Bacteria, Archaea, and Eukaryotes. Note that Archaea are phylogenetically closer to Eukaryotes in many molecular features (RNA polymerase, histones, replication machinery), while mitochondria and chloroplasts derive from bacterial endosymbionts. -->
+<!-- alt: Comparative cell-plan chart, not a phylogenetic tree or diagnostic checklist. Bacteria and archaea share absence of a nuclear envelope but vary in chromosomes, envelopes and division. Named bacterial, archaeal and eukaryotic features are representative; dotted links recall related information-processing machinery and bacterial organelle ancestry. -->
 
-*Classification diagram comparing Bacteria, Archaea, and Eukaryotes. Note that Archaea are phylogenetically closer to Eukaryotes in many molecular features (RNA polymerase, histones, replication machinery), while mitochondria and [**chloroplast**](#gl:chloroplast)s derive from bacterial endosymbionts.*
+*Comparative cell plans and selected evolutionary relationships, not a phylogenetic reconstruction or diagnostic checklist. Traits vary among lineages and cell states: histones, chromosome shape and division machinery are not universal domain signatures. Dotted links recall molecular relatedness and bacterial organelle ancestry, not a directly observed sequence of eukaryogenesis.*
 
 ### Prokaryotic Cell Structure
 
-- **Plasma membrane:** phospholipid bilayer + integral proteins. Site of chemiosmotic ATP synthesis (no mitochondria). In photosynthetic bacteria (cyanobacteria, purple bacteria), the membrane invaginates to form thylakoid-like structures for the light reactions.
+- **Plasma membrane:** a lipid membrane with integral proteins. Bacterial examples usually have bilayers; archaeal diether and membrane-spanning tetraether architectures vary. Energy-transducing membranes support chemiosmotic ATP synthesis. Cyanobacterial thylakoids and purple-bacterial intracytoplasmic membranes are examples of photosynthetic membrane organization, not a shared cell plan for every prokaryote.
 - **Cell wall:** structurally rigid; resists osmotic lysis.
   - **Gram-positive** bacteria: thick peptidoglycan layer (20--80 nm), teichoic acids, no outer membrane. Crystal violet stain retained (purple).
   - **Gram-negative** bacteria: thin peptidoglycan (~2--7 nm) + outer membrane with LPS (lipopolysaccharide). Crystal violet not retained (pink after safranin counter-stain). The periplasmic space between inner and outer membranes contains degradative [**enzyme**](#gl:enzyme)s and transport proteins.
 - **Capsule:** polysaccharide layer external to cell wall; anti-phagocytic (evades immune system); [**biofilm**](#gl:biofilm) formation. *Streptococcus pneumoniae* with capsule is virulent; without capsule is avirulent (Griffith's transformation experiment, 1928).
-- **Flagellum:** rotating protein filament powered by proton motive force (bacteria) or ATP (archaea); each rotation of the bacterial flagellar motor ~100 Hz in *E. coli*; composed of flagellin protein subunits; the basal body contains a rotary motor with stator and rotor components.
+- **Motility structures:** bacterial flagella use ion-gradient-powered rotary motors, including proton- and sodium-driven systems. Archaeal archaella are ATP-driven and are different assemblies; they should not be treated as bacterial flagella with a substituted fuel. Motor behavior depends on the organism and conditions.
 - **Pili (fimbriae):** protein tubes for attachment, conjugation, biofilm; Type IV pili can retract to generate motile force ("twitching motility"); F-pili mediate DNA transfer during conjugation.
-- **Nucleoid:** condensed region containing the circular chromosome (typically 1--6 Mbp); not bounded by a membrane; associated with nucleoid-associated proteins (NAPs: HU, H-NS, Fis, IHF) that organize chromosome topology.
-- **Plasmids:** small circular DNA molecules (1--200 kb) carrying accessory [**gene**](#gl:gene)s (antibiotic resistance, [**virulence**](#gl:virulence) factors, metabolic capabilities); replicate independently; horizontally transferable between cells.
+- **Nucleoid:** the chromosome-containing region without a nuclear envelope; chromosome topology, number and genome copy number vary. HU, H-NS, Fis and IHF are examples of bacterial nucleoid-associated proteins, not a complete inventory for bacteria or archaea.
+- **Plasmids:** extrachromosomal replicons with varied sizes and circular or linear forms. They can carry accessory [**gene**](#gl:gene)s, including resistance, [**virulence**](#gl:virulence) or metabolic functions; mobility depends on the plasmid and cellular context. The sequenced *Borrelia burgdorferi* B31 example has both linear and circular plasmids \citep{fraser1997borrelia}.
 
 > **Clinical Connection: Gram Staining Is Not Susceptibility Testing**
 > Gram staining reveals a cell-envelope phenotype, not an organism's identity or antibiotic susceptibility. Beta-lactams inhibit susceptible penicillin-binding proteins (PBPs) involved in peptidoglycan cross-linking, but a thick wall does not guarantee susceptibility: Gram-positive MRSA can produce modified PBP2a with low affinity for many traditional beta-lactams \citep{cdc2025mrsalaboratories}. A Gram-negative outer membrane can restrict particular drugs, but permeability, efflux and resistance determinants vary; the stain alone cannot select an antibiotic class or regimen. Clinical interpretation also requires the infection site, patient context, organism identification, validated susceptibility testing and applicable guidance. See \cref{sec:unit_II_cell_structure} for membrane permeability.
 
-> **Concept Check 4:** Why are archaea resistant to antibiotics that target peptidoglycan synthesis (e.g., penicillin, vancomycin)?
+> **Concept Check 4:** Why does the absence of bacterial peptidoglycan remove the canonical substrate/pathway for specified peptidoglycan-targeting antibiotics in archaea? Distinguish that target-based inference from a claim about every drug concentration or an organism's measured susceptibility.
 
-### The Prokaryotic Cytoskeleton --- A Recent Revolution
+### Prokaryotic Cytoskeletons: Structure, Cellular Function and Evolutionary Inference
 
-For nearly a century, textbooks asserted that prokaryotes lack a [**cytoskeleton**](#gl:cytoskeleton). The discovery of bacterial cytoskeletal homologues over the past 25 years has overturned that view: prokaryotes contain dedicated structural and force-generating filaments that are evolutionary precursors of every major eukaryotic cytoskeletal class.
+Prokaryotes have diverse structural and dynamic filaments. Experiments distinguish a protein's fold, its cellular function and its evolutionary history: a homologous component does not by itself identify the donor of an entire eukaryotic machine or date the origin of compartmentalization.
 
-: The Prokaryotic Cytoskeleton --- A Recent Revolution: Bacterial protein and Eukaryotic homologue. {#tbl:unit_II_cell_theory_the_prokaryotic_cytoskeleton_a_recent_revolution}
-| Bacterial protein | Eukaryotic homologue | Function | Year established |
+: Selected prokaryotic cytoskeletal proteins: relationships and tested cellular roles, not a complete ancestral inventory. {#tbl:unit_II_cell_theory_the_prokaryotic_cytoskeleton_a_recent_revolution}
+| Protein / family | Relationship | Selected cellular role | Evidence / limit |
 | ----------------- | -------------------- | -------- | ---------------- |
-| **FtsZ** | Tubulin (GTPase fold) | Z-ring assembly at midcell; recruits divisome; constricts during binary fission | 1991 (Bi & Lutkenhaus) |
-| **MreB** | Actin (ATP-binding fold) | Helical filaments under inner membrane; defines rod-shaped cell geometry; coordinates peptidoglycan synthesis | 2001 (Jones et al.) |
-| **Crescentin (CreS)** | Intermediate filaments (lamins) | Curves *Caulobacter crescentus* into its vibrioid shape | 2003 (Ausmees et al.) |
-| **ParM** | Actin | Pushes plasmid copies apart during segregation | 2002 |
-| **Bactofilins (BacA/B)** | None close | Polar localization; cell-wall remodeling | 2010 |
+| **FtsZ** | Tubulin-related GTPase | Division-site assemblies coordinate cytokinesis in studied bacteria | The 1998 structural comparison used archaeal *Methanococcus jannaschii* FtsZ; it did not identify a bacterial donor of the whole mitotic apparatus \citep{lowe1998ftsz} |
+| **MreB** | Actin homolog | Rod-shaped growth and coordination with lateral wall synthesis | In studied *E. coli*, rotation required cell-wall assembly, not MreB polymerization alone \citep{vanteeffelen2011mrebrotation} |
+| **Crescentin (CreS)** | Intermediate-filament-like coiled-coil protein | Curvature of *Caulobacter crescentus* | Loss and filament experiments establish a shape function, not a demonstrated lamin/cytokeratin ancestor \citep{ausmees2003crescentin} |
+| **ParM** | Actin-like ATPase | Partition of the studied *E. coli* R1 plasmid | Polymerization and ParR/parC-dependent partition experiments; not every plasmid uses this system \citep{mollerjensen2002parm} |
+| **Bactofilins (BacA/B)** | Bacterial scaffold family | Polar wall-synthase localization in *C. crescentus* | Selected assembly/localization experiments; roles differ among studied bacteria \citep{kuhn2010bactofilins} |
 
-**FtsZ and bacterial cytokinesis.** FtsZ polymerizes GTP-dependently into protofilaments that form a contractile **Z-ring** at the future division site. The Z-ring recruits the divisome (FtsA, FtsW, FtsI/PBP3) which synthesizes septal peptidoglycan as the membrane invaginates. FtsZ treadmills around the ring at ~30 nm/s — strikingly similar in mechanism to actin treadmilling, yet evolutionarily a tubulin homologue. The GTP-bound monomer fold superimposes on alpha/beta-tubulin with RMSD < 2 Å despite < 10% sequence identity, providing direct structural evidence that the eukaryotic mitotic machinery descends from a bacterial cell-division protein.
+**FtsZ and cytokinesis.** FtsZ is a tubulin-related, GTP-dependent filament-forming protein. Bacterial division-site assemblies coordinate recruitment and activity of septal wall-synthesis machinery; FtsZ is not a universal inventory for every prokaryotic division system. Löwe and Amos's 1998 structure used recombinant archaeal *M. jannaschii* FtsZ and established structural relatedness to tubulin \citep{lowe1998ftsz}. That result does not establish that the whole eukaryotic mitotic apparatus descends directly from a bacterial donor, a universal treadmilling speed or the origin of all spindle components.
 
-**MreB and rod-shaped morphology.** MreB filaments rotate around the bacterial circumference, dragging the **Rod complex** (RodA, MreC, MreD, PBP2) that synthesizes lateral peptidoglycan. Loss of MreB converts rod-shaped *E. coli* into spheres (cocci) within minutes; expression in mutant cocci restores rod shape. MreB is therefore both structural (filament) and a guidance system (positional cue for cell-wall synthesis), exactly mirroring eukaryotic actin's dual roles.
+**MreB and rod-shaped growth.** In the studied *E. coli* system, actin-homolog MreB moved around the cell's long axis, and that rotation required peptidoglycan assembly rather than MreB polymerization alone \citep{vanteeffelen2011mrebrotation}. Thus coordinated movement with wall-synthesis machinery does not establish that MreB itself drags the machinery as a motor. Shape maintenance and filament dynamics are experimentally testable roles, not proof of identical bacterial and eukaryotic force-generation systems.
 
-**Crescentin and curvature.** *Caulobacter crescentus* gets its name from a comma-shaped curve produced by a single helical bundle of CreS filaments running along the inner curve of the cell. Mutational loss of *creS* yields straight rods. CreS is biophysically a coiled-coil of the same family as nuclear lamins and cytokeratins.
+**Crescentin and curvature.** In *C. crescentus*, crescentin localizes along the inner curvature, and loss of the protein produces straight rods. Its filament formation and intermediate-filament-like properties support a cellular shape function \citep{ausmees2003crescentin}. These observations do not by themselves establish that crescentin is the ancestor of nuclear lamins or cytokeratins.
 
-These discoveries closed a major textbook gap: **the three eukaryotic cytoskeletal classes (microfilaments, microtubules, intermediate filaments) have prokaryotic ancestors**. The cytoskeleton predates compartmentalization by at least 1.5 billion years.
+These studies refute the absence of prokaryotic cytoskeletons while leaving distinct historical questions open. Structural homology, analogous cellular roles and inferred ancestry are different conclusions. Dating a component's origin relative to compartmentalization requires an independently supported evolutionary analysis, not subtraction of unanchored age estimates.
 
-> **Concept Check 4b:** A pharmaceutical company is screening for narrow-spectrum antibiotics that block bacterial cell division without affecting human cells. Why is FtsZ a more promising target than MreB? (Consider the structural and functional homology to eukaryotic counterparts and what happens when each protein is inhibited.)
+> **Concept Check 4b:** A proposed antibacterial compound inhibits purified FtsZ or MreB. Which evidence would establish selectivity over human tubulin/actin and effects in intact bacterial cells? Explain why neither a homolog's name nor its importance for growth alone establishes a narrow spectrum, cellular entry or freedom from host/organelle effects.
 
 ### Detailed Comparison: Bacteria vs. Archaea
 
 The discovery of Archaea by \citet{woese1977} as a separate domain transformed our view of life's deep structure. Archaea were initially described as "prokaryotes that live in extreme environments," but molecular phylogenetics revealed that Archaea share many features with eukaryotes that bacteria do not — a fact now central to debates about eukaryotic origin (the "Asgard archaea" hypothesis). The table below extends \cref{sec:unit_II_cell_theory} earlier comparison with molecular detail relevant to drug development, evolution, and astrobiology.
 
-: Detailed Comparison: Bacteria vs. Archaea: Feature and Bacteria. {#tbl:unit_II_cell_theory_detailed_comparison_bacteria_vs_archaea}
-| Feature | Bacteria | Archaea | Functional / clinical note |
+: Selected molecular comparisons across bacterial and archaeal lineages; related machinery does not establish identical assemblies, thermal limits or drug responses. {#tbl:unit_II_cell_theory_detailed_comparison_bacteria_vs_archaea}
+| Feature | Bacterial examples | Archaeal examples | Interpretation / limit |
 | ------- | -------- | ------- | -------------------------- |
 | Cell wall | Typical peptidoglycan has NAG–NAM chains and peptide cross-links | Pseudopeptidoglycan, S-layers or other polymers, without bacterial peptidoglycan | Beta-lactams inhibit susceptible cross-linking enzymes; vancomycin binds appropriate D-Ala-D-Ala precursors. Target access and resistance also determine susceptibility |
-| Membrane lipids | Glycerol-3-phosphate ester-linked to straight-chain fatty acids | Glycerol-1-phosphate ether-linked to branched isoprenoids (phytanyl); often tetraether monolayers | Stereochemistry of glycerol backbone is opposite (G3P vs G1P) — the "lipid divide" |
-| Membrane topology | Bilayer | Bilayer or monolayer (tetraether) | Monolayer membranes are heat-stable to 113 °C |
-| RNA polymerase | 4–5 subunits ($\alpha_2\beta\beta'\omega$); rifampicin-sensitive | 12+ subunits, eukaryote-like; rifampicin-resistant | Drug development implication |
-| TATA-binding protein (TBP) | Absent | Present (homologous to eukaryotic TBP) | Promoter recognition is eukaryote-like |
-| Histones | Absent (nucleoid-associated proteins HU/H-NS) | H3/H4-like archaeal histones, octameric tetramers | Asgard archaea have histones structurally indistinguishable from eukaryotic |
-| Replication initiator | DnaA (single ori per chromosome) | Cdc6/Orc1 family; multiple origins | Eukaryotic-style |
-| DNA topoisomerase | Topo IV; Gyrase (negative supercoiling) | Reverse gyrase (positive supercoiling) in hyperthermophiles | Reverse gyrase stabilizes DNA at >80 °C |
-| tRNA introns | Rare | Common (BHB intron motif) | Used as taxonomic marker |
-| Translation initiator | fMet-tRNA$^{fMet}$ (formylated) | Met-tRNA$_i^{Met}$ (not formylated) | Same as eukaryotes |
-| Sensitivity: chloramphenicol, streptomycin | Sensitive | Resistant | Antibiotic discrimination |
-| Sensitivity: anisomycin, diphtheria toxin | Resistant | Sensitive | Both target eukaryote-like ribosomal features |
-| CRISPR–Cas | Present in ~50% | Present in ~90% | Adaptive immune systems against viruses |
-| Energy metabolism | Photosynthetic (oxygenic, anoxygenic), chemoautotrophic, heterotrophic | Methanogens, halophiles, sulfate reducers, ammonia oxidisers | Methanogenesis is exclusive to archaea |
+| Typical glycerophospholipids | Glycerol-3-phosphate with ester-linked fatty acids | Glycerol-1-phosphate with ether-linked isoprenoids; diether/tetraether proportions vary | A characteristic biosynthetic contrast, not a growth-temperature assay |
+| Membrane topology | Bilayer examples | Diether bilayers and membrane-spanning tetraether-rich architectures | Low proton permeability was measured in a specified tetraether-liposome preparation; composition and conditions matter \citep{komatsu1998tetraetherpermeability} |
+| RNA polymerase | *E. coli* omega-containing core: α₂ββ′ω | An 11-chain *Thermococcus kodakarensis* RNAP was structurally characterized \citep{jun2014archaealpolymerase} | Specify components and preparation; neither five nor twelve is a universal domain count |
+| Promoter recognition | Sigma-factor systems, including the *E. coli* example | TBP/TFB-related initiation machinery in studied archaeal systems | Evolutionary relatedness does not mean an identical eukaryotic complex \citep{gehring2016archaealtranscription} |
+| Chromatin proteins | HU/H-NS in *E. coli*; histones also occur in studied bacteria \citep{hocher2023bacterialhistones} | Histone oligomers in studied lineages; other chromatin proteins in some lineages \citep{mattiroli2017archaealchromatin,guo2008cren7} | Shared folds and DNA geometry do not establish identical nucleosomes or an Asgard-wide assembly |
+| Replication initiation | DnaA-dependent initiation at one origin in the *E. coli* chromosome | One-origin *Pyrococcus abyssi* and multiple-origin *Haloferax volcanii* examples \citep{matsunaga2003archaealorigin,hawkins2013replicationorigins} | Initiator family and origin count are different properties; engineered origin deletion is not a description of every wild archaeon |
+| Topoisomerases | Gyrase and topoisomerase IV are examples; repertoires vary | Reverse gyrase in selected thermophiles | Reverse gyrase also occurs in bacteria; its presence is not an 80-°C threshold or a universal requirement \citep{brochier2007reversegyrase,atomi2004reversegyrase} |
+| tRNA introns | Group I introns in studied cyanobacteria \citep{kuhsel1990trnaintron} | Introns and BHB-type processing in selected pre-tRNAs; lineage-dependent incidence \citep{sugahara2008archaealtrna} | Useful comparative characters, not a standalone domain diagnosis |
+| Translation initiation | Formyl-methionine in standard bacterial cytosolic examples | Methionine in studied archaeal cytosolic systems | Specify the cellular system rather than extending this contrast to every organelle \citep{schmitt2020archaealinitiation} |
+| CRISPR–Cas | Occurrence depends on the sampled genomes and detection criteria | The same denominator and detection constraints apply | A detected feature, a complete candidate system and demonstrated antiviral function are different endpoints \citep{crawley2018crisprdisco} |
+| Energy metabolism | Diverse phototrophic, chemolithotrophic and heterotrophic examples | Methanogenesis, ammonia oxidation, sulfate reduction and other lineage-specific examples | Halophily is a salt adaptation, not an energy pathway; classical methanogenesis is distinct from every route of methane production |
 
-**Why this matters.** Archaea share information-processing machinery (transcription, translation, replication) with eukaryotes but housekeeping/metabolic machinery with bacteria. The leading "two-domain" tree (Embley & Williams; Spang et al. 2015) places eukaryotes *within* the Asgard archaea, with the mitochondrial endosymbiont contributing the bacterial-style metabolism. The bacteria–archaea distinction is not a curiosity — it is the structural map for the deepest split in the tree of life.
+**Count components, not labels.** The stated *E. coli* α₂ββ′ω core has five polypeptide chains of four types because α occurs twice. Adding a sigma factor forms an initiation holoenzyme. Historical four-chain α₂ββ′ descriptions and active omega-free *E. coli* preparations are not arithmetically wrong; components, organism and preparation must be specified. Omega contributes to assembly and is not biologically irrelevant \citep{minakhin2001rnacoreomega,minakhin2001rnareconstitution}. Archaeal Pol-II-related architecture likewise does not impose one invariant chain count.
 
-> **Concept Check 4c:** Why does penicillin kill many bacteria but no archaea, even archaea with cell walls? List the molecular features penicillin targets that distinguish bacterial from archaeal cell envelopes.
+**Molecular target is not whole-cell susceptibility.** The cited reconstitution study found different rifampin inhibition of *T. aquaticus* and *E. coli* RNAPs in vitro; both are bacterial enzymes, and those measurements were not whole-cell MICs \citep{minakhin2001rnareconstitution}. Chloramphenicol inhibited growth of tested *Halobacterium halobium*, and resistant 23S-rRNA mutants were isolated \citep{mankin1991chloramphenicol}. Anisomycin was structurally observed at the large-subunit peptidyl-transferase center of *Haloarcula marismortui* \citep{hansen2003anisomycin}; diphtheria toxin instead ADP-ribosylates diphthamide-bearing EF-2, a translation factor, in susceptible preparations \citep{lechner1988archaealef2}. These are distinct molecular and experimental endpoints. Target modification, drug entry and cellular context prevent either domain membership or a 70S label from replacing organism-specific susceptibility evidence.
+
+**Why this matters.** Comparative sequence and molecular evidence distinguish related information-processing machinery from identical cell architecture. Phylogenomic studies support an Asgard-related archaeal contribution to the eukaryotic host, but finer placement depends on data and models \citep{eme2023heimdall,eme2026correction,zhang2025asgard}. Mitochondrial bacterial ancestry is a separate contribution; neither one trait nor a broad label assigns the origin of every nuclear gene or metabolic pathway.
+
+> **Concept Check 4c:** Which canonical peptidoglycan cross-linking target/pathway explains the action of penicillin in susceptible bacteria, and why is that mechanism unavailable in cells without bacterial peptidoglycan? Explain why target absence and a Gram/domain label are not complete susceptibility tests.
 
 ---
 
@@ -629,17 +631,19 @@ Extremophiles are organisms (primarily archaea, but also some bacteria and eukar
 
 ### Extremophile Cell Strategies
 
-: Extremophile Cell Strategies: Type and Environment. {#tbl:unit_II_cell_theory_extremophile_cell_strategies}
-| Type | Environment | Example organism | Cellular adaptation |
+Environmental values below are illustrative conditions, not universal cardinal growth temperatures or complete class definitions. Selected responses depend on the named organism and conditions; cold adaptation includes psychrotolerant organisms whose growth optimum is above 15 °C.
+
+: Extremophile examples: environmental conditions and selected cellular responses, not universal limits or mechanisms. {#tbl:unit_II_cell_theory_extremophile_cell_strategies}
+| Type | Illustrative environment | Named example | Selected cellular response |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| Thermophile | >60 degrees C | *Thermus aquaticus* (source of Taq polymerase) | Reverse gyrase; saturated membrane lipids |
-| Hyperthermophile | >80 degrees C | *Pyrolobus fumarii* (113 degrees C) | Tetraether monolayer membranes; thermostable proteins |
-| Psychrophile | <15 degrees C | *Psychrobacter* | Unsaturated membrane lipids; cold-active enzymes |
-| Halophile | >2 M NaCl | *Halobacterium salinarum* | KCl accumulation; acidic surface proteins |
-| Acidophile | pH <3 | *Ferroplasma acidarmanus* | Impermeable membranes; proton pumps |
-| Alkaliphile | pH >9 | *Natronobacterium* | Na$^+$/H$^+$ antiporters |
-| Barophile/piezophile | >100 atm | Deep-sea archaea | Unsaturated lipids; pressure-stable proteins |
-| Radioresistant | High radiation | *Deinococcus radiodurans* | Redundant DNA repair; Mn$^{2+}$ antioxidant |
+| Thermophile | >60 °C | *Thermus aquaticus* | Thermostable DNA polymerase (Taq); the cited PCR assay is not a whole-cell growth limit \citep{saiki1988taq} |
+| Hyperthermophile | >80 °C | *Pyrolobus fumarii* | Tetraether-rich lipids; its 1997 description reported growth up to 113 °C \citep{blochl1997pyrolobus} |
+| Cold-adapted | Growth below 15 °C | *Psychrobacter arcticus* 273-4, a psychrotolerant example | More unsaturated, shorter-chain fatty acids at lower growth temperatures in the studied isolates \citep{ponder2005coldlipids,ayala2010psychrobacter} |
+| Halophile | >2 M NaCl | *Halobacterium salinarum* R1 | Regulated KCl accumulation under the studied salt/potassium conditions \citep{strahl2008halophile} |
+| Acidophile | pH <3 | *Ferroplasma acidarmanus* | Tetraether-rich membranes and maintenance of a large transmembrane pH gradient; not a zero-leak measurement \citep{macalady2004ferroplasma} |
+| Alkaliphile | pH >9 | *Natronobacterium* | Intracellular pH and ion homeostasis; a genus label alone does not identify a tested transporter |
+| Barophile/piezophile | >100 atm | *Thermococcus barophilus* MP | Pressure-dependent diether/tetraether lipid proportions in the studied cultures \citep{cario2015pressurelipids} |
+| Radioresistant | High radiation | *Deinococcus radiodurans* | Efficient repair and Mn-associated protection against protein oxidation in the studied systems \citep{daly2007radioprotection} |
 
 ### Implications for Astrobiology
 

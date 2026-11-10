@@ -38,7 +38,7 @@
 
 [**Apoptosis**]{#gl:apoptosis} [Gk *apo* = away + *ptōsis* = a falling] — Programmed, caspase-mediated cell death characterized by chromatin condensation, DNA fragmentation, and membrane blebbing, without inflammatory response. Contrast: **necrosis**. → \cref{sec:unit_II_cell_signaling}
 
-[**Archaea**]{#gl:archaea} [Gk *archaios* = ancient] — One of three domains of life; prokaryotes with ether-linked isoprenoid membrane lipids, histone-like proteins, and replication/transcription machinery closer to eukaryotes than to bacteria. Discovered by Woese & Fox (1977). → \cref{sec:unit_II_cell_theory,sec:unit_VI_phylogenetics}
+[**Archaea**]{#gl:archaea} [Gk *archaios* = ancient] — A major cellular lineage, traditionally one of three domains. Archaeal cells lack a nuclear envelope; characteristic membrane lipids contain ether-linked isoprenoids, while envelopes, chromatin proteins and metabolism vary by lineage. Their replication/transcription machinery shares important ancestry with eukaryotic systems; not every archaeon has histones or an extreme-temperature habitat. Modern phylogenetic models and cell-plan comparisons are different kinds of evidence. → \cref{sec:unit_II_cell_theory,sec:unit_VI_phylogenetics}
 
 [**ATP synthase**]{#gl:atp-synthase} [see ATP + Gk *syn* = together + *thesis* = a placing] — A rotary F₀F₁ molecular motor coupling proton movement to ATP synthesis. The F₁ catalytic cycle produces three ATP per full rotor turn; the F₀ c-ring has a separate, species-dependent subunit stoichiometry. Noji et al. visualized F₁ rotation driven by ATP hydrolysis in 1997, not c-ring proton steps. \citep{noji1997rotation} → \cref{sec:unit_III_bioenergetics_and_respiration}
 
@@ -84,7 +84,7 @@
 
 [**Chlorophyll**]{#gl:chlorophyll} [Gk *chloros* = green/yellow-green + *phyllon* = leaf] — A porphyrin-ring pigment containing Mg²⁺ at its center; the primary light-harvesting molecule in photosynthesis. Absorbs strongly at 430 nm (violet/blue) and 680–700 nm (red). → \cref{sec:unit_III_photosynthesis}
 
-[**Chromatin**]{#gl:chromatin} [Gk *chroma* = color] — The complex of DNA and proteins (primarily histones) that compacts the genome within the nucleus. Exists in two states: **euchromatin** (open, transcriptionally active) and **heterochromatin** (compact, silenced). The fundamental unit is the nucleosome. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Chromatin**]{#gl:chromatin} [Gk *chroma* = color] — DNA and its associated proteins, considered as a genome-organizing complex. Eukaryotic nuclear chromatin includes nucleosomes and other proteins; euchromatin and heterochromatin describe relatively open and compact states, not a universal binary transcription switch. Archaeal and bacterial chromatin can use different protein assemblies and is not enclosed in a nucleus. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_II_cell_theory}
 
 [**Chromosome**]{#gl:chromosome} [Gk *chroma* = color + *soma* = body] — A DNA molecule associated with proteins that carries hereditary information. Nuclear eukaryotic chromosomes are usually linear; many bacterial and archaeal chromosomes are circular, with exceptions. A typical diploid human somatic cell has 46 nuclear chromosomes. → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
@@ -206,7 +206,7 @@
 
 [**Heterochromatin**]{#gl:heterochromatin} [Gk *heteros* = different + *chroma* = color] — Densely compacted chromatin bearing repressive histone marks (H3K9me3, H3K27me3) and high DNA methylation; transcriptionally silent. **Constitutive** heterochromatin (centromeres, telomeres) is permanent; **facultative** heterochromatin (e.g., the inactive X chromosome) is cell-type specific. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
-[**Histone**]{#gl:histone} [Gk *histos* = loom/web] — One of five abundant nuclear proteins (H1, H2A, H2B, H3, H4) that form the nucleosome core and linker. Tails are post-translationally modified by acetylation, methylation, phosphorylation, and ubiquitination to regulate gene expression (histone code). → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Histone**]{#gl:histone} [Gk *histos* = loom/web] — A chromatin-associated protein family. Typical eukaryotic nucleosome cores contain two copies each of the histone-fold proteins H2A, H2B, H3 and H4; linker histones such as H1 are structurally distinct and are not part of that core octamer. Studied archaeal and some bacterial histones form other assemblies; shared folds do not make their chromatin identical. Histone modifications have context-dependent effects on protein interactions and gene regulation. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_II_cell_theory}
 
 [**Histone code**]{#gl:histone-code} [Gk *histos* = loom; L *codex* = writing block] — The hypothesis (Strahl & Allis, 2000) that combinations of histone post-translational modifications specify unique chromatin states; 'written' by HATs/HMTs, 'read' by bromodomains/chromodomains, 'erased' by HDACs/KDMs. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
@@ -226,7 +226,7 @@
 
 [**Independent assortment**]{#gl:independent-assortment} [L *independens* = not hanging upon] — Mendel's second law: genes on non-homologous chromosomes are inherited independently of each other, producing 9:3:3:1 ratios in dihybrid crosses. Applies only to genes on different chromosomes or far apart on the same chromosome. → \cref{sec:unit_V_mendelian_principles}
 
-[**Intron**]{#gl:intron} [L *intra* = within; coined by Sharp & Roberts, 1977] — A non-coding intervening sequence within a eukaryotic gene that is transcribed but removed from the pre-mRNA by the spliceosome before translation. Nobel Prize 1993 (Sharp & Roberts). → \cref{sec:unit_IV_gene_expression}
+[**Intron**]{#gl:intron} [L *intra* = within] — An intervening gene sequence removed from an RNA precursor by splicing in the specified processing pathway. Eukaryotic spliceosomal pre-mRNA introns are one class; introns also occur in other RNA genes and in bacterial and archaeal lineages, with different splicing mechanisms. The discovery of split genes led to the 1993 Nobel Prize for Sharp and Roberts. → \cref{sec:unit_IV_gene_expression}
 
 ---
 
@@ -254,7 +254,7 @@
 
 ## M {.unnumbered}
 
-[**mRNA (messenger RNA)**]{#gl:mrna} [L *nuntius* = messenger] — An RNA molecule transcribed from a gene's template strand; carries the codon sequence from the nucleus to the ribosome for translation into protein. Processed in eukaryotes by 5' capping, 3' polyadenylation, and splicing. → \cref{sec:unit_IV_gene_expression}
+[**mRNA (messenger RNA)**]{#gl:mrna} [L *nuntius* = messenger] — An RNA carrying sequence information used by ribosomes to synthesize a polypeptide. Transcription does not require a nucleus: bacterial and archaeal mRNAs are cellular examples. Eukaryotic nuclear pre-mRNAs can undergo capping, splicing and 3′-end processing before the mature RNA is translated; those processing steps are not universal properties of every mRNA. → \cref{sec:unit_IV_gene_expression}
 
 [**Meiosis**]{#gl:meiosis} [Gk *meiosis* = lessening] — Two successive nuclear divisions after one DNA-replication round: meiosis I separates homologues and meiosis II separates sister chromatids. The standard diploid model yields four haploid nuclear products, not necessarily four functional gametes; oogenesis and plant life cycles distinguish meiotic products from mature gametes. Crossing-over and independent assortment can generate genetic diversity. → \cref{sec:unit_V_chromosomal_inheritance}
 
@@ -282,7 +282,7 @@
 
 [**Niche**]{#gl:niche} [OFr *nicher* = to nest] — The totality of an organism's role in its environment, including physical conditions (temperature, pH, resources) it can use and interactions with other species. **Fundamental niche**: possible without competition. **Realized niche**: actual range when competitors are present. → \cref{sec:unit_X_community_interactions}
 
-[**Nucleosome**]{#gl:nucleosome} [L *nucleus* = nut kernel + Gk *soma* = body] — The fundamental repeating unit of chromatin: approximately 147 bp of DNA wound about 1.65 turns around a histone octamer containing two copies each of H2A, H2B, H3, and H4; diameter approximately 11 nm. The 2006 Chemistry Nobel recognized Roger Kornberg's studies of eukaryotic transcription, not nucleosome visualization. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Nucleosome**]{#gl:nucleosome} [L *nucleus* = nut kernel + Gk *soma* = body] — In the conventional eukaryotic core particle, approximately 147 bp of DNA wraps about 1.65 turns around an octamer containing two copies each of H2A, H2B, H3 and H4; its diameter is approximately 11 nm. This architecture is not a definition of every bacterial or archaeal chromatin assembly. The 2006 Chemistry Nobel recognized Roger Kornberg's studies of eukaryotic transcription, not nucleosome visualization. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
 [**Nucleotide**]{#gl:nucleotide} [Gk *nucleus* = kernel + L *nucleus* = nut kernel] — The monomer of nucleic acids: a nitrogenous base + pentose sugar + one to three phosphate groups. Adenine, guanine (purines); cytosine, thymine, uracil (pyrimidines). → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
@@ -290,7 +290,7 @@
 
 ## O {.unnumbered}
 
-[**Organelle**]{#gl:organelle} [Gk *organon* = tool/instrument + *ella* = diminutive suffix] — A membrane-bound (or in some definitions, functionally discrete) structure within a eukaryotic cell, performing a specialized function. Examples: nucleus, mitochondrion, chloroplast, Golgi apparatus, lysosome. → \cref{sec:unit_II_cell_structure}
+[**Organelle**]{#gl:organelle} [Gk *organon* = tool/instrument + *ella* = diminutive suffix] — A specialized intracellular structure; many definitions emphasize membrane-bound compartments, while broader usage includes other functionally discrete assemblies. Eukaryotic examples include the nucleus, mitochondrion, chloroplast, Golgi apparatus and lysosome. Absence of a nuclear envelope does not imply absence of every kind of intracellular compartment. → \cref{sec:unit_II_cell_structure,sec:unit_II_cell_theory}
 
 [**Osmosis**]{#gl:osmosis} [Gk *osmos* = pushing] — Net movement of water across a selectively permeable membrane down its chemical-potential gradient. At equal pressure in an ideal dilute comparison with impermeant solutes, this is toward higher solute concentration; opposing pressure can halt or reverse that flow. The ideal van 't Hoff osmotic pressure is $\pi=iCRT$, with concentration and $R$ expressed in consistent units. → \cref{sec:unit_II_membrane_transport}
 
@@ -312,11 +312,11 @@
 
 [**Phenotype**]{#gl:phenotype} [Gk *phainein* = to show + *typos* = impression] — The observable characteristics of an organism, determined by the interaction of genotype with environment. Contrast: **genotype**. → \cref{sec:unit_V_mendelian_principles}
 
-[**Phospholipid bilayer**]{#gl:phospholipid-bilayer} [Gk *phosphoros* = light-bearer + L *lipidus* = fat] — A self-assembled membrane structure in which amphipathic lipids orient hydrophilic heads toward aqueous environments and hydrophobic tails inward; typical thickness is ~7–8 nm. It is the dominant membrane architecture in bacteria and eukaryotes, while archaeal membranes often use ether-linked isoprenoid lipids and can form monolayers. → \cref{sec:unit_II_membrane_transport}
+[**Phospholipid bilayer**]{#gl:phospholipid-bilayer} [Gk *phosphoros* = light-bearer + L *lipidus* = fat] — Two opposed leaflets of amphipathic lipids, with hydrophilic groups toward aqueous environments and hydrophobic regions inward. Thickness and permeability depend on composition, conditions and measurement definition. Characteristic archaeal lipids can form diether bilayers or membrane-spanning tetraether-rich architectures; the latter are not a guarantee of zero leakage or a universal thermal limit. → \cref{sec:unit_II_membrane_transport,sec:unit_VII_bacteria_archaea_viruses}
 
 [**Photosynthesis**]{#gl:photosynthesis} [Gk *phos/photos* = light + *synthesis* = putting together] — The process by which photosynthetic organisms use light energy to produce organic compounds from CO₂ and H₂O; in plants: light reactions (thylakoids; produce ATP + NADPH) + Calvin cycle (stroma; fix CO₂ into G3P). → \cref{sec:unit_III_photosynthesis}
 
-[**Plasmid**]{#gl:plasmid} [Gk *plasma* = formed thing] — A small, circular, double-stranded DNA molecule in bacteria (and some eukaryotes) that replicates independently of the chromosome; often carries genes for antibiotic resistance or virulence. → \cref{sec:unit_II_cell_theory}
+[**Plasmid**]{#gl:plasmid} [Gk *plasma* = formed thing] — A genetic replicon capable of extrachromosomal replication. Plasmids occur in bacteria, archaea and some eukaryotes; circular and linear DNA plasmids have been characterized, and sizes and mobility vary. They can carry resistance, virulence or metabolic genes, but those functions are not defining requirements. → \cref{sec:unit_II_cell_theory}
 
 [**Polymerase chain reaction (PCR)**]{#gl:polymerase-chain-reaction} [Gk *polys* = many + L *merus* = part; Gk *kyklos* = circle; coined by Kary Mullis, 1983] — An *in vitro* method for amplifying a specific DNA sequence using repeated cycles of denaturation, primer annealing, and extension by Taq polymerase. Transformed molecular biology; Nobel Prize 1993. → \cref{sec:unit_IV_mutations_and_genomics}
 
@@ -334,7 +334,7 @@
 
 [**Reduction potential (E°′)**]{#gl:reduction-potential} [L *reducere* = to lead back] — The tendency of a molecule to accept electrons, measured in volts under standard biochemical conditions (pH 7, 25°C). O₂/H₂O: +0.816 V; NAD⁺/NADH: −0.320 V. Electrons flow from lower to higher E°′. → \cref{sec:unit_I_atoms_molecules}
 
-[**Ribonucleic acid (RNA)**]{#gl:ribonucleic-acid} [L nucleus + suffix *ic*] — A single-stranded nucleic acid using ribose and uracil (instead of deoxyribose and thymine); roles include mRNA (messenger), tRNA (transfer), rRNA (ribosomal), and regulatory (miRNA, siRNA, snRNA). → \cref{sec:unit_IV_gene_expression}
+[**Ribonucleic acid (RNA)**]{#gl:ribonucleic-acid} [L nucleus + suffix *ic*] — A nucleic acid containing ribose and typically uracil rather than thymine. RNA can be single- or double-stranded and can fold into structured helices and other assemblies. Cellular examples include messenger, transfer, ribosomal and regulatory RNAs; structure, processing and function depend on the RNA class and biological system. → \cref{sec:unit_IV_gene_expression}
 
 [**Ribosome**]{#gl:ribosome} [named for ribose + Gk *soma* = body] — The ribonucleoprotein complex that catalyzes peptide-bond formation during translation. The conventional eukaryotic cytosolic 80S ribosome comprises 40S and 60S subunits; sedimentation coefficients are not additive masses. Ribosomal RNA forms the peptidyl-transferase center. Nobel Prize 2009 (Ramakrishnan, Steitz, Yonath). → \cref{sec:unit_IV_gene_expression}
 

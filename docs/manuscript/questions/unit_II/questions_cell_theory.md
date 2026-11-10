@@ -21,11 +21,11 @@
 <!-- SOLUTION
 **Answer (Q1, Recall).** The three principles are: (1) all living organisms are composed of one or more cells; (2) the cell is the basic structural and functional unit of life; (3) all cells arise from pre-existing cells (Virchow's *omnis cellula e cellula*). **Matthias Schleiden** (1838, botanist — plants) and **Theodor Schwann** (1839, zoologist — animals) proposed the first two principles; **Rudolf Virchow** (1855) added the third, closing the loop against spontaneous generation.
 SOLUTION -->
-<!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-2. List five structural differences between a prokaryote and a eukaryote.
+<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+2. Compare a reference *E. coli* cell with a typical nucleated animal cell using five structural features. Explain why the chromosome-arrangement contrast cannot be applied to every bacterium or archaeon.
 
 <!-- SOLUTION
-**Answer (Q2, Recall).** (1) Nucleus — prokaryotes have none (DNA in a nucleoid); eukaryotes have a membrane-bound nucleus. (2) Membrane-bound organelles — absent in prokaryotes, abundant in eukaryotes (mitochondria, ER, Golgi, lysosomes). (3) Genome — prokaryotes have a single circular chromosome; eukaryotes have multiple linear chromosomes. (4) Cell size — prokaryotes 1–10 μm; eukaryotes 10–100 μm. (5) Cytoskeleton — rudimentary in prokaryotes (MreB, FtsZ); elaborate in eukaryotes (actin, microtubules, intermediate filaments). See \cref{sec:unit_II_cell_theory}.
+**Answer (Q2, Application).** Five representative contrasts are: (1) nuclear organization — the *E. coli* chromosome occupies a nucleoid, whereas the animal nuclear genome has a nuclear envelope; (2) endomembranes — *E. coli* lacks ER and Golgi, whereas the animal cell has them; (3) genome arrangement — the standard *E. coli* example has one main circular chromosome, whereas the animal nuclear genome has multiple linear chromosomes; (4) cytosolic ribosomes — 70S versus 80S in these examples, without extending the animal value to mitochondrial ribosomes; (5) envelope — ordinary *E. coli* has peptidoglycan and an outer membrane, whereas an animal cell has no peptidoglycan wall. Credit other correct, explicitly scoped structural contrasts. These are named cell plans, not domain-wide size, chromosome or organelle rules: sequenced *Borrelia burgdorferi* has a linear chromosome, and *Vibrio cholerae* has two circular chromosomes. Archaeal chromosome organization also varies. See \cref{sec:unit_II_cell_theory}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 3. An archaeal isolate grows at 90 degrees C in culture but has not been tested above that temperature. Evaluate the claim that it proves life is possible in every hot extraterrestrial environment.

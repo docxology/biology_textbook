@@ -68,7 +68,7 @@ RNA databases make this source-governance problem concrete. RNAcentral in 2026 h
 
 Bacteria and archaea both lack a nucleus, but their promoter-recognition systems differ. Archaeal transcription uses an RNA polymerase and basal factors related to eukaryotic machinery, including TBP and TFB; bacterial sigma-factor recognition is not a general prokaryotic rule \citep{gehring2016archaealtranscription}.
 
-**RNA polymerase (RNAP)** in *E. coli*: core [**enzyme**](#gl:enzyme) ($\alpha_2\beta\beta'\omega$) + sigma (σ) factor:
+**RNA polymerase (RNAP)** in *E. coli*: the stated omega-containing core ($\alpha_2\beta\beta'\omega$) contains five polypeptide chains of four types; association with a sigma (σ) factor forms an initiation **holoenzyme**. Historical four-chain cores and active omega-free *E. coli* preparations describe different specified components, not a universal absence of omega \citep{minakhin2001rnacoreomega,minakhin2001rnareconstitution}.
 
 - For common *E. coli* σ70 promoters, recognition involves two characteristic hexameric elements:
   - **-10 box** (Pribnow box): consensus TATAAT (named after David Pribnow)

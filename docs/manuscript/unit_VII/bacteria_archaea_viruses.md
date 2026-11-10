@@ -70,15 +70,15 @@ The 16S rRNA gene (in prokaryotes) and 18S rRNA gene (in [**eukaryote**](#gl:euk
 
 Bacteria and Archaea share the prokaryotic cell plan, which differs fundamentally from the eukaryotic organization:
 
-: Prokaryotic Cell Features: Feature and Prokaryotes. {#tbl:unit_VII_bacteria_archaea_viruses_prokaryotic_cell_features}
-| Feature | Prokaryotes | Eukaryotes |
+: Representative cell-plan comparisons; cytosolic ribosomes, chromosome organization, division and motility must be assigned to the stated cellular system. {#tbl:unit_VII_bacteria_archaea_viruses_prokaryotic_cell_features}
+| Feature | Bacterial and archaeal examples | Typical nucleated eukaryotic examples |
 |---------|-------------|------------|
 | Nucleus | No membrane-bound nucleus; nucleoid region | Membrane-bound nucleus with nuclear pores |
-| Ribosomes | 70S (30S + 50S subunits) | 80S (40S + 60S subunits) |
-| [**Chromosome**](#gl:chromosome) | Typically circular; nucleoid-associated [**protein**](#gl:protein)s (HU, H-NS, IHF) | Linear chromosomes; [**histone**](#gl:histone) octamer packaging |
-| Cell division | Binary fission (FtsZ ring) | [**Mitosis**](#gl:mitosis) with spindle apparatus |
-| Internal membranes | Rare (thylakoids in cyanobacteria) | Extensive endomembrane system |
-| Flagella | Proton motive force-driven rotation (not ATP) | Dynein-powered 9+2 microtubule arrangement |
+| Cytosolic ribosomes | 70S, assembled from 30S and 50S subunits | 80S, assembled from 40S and 60S subunits; organellar systems differ |
+| [**Chromosome**](#gl:chromosome) | *E. coli* illustrates one circular chromosome with nucleoid-associated proteins; other bacterial/archaeal architectures and chromatin proteins occur | Nuclear chromosomes are typically linear and histone-associated |
+| Cell division | *E. coli* binary fission uses FtsZ; archaeal division machineries vary | Mitosis and associated spindle mechanisms in the stated cell cycle |
+| Internal membranes | Thylakoids in many cyanobacteria are one example; organization varies | ER, Golgi and other endomembrane compartments |
+| Motility structures | Bacterial flagella use ion gradients; archaeal archaella are distinct ATP-driven assemblies | Motile 9+2 cilia/flagella bend through ATP-dependent dynein activity |
 
 The bacterial flagellum is a remarkable molecular machine. Unlike eukaryotic flagella, which bend in a wave-like motion powered by ATP-dependent dynein motors, the bacterial flagellum rotates like a propeller. The basal body contains a rotary motor driven by the proton motive force (or Na$^+$ gradient in some marine species), spinning at up to 1,700 revolutions per second in some species. The flagellar motor can reverse direction, enabling the "run and tumble" chemotaxis behavior in *E. coli*.
 
@@ -265,7 +265,7 @@ Bacteria exhibit unparalleled metabolic diversity -- far exceeding that of eukar
 
 ### Binary Fission and Exponential Growth
 
-Bacteria reproduce asexually by binary fission: the circular chromosome is replicated bidirectionally from a single origin of replication (*oriC*), the cell elongates, a septum forms at mid-cell (coordinated by the FtsZ ring -- a tubulin homolog), and two daughter cells separate. Generation times vary enormously:
+**Binary fission, using *E. coli* as a specified example:** its circular chromosome normally initiates bidirectional replication at *oriC*, the cell elongates, and FtsZ-associated division machinery coordinates septum formation before daughter cells separate. This is not a universal bacterial chromosome topology, origin inventory or division apparatus. Under an idealized constant-generation-time model without death or resource limitation, completed divisions double cell number; actual generation times depend on organism and conditions:
 
 - *Escherichia coli*: ~20 minutes under optimal conditions (37 degrees C, rich media)
 - *Mycobacterium tuberculosis*: 12-24 hours (contributing to slow disease progression and prolonged treatment)
@@ -472,71 +472,69 @@ Certain Firmicutes -- primarily *Bacillus* (central or subterminal spores) and *
 
 Archaea are prokaryotes that were long classified with bacteria but differ fundamentally at the molecular level:
 
-: Distinguishing Archaeal Features: Feature and Bacteria. {#tbl:unit_VII_bacteria_archaea_viruses_distinguishing_archaeal_features}
-| Feature | Bacteria | Archaea | Eukarya |
+: Selected bacterial, archaeal and eukaryotic molecular examples; shared folds and characteristic chemistry do not make every lineage identical. {#tbl:unit_VII_bacteria_archaea_viruses_distinguishing_archaeal_features}
+| Feature | Bacterial examples | Archaeal examples | Eukaryotic examples |
 |---------|----------|---------|---------|
 | Membrane lipids | Ester-linked fatty acids | **Ether-linked isoprenoid (phytanyl) chains**; some form tetraether monolayers | Ester-linked fatty acids |
-| Cell wall | Peptidoglycan (murein) | **No peptidoglycan**; pseudomurein (methanogens), S-layer protein, or none | No peptidoglycan; cellulose/chitin in plants/fungi |
-| RNA polymerase | Single, simple (4-5 subunits) | **Multiple subunits (12+), resembles eukaryotic Pol II** | Three RNA polymerases (Pol I, II, III) |
-| Initiator tRNA | Formyl-methionine | **Methionine** (like eukaryotes) | Methionine |
-| Histones | HU, H-NS (not true histones) | **True histone homologs** | Histone octamers (H2A, H2B, H3, H4) |
-| [**Intron**](#gl:intron)s | Rare | Present in some tRNA genes | Abundant |
+| Cell wall | Peptidoglycan in many lineages; wall-less forms occur | No bacterial NAG–NAM peptidoglycan; S-layers, pseudomurein in selected methanogens, other envelopes or no wall | Cellulose/chitin in plant/fungal examples; animal cells have no wall |
+| RNA polymerase | *E. coli* omega-containing core has five chains of four types; preparation matters | Pol-II-related multisubunit machinery with lineage-dependent composition, including a characterized 11-chain enzyme \citep{jun2014archaealpolymerase} | Nuclear Pol I/II/III are standard examples; specialized and organellar systems are not enumerated here |
+| Initiator amino acid | Formyl-methionine in standard bacterial cytosolic systems | Methionine in studied archaeal initiation systems \citep{schmitt2020archaealinitiation} | Methionine in standard nuclear-encoded cytosolic translation |
+| Chromatin proteins | HU/H-NS in *E. coli*; genuine histones also occur in studied bacteria \citep{hocher2023bacterialhistones} | Histones or other chromatin proteins depending on lineage; assemblies differ \citep{mattiroli2017archaealchromatin,guo2008cren7} | Conventional nucleosomes contain H2A/H2B/H3/H4 core histones; linker H1 is distinct |
+| [**Intron**](#gl:intron)s | Occur in selected genes, including bacterial tRNA examples | Some tRNAs contain introns; incidence and processing vary by lineage | Spliceosomal pre-mRNA introns and other intron classes; not every gene contains an intron |
 
-### Archaeal Lipid Biochemistry: Why Hot Vents Don't Melt Membranes
+### Archaeal Lipids: Architecture, Permeability and Thermal Limits
 
-The single most diagnostic biochemical feature of Archaea is the architecture of their membrane lipids. Three differences from bacterial/eukaryotic phospholipids are simultaneously present, and the combination contributes to extreme stability:
+Characteristic archaeal glycerophospholipids combine ether-linked isoprenoid chains with *sn*-glycerol-1-phosphate, contrasting with common bacterial/eukaryotic ester-linked fatty acids on *sn*-glycerol-3-phosphate. These are useful biosynthetic comparisons, not a complete inventory of every membrane or a standalone taxonomic test. Three chemical and structural properties must be distinguished:
 
-1. **Ether linkages** instead of ester linkages between glycerol and the hydrocarbon chains. Ether bonds (C–O–C) are far more chemically inert than ester bonds (C–O–C(=O)) — they resist acid hydrolysis, base hydrolysis, oxidation, and high-temperature cleavage.
-2. **Isoprenoid (phytanyl) chains** (built from C5 isoprene units, with branched methyl groups every 4 carbons) instead of straight-chain fatty acids. Methyl branches cause kinks that prevent tight chain crystallization at low temperatures (preventing membrane gelling) while van-der-Waals interactions between branches stiffen the membrane against fluidization at high temperatures.
-3. **Glycerol stereochemistry**: archaeal glycerol is *sn*-glycerol-1-phosphate (G-1-P); bacterial/eukaryotic glycerol is *sn*-glycerol-3-phosphate (G-3-P). The two are enantiomers — a deep, "lipid divide" between archaea and the rest of cellular life that probably reflects independent invention of phospholipid biosynthesis after the LUCA.
+1. **Linkage chemistry:** ether and ester bonds have different hydrolytic susceptibilities. Ether linkage can contribute to stability under specified conditions; it is not immunity to oxidation, heat or chemical damage.
+2. **Hydrocarbon architecture:** branched isoprenoid chains, membrane-spanning lipids, polar headgroups and packing influence material properties. Their combined behavior cannot be inferred from the word "archaeal" alone.
+3. **Glycerol stereochemistry:** the characteristic G-1-P/G-3-P contrast is a lipid divide that informs hypotheses about early membrane evolution. It does not by itself date separate biosynthetic origins to after LUCA. Engineered *E. coli* with a hybrid heterochiral membrane remained viable in the cited experiment; that result does not reconstruct LUCA \citep{caforio2018hybridmembrane}.
 
-Hyperthermophilic archaea (*Sulfolobus*, *Thermococcus*, *Pyrodictium*) take this further by linking two phytanyl chains end-to-end, forming **glycerol-dialkyl-glycerol-tetraether (GDGT)** lipids. Two GDGT molecules then span the entire membrane as a **monolayer** (rather than a bilayer), with two glycerol headgroups (one on each surface) and one continuous hydrocarbon block in the middle. The covalent backbone makes the membrane behave mechanically like a single rigid sheet — it cannot delaminate, leak, or peel apart even at 113 °C.
+Some archaea produce **glycerol-dialkyl-glycerol-tetraether (GDGT)** lipids. A canonical GDGT core has two glycerol moieties connected by two C40 biphytanyl chains through four ether linkages. An extended GDGT molecule can span the membrane; two GDGT molecules are not a required spanning unit. Many such molecules form a membrane, not one covalently linked, indestructible sheet. GDGT-producing mesophilic lineages also occur, so a hyperthermophile-monolayer/mesophile-bilayer binary is not valid \citep{zeng2019gdgtcyclization}.
 
-Quantitatively: a typical bacterial membrane fluidizes (loses lipid order) above ~60 °C and disintegrates above ~100 °C; *Pyrodictium* GDGT monolayers retain integrity at 113 °C and pH 1, conditions that hydrolyse most ester-linked lipids in seconds. **Cyclopentane rings** within the GDGT chains can be added or removed on the fly to fine-tune membrane fluidity to growth temperature — a remarkable example of biochemical homeoviscous adaptation. Because eukaryotic and bacterial membranes lack these adaptations, penicillin-class and polymyxin-class antibiotics that act on bacterial cell envelopes are generally ineffective against archaea.
+**Measured permeability is preparation-specific.** Komatsu and Chong examined isolated *Sulfolobus acidocaldarius* polar lipid fraction E liposomes using fluorescent-dye leakage and proton-permeability assays over 25–85 °C. Dye leakage depended strongly on surface charge and packing; the approximately 60-nm liposomes had low but finite proton permeability in the reported 25–82-°C comparison \citep{komatsu1998tetraetherpermeability}. These results do not establish zero leakage, water/ATP permeability rankings, universal bacterial failure at 60 or 100 °C, or intact-cell ATP synthesis at 100 °C. GrsA/GrsB experiments identify GDGT ring-forming activities, not instantaneous reversible removal of rings from an existing membrane \citep{zeng2019gdgtcyclization}. Controlled *S. acidocaldarius* cultures also changed lipid composition with specific growth rate at fixed temperature and pH; temperature is not the sole explanatory variable \citep{quehenberger2020archaeallipids}.
 
-### Major Archaeal Groups
+### Selected Archaeal Lineages and Metabolic Examples
 
-**Euryarchaeota** encompasses the broadest metabolic diversity:
+The following traditional group names organize selected examples, not an exhaustive current classification or a ladder of environmental extremity. Organism growth, isolated-membrane behavior and an enzyme's thermal performance are different endpoints. Traditional **Euryarchaeota** examples include:
 
-- **Methanogens**: Strict anaerobes that produce methane as a metabolic end product. The key reaction is: $\text{CO}_2 + 4\text{H}_2 \rightarrow \text{CH}_4 + 2\text{H}_2\text{O}$. Methanogens inhabit [**anaerobic**](#gl:anaerobic) environments including wetlands, rice paddies, landfills, and the rumen of cattle. *Methanobrevibacter smithii* is the [**dominant**](#gl:dominant) archaeon in the human gut. Globally, methanogenesis produces approximately 1 billion tonnes of CH$_4$ annually, contributing approximately 10% of anthropogenic greenhouse gas emissions.
+- **Methanogens:** anaerobic archaea with lineage-specific substrate use. The balanced **hydrogenotrophic** example is $\text{CO}_2 + 4\text{H}_2 \rightarrow \text{CH}_4 + 2\text{H}_2\text{O}$: H₂ supplies electrons and CO₂ is reduced to methane. Other methanogens use acetate or methylated substrates, as demonstrated in *Methanosarcina barkeri* \citep{hutten1980methanogens}. Habitats include wetlands, rice paddies, landfills and animal digestive systems; *Methanobrevibacter smithii* is a well-studied human-gut example, not a guaranteed dominant archaeon in every person \citep{samuel2007smithii}. Gross microbial production, oxidation before release, atmospheric emissions and metric-weighted anthropogenic greenhouse-gas accounting have different boundaries. Neither a balanced reaction nor an unscoped global production estimate establishes a percentage of climate emissions \citep{saunois2025methanebudget}.
 
-- **Extreme halophiles**: *Halobacterium salinarum* thrives in saturated salt solutions (~5 M NaCl). It maintains osmotic balance by accumulating intracellular KCl to equimolar concentrations. Its purple membrane contains **bacteriorhodopsin**, a light-driven proton pump that generates ATP via [**chemiosmosis**](#gl:chemiosmosis) -- a form of phototrophy independent of [**chlorophyll**](#gl:chlorophyll). The salt flats visible from space (pink/red coloration in San Francisco Bay salt ponds) owe their color to halophilic archaea.
+- **Extreme halophiles:** *Halobacterium salinarum* illustrates regulated KCl-rich salt-in adaptation, not a fixed intracellular concentration in every condition \citep{strahl2008halophile}. Separately, bacteriorhodopsin can use light to build a proton gradient that supports ATP synthesis; the cited *H. halobium* experiments measured this response in a defined preparation \citep{danon1974photophosphorylation}. Halophily describes salt adaptation, not an energy pathway, and retinal-based phototrophy alone does not demonstrate CO₂ fixation. Protein adaptation includes surface hydration and solvent exposure as well as common acidic-residue enrichment; charge alone does not guarantee folding \citep{tadeo2009halophilicproteins}.
 
-- **Thermoacidophiles**: *Thermoplasma acidophilum* grows optimally at 59 degrees C and [**pH**](#gl:ph) 2. Notably, it lacks a cell wall entirely, surviving in hot acid through a reinforced lipid membrane.
+- **Thermoacidophiles:** *Thermoplasma acidophilum* is a wall-less archaeal example described in cultures with an optimum near 59 °C and acidic pH; its historical description used a different taxonomic label \citep{darland1970thermoplasma}. A wall-less organism is not evidence that every archaeal envelope has the same architecture.
 
-**Crenarchaeota** includes the most extreme hyperthermophiles:
+Traditional **Crenarchaeota** examples include thermophilic lineages; the selected culture descriptions below are not universal growth ranges or a current life-record table:
 
-- *Sulfolobus solfataricus*: 80 degrees C, pH 2-3; model organism for archaeal molecular biology
-- *Pyrodictium occultum*: Grows at 113 degrees C -- among the highest known temperatures for life
-- *Thermoproteus tenax*: Autotrophic sulfur metabolism at 85 degrees C
-- These organisms possess **reverse gyrase**, an [**enzyme**](#gl:enzyme) that introduces positive supercoils into DNA, stabilizing the double helix at extreme temperatures
+- *Sulfolobus solfataricus* P2 (also called *Saccharolobus solfataricus*): a thermoacidophilic model described with optima near 80 °C and acidic pH around 3. These are named-strain growth conditions, not every species' limit or an instruction to substitute a culture-collection recovery temperature \citep{barry2006sulfolobus}.
+- *Pyrolobus fumarii*: its 1997 description reported growth up to 113 °C, optimum 106 °C and a pH range of 4.0–6.5. These are organism/culture observations, not an isolated *Pyrodictium* membrane assay at pH 1 \citep{blochl1997pyrolobus}.
+- *Thermoproteus tenax*: anaerobic and sulfur-dependent, with reported optima near 86 °C and pH 5.6. The cited study compared autotrophic CO₂/H₂ growth and heterotrophic glucose growth in strain Kra 1 / DSM 2078; autotrophy is not its sole supported mode \citep{zaparty2008thermoproteus}.
+- Reverse gyrase introduces positive supercoils and contributes to thermal fitness in studied systems, but it also occurs in bacteria and is not an obligatory above-80-°C switch \citep{atomi2004reversegyrase,brochier2007reversegyrase}.
 
-### Asgard Archaea: The Closest Living Relatives of Eukaryotes
+### Asgard Archaea: Genomic Homology, Cellular Experiments and Ancestry
 
-**Asgard Archaea** represent perhaps the most important discovery in evolutionary biology of the past decade. In 2015, Ettema and colleagues identified novel archaeal lineages in metagenomic data from deep-sea sediments near Loki's Castle hydrothermal vent field in the Arctic Mid-Ocean Ridge. The clade has since expanded into a large superphylum named for Norse mythology:
+Asgard research connects genomic inference with experimental cell biology. Spang and colleagues' 2015 study reconstructed Lokiarchaeal genomic material from Arctic deep-sea sediment near Loki's Castle, rather than isolating a cell from vent fluid \citep{spang2015asgard}. The 2017 Asgard study grouped related Loki-, Thor-, Odin- and Heimdall-associated lineages \citep{zaremba2017asgard}. Historical names and ranks are used here as reported; they are not an exhaustive current nomenclature or genome census.
 
-- **Lokiarchaeota** (Loki's Castle, 2015) — the founding lineage; > 100 published MAGs.
-- **Thorarchaeota** (named for Thor) — abundant in marine sediments.
-- **Odinarchaeota**, **Heimdallarchaeota**, **Helarchaeota**, **Hermodarchaeota**, **Wukongarchaeota** — discovered in successive metagenomic surveys 2017–2024.
+Early discoveries were largely based on metagenome-assembled genomes. Such assemblies support sequence and gene-content comparisons but require controls for completeness, contamination, paralogy and horizontal transfer. A lineage's label or a list of homologs does not demonstrate its whole-cell architecture.
 
-**Eukaryotic signature proteins (ESPs).** What makes Asgard archaea revolutionary is that they encode an unprecedented cluster of proteins previously thought to be eukaryote-specific:
+**Eukaryotic signature proteins (ESPs)** are an evidence category, not proof that an Asgard cell already contains eukaryotic organelles. The table distinguishes genomic assignments, experiments on selected proteins or cells, and the established eukaryotic role. Distribution and demonstrated functions vary among lineages and preparations:
 
-: Asgard Archaea: The Closest Living Relatives of Eukaryotes: ESP class and Asgard homolog. {#tbl:unit_VII_bacteria_archaea_viruses_asgard_archaea_the_closest_living_relatives_of_eukaryotes}
-| ESP class | Asgard homolog | Eukaryotic role |
-|-----------|----------------|-----------------|
-| **Actin** | Lokiactin (~ 60 % identity to eukaryotic actin) | Cytoskeleton, cell shape |
-| **Profilin / gelsolin** | Loki-profilin | Actin polymerization control |
-| **Rab / Arf GTPases** | Lokirhabs | Membrane trafficking, vesicle coats |
-| **ESCRT-I/II/III** | Lokiarchaeal ESCRT homologs | Membrane scission, multivesicular bodies |
-| **Tubulin (sometimes)** | Heimdall artubulins | Microtubule cytoskeleton (eukaryotes primarily) |
-| **Ubiquitin-like modifiers** | Loki SAMPs/Ub-like | Protein degradation tagging |
-| **Eukaryotic-style ribosomal proteins** | Several rps homologs | Translation |
+: Selected Asgard protein-family evidence; the eukaryotic-role column does not establish the same whole-cell function in every archaeal lineage. {#tbl:unit_VII_bacteria_archaea_viruses_asgard_archaea_the_closest_living_relatives_of_eukaryotes}
+| Protein family | Evidence in named Asgard material | Established eukaryotic role |
+| --- | --- | --- |
+| **Actin** | Lokiactin is a genuine name; an actin-associated cytoskeleton was visualized in cultured *Candidatus Lokiarchaeum ossiferum* \citep{rodrigues2023asgardactin} | Cytoskeletal organization and mechanics |
+| **Profilin homologs** | Selected purified Asgard profilins regulate mammalian/rabbit actin in vitro; this is not an identity test of every Asgard actin \citep{akil2018asgardprofilin} | Regulation of actin assembly |
+| **Ras-superfamily GTPases** | Rab-like assignments use sequence/structural evidence; deeper family assignment and native trafficking functions require further tests \citep{surkont2016rabs} | Context-specific signaling and membrane traffic |
+| **ESCRT components** | Selected Asgard ubiquitin/ESCRT proteins show binding and intercomponent interactions in structural/biochemical studies \citep{hatano2022ubiquitinescrt} | Membrane remodeling and cargo-sorting processes |
+| **Tubulin homologs** | Heimdallarchaeales α/β-like tubulin from specified genomic material formed four-protofilament microtubules after recombinant expression in vitro \citep{tran2026asgardtubulin} | Microtubule architecture and dynamics |
+| **Ubiquitin-system homologs** | Genomic and selected biochemical evidence supports homologous modification/sorting components, not a generic "Loki SAMP" pathway \citep{spang2015asgard,hatano2022ubiquitinescrt} | Protein modification and sorting, including degradation pathways |
+| **Additional ribosomal proteins** | The 2015 study assigned a putative L22e homolog in its Lokiarchaeal material; annotation is not a native functional assay \citep{spang2015asgard} | Ribosomal components |
 
-**Phylogenetic placement.** Maximum-likelihood and Bayesian analyses of conserved markers consistently place Asgard archaea (especially Heimdallarchaeota) as the **sister group to most eukaryotes**, supporting the **"two-domain tree"** of life (Bacteria as one domain; Archaea + Eukarya as a single, rooted-from-within-Archaea clade). This is the **eocyte hypothesis** validated at high resolution. The evolutionary inference: eukaryotes arose by **endosymbiosis between an Asgard-like archaeal host** (which contributed the cytoplasm, cytoskeleton, and information-processing genes) **and an α-proteobacterial endosymbiont** (which became the mitochondrion).
+**Phylogenetic placement is model-dependent at finer scales.** Phylogenomic analyses strongly support an Asgard-related archaeal ancestry for the eukaryotic nuclear lineage, consistent with two-domain models in which eukaryotes emerge within Archaea. Studies differ in the closest sampled branch: the corrected 2023 analysis supports a position beside Hodarchaeales within Heimdallarchaeia, whereas a 2025 study supports sisterhood to sampled Heimdallarchaeia \citep{eme2023heimdall,eme2026correction,zhang2025asgard}. Taxon sampling, marker selection, paralogy and evolutionary models affect that inference. These results concern the sampled eukaryotic clade, not a relationship to "most eukaryotes"; they do not themselves demonstrate an engulfment mechanism or the order of events in eukaryogenesis. Mitochondrial bacterial ancestry is a separate contribution.
 
-**Cultivation breakthrough.** In 2020, *Candidatus Prometheoarchaeum syntrophicum* — the first cultured Asgard archaeon — was reported by Imachi *et al.* (*Nature*) after 12 years of effort using extremely slow-growth bioreactor cultures fed with peptides and hydrogen. The organism grows obligately syntrophically with *Halodesulfovibrio* (sulfate-reducing) and a methanogenic archaeon (consuming H$_2$ produced by *Prometheoarchaeum*). Its doubling time is ~ 14–25 days; cells are tiny (~ 0.5 μm) and **extend long branching tentacle-like protrusions** thought to deliver hydrogen to syntrophic partners. The remarkable observation is that those tentacles morphologically resemble what one might predict for an archaeal cell preparing to engulf a bacterial endosymbiont — the **"E$^3$ model" of eukaryogenesis** (Entangle, Engulf, Endogenise) directly suggested by *Prometheoarchaeum* morphology.
+**A cultivation case, not observed eukaryogenesis.** In 2020, Imachi and colleagues reported *Candidatus Prometheoarchaeum syntrophicum* strain MK-D1 after a 12-year study, beginning with methane-fed sediment enrichment and followed by slow amino-acid/peptide-based cultures. MK-D1 produced hydrogen and formate during amino-acid degradation; partners removed these products, and high added product concentrations suppressed growth. Early cultures contained *Halodesulfovibrio* and *Methanogenium*, but a pure co-culture with *Methanogenium* was obtained and another methanogen could substitute. The reported doubling time was approximately 14–25 days and cells were around 0.5 μm, with long, sometimes branching protrusions. The investigators did not observe an organelle-like inclusion or endosymbiont engulfment. Their entangle–engulf–endogenize (E3) account was a hypothetical model; hydrogen delivery specifically through protrusions was not demonstrated \citep{imachi2020asgard}.
 
-**Implications.** The discovery of Asgard archaea has narrowed the "evolutionary gap" between prokaryotes and eukaryotes from a vast unbridgeable distance to a graded continuum. Many of the molecular machines once thought to be uniquely eukaryotic (membrane-trafficking ESCRTs, actin cytoskeleton, ubiquitin signaling) were already present in the archaeal common ancestor of eukaryotes. Eukaryogenesis was a *combinatorial* event: pre-existing archaeal ESPs + acquisition of a mitochondrion + nucleus + later innovations. Two outstanding questions remain: (1) how exactly did the first eukaryotic cell engulf the proto-mitochondrion (phagocytosis-first, syntrophy-first, or virus-mediated?); (2) which Asgard subgroup is the closest living relative — Heimdallarchaeota (current consensus) or a yet-undiscovered lineage?
+**Experimental complexity is not a resolved ancestral movie.** Subsequent work on other Asgard cultures visualized an actin-associated cytoskeleton and, in 2026, dynamic protrusions and surface crawling under defined observation conditions \citep{rodrigues2023asgardactin,radler2026asgardmotility}. These genuine cellular findings should not be reduced to sequence prediction, but they do not retroactively establish MK-D1 tentacle-mediated hydrogen delivery or ancient engulfment. Homology, gene distributions and functional tests support pre-eukaryotic origins of components of cellular systems; reconstructing an ancestral inventory, cell architecture and event order still requires models, alternatives and independent evidence.
 
 ### Archaeal Biotechnology and Thermostable Enzymes
 
@@ -548,13 +546,13 @@ Archaeal enzymes, evolved for extreme conditions, have enormous biotechnological
 - Industrial applications: archaeal proteases, lipases, and amylases for high-temperature industrial processes; extremophilic enzymes for detergents, food processing, and biofuel production
 
 > **Concept Check 3:**
-> Explain why antibiotics that target peptidoglycan synthesis (e.g., penicillin, vancomycin) are ineffective against archaea. What does this tell us about the evolutionary relationship between bacterial and archaeal cell walls?
+> Bacterial peptidoglycan-target mechanisms require the appropriate substrate or enzyme; archaeal envelopes lack bacterial NAG–NAM peptidoglycan. Explain why this difference can remove a specified target without making lipid stereochemistry or domain membership a complete susceptibility test. What independent evidence would establish an isolate's actual response?
 
 > **Concept Check 3b:**
-> Hyperthermophiles use GDGT tetraether monolayers; mesophilic archaea use diether bilayers. Predict, qualitatively, how membrane permeability to small molecules (water, protons, ATP) should differ between the two architectures and what this implies for chemiosmotic ATP synthesis at 100 °C.
+> The cited *S. acidocaldarius* PLFE-liposome study measured fluorescent-dye leakage and proton permeability over 25–85 °C, with low but finite proton leakage in a reported 25–82-°C comparison. Explain how reduced proton leak could help preserve a chemiosmotic gradient. Why do those measurements not establish water/ATP permeability rankings or intact-cell ATP synthesis at 100 °C? Identify the preparation, endpoint and additional evidence needed rather than assigning all hyperthermophiles and mesophiles one membrane type.
 
 > **Concept Check 3c:**
-> Asgard archaea encode actin homologs that function in vitro indistinguishably from eukaryotic actin. If the proto-eukaryote inherited actin from an archaeal ancestor, what testable prediction does this make about the timing of cytoskeletal evolution relative to the mitochondrial endosymbiosis? Design a comparative-genomic experiment that could distinguish between the alternatives.
+> Asgard genomes encode actin and actin-regulator homologs, and an actin-associated cytoskeleton has been observed in a cultured Asgard archaeon. What homology and gene-distribution patterns would support cytoskeletal components predating mitochondrial acquisition? Design a comparative-genomic test that considers horizontal transfer, gene loss, paralogy and assembly completeness; distinguish that historical inference from a direct assay of a purified protein or extant cell.
 
 > **Concept Check (Evaluate — Hyperthermophile Genome Stability and PCR Enzymes):** *Thermococcus kodakarensis* grows optimally at **85 °C** (vs. ~37 °C for *E. coli*) and its **KOD DNA polymerase** has a $T_{\text{opt}}$ near 80 °C — well above the temperature at which *E. coli* DNA polymerase III denatures. (a) Evaluate the structural features that stabilize the *T. kodakarensis* genome and its DNA replication machinery against thermal denaturation: **positively-charged surface residue enrichment** (higher Lys/Arg content reducing repulsive surface interactions and increasing salt-bridge density), **thermophilic DNA gyrase** (introducing negative supercoils that stabilize the duplex against melting), and **reverse gyrase** (a Type I topoisomerase unique to hyperthermophiles that introduces *positive* supercoils, raising the melting temperature of duplex DNA). (b) Compare these features quantitatively: *T. kodakarensis* genomic DNA has $T_m \approx 95$ °C, vs. *E. coli* genomic DNA $T_m \approx 87$ °C — a difference traceable to elevated G+C content, reverse-gyrase-mediated positive supercoiling, and bound histone-like proteins. (c) Evaluate **why these same features make archaeal DNA polymerases industrially useful for PCR**: thermostability at 95 °C (the denaturation step in PCR), proofreading 3'→5' exonuclease activity (lower error rate than Taq — Pfu and KOD achieve ~ $10^{-6}$ errors/base vs. Taq's $10^{-5}$), and the ability to amplify high-G+C templates that Taq stalls on. (d) Predict what would happen biochemically if you attempted to use *E. coli* DNA polymerase III in a standard PCR cycle, and explain why this was a fundamental barrier to molecular biology before the discovery of *Thermus aquaticus* and the archaeal hyperthermophiles.
 
@@ -1031,7 +1029,7 @@ flowchart LR
 - **Bacterial metabolic diversity** exceeds most eukaryotes: photoautotrophs, chemoautotrophs (lithotrophs), and heterotrophs with varied oxygen relationships.
 - **Two-component systems** (sensor histidine kinase + response regulator, His→Asp phosphotransfer) are the dominant prokaryotic signal-transduction architecture; **biofilms** (matrix + persisters, c-di-GMP master regulator) and **quorum sensing** (AHL/AIP/AI-2) underpin chronic infections and 65–80 % of clinical infections.
 - **Horizontal gene transfer** (transformation, transduction, conjugation) drives bacterial evolution \citep{lawrence1998} and antibiotic resistance spread via R-plasmids and transposons.
-- **Archaea** differ from bacteria in ether-linked isoprenoid lipids (with G-1-P stereochemistry; tetraether monolayers in hyperthermophiles), lack of peptidoglycan, and eukaryote-like transcription. **Asgard archaea** are the closest living relatives of eukaryotes and encode actin, ESCRT, and ubiquitin-like machinery.
+- **Archaea** include lineages with characteristic ether-linked isoprenoids and Pol-II-related transcription, but envelopes, histones, metabolic routes and membrane architectures vary. **Asgard** genomic and experimental evidence supports related cellular components and archaeal-host ancestry; it does not by itself demonstrate eukaryotic organelles, an invariant closest branch or historical engulfment.
 - **Viruses** (Baltimore classes I-VII) are obligate intracellular parasites; bacteriophage lytic/lysogenic cycles and the HIV life cycle illustrate replication strategies and drug targets. **Phage therapy** is re-emerging as a clinical adjunct for multi-drug-resistant infections, with engineering, cocktail design, and antibiotic combination addressing rapid resistance and immune neutralization \citep{doub2022phagepseudomonas}. Phage pharmacokinetics are non-linear with a proliferation threshold $B^* = m/(bk)$.
 - **CRISPR-Cas** is a heritable bacterial adaptive immune system (adaptation–expression–interference); Types I (Cas3), II (Cas9), and III (Cas10) differ in effector architecture, target nucleic acid, and PAM requirements. Type II Cas9 has been repurposed as the dominant genome-editing technology and now drives FDA-approved therapeutics (Casgevy, 2023–2026 FDA records).
 - **Antibiotic resistance** mechanisms (enzymatic inactivation, target modification, efflux, reduced permeability) spread via HGT; ESKAPE organisms remain a useful mnemonic, but current AMR triage should use pathogen-resistance pairs and WHO BPPL priority categories rather than a single threat list.
@@ -1069,9 +1067,9 @@ flowchart LR
 | **Prion** | Infectious misfolded protein (PrP$^{Sc}$) that templates conversion of normal PrP$^C$; no nucleic acid |
 | **MRSA** | Methicillin-resistant *Staphylococcus aureus*; *mecA*/*mecC*-associated modified PBPs (PBP2a/PBP2c) can support resistance to many traditional beta-lactams; responses remain drug- and isolate-specific |
 | **ESKAPE pathogens** | Six priority antibiotic-resistant organisms: Enterococcus, S. aureus, Klebsiella, Acinetobacter, Pseudomonas, Enterobacter |
-| **Asgard archaea** | Deep-branching archaeal lineages (Loki, Thor, Odin, Heimdall, Hela, Hermod) containing eukaryotic signature proteins; closest known relatives of eukaryotes |
-| **Eukaryotic signature proteins (ESPs)** | Proteins (actin, ESCRT, ubiquitin-like, Rab GTPases) encoded by Asgard archaea that were once thought to be eukaryote-specific |
-| **GDGT lipids** | Glycerol-dialkyl-glycerol-tetraether monolayer lipids that span the entire archaeal membrane; confer extreme thermostability |
+| **Asgard archaea** | Related archaeal lineages central to investigating eukaryotic nuclear-host ancestry; finer placement and ancestral cell architecture require model- and evidence-specific interpretation |
+| **Eukaryotic signature proteins (ESPs)** | Homologous protein families initially associated with eukaryotic complexity; distinguish genomic assignment, selected protein/cell experiments and demonstrated native functions |
+| **GDGT lipids** | Glycerol-dialkyl-glycerol-tetraether molecules with two glycerol groups and two C40 biphytanyl chains; they can span membranes, while material properties depend on composition and conditions |
 | **CRISPR-Cas** | Bacterial/archaeal RNA-guided adaptive immune system (adaptation–expression–interference); repurposed for genome editing |
 | **PAM** | Protospacer adjacent motif; short sequence flanking the target that licenses CRISPR-Cas cleavage and ensures self/non-self discrimination |
 
@@ -1081,7 +1079,7 @@ flowchart LR
 
 1. Compare typical Gram-positive and Gram-negative envelopes. Explain how LPS can activate TLR4-mediated inflammation, and why that mechanism alone cannot rank infection severity or select an antibiotic regimen from a Gram-stain result.
 
-2. A researcher isolates a bacterium from a hot spring (85 degrees C, pH 3) that has ether-linked lipids, no peptidoglycan, and an RNA polymerase with 12 subunits. To which domain does this organism most likely belong? Justify your classification using at least three molecular features.
+2. A researcher observes a prokaryotic microorganism from a hot spring (85 °C, pH 3) with ether-linked lipids, no bacterial peptidoglycan, and a 12-chain RNA polymerase in the examined preparation. Which domain is best supported by the combined molecular evidence, and what additional evidence would test that classification? Explain why the specified twelve-chain observation is not a universal archaeal count or a classification based on habitat alone.
 
 3. Explain how a single conjugation event involving an R-plasmid carrying genes for beta-lactamase (bla), aminoglycoside acetyltransferase (aac), and a tetracycline efflux pump (tet) can convert a susceptible bacterium into a multidrug-resistant pathogen in a single step. Why is this more concerning than resistance arising through chromosomal mutation?
 
@@ -1093,7 +1091,7 @@ flowchart LR
 
 7. Explain why *Mycobacterium tuberculosis* is neither truly Gram-positive nor Gram-negative despite being classified in the Gram-positive phylum Actinobacteria. What cell wall component is responsible for this anomaly, and what alternative staining method is used?
 
-8. The discovery of Asgard archaea has strengthened support for the "two-domain tree" of life over the traditional "three-domain tree." Explain the key evidence supporting this model, including the eukaryotic signature proteins found in Asgard genomes and what this implies about the origin of eukaryotic cells.
+8. Distinguish phylogenomic support for an Asgard-related archaeal host from genomic homolog assignments and experiments on selected proteins or extant cells. How do these evidence types inform two-domain models, and why do they not by themselves settle the closest sampled branch, an identical complete endomembrane system or the historical engulfment mechanism?
 
 9. A hospital laboratory reports that a *Klebsiella pneumoniae* isolate is resistant to meropenem (a carbapenem) with an MIC of 32 μg/mL. The resistance is mediated by a plasmid-borne KPC-2 carbapenemase. Describe three infection control measures that should be implemented immediately, and explain why carbapenem resistance is considered a "sentinel event" in infectious disease.
 
