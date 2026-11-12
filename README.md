@@ -1,5 +1,14 @@
 # Biology Textbook — *Introduction to Biology: A Generative Approach*
 
+<p align="center">
+  <a href="LICENSE"><img alt="License: Code Apache-2.0, text CC BY 4.0" src="https://img.shields.io/badge/license-code%20Apache--2.0%20%7C%20text%20CC%20BY%204.0-blue"></a>
+  <img alt="Requires Python 3.11 or newer" src="https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white">
+</p>
+
+<p align="center">
+  <img src="docs/manuscript/assets/cover/biology_textbook_cover.png" alt="Cover art for Introduction to Biology: A Generative Approach: a DNA double helix, a cell with organelles, a leafy stem and a small food-web network on a starry teal background." width="600">
+</p>
+
 ## Abstract
 
 *Introduction to Biology: A Generative Approach* is an open instructor-edition textbook covering introductory biology across forty-four chapters from systems science and chemical foundations through cells, metabolism, molecular and classical genetics, evolution, microbiology, plant and animal physiology, and ecology. Organized as Unit 0 plus Units I–X, the text presents biology as an evidence-bound discipline in which mechanisms, measurements, and simple models are developed together, so readers can move between narrative explanation and the quantitative constraints that shape biological claims. Five recurring themes—evolution, information, structure and function, systems and emergence, and the cell—provide orientation across scales and align with mainstream undergraduate biology competencies; Unit 0 adds an optional systems lens (feedback, emergence, and prediction) without replacing the core molecular-to-ecological sequence.
