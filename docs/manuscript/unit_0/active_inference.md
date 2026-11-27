@@ -153,7 +153,7 @@ graph TD
 
 The free energy principle, developed principally by Karl Friston (UCL), proposes that many living systems can be modeled as systems that **minimize variational free energy** under explicit assumptions about the agent, its boundary, its observations, and its generative model.
 
-Formally, variational free energy $F$ provides an upper bound on **surprisal** (the log-probability of sensory observations under a model):
+Formally, variational free energy $F$ provides an upper bound on **surprisal** (the negative log-probability of sensory observations under a model):
 
 \begin{equation}
 F = \underbrace{D_{KL}\bigl[ Q(\mathbf{z}) \,\|\, P(\mathbf{z} \mid \mathbf{o}) \bigr]}_{\text{complexity (posterior mismatch)}} - \underbrace{\ln P(\mathbf{o})}_{\text{surprise (negative log-evidence)}}
