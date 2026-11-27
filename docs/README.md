@@ -4,6 +4,7 @@
 
 | Document | What it covers |
 | -------- | -------------- |
+| [Foundations reader](foundations_reader.md) | Selected history and evidence passages, historical timeline, PDF and HTML verification |
 | [composable_authoring.md](composable_authoring.md) | **Stable IDs** (`sec:` / `fig:` / `eq:`), workflows (new chapter, figure, diagram, API), validation commands, test pointers |
 | [architecture.md](architecture.md) | Standalone ownership, read-only renderer dependency, src/ layout and manuscript–code contract |
 | [testing_guide.md](testing_guide.md) | Real-computation policy, isolation exceptions and coverage limits |
@@ -25,9 +26,11 @@
 | [AGENTS.md](AGENTS.md) | This `docs/` hub: directory list and documentation principles |
 | [../TODO.md](../TODO.md) | Native Markdown-checkbox backlog; dated completion summaries and ISA/REVIEW snapshots are historical, not live gate or release receipts |
 
-**Composable development:** Use [composable_authoring.md](composable_authoring.md) when adding or renaming chapters, registering `plot_*` figures or `*_diagram()` factories, or wiring `\cref` / `@fig:` / `{#eq:...}` so the same invariants the CI runs stay green. [agent_instructions.md](agent_instructions.md) covers **editorial** style; [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) + tests are the **mechanical** contract.
+## Contributor workflow
 
-## About This Project
+ Use [composable_authoring.md](composable_authoring.md) when adding or renaming chapters, registering `plot_*` figures or `*_diagram()` factories, or wiring `\cref` / `@fig:` / `{#eq:...}` so the same invariants the CI runs stay green. [agent_instructions.md](agent_instructions.md) covers **editorial** style; [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) + tests are the **mechanical** contract.
+
+## Textbook source and native validation
 
 The biology textbook project integrates:
 
@@ -43,5 +46,7 @@ The biology textbook project integrates:
 Software 2.0.0/edition 1.1 remains unreleased. Current proof is the exact-source full receipt plus separate inspection of its PDF, not historical ISA/REVIEW reports; local validation is distinct from remote publication. The existing DOI identifies prior release 1.0.0 only. See [../CHANGELOG.md](../CHANGELOG.md).
 
 **Current gate contracts:** scripts/audit_publication_readiness.py --check performs source, visual, lint/type and recursive markdown/prerender review. Add --full for tests with configured coverage, analysis, fresh project-local render and strict PDF-log checks. Current passing counts and artifact inventories require execution, not this guide. Assessment synchronization validates curated records; unsupported answer generation refuses without writing.
+
+Historical evidence is preserved in the [May 2026 review](../REVIEW.md), the [July 2026 audit](../ISA.md), and the [changelog](../CHANGELOG.md).
 
 See [../AGENTS.md](../AGENTS.md) for project layout, validation commands, AI protocol, and invariant conventions.

@@ -119,15 +119,4 @@ For more legible print or on-screen reading, use a second build with larger marg
 
 ## Documentation
 
-- [docs/composable_authoring.md](docs/composable_authoring.md) — **start here** for new chapters, figures, and `\cref` / label workflows (invariant tests, script order)
-- [AGENTS.md](AGENTS.md) — layout, tests, validation, invariants, AI protocol
-- [docs/manuscript/AGENTS.md](docs/manuscript/AGENTS.md) — canonical H1s, stable identifiers, references and authored assessments
-- [docs/manuscript/README.md](docs/manuscript/README.md) — author quick reference and course pathways
-- [docs/README.md](docs/README.md) — full doc index
-- [docs/agent_instructions.md](docs/agent_instructions.md) — editorial style and structure targets
-- [docs/pipeline_guide.md](docs/pipeline_guide.md) — pipeline stages and maintenance scripts
-- [docs/testing_guide.md](docs/testing_guide.md) — real-computation policy, isolation exceptions and coverage limits
-- [docs/architecture.md](docs/architecture.md) — `src/`, tests, manuscript–code contract
-- [docs/api_reference.md](docs/api_reference.md) — public `biology.*` and manuscript utilities
-- [docs/accessibility.md](docs/accessibility.md) — config versus enforcement, alt text, CVD figures and unvalidated reader-profile suggestions
-- [docs/pedagogy_objectives_mapping.md](docs/pedagogy_objectives_mapping.md) — curated semantic LO/Bloom mappings and lab rubrics
+Start at the [documentation index](docs/README.md) for contributor, student and build guides. Find the source layout in the [manuscript guide](docs/manuscript/README.md), or build the [foundations reader](docs/foundations_reader.md) for selected passages on the history and use of evidence in biology.

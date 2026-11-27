@@ -8,6 +8,8 @@ Run from this project root after `uv sync --frozen --extra dev` and `npm --prefi
 
 Paths explicitly prefixed `src/`, `scripts/`, `tests/` or `output/` are repository-root paths. Manuscript-local `config.yaml`, `preamble.md`, unit slugs and appendix paths are relative to this directory; Markdown links are relative to this document.
 
+The [foundations reader](../foundations_reader.md) exports three selected passages from the canonical history chapter using the [reader configuration](reader/config.yaml). The full textbook retains its native build profile.
+
 ## Quick reference
 
 | Action | Where / command |
