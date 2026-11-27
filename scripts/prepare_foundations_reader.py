@@ -34,10 +34,27 @@ The selection and cover art are provided under CC BY 4.0.
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("destination", type=Path, help="New directory for the reader project")
-    destination = parser.parse_args().destination
-    if destination.exists():
-        parser.error("destination must be a new directory")
+    parser.add_argument("destination", type=Path, help="New output directory")
+    parser.add_argument(
+        "--unit0-flowcharts",
+        action="store_true",
+        help="Replay the 11 reviewed Unit 0 flowcharts without building a reader",
+    )
+    args = parser.parse_args()
+    destination = args.destination
+    if destination.exists() or destination.is_symlink():
+        parser.error("destination must be a new path")
+
+    if args.unit0_flowcharts:
+        destination = destination.resolve()
+        if (ROOT / "output") not in destination.parents:
+            parser.error(
+                "flowchart output must be inside this checkout's output directory"
+            )
+        from unit0_flowcharts import replay_flowcharts
+
+        replay_flowcharts(MANUSCRIPT / "unit_0", destination)
+        return
 
     chapter = CHAPTER.read_text(encoding="utf-8")
     headings = list(re.finditer(r"^#{1,2} (.+)$", chapter, re.MULTILINE))
