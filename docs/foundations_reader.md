@@ -23,3 +23,14 @@ uv run --no-sync python scripts/pipeline/stage_04_validate.py --project working/
 ```
 
 Inspect the combined PDF, the HTML figures and bibliography, and the Stage 04 report under the exported project’s `output/` directory. This check covers the selected reader only. Edition 1.1 has no new deposition. DOI [10.5281/zenodo.20286478](https://doi.org/10.5281/zenodo.20286478) identifies prior release 1.0.0.
+
+## Replay the Unit 0 flowcharts
+
+The optional diagram replay renders the 11 reviewed inline flowcharts from the systems science, complex adaptive systems, and active inference chapters. It uses the committed Mermaid sources and verifies their diagram structure, rendered labels, and PNG decoding. Install the separate npm lock with lifecycle scripts disabled. With Node 24, Inkscape 1.4, DejaVu Sans, and the textbook's locked Python environment available, run from the textbook checkout:
+
+```bash
+npm --prefix scripts/unit0_flowcharts ci --ignore-scripts
+uv run --no-sync python scripts/prepare_foundations_reader.py --unit0-flowcharts output/unit0-flowcharts
+```
+
+Use a new destination for each replay. The output includes exact `.mmd` inputs, SVGs, PNGs, and a hash and diagram-count manifest. The renderer uses Beautiful Mermaid 1.1.3 without a browser. It uses a local font and its layout differs from the native Mermaid CLI. Source changes require review before their checksums are admitted. This command covers the 11 selected flowcharts and leaves native publication verification to the full textbook workflow.

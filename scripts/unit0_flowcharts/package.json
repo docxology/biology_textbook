@@ -1,0 +1,12 @@
+{
+  "name": "biology-textbook-unit0-flowchart-replay",
+  "version": "1.0.0",
+  "description": "Browser-free replay of the reviewed Biology Textbook Unit 0 flowcharts",
+  "private": true,
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "beautiful-mermaid": "1.1.3"
+  }
+}
