@@ -1,0 +1,26 @@
+paper:
+  title: "Introduction to Biology: A Generative Approach"
+  subtitle: "Foundations reader"
+  version: "1.1"
+authors:
+  - name: Daniel Ari Friedman
+    orcid: 0000-0001-6232-9096
+    affiliation: Active Inference Institute
+publication:
+  release_status: unreleased
+  repository_url: https://github.com/docxology/biology_textbook
+  transmission_bookends:
+    enabled: false
+metadata:
+  license: CC BY 4.0
+  language: en
+render:
+  formats:
+    pdf: true
+    html: true
+    slides: false
+    docx: false
+    epub: false
+front_matter:
+  files:
+    - 01_reader.md
