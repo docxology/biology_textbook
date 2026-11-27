@@ -8,6 +8,10 @@ Use thin orchestrators in `scripts/`, computation in `src/`, manuscript in `docs
 
 **Composable authoring (stable `sec:` / `fig:` / `eq:` IDs, script order, which tests fail when):** [docs/composable_authoring.md](docs/composable_authoring.md). **Editorial** style for agents: [docs/agent_instructions.md](docs/agent_instructions.md). **Accessibility / config enforcement vs advisory:** [docs/accessibility.md](docs/accessibility.md). **Doc index:** [docs/README.md](docs/README.md).
 
+Use the [foundations reader guide](docs/foundations_reader.md) for its separate
+editorial subset and verification procedure. Its receipt covers only the
+selected passages and accompanying timeline.
+
 ## Manuscript Source Contract
 
 Introductory biology textbook content is driven by **`docs/manuscript/config.yaml`**: unit ordering, chapter files, front matter, appendices (labs and question banks), and render metadata. Domain subpackages under `src/biology/` include `foundations/` alongside the nine traditional biology domains. Mermaid diagrams are declared in **`src/mermaid/diagram_specs.yaml`** and built via `src/mermaid/diagram_spec_loader.py`; matplotlib figures live in **`src/visualization/plots_*.py`** modules and register through `plots.py` → `ALL_FIGURE_GENERATORS`.
